@@ -30,7 +30,7 @@ const Cagnotte = () => {
 
 			{/* Liste catégorie */}
 
-			<section id="categorylist" className='flex flex-row flex-nowrap overflow-x-auto scrollbar-hide snap-x snap-mandatory scroll-smooth justify-center space-x-2 mb-8 w-full'>
+			<section id="categorylist" className='flex flex-row flex-nowrap overflow-x-auto scrollbar-hide snap-x snap-mandatory scroll-smooth justify-center space-x-2 mb-4 w-full pb-4'>
 				{CategoryList.map((item)=>(
 					<Category item={item} key={item.id} />
 				))}

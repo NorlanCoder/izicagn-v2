@@ -119,5 +119,40 @@ export const CagnotteMediumList: CagnotteMediumType[] = [
       image: Cagn3
     }
 ];
+
+export const CagnotteMediumListMin: CagnotteMediumType[] = [
+    { 
+      id: "1", 
+      title: "Soutien Scolaire", 
+      solde: 2500, 
+      besoin: 5000, 
+      participant: 35, 
+      image: Cagn1 
+    },
+    { 
+      id: "2", 
+      title: "Projet Humanitaire", 
+      solde: 1200, 
+      besoin: 3000, 
+      participant: 20, 
+      image: Cagn2
+    },
+    { 
+      id: "3", 
+      title: "Mariage de Paul & Anna", 
+      solde: 800, 
+      besoin: 5000, 
+      participant: 15, 
+      image: Cagn3
+    },
+    { 
+      id: "4", 
+      title: "Opération Médicale", 
+      solde: 4000, 
+      besoin: 10000, 
+      participant: 50, 
+      image: Cagn2 
+    }
+];
   
   
