@@ -117,6 +117,7 @@ const DetailsCagnotte = () => {
 				</div>
 				
 				{/* Obed code */}
+				<div></div>
 
 			</section>
 
