@@ -1,4 +1,4 @@
-import { CagnotteMediumType, CategoryType } from "../type";
+import { CagnotteMediumType, CategoryType, DonAmmountType } from "../type";
 import Cat1 from '../../assets/cagnotte/cat1.png';
 import Cat2 from '../../assets/cagnotte/cat2.png';
 import Cat3 from '../../assets/cagnotte/cat3.png';
@@ -155,4 +155,21 @@ export const CagnotteMediumListMin: CagnotteMediumType[] = [
     }
 ];
   
-  
+export const DonAmountMin: DonAmmountType[] = [
+  {
+    id: 'A001',
+    amount: 10000
+  },
+  {
+    id: 'A002',
+    amount: 20000
+  },
+  {
+    id: 'A003',
+    amount: 50000
+  },
+  {
+    id: 'A004',
+    amount: 100000
+  }
+]

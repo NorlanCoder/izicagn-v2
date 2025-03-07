@@ -14,3 +14,9 @@ export interface CagnotteMediumType {
     participant: number,
     image: string
 }
+
+
+export interface DonAmmountType {
+    id: string,
+    amount: number
+}
