@@ -35,7 +35,7 @@ const DetailsCagnotte = () => {
 						<div className='w-full h-[487px] border border-[#EDEDF3] rounded-[17px] '>
 
 						</div>
-						<div className='flex flex-row justify-between border border-[#EDEDF3] rounded-[17px] p-[20px] '>
+						<div className='flex flex-row justify-between border border-[#EDEDF3] rounded-[17px] p-[24px] '>
 							<div className='flex flex-row items-center space-x-2 '>
 								<div className=''>
 									<img src={UserDeco} alt="" className='border-2 border-[#C2D7F8] w-[63.70px] h-[63.70px] rounded-full' />
