@@ -10,6 +10,9 @@ import MenuBoard from '../assets/cagnotte/menu-board.png'
 import Footer from '../components/general/footer'
 import UserDeco from '../assets/cagnotte/deco1.png'
 import DonAmmount from '../components/cagnotte/donAmmount'
+import Info from '../assets/cagnotte/info.png'
+import Donation from '../assets/cagnotte/donate.png'
+import Suite from '../assets/cagnotte/ci_chevron-down.png'
 
 const DetailsCagnotte = () => {
 	return (
@@ -117,7 +120,98 @@ const DetailsCagnotte = () => {
 				</div>
 				
 				{/* Obed code */}
-				<div></div>
+				<div className='flex flex-col lg:flex-row lg:justify-between lg:gap-y-0 lg:space-x-3 gap-y-2 mb-5'>
+					<div className='flex flex-col space-y-2 xl:w-9/12 lg:w-8/12'>
+						<div className='flex flex-col gap-8 border border-[#EDEDF3] rounded-[17px] p-[40px]'>
+							<div>
+								<h2 className="text-[22px] font-bold my-3">Présentation</h2>
+								<p className='text-[#515151] text-[15px]'>Lorem ipsum dolor sit amet consectetur. Sit sit vivamus ipsum pharetra sapien eget amet. 
+									Integer condimentum sapien amet placerat gravida pellentesque. Dui gravida ut ac feugiat 
+									metus. Praesent dis consectetur ut lorem pretium sit sed. Tincidunt porttitor eget diam sed 
+									ornare elit elit egestas. Diam luctus nisl commodo id consequat nibh aliquam neque. Mi nec 
+									quis aliquet lectus est in. Dolor elit cursus diam turpis dignissim lacus ut tincidunt facilisi.
+								</p>
+							</div>
+							<div className='flex items-center justify-between'>
+								<div className='flex items-center gap-4'>
+									<p className=" underline">Afficher plus</p>
+									<a href="#" className=' cursor-pointer'><img src={Suite} alt="" /></a>
+								</div>
+								<div className='flex items-center gap-2'>
+									<a href="#" className=' cursor-pointer'><img src={Info} alt="" /></a>
+									<p>Dénoncer cette cagnotte</p>
+								</div>
+							</div>
+						</div>
+						<div className='border border-[#EDEDF3] rounded-[17px] p-[40px]'>
+							<h2 className='text-[22px] font-bold pb-14'>Discussions (137avis)</h2>
+							<div className='flex flex-col gap-10'>
+								<div className='flex flex-col'>
+									<div className='flex items-start gap-2'>
+										<img src={UserDeco} alt="" className='w-12' />
+										<div className=''>
+											<h3 className='text-[16px] font-bold'>Marie Dansou</h3>
+											<p className=' text-[14px]'>Il y a 3h, <span className=' text-blue-400 font-bold'> soutient de 8000 Fcfa</span></p>
+											<p className=' max-w-4xl pt-2 text-[#515151] text-[15px]'>Lorem ipsum dolor sit amet consectetur. Sit sit vivamus ipsum pharetra sapien 
+													eget amet. Integer condimentum sapien amet placerat gravida pellentesque. Dui 
+													gravida ut ac feugiat metus. Praesent dis consectetur ut lorem pretium sit sed. 
+											</p>
+										</div>
+									</div>
+									
+								</div>
+								<div className='flex flex-col'>
+									<div className='flex items-center gap-2'>
+										<img src={UserDeco} alt="" className='w-12' />
+										<div className=''>
+											<h3 className='text-[16px] font-bold'>Marie Dansou</h3>
+											<p className=' text-[14px]'>Hier<span className=' text-blue-400'></span></p>
+										</div>
+									</div>
+									<p className=' max-w-4xl pl-[71px] pt-2 text-[#515151] text-[15px]'>Lorem ipsum dolor sit amet consectetur. Sit sit vivamus ipsum pharetra sapien 
+											eget amet. Integer condimentum sapien amet placerat gravida pellentesque. Dui 
+											gravida ut ac feugiat metus. Praesent dis consectetur ut lorem pretium sit sed. 
+									</p>
+								</div>
+							</div>
+							<div className=' border-b-2 border-[#C2D7F8] py-12'>
+								<a href="" className=' underline'>Afficher tous les avis</a>
+							</div>
+							<div>
+								<p className='py-6 text-[16px] font-bold'>Laisser un avis</p>
+								<input className='border border-[#EDEDF3] rounded-[17px] p-[40px] w-full focus:outline-0 hover:outline-3 hover:outline-[#9FEAFD4D]' placeholder='Texte' type="text" />
+							</div>
+						</div>
+					</div>
+					<div className='flex flex-row space-x-2 self-start xl:w-3/12 lg:w-4/12 w-full'>
+						<div className=' pl-8 w-full border border-[#EDEDF3] rounded-[17px] p-[24px]'>
+							<h2 className='text-[22px] font-bold my-2'>Dons récents</h2>
+							<p className=' text-[13px] font-bold text-red-500'>28 000 personnes ont soutenues à cette cause</p>
+							<div className='flex items-center gap-6 mt-4'>
+								<div className='h-[44px] w-[44px] rounded-full bg-[#EFF4F9] flex flex-row justify-center items-center'>
+									<img src={Donation} alt="" className='' />
+								</div>
+								<div>
+									<p className='text-[#515151] text-[15px]'>Donateur anonyme</p>
+									<p className=' font-extrabold'>13 000 Fcfa</p>
+								</div>
+							</div>
+							<div className='flex items-center gap-6 my-6'>
+								<div className='h-[44px] w-[44px] rounded-full bg-[#EFF4F9] flex flex-row justify-center items-center'>
+									<img src={Donation} alt="" className='' />
+								</div>
+								<div>
+									<p className='text-[#515151] text-[15px]'>Sylivia Do-Rego</p>
+									<p className=' font-extrabold'>13 000 Fcfa</p>
+								</div>
+							</div>
+							<div className='flex gap-2'>
+								<p className=' underline'>Tout les dons</p>
+								<a href="#" className=' cursor-pointer'><img src={Suite} alt="" /></a>
+							</div>
+						</div>
+					</div>	
+				</div>
 
 			</section>
 
