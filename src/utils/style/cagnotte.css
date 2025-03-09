@@ -6,6 +6,13 @@
     background-repeat: no-repeat;
 }
 
+#investissementbanniere {
+    background: url('../../assets/cagnotte/banniere2.png');
+    background-position-x: right;
+    background-position-y: bottom;
+    background-repeat: no-repeat;
+}
+
 #CagnotteMediumComponent:hover #CagnotteMediumComponentImage {
     background-size: 120%;
     filter: blur(1px) sepia(100%) brightness(80%) contrast(120%);

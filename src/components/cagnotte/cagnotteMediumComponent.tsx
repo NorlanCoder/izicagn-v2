@@ -1,4 +1,6 @@
 import { CagnotteMediumType } from "../../utils/type"
+import Group from '../../assets/cagnotte/Group.png'
+import Donate from '../../assets/cagnotte/donate.png'
 
 type CagnotteMediumComponentProps = {
     item: CagnotteMediumType
@@ -17,12 +19,12 @@ const CagnotteMediumComponent = ({item}:CagnotteMediumComponentProps) => {
                 </div>
                 <h3 className="text-[14px] text-[#585D5E] mb-4"> <span className='text-[#0988B1] font-bold'>{item.solde} Fcfa</span> collectés</h3>
                 <div className='flex flex-row justify-between items-center'>
-                    <div className='flex flex-row space-x-[8px] '>
-                        <img src="" alt="" />
+                    <div className='flex flex-row items-center space-x-[8px] '>
+                        <img src={Group} className="w-5" alt="" />
                         <h4 className='text-[12px] text-[#5F6364] '><span>{item.participant}</span> participants</h4>
                     </div>
-                    <div className='flex flex-row space-x-[8px] '>
-                        <img src="" alt="" />
+                    <div className='flex flex-row items-center space-x-[8px] '>
+                        <img src={Donate} alt="" className="w-5" />
                         <h4 className='text-[12px] text-[#5F6364] '><span className='text-black font-bold'>{item.besoin-item.solde}</span> participants</h4>
                     </div>
                 </div>
