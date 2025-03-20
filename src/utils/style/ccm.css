@@ -1,0 +1,20 @@
+
+
+#ccmbanniere {
+    background: url('../../assets/cagnotte/banniere3.png');
+    background-position-x: left;
+    background-position-y: bottom;
+    background-repeat: no-repeat;
+}
+
+#stepBlock {
+    background: url('../../assets/ccm_bg_step.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* #stepBlock {
+    background: url('../../assets/ccm_bg_asset.png');
+    background-repeat: no-repeat;
+    background-position-y: top;
+} */
