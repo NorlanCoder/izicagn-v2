@@ -11,10 +11,12 @@ const Mission = () => {
       <div className='mt-8 mb-36'>
         <div className='md:px-4'><GobackComponent /></div>
         <div className='flex flex-col justify-center items-center space-y-8 mb-26'>
-          <h1>NOTRE MISSION</h1>
-          <h2 className='text-5xl xl:text-6xl text-center max-w-[840px]'>Transformer vos idées et 
-            projets en réalité
-          </h2>
+          <div className='flex flex-col items-center space-y-3'>
+            <h1>NOTRE MISSION</h1>
+            <h2 className='text-5xl xl:text-6xl text-center max-w-[840px]'>Transformer vos idées et 
+              projets en réalité
+            </h2>
+          </div>
           <p className=' text-center text-[18px] max-w-[940px]'>Notre mission principale est de permettre aux individus, aux organisations et aux communautés de 
             mobiliser des ressources financières en s appuyant sur la générosité collective en Afrique et partout 
             dans le monde.
@@ -25,13 +27,14 @@ const Mission = () => {
           </div>
         </div>
         <div className=''>
-          <div className='flex flex-col items-center space-y-10 '>
+          <div className='flex flex-col items-center space-y-10'>
+            
             <div className='max-w-[940px]'>
-              <p className='text-[18px]'>Nous facilitons l'accès au financement pour un large éventail de projets, de causes et d évènements.</p>
-              <p className=' font-bold text-[18px]'>Notre cible : L’Europe, La Diaspora Africaine, Le continent Africain etc</p>
-            </div>
-            <div className='max-w-[940px]'>
-              <ol className='flex flex-col space-y-6'>
+              <div className='max-w-[940px] my-3'>
+                <p className='text-[18px]'>Nous facilitons l'accès au financement pour un large éventail de projets, de causes et d'évènements.</p>
+                <p className='font-bold text-[18px]'>Notre cible : L’Europe, La Diaspora Africaine, Le continent Africain etc</p>
+              </div>
+              <ol className=' space-y-6'>
                 <li className='text-[18px]'>1. Faciliter l'accès au financement
                   <p className=' mt-4'>Rendre le financement accessible à tous, sans passer par les canaux traditionnels comme les banques 
                     ou les investisseurs. Que ce soit pour financer un projet créatif, une cause humanitaire, un événement 
@@ -68,7 +71,7 @@ const Mission = () => {
                   </p>
                 </li>
                 <li className='text-[18px]'>7. Soutenir les porteurs de projet dans leur campagne</li>
-                <li className='text-[18px]'>8. Encourager l'innovation dans les modèles de financement</li>
+                <li className='text-[18px]'>8.   Encourager l'innovation dans les modèles de financement</li>
               </ol>
             </div>
           </div>

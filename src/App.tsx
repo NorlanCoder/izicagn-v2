@@ -6,12 +6,13 @@ import RechercheCagnotte from "./pages/RechercheCagnotte"
 import SuccessPayment from "./pages/paiement/SuccessPayment"
 import Investissement from "./pages/Investissement"
 import Mission from "./pages/Mission"
+import Tarifs from "./pages/Tarifs"
 
 function App() {
  
     return (
         <>
-            <Mission />
+            <Tarifs  />
         </>
     )
 }
