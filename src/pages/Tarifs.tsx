@@ -1,4 +1,3 @@
-import React from 'react'
 import Navbar from '../components/general/navbar'
 import GobackComponent from '../components/general/gobackComponent'
 import Plus from '../assets/cagnotte/Group1.png'

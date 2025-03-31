@@ -1,4 +1,3 @@
-import React from 'react'
 
 const Btn1 = ({item, active, setActive}: {item: {text: string, id: string}, active: string, setActive: (active: string)=> void}) => {
     return (
