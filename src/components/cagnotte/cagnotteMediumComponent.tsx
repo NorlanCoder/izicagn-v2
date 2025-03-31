@@ -12,7 +12,7 @@ const CagnotteMediumComponent = ({item}:CagnotteMediumComponentProps) => {
     const navigate = useNavigate()
 
 	const RedirectToDetailsPage = () => {
-		navigate("/cagnotte/search", {replace: true})
+		navigate("/cagnotte/details", {replace: true})
 	}
 
     return (
