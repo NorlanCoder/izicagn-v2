@@ -1,14 +1,22 @@
 import { CagnotteMediumType } from "../../utils/type"
 import Group from '../../assets/cagnotte/Group.png'
 import Donate from '../../assets/cagnotte/donate.png'
+import { useNavigate } from "react-router"
 
 type CagnotteMediumComponentProps = {
     item: CagnotteMediumType
 } 
 
 const CagnotteMediumComponent = ({item}:CagnotteMediumComponentProps) => {
+
+    const navigate = useNavigate()
+
+	const RedirectToDetailsPage = () => {
+		navigate("/cagnotte/search", {replace: true})
+	}
+
     return (
-        <div id="CagnotteMediumComponent" className='lg:w-1/4 md:w-1/2 w-full h-[] rounded-[16px] px-[13px] pb-[28px] pt-[12px] border border-transparent transition-all hover:border-[#5F6364]/20'>
+        <div onClick={()=>RedirectToDetailsPage()} id="CagnotteMediumComponent" className='lg:w-1/4 md:w-1/2 w-full h-[] rounded-[16px] px-[13px] pb-[28px] pt-[12px] border border-transparent transition-all hover:border-[#5F6364]/20'>
             <div className='w-full h-[216px] rounded-[16px] mb-4 relative'>
                 <div id="CagnotteMediumComponentImage" className='h-full w-full absolute inset-0 top-0 left-0 rounded-[16px]' style={{backgroundImage: `url(${item.image})`}}></div>
             </div>

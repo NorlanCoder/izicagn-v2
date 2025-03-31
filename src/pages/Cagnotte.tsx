@@ -5,8 +5,16 @@ import '../utils/style/cagnotte.css'
 import { CagnotteMediumList, CategoryList } from '../utils/data'
 import Category from '../components/cagnotte/category'
 import CagnotteMediumComponent from '../components/cagnotte/cagnotteMediumComponent'
+import { useNavigate } from 'react-router'
 
 const Cagnotte = () => {
+
+	const navigate = useNavigate()
+
+	const RedirectToSearchPage = () => {
+		navigate("/cagnotte/search", {replace: true})
+	}
+
 	return (
 		<div className='px-5 w-full'>
 			<Navbar />
@@ -20,7 +28,7 @@ const Cagnotte = () => {
 					<div className='flex flex-row space-x-3'>
 						<div className='border border-[#07AED8] w-[339px] rounded-full p-[12px] bg-white flex flex-row space-x-2 items-center'>
 							<img src={Search} alt='' title=''/>
-							<input type="text" placeholder='Rechercher' className='text-[#D9D9D9] w-full h-full focus:border-0 focus:outline-0' />
+							<input type="text" onClick={()=>RedirectToSearchPage()} placeholder='Rechercher' className='text-[#D9D9D9] w-full h-full focus:border-0 focus:outline-0' />
 						</div>
 						<button className='bg-[#0D304E] text-white rounded-full text-[14px] py-[16px] px-[20px] font-bold'>Démarrer une cagnotte</button>
 					</div>

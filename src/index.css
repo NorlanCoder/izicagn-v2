@@ -9,3 +9,19 @@
 * {
     font-family: Montserrat, sans-serif;
 }
+
+.submenu-block2 {
+    background: rgb(150,219,239);
+    background: -moz-linear-gradient(0deg, rgba(150,219,239,1) 0%, rgba(216,245,250,1) 65%);
+    background: -webkit-linear-gradient(0deg, rgba(150,219,239,1) 0%, rgba(216,245,250,1) 65%);
+    background: linear-gradient(0deg, rgba(150,219,239,1) 0%, rgba(216,245,250,1) 65%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#96dbef",endColorstr="#d8f5fa",GradientType=1);
+}
+
+.menu_btn2 {
+    background: #07AED8;
+    background: -moz-linear-gradient(0deg, #90E2F8 0%, #07AED8 48%);
+    background: -webkit-linear-gradient(0deg, #90E2F8 0%, #07AED8 48%);
+    background: linear-gradient(0deg, #90E2F8 0%, #07AED8 48%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#07AED8",endColorstr="#90E2F8",GradientType=1);
+}

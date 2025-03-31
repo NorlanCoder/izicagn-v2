@@ -1,22 +1,45 @@
 // import Cagnotte from "./pages/Cagnotte"
-import CategoryCagnotte from "./pages/CategoryCagnotte"
+// import CategoryCagnotte from "./pages/CategoryCagnotte"
 import DetailsCagnotte from "./pages/DetailsCagnotte"
-import FormPayment from "./pages/paiement/FormPayment"
+// import FormPayment from "./pages/paiement/FormPayment"
 import RechercheCagnotte from "./pages/RechercheCagnotte"
-import SuccessPayment from "./pages/paiement/SuccessPayment"
+// import SuccessPayment from "./pages/paiement/SuccessPayment"
 import Investissement from "./pages/Investissement"
 import Mission from "./pages/Mission"
 import CommentMarche from "./pages/ccm"
 import Tarifs from "./pages/Tarifs"
-import Navbar from "./components/general/navbar"
-import Lever from "./pages/leverdesfonds/LDF2.jsx"
-import LDFS from "./pages/leverdesfonds/LDF3.jsx"
+// import LeverDesFonds3 from "./pages/leverdesfonds/LDF3"
+import LeverDesFonds2 from "./pages/leverdesfonds/LDF2"
+import { BrowserRouter, Route, Routes } from "react-router"
+import Home from "./pages/Home"
+import Cagnotte from "./pages/Cagnotte"
 
 function App() {
  
     return (
         <>
-            <LDFS />
+            <BrowserRouter>
+                <Routes>
+                    <Route index element={<Home />}/>
+
+                    <Route path="cagnotte">
+                        <Route index element={<Cagnotte />} />
+                        <Route path="search" element={<RechercheCagnotte />} />
+                        <Route path="details" element={<DetailsCagnotte />} />
+                    </Route>
+
+                    <Route path="leverdesfonds">
+                        <Route index element={<LeverDesFonds2 />} />
+                    </Route>
+
+                    <Route path="commentçamarche" element={<CommentMarche />} />
+                    <Route path="investissement" element={<Investissement />} />
+                    <Route path="tarifs" element={<Tarifs />} />
+                    <Route path="mission" element={<Mission />} />
+
+                </Routes>
+                
+            </BrowserRouter>
         </>
     )
 }

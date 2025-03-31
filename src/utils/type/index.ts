@@ -20,3 +20,16 @@ export interface DonAmmountType {
     id: string,
     amount: number
 }
+
+export interface SideBarItemType {
+    id: string,
+    image: string,
+    title: string,
+    text: string,
+    path: string,
+    soon: boolean
+}
+
+export interface SideBarItemProps {
+    item: SideBarItemType
+}

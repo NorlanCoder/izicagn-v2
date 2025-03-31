@@ -1,10 +1,11 @@
-import Navbar from '/src/components/general/navbar.tsx'
-import GobackComponent from '/src/components/general/gobackComponent.tsx'
-import Frame from "/src/assets/leverdefond/Frame1000002142.png"
-import Background from "/src/assets/leverdefond/Background.png"
-import Footer from '/src/components/general/footer';
 
-const Lever = () => {
+import Frame from "../../assets/leverdefond/Frame1000002142.png"
+import Background from "../../assets/leverdefond/Background.png"
+import Navbar from '../../components/general/navbar';
+import GobackComponent from "../../components/general/gobackComponent";
+import Footer from "../../components/general/footer";
+
+const LeverDesFonds2 = () => {
  
     return (
         <>
@@ -49,4 +50,4 @@ const Lever = () => {
     )
 }
 
-export default Lever
+export default LeverDesFonds2

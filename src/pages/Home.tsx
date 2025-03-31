@@ -1,8 +1,14 @@
-import React from 'react'
+
+import Navbar from '../components/general/navbar'
 
 const Home = () => {
     return (
-        <div>Home</div>
+        <>
+            <Navbar /> 
+            <div className='h-[80vh] flex flex-row items-center justify-center'>
+                <h1>Home page en développement</h1>
+            </div>
+        </>
     )
 }
 

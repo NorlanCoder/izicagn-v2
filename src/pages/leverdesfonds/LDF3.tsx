@@ -1,10 +1,11 @@
-import Navbar from '/src/components/general/navbar.tsx'
-import GobackComponent from '/src/components/general/gobackComponent.tsx'
-import Frame from "/src/assets/leverdefond/Frame1000002142(1).png"
-import Background from "/src/assets/leverdefond/Background2.png"
-import Footer from '/src/components/general/footer';
 
-const LDFS = () => {
+import Frame from "../../assets/leverdefond/Frame1000002142(1).png"
+import Background from "../../assets/leverdefond/Background2.png"
+import Navbar from '../../components/general/navbar';
+import GobackComponent from "../../components/general/gobackComponent";
+import Footer from "../../components/general/footer";
+
+const LeverDesFonds3 = () => {
  
     return (
         <>
@@ -40,4 +41,4 @@ const LDFS = () => {
     )
 }
 
-export default LDFS
+export default LeverDesFonds3

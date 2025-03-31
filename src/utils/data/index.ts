@@ -1,4 +1,4 @@
-import { CagnotteMediumType, CategoryType, DonAmmountType } from "../type";
+import { CagnotteMediumType, CategoryType, DonAmmountType, SideBarItemType } from "../type";
 import Cat1 from '../../assets/cagnotte/cat1.png';
 import Cat2 from '../../assets/cagnotte/cat2.png';
 import Cat3 from '../../assets/cagnotte/cat3.png';
@@ -9,6 +9,12 @@ import Cat6 from '../../assets/cagnotte/cat6.png';
 import Cagn1 from '../../assets/cagnotte/cagn1.png';
 import Cagn2 from '../../assets/cagnotte/cagn2.png';
 import Cagn3 from '../../assets/cagnotte/cagn3.png';
+
+import Sub1 from '../../assets/sidebar/sidebari1.svg';
+import Sub2 from '../../assets/sidebar/sidebari2.svg';
+import Sub3 from '../../assets/sidebar/sidebari3.svg';
+import Sub4 from '../../assets/sidebar/sidebari4.svg';
+import Sub5 from '../../assets/sidebar/sidebari5.svg';
 
 export const CategoryList:CategoryType[] = [
     {
@@ -172,4 +178,47 @@ export const DonAmountMin: DonAmmountType[] = [
     id: 'A004',
     amount: 100000
   }
+]
+
+export const SidebarItemData: SideBarItemType[] = [
+  {
+    id: 'S001',
+    image: Sub1,
+    title: 'Cagnottes',
+    text: 'Soutenez les causes qui vous tiennent à cœur',
+    path: '/cagnotte',
+    soon: false
+  },
+  {
+    id: 'S002',
+    image: Sub2,
+    title: 'Investissements',
+    text: 'Investissez dans des projets à potentiel',
+    path: '/investissement',
+    soon: false
+  },
+  {
+    id: 'S003',
+    image: Sub3,
+    title: 'Tarifs',
+    text: 'Des offres claires et adaptées',
+    path: '/tarifs',
+    soon: false
+  },
+  {
+    id: 'S004',
+    image: Sub4,
+    title: 'Notre mission',
+    text: 'Soutenir vos ambitions, transformer vos idées en succès',
+    path: '/mission',
+    soon: false
+  },
+  {
+    id: 'S005',
+    image: Sub5,
+    title: 'Izicagn Pro',
+    text: 'Private equity, Professionnels de la finance',
+    path: '/mission',
+    soon: true
+  },
 ]

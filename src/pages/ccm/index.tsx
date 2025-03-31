@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import Navbar from '../../components/general/navbar'
 import Footer from '../../components/general/footer'
 import '../../utils/style/ccm.css'
@@ -9,6 +8,7 @@ import CcmStep1 from '../../assets/ccm_step1.png'
 import CcmStep2 from '../../assets/ccm_step2.png'
 import CcmStep3 from '../../assets/ccm_step3.png'
 import StepBlockComponent from '../../components/ccm/stepBlockComponent'
+import { useState } from 'react'
 
 const howWorkButton: {id: string, text: string}[] = [
     {
@@ -44,7 +44,7 @@ const CommentMarche = () => {
 				<div id='ccmbanniere' className="absolute inset-0 bg-left bg-no-repeat w-full z-0"></div>
 			</section>
 
-            <div className="mt-8 mb-32 flex flex-col items-center sticky w-full top-[25px] z-30 ">
+            <div className="mt-8 mb-32 flex flex-col items-center sticky w-full top-[85px] z-30 ">
                 <h1 className='text-[#0E0E18] text-[42px] font-bold mb-2'>Comment ça marche</h1>
                 <p className='text-[18px] text-[#727683] '>Découvrez comment Izicagn vous accompagne à chaque étape de votre collecte</p>
                 <div className='flex flex-row justify-center space-x-2 mt-4'>

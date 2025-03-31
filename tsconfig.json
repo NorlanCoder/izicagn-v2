@@ -4,21 +4,14 @@
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
   ],
-  "compilerOptions": {
-    "@/*": [
-      "./src/*"
-    ],
-    "@/assets/*": [
-      "./src/assets/*"
-    ],
-    "@/components/*": [
-      "./src/components/*"
-    ],
-    "@/utils/*": [
-      "./src/utils/*"
-    ],
-    "@/api/*": [
-      "./api/*"
-    ]
-  }
+  // "compilerOptions": {
+  //   "baseUrl": "./",
+  //   "paths": {
+  //     "@/*": ["./src/*"],
+  //     "@/assets/*": ["./src/assets/*"],
+  //     "@/components/*": [ "./src/components/*"],
+  //     "@/utils/*": [ "./src/utils/*"],
+  //     "@/api/*": [ "./api/*"]
+  //   }
+  // }
 }
