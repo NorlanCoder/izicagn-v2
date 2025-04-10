@@ -33,3 +33,16 @@ export interface SideBarItemType {
 export interface SideBarItemProps {
     item: SideBarItemType
 }
+
+export interface CcmListSectionType {
+    id: string,
+    icon: string,
+    title: string,
+    text: string,
+    image: string,
+    direction: boolean
+}
+
+export interface CcmListSectionProps {
+    item: CcmListSectionType
+}

@@ -25,3 +25,13 @@
     background: linear-gradient(0deg, #90E2F8 0%, #07AED8 48%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#07AED8",endColorstr="#90E2F8",GradientType=1);
 }
+
+.glass {
+    background: rgba(255, 255, 255, 0.15);
+    /* border-radius: 16px; */
+    /* padding: 20px; */
+    /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    /* border: 1px solid rgba(255, 255, 255, 0.3); */
+}

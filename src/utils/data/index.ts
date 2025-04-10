@@ -1,4 +1,4 @@
-import { CagnotteMediumType, CategoryType, DonAmmountType, SideBarItemType } from "../type";
+import { CagnotteMediumType, CategoryType, CcmListSectionType, DonAmmountType, SideBarItemType } from "../type";
 import Cat1 from '../../assets/cagnotte/cat1.png';
 import Cat2 from '../../assets/cagnotte/cat2.png';
 import Cat3 from '../../assets/cagnotte/cat3.png';
@@ -15,6 +15,20 @@ import Sub2 from '../../assets/sidebar/sidebari2.svg';
 import Sub3 from '../../assets/sidebar/sidebari3.svg';
 import Sub4 from '../../assets/sidebar/sidebari4.svg';
 import Sub5 from '../../assets/sidebar/sidebari5.svg';
+
+import CCM_SECTION1 from '../../assets/ccm/ccm_img1.png';
+import CCM_SECTION2 from '../../assets/ccm/ccm_img2.png';
+import CCM_SECTION3 from '../../assets/ccm/ccm_img3.png';
+import CCM_SECTION4 from '../../assets/ccm/ccm_img4.png';
+import CCM_SECTION5 from '../../assets/ccm/ccm_img5.png';
+import CCM_SECTION6 from '../../assets/ccm/ccm_img6.png';
+
+import CCM_ICON1 from '../../assets/ccm/rating1.svg';
+import CCM_ICON2 from '../../assets/ccm/rating2.svg';
+import CCM_ICON3 from '../../assets/ccm/rating3.svg';
+import CCM_ICON4 from '../../assets/ccm/love1.svg';
+import CCM_ICON5 from '../../assets/ccm/love2.svg';
+import CCM_ICON6 from '../../assets/ccm/love3.svg';
 
 export const CategoryList:CategoryType[] = [
     {
@@ -221,4 +235,58 @@ export const SidebarItemData: SideBarItemType[] = [
     path: '/mission',
     soon: true
   },
+]
+
+export const CcmData1: CcmListSectionType[] = [
+  {
+    id: 'CC001',
+    icon: CCM_ICON1,
+    title: 'Une expérience unique avec zéro complication',
+    text: 'Avec Izicagn, tout est pensé pour vous faciliter la vie. En quelques clics, vous êtes prêt à collecter des dons. Une interface fluide, des outils intelligents, et voilà',
+    image: CCM_SECTION1,
+    direction: true
+  },
+  {
+    id: 'CC002',
+    icon: CCM_ICON2,
+    title: 'Sécurité complète, Sérénité Assurée',
+    text: 'Protéger vos transactions, c’est notre promesse. Izicagn utilise des systèmes de sécurité avancés pour que chaque don soit effectué en toute confiance.',
+    image: CCM_SECTION2,
+    direction: false
+  },
+  {
+    id: 'CC003',
+    icon: CCM_ICON3,
+    title: 'Une plateforme de confiance, digne de vous',
+    text: 'Vous méritez une plateforme à la hauteur de vos ambitions. Avec Izicagn, vous bénéficiez de la transparence, de la fiabilité et d’un soutien de qualité à chaque étape.',
+    image: CCM_SECTION3,
+    direction: true
+  }
+]
+
+export const CcmData2: CcmListSectionType[] = [
+  {
+    id: 'CC004',
+    icon: CCM_ICON4,
+    title: 'Un Don simple et rapide, en quelques clics',
+    text: "Avec izicagn, en quelques secondes, vous pouvez soutenir des causes qui vous tiennent à cœur. Que ce soit pour aider un proche, financer un projet ou soutenir une organisation, tout se fait en un clin d'œil, sans tracas.",
+    image: CCM_SECTION4,
+    direction: false
+  },
+  {
+    id: 'CC005',
+    icon: CCM_ICON5,
+    title: 'Sécurité à 100%, vos Dons protégés',
+    text: "Votre générosité mérite la meilleure protection. Nous prenons la sécurité très au sérieux. Vos informations bancaires sont chiffrées et vos transactions sont sécurisées avec les dernières technologies.",
+    image: CCM_SECTION5,
+    direction: true
+  },
+  {
+    id: 'CC006',
+    icon: CCM_ICON6,
+    title: 'Des collectes fiables et authentiques.',
+    text: "Les comptes des collecteurs sont passe pas une vérification  rigoureuse. Cela vous garantit que votre don va bien aux personnes et projets que vous souhaitez soutenir. Donnez en toute sérénité.",
+    image: CCM_SECTION6,
+    direction: false
+  }
 ]
