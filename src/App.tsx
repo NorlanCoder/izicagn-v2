@@ -15,6 +15,7 @@ import Home from "./pages/Home";
 import Cagnotte from "./pages/Cagnotte";
 import AllArticle from "./pages/AllArticle";
 import Article from "./pages/Article";
+import LeverDesFonds1 from "./pages/leverdesfonds/LDF1";
 
 function App() {
   return (
@@ -32,6 +33,8 @@ function App() {
           <Route path="leverdesfonds">
             <Route index element={<LeverDesFonds2 />} />
           </Route>
+
+          <Route path="leverdesfond" element={<LeverDesFonds1 />} />
 
           <Route path="commentçamarche" element={<CommentMarche />} />
           <Route path="investissement" element={<Investissement />} />
