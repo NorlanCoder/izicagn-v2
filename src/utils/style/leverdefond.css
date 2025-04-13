@@ -1,0 +1,37 @@
+
+
+#bg-ldf1 {
+    background-image: url('../../assets/leverdefond/BGfinancement1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#bg-ldf2 {
+    background-image: url('../../assets/leverdefond/BGfinancement2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#bg-ldf3 {
+    background-image: url('../../assets/leverdefond/BGfinancement3.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#bg-avis1 {
+    background-image: url('../../assets/leverdefond/female-shopkeeper-smiling-camera1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#bg-avis2 {
+    background-image: url('../../assets/leverdefond/medium-shot-smiley-man-posing-with-helmet1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#bg-avis3 {
+    background-image: url('../../assets/leverdefond/medium-shot-smiley-woman-work1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
