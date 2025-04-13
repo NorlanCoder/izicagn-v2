@@ -8,7 +8,7 @@ import '../../utils/style/leverdefond.css'
 
 const FinancementSection = () => {
     return (
-        <div className=' px-5'>
+        <div className=' px-5 pb-20'>
             <div className='flex flex-col lg:flex-row space-y-10 space-x-10 items-center justify-center py-20'>
                 <div className='space-y-[28px]'>
                     <h1 className='max-w-[440px] text-[36px] leading-[100%] tracking-[-2px] font-semibold'>Se lancer, se former et financer des projets</h1>
@@ -35,7 +35,7 @@ const FinancementSection = () => {
                         <h4 className='text-[32px] leading-[41px] font-bold max-w-[272px] pb-4'>Réseau d’investisseurs </h4>
                         <p className='max-w-[307px] text-[18px] font-medium leading-[27px]'>Accédez à un large réseau d’investisseurs prêts à soutenir des projets innovants. Grâce à Izicagn, vous bénéficiez d’une <span className=' font-bold'>visibilité</span> pour concrétiser vos idées.</p>
                     </div>
-                    <div className='relative rounded-[30px] max-h-[452px] px-10 pb-10 xl:mt-10' id='bg-ldf2'>
+                    <div className='relative rounded-[30px] max-h-[452px] px-10 pb-10 xl:mt-14' id='bg-ldf2'>
                         <img src={Decor2} alt="" className=' absolute left-0 top-2' />
                         <h3 className='text-[#07AED8] text-[83.69px] font-bold'>2</h3>
                         <h4 className='text-[32px] leading-[41px] font-bold max-w-[272px] pb-4'>Programme sur mesure</h4>

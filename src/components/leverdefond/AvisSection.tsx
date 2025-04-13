@@ -8,9 +8,10 @@ import '../../utils/style/leverdefond.css'
 const AvisSection = () => {
     return (
         <div>
-            <div>
-                <h1 className="text-3xl md:text-[48px] text-center text-[#0A1243] font-extrabold leading-[100%] tracking-[-1%] pb-20">Ils ont réussi avec nous</h1>
-                <Marquee >
+            <div className=" pt-12">
+                <h1 className="text-3xl md:text-[48px] text-center text-[#0A1243] font-black  leading-[100%] tracking-[-1%] pb-20">Ils ont réussi avec nous</h1>
+                <Marquee
+                    pauseOnHover={true} >
                     <div className="flex space-x-6">
                         <div className='flex justify-center relative rounded-[30px]' id='bg-avis1'>
                             <img src={Avis} alt="" className='rounded-[30px]' />
