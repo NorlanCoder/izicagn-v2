@@ -1,29 +1,30 @@
+import CategoriesSection from "../../components/leverdefond/CategoriesSection";
 import EtapesSection from "../../components/leverdefond/EtapesSection";
 
 const LeverDesFonds1 = () => {
   return (
-    <div className=" px-5">
-      <section className="rounded-[42.51px] h-[573px] relative my-8 flex flex-col justify-center px-24 bg-[radial-gradient(circle,_#78DFF5,_#0BD1F4)] overflow-x-hidden">
-        <div className="max-w-[680px] relative z-10">
-          <h1 className="text-[55px] leading-14 text-white font-extrabold mb-5">
+    <div className="px-3 md:px-10 lg:px-20">
+      <section className="relative my-8 flex flex-col justify-center items-start rounded-[30px] md:rounded-[42.51px] bg-[radial-gradient(circle,_#78DFF5,_#0BD1F4)] overflow-hidden px-6 sm:px-12 md:px-16 lg:px-24 py-10 md:py-16 min-h-[400px] md:min-h-[500px] lg:min-h-[573px]">
+        <div className="relative z-10 max-w-full md:max-w-[680px]">
+          <h1 className="text-[30px] sm:text-[36px] md:text-[45px] lg:text-[55px] leading-snug text-white font-extrabold mb-5">
             <span className="text-[#0D304E]">Transformez vos idées</span> en
             actions en trouvant un financement !
           </h1>
 
-          <p className="text-[#0F6D8F] w-9/12 mb-8 text-[19px] font-bold ">
+          <p className="text-[#0F6D8F] mb-6 text-[16px] sm:text-[17px] md:text-[19px] font-bold max-w-[90%]">
             Chez izicagn, on donne de la visibilité à vos projets.
             Rejoignez-nous pour faire avancer vos idées ambitieuses et
             créatives.
           </p>
 
-          <div className="flex flex-row space-x-3">
-            <div className="border border-[#07AED8] w-[339px] rounded-full p-[12px] bg-white flex flex-row space-x-2 justify-center items-center">
+          <div className="flex flex-col sm:flex-row sm:space-x-3 space-y-3 sm:space-y-0 w-full">
+            <div className="border border-[#07AED8] w-full sm:w-auto rounded-full py-3 px-6 bg-white flex justify-center items-center">
               <p className="text-[16px] text-center font-bold text-[#083044]">
                 Financer un projet
               </p>
             </div>
 
-            <button className="bg-[#0D304E] text-white rounded-full text-[14px] py-[16px] px-[20px] font-bold">
+            <button className="bg-[#0D304E] text-white rounded-full text-[14px] py-3 px-6 font-bold w-full sm:w-auto">
               Démarrer une cagnotte
             </button>
           </div>
@@ -33,6 +34,8 @@ const LeverDesFonds1 = () => {
       </section>
 
       <EtapesSection />
+
+      <CategoriesSection />
     </div>
   );
 };
