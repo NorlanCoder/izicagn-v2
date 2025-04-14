@@ -13,6 +13,7 @@ import { CcmData1, CcmData2 } from '../../utils/data'
 import StepItemComponent from '../../components/ccm/stepItemComponent'
 import { AnimatePresence, motion } from 'motion/react'
 import CCM_Call_to_action from '../../assets/ccm/ccm_img7.png';
+import Outils from '../../components/ccm/Outils'
 
 const howWorkButton: {id: string, text: string}[] = [
     {
@@ -185,7 +186,7 @@ const CommentMarche = () => {
                                 <img src={CCM_Call_to_action} alt="" className='rounded-[30px] ' />
                             </div>
                             <div>
-
+                                <Outils />
                             </div>
                         </div>
                     </div>
