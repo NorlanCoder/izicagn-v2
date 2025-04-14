@@ -33,7 +33,7 @@ const CategoryBadge = ({ text }) => (
 const EtapesSection = () => {
   return (
     <section className="w-full h-full">
-      <div className="w-full h-[100vh] flex items-start gap-4 mb-8">
+      <div className="w-full h-[100vh] flex items-start ga`1p-4 mb-8">
         <div
           style={{
             backgroundImage: `url(${vetor_1})`,
