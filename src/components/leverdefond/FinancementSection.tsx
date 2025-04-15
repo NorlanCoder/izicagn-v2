@@ -8,7 +8,7 @@ import '../../utils/style/leverdefond.css'
 
 const FinancementSection = () => {
     return (
-        <div className=' px-5 pb-20'>
+        <div className=' px-10 pb-20'>
             <div className='flex flex-col lg:flex-row space-y-10 space-x-10 items-center justify-center py-20'>
                 <div className='space-y-[28px]'>
                     <h1 className='max-w-[440px] text-[36px] leading-[100%] tracking-[-2px] font-semibold'>Se lancer, se former et financer des projets</h1>
