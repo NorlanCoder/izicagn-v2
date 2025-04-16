@@ -7,6 +7,7 @@ import arrow_up from "../../assets/Lever de fond/uil_arrow-up.png";
 import rocket_icon from "../../assets/Lever de fond/rocket_icon.png";
 import pieces_icon from "../../assets/Lever de fond/pieces_icon.png";
 import piece_icon from "../../assets/Lever de fond/piece_icon.png";
+import { Link } from "react-router";
 
 const categories = [
   "Startups",
@@ -135,9 +136,11 @@ const EtapesSection = () => {
               </p>
             </div>
 
-            <button className="self-start sm:self-auto p-3 flex items-center justify-center bg-orange-300 shadow-lg rounded-full cursor-pointer">
-              <img src={arrow_up} alt="Arrow up" className="w-5 h-5" />
-            </button>
+            <Link to="/leverdesfonds/details">
+              <button className="self-start sm:self-auto p-3 flex items-center justify-center bg-orange-300 shadow-lg rounded-full cursor-pointer">
+                <img src={arrow_up} alt="Arrow up" className="w-5 h-5" />
+              </button>
+            </Link>
           </div>
         </div>
 
@@ -161,9 +164,11 @@ const EtapesSection = () => {
               </p>
             </div>
 
-            <button className="self-start sm:self-auto p-3 flex items-center justify-center bg-orange-300 shadow-lg rounded-full cursor-pointer">
-              <img src={arrow_up} alt="Arrow up" className="w-5 h-5" />
-            </button>
+            <Link to="/leverdesfonds/commentçamarche">
+              <button className="self-start sm:self-auto p-3 flex items-center justify-center bg-orange-300 shadow-lg rounded-full cursor-pointer">
+                <img src={arrow_up} alt="Arrow up" className="w-5 h-5" />
+              </button>
+            </Link>
           </div>
         </div>
       </div>

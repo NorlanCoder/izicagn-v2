@@ -62,7 +62,7 @@ const articleItems = [
 const AllArticle = () => {
   return (
     <div className="w-full">
-      {/* <Navbar /> */}
+      <Navbar />
 
       <div className="w-full">
         <div className="md:px-4">
@@ -214,9 +214,9 @@ const AllArticle = () => {
         </div>
       </div>
 
-      {/* <div className="mt-[244px]">
+      <div className="mt-[244px]">
         <Footer />
-      </div> */}
+      </div>
     </div>
   );
 };
