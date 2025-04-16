@@ -9,25 +9,25 @@ import pieces_icon from "../../assets/Lever de fond/pieces_icon.png";
 import piece_icon from "../../assets/Lever de fond/piece_icon.png";
 import { Link } from "react-router";
 
-const categories = [
-  "Startups",
-  "Énergies renouvelables",
-  "Fintech",
-  "Art et culture",
-  "Entrepreneurs sociaux",
-  "Commerce",
-  "Industrie",
-  "Mode et design",
-  "Sport et loisirs",
-  "Immobilier et urbanisme",
-  "Distribution",
-];
+// const categories = [
+//   "Startups",
+//   "Énergies renouvelables",
+//   "Fintech",
+//   "Art et culture",
+//   "Entrepreneurs sociaux",
+//   "Commerce",
+//   "Industrie",
+//   "Mode et design",
+//   "Sport et loisirs",
+//   "Immobilier et urbanisme",
+//   "Distribution",
+// ];
 
-const CategoryBadge = ({ text }: {text:string}) => (
-  <div className="px-6 py-2 rounded-full bg-[#ECFDFF] text-[#0F6D8F] font-semibold text-[14px] whitespace-nowrap mx-2">
-    {text}
-  </div>
-);
+// const CategoryBadge = ({ text }: {text:string}) => (
+//   <div className="px-6 py-2 rounded-full bg-[#ECFDFF] text-[#0F6D8F] font-semibold text-[14px] whitespace-nowrap mx-2">
+//     {text}
+//   </div>
+// );
 
 const EtapesSection = () => {
   return (
