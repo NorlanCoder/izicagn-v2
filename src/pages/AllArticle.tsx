@@ -62,20 +62,21 @@ const articleItems = [
 const AllArticle = () => {
   return (
     <div className="w-full">
-      <Navbar />
+      {/* <Navbar /> */}
 
       <div className="w-full">
         <div className="md:px-4">
           <GobackComponent />
         </div>
 
-        <div className="w-full flex flex-col my-8 justify-center text-start items-start px-6">
-          <div className="w-full flex items-center justify-between">
-            <h1 className="text-[#0E0E18] mb-8 tracking-[-2px] font-medium text-[48px]">
+        <div className="w-full flex flex-col my-8 justify-center text-start items-start px-3 md:px-6">
+          {/* Header */}
+          <div className="w-full flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <h1 className="text-[#0E0E18] tracking-[-2px] font-medium text-[24px] md:text-[38px] lg:text-[48px]">
               Actualités et ressources
             </h1>
 
-            <div className="relative">
+            <div className="relative w-full md:w-auto">
               <img
                 src={search_icon}
                 alt="Search Icon"
@@ -84,22 +85,21 @@ const AllArticle = () => {
 
               <input
                 type="text"
-                name=""
-                className="w-[286px] ps-10 h-[42px] rounded-[40px] border-[1px] border-[#F5F5F4] bg-[#F5F5F4] outline-none text-[13px] tracking-[-1%] font-medium"
+                className="w-full lg:w-[286px] ps-10 h-[42px] rounded-[40px] border border-[#F5F5F4] bg-[#F5F5F4] outline-none text-[13px] tracking-[-1%] font-medium"
                 placeholder="Rechercher des articles"
               />
             </div>
           </div>
 
-          <div className="w-full flex items-center gap-4">
-            <div className="w-[791px] h-[600px] rouded-[26px] flex flex-col items-start gap-5 bg-white">
+          <div className="w-full flex lg:flex-row flex-col items-start gap-4 mt-4">
+            <div className="w-full lg:w-[70%] bg-white rounded-[26px] flex flex-col items-start gap-5">
               <img
                 src={articles_avatar_1}
                 alt="Avatar_1"
-                className="w-[767px] h-[432px]  object-cover"
+                className="w-full h-[432px] rounded-xl object-cover"
               />
 
-              <div className="w-full">
+              <div className="w-full space-y-4">
                 <div className="w-full flex items-center justify-between">
                   <span className="text-[#888888] font-[400] text-sm">
                     Il y a 8 heures
@@ -116,13 +116,13 @@ const AllArticle = () => {
                   </div>
                 </div>
 
-                <div className="w-[767px] h-[24px] space-y-1">
-                  <h3 className="text-black text-[20px] font-[700] ">
+                <div className="w-full space-y-2 lg:space-y-1 px-2">
+                  <h3 className="text-black text-[18px] md:text-[20px] font-[700] ">
                     Comment formuler sa cagnote et gagner la confiance des
                     donateurs
                   </h3>
 
-                  <p className="text-[#6F7886] text-lg font-medium">
+                  <p className="text-[#6F7886] text-base md:text-lg font-medium">
                     Découvrez l'importance de la transparence dans la gestion de
                     votre campagne et comment utiliser les outils d'izicagn pour
                     rassurer vos donateurs
@@ -131,7 +131,7 @@ const AllArticle = () => {
               </div>
             </div>
 
-            <div className="flex flex-col items-start gap-2.5">
+            <div className=" w-full lg:w-[30%] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
               <ArticleCard
                 image={articles_avatar_3}
                 date="2 jours"
@@ -149,8 +149,9 @@ const AllArticle = () => {
           </div>
         </div>
 
-        <div className="w-full flex items-start justify-between gap-5">
-          <div className="grid grid-cols-1 gap-2.5 md:grid-cols-2 w-full md:w-2/3">
+        <div className="w-full px-3 md:px-6y flex flex-col lg:flex-row gap-8 items-start">
+          {/* Liste d'articles */}
+          <div className="w-full lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-4">
             {articleItems.map((item) => (
               <ArticleCard
                 key={item.id}
@@ -162,6 +163,7 @@ const AllArticle = () => {
             ))}
           </div>
 
+          {/* Section Téléchargement App */}
           <div
             style={{
               backgroundImage: `url(${linear_background})`,
@@ -169,35 +171,41 @@ const AllArticle = () => {
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
             }}
-            className="w-full md:w-1/3 flex flex-col gap-6 pt-12 px-[50px] text-start rounded-[20px]"
+            className="w-full lg:w-1/3 flex flex-col md:flex-row lg:flex-col items-center gap-8 md:p-8 p-0 px-6 rounded-[20px]"
           >
-            <h3 className="text-[24px] text-[#08254D] font-[800] leading-[120%] max-w-[296px]">
-              Collecter, donner et investir dans les projets qui compte
-            </h3>
+            {/* Partie gauche (texte + logos) */}
+            <div className="flex flex-col gap-4 py-4 text-start">
+              <h3 className="text-[20px] sm:text-[24px] text-[#08254D] font-extrabold leading-snug">
+                Collecter, donner et investir dans les projets qui comptent
+              </h3>
 
-            <p className="text-sm font-[400] max-w-[235px]">
-              Téléchargez l'application izicagn sur votre mobile sur :
-            </p>
+              <p className="text-sm font-normal ">
+                Téléchargez l'application izicagn sur votre mobile :
+              </p>
 
-            <div className="flex items-center justify-center gap-[13px]  mx-[39px]">
-              <img
-                src={google_play_logo}
-                alt="Google Play Store Logo"
-                className="w-[145px] h-auto object-cover"
-              />
+              <div className="flex items-center md:items-start gap-4">
+                <img
+                  src={google_play_logo}
+                  alt="Google Play Store Logo"
+                  className="w-[130px] sm:w-[145px] object-contain"
+                />
 
-              <img
-                src={apple_store_logo}
-                alt="Apple Store Logo"
-                className="w-[145px] h-auto object-cover"
-              />
+                <img
+                  src={apple_store_logo}
+                  alt="Apple Store Logo"
+                  className="w-[130px] sm:w-[145px] object-contain"
+                />
+              </div>
             </div>
 
-            <img
-              src={phone_mockup}
-              alt="Phone Mockup"
-              className="w-[325px] h-auto object-cover ml-[48px]"
-            />
+            {/* Partie droite (image du téléphone) */}
+            <div className="w-full max-w-[325px]">
+              <img
+                src={phone_mockup}
+                alt="Phone Mockup"
+                className="w-full h-auto object-contain"
+              />
+            </div>
           </div>
         </div>
 
@@ -206,9 +214,9 @@ const AllArticle = () => {
         </div>
       </div>
 
-      <div className="mt-[244px]">
+      {/* <div className="mt-[244px]">
         <Footer />
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -12,10 +12,10 @@ const LeverDesFonds1 = () => {
                 <h1 className='text-[55px] leading-14 text-white font-extrabold mb-5'><span className='text-[#0D304E]'>Transformez vos idées</span>  en actions en trouvant un financement !</h1>
                 <p className='text-[#0F6D8F] w-9/12 mb-8 text-[19px] font-bold '>Chez izicagn, on donne de la visibilité à vos projets. Rejoignez-nous pour faire avancer vos idées ambitieuses et créatives.</p>
                 <div className='flex flex-row space-x-3'>
-                  <div className='border border-[#07AED8] w-[339px] rounded-full p-[12px] bg-white flex flex-row space-x-2 justify-center items-center'>
-                                  <p className="text-[16px] text-center font-bold text-[#083044]">Financer un projet</p> 
-                  </div>
-                  <button className='bg-[#0D304E] text-white rounded-full text-[14px] py-[16px] px-[20px] font-bold'>Démarrer une cagnotte</button>
+					<div className='border border-[#07AED8] w-[339px] rounded-full p-[12px] bg-white flex flex-row space-x-2 justify-center items-center'>
+						<p className="text-[16px] text-center font-bold text-[#083044]">Financer un projet</p> 
+					</div>
+                  	<button className='bg-[#0D304E] text-white rounded-full text-[14px] py-[16px] px-[20px] font-bold'>Démarrer une cagnotte</button>
                 </div>
               </div>
               
@@ -50,10 +50,10 @@ const LeverDesFonds1 = () => {
                     <FaqComponent title="Quels modes de paiement sont acceptés sur Izicagn ?" text='Izicagn accepte les paiements par carte de crédit, carte de débit, PayPal, et d’autres options locales en fonction de votre région.' />
 
                 </div>
-
+      </div>
             
-        </div>
-    )
-}
 
-export default LeverDesFonds1
+  );
+};
+
+export default LeverDesFonds1;
