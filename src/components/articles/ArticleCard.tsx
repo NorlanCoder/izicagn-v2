@@ -1,6 +1,6 @@
 import clap_hand_icon from "../../assets/articles/clap_hand_icon.png";
 
-const ArticleCard = ({ image, date, desc, react }) => {
+const ArticleCard = ({ image, date, desc, react }:any) => {
   return (
     <div className="w-full sm:max-w-[400px] p-4 rounded-[20px] border border-[#E3F2F6] flex flex-col items-start gap-3 bg-white shadow-sm">
       <img
