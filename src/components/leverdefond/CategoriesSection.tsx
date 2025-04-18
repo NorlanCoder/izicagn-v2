@@ -12,6 +12,7 @@ const categories = [
   "Sport et loisirs",
   "Immobilier et urbanisme",
   "Distribution",
+  "",
 ];
 
 const CategoryBadge = ({ text }: { text: string }) => (
