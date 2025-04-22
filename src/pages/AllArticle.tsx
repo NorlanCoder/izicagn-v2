@@ -14,7 +14,7 @@ import google_play_logo from "../assets/articles/google_play_logo.png";
 import apple_store_logo from "../assets/articles/play_store_logo.png";
 import phone_mockup from "../assets/articles/phone_mockup.png";
 
-const articleItems = [
+export const articleItems = [
   {
     id: 1,
     image: articles_avatar_1,
