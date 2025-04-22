@@ -96,22 +96,24 @@ const AllArticle = () => {
               <img
                 src={articles_avatar_1}
                 alt="Avatar_1"
-                className="w-full h-[432px] rounded-xl object-cover"
+                className="w-full h-auto rounded-xl object-cover"
               />
 
               <div className="w-full space-y-4">
                 <div className="w-full flex items-center justify-between">
-                  <span className="text-[#888888] font-[400] text-sm">
+                  <span className="text-[#888888] font-[400] text-sm 2xl:text-xl">
                     Il y a 8 heures
                   </span>
 
                   <div className="bg-[#ECFDFF] flex items-center gap-[5px] w-[68px] h-[32px] rounded-[20px]">
-                    <span className="text-sm font-medium text-black">09</span>
+                    <span className="text-sm font-medium text-black 2xl:text-xl">
+                      09
+                    </span>
 
                     <img
                       src={clap_hand_icon}
                       alt="Clap Hand Icon"
-                      className="w-[20px] h-auto object-cover"
+                      className="w-[20px] 2xl:w-[30px] h-auto object-cover"
                     />
                   </div>
                 </div>
@@ -151,7 +153,7 @@ const AllArticle = () => {
 
         <div className="w-full px-3 md:px-6y flex flex-col lg:flex-row gap-8 items-start">
           {/* Liste d'articles */}
-          <div className="w-full lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="w-full lg:w-[70vw] grid grid-cols-1 sm:grid-cols-2 gap-4">
             {articleItems.map((item) => (
               <ArticleCard
                 key={item.id}
@@ -171,7 +173,7 @@ const AllArticle = () => {
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
             }}
-            className="w-full lg:w-1/3 flex flex-col md:flex-row lg:flex-col items-center gap-8 md:p-8 p-0 px-6 rounded-[20px]"
+            className="w-full lg:w-[30vw] flex flex-col md:flex-row lg:flex-col items-center gap-8 md:p-8 p-0 px-6 rounded-[20px]"
           >
             {/* Partie gauche (texte + logos) */}
             <div className="flex flex-col gap-4 py-4 text-start">
