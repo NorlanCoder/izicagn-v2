@@ -52,7 +52,7 @@ const Navbar = () => {
                     </div>
                     <ul className="md:flex hidden flex-row lg:space-x-3 space-x-4">
                         <li><Link to="/login" className="p-4 px-7 rounded-full border border-[#D9DFE7CC] ">Mon espace</Link></li>
-                        <li><Link to="/commentçamarche" className="menu_btn2 text-white p-4 px-7 rounded-full">Démarrer</Link></li>
+                        <li><Link to="/register" className="menu_btn2 text-white p-4 px-7 rounded-full">Démarrer</Link></li>
                     </ul>
                 </ul>
             </div>
