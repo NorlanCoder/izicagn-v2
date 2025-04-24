@@ -1,9 +1,8 @@
 import Logo from '../../../../assets/logo.png'
 import IllustrationUser from '../../../../assets/auth/user_illustration_register.svg'
 import { useState } from 'react'
-import Level2 from './level2'
-import Level5 from './level5'
 import Level6 from './level6'
+import Level5 from './level5'
 
 const ProjectRegister = () => {
 
@@ -18,7 +17,7 @@ const ProjectRegister = () => {
                 <div><img src={Logo} alt="" /></div>
 
                 <div className='h-full flex flex-col justify-start items-start lg:w-4/5 w-full relative'>
-                    <Level6 />
+                    <Level5 />
                 </div>
             </div>
         </div>

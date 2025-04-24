@@ -27,7 +27,7 @@ const Level6 = () => {
                     <p className="text-white uppercase bg-[#95A3B0] rounded-[13px] p-2 relative right-3 font-bold ">fcfa</p>
                 </div>
                 <div className="flex flex-row justify-between">
-                    <p className="text-[#8B8B8B] text-[13px]">Il semble que vous êtes au Bénin, votre devise est FCFA(XOF).<span className="font-bold">Changer de pays et/ou devise.</span></p>
+                    <p className="text-[#8B8B8B] text-[13px]">Il semble que vous êtes au Bénin, votre devise est FCFA(XOF).<span className="font-bold underline text-black"> Changer de pays et/ou devise.</span></p>
                 </div>
             </div>
 

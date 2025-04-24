@@ -5,6 +5,7 @@ import CagnotteIcon from '../../assets/auth/cagnotte.svg'
 import ProjectIcon from '../../assets/auth/project.svg'
 import LoadingIcon from '../../assets/auth/loading.png'
 import ProjectRegister from '../../components/auth/register/projet'
+import CagnoteRegister from '../../components/auth/register/cagnotte'
 
 const Register = () => {
 
@@ -63,6 +64,12 @@ const Register = () => {
             {
                 accountType=='projet' && (
                     <ProjectRegister />
+                )
+            }
+
+{
+                accountType=='cagnotte' && (
+                    <CagnoteRegister />
                 )
             }
 
