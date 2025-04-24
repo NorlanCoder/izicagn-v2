@@ -34,7 +34,7 @@ const LeverDesFonds1 = () => {
                   <span className="text-[#231F20]">donner vie vos idées ?</span>{" "}
                   Créez votre cagnotte dès maintenant
                 </h2>
-                <button className=" text-white bg-[#083044] py-[16px] px-[30px] rounded-[200px]">
+                <button className="text-white bg-[#083044] py-[16px] px-[30px] rounded-[200px]">
                   Démarrer une cagnotte
                 </button>
               </div>

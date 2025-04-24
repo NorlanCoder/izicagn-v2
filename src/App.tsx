@@ -20,7 +20,7 @@ import LeverDesFonds1 from "./pages/leverdesfonds/LDF1";
 function App() {
   return (
     <>
-      <BrowserRouter>
+      {/*<BrowserRouter>
         <Routes>
           <Route index element={<Home />} />
 
@@ -43,7 +43,9 @@ function App() {
           <Route path="articles" element={<AllArticle />} />
           <Route path="article/:id" element={<Article />} />
         </Routes>
-      </BrowserRouter>
+      </BrowserRouter>*/}
+
+      <LeverDesFonds1 />
     </>
   );
 }
