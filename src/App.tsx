@@ -17,6 +17,7 @@ import AllArticle from "./pages/AllArticle";
 import Article from "./pages/Article";
 import LeverDesFonds1 from "./pages/leverdesfonds/LDF1";
 import LeverDesFonds3 from "./pages/leverdesfonds/LDF3";
+import Login from "./pages/auth/Login";
 
 function App() {
   return (
@@ -45,6 +46,10 @@ function App() {
           <Route path="mission" element={<Mission />} />
           <Route path="articles" element={<AllArticle />} />
           <Route path="article/:id" element={<Article />} />
+
+
+          <Route path="login" element={<Login />} />
+
         </Routes>
       </BrowserRouter>
     </>
