@@ -5,6 +5,15 @@
   src: url("./assets/font/Montserrat-Regular.ttf");
 }
 
+@font-face {
+  font-family: Pacifico;
+  src: url("./assets/font/Pacifico.ttf");
+}
+
+.pacifico {
+  font-family: pacifico, sans-serif;
+}
+
 * {
   font-family: Montserrat, sans-serif;
 }
@@ -45,4 +54,32 @@
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   /* border: 1px solid rgba(255, 255, 255, 0.3); */
+}
+
+.glass1 {
+  background: rgba(255, 255, 255, 0.15);
+  /* border-radius: 16px; */
+  /* padding: 20px; */
+  /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  /* border: 1px solid rgba(255, 255, 255, 0.3); */
+}
+
+.register_bg {
+  background-image: url('./assets/auth/bg_register.png');
+}
+
+select,
+::picker(select) {
+  appearance: base-select;
+}
+
+select::picker(select) {
+  border: none;
+}
+
+select option {
+  display: flex;
+  padding: 4px;
 }

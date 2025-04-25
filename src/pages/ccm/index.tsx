@@ -11,7 +11,7 @@ import StepBlockComponent from '../../components/ccm/stepBlockComponent'
 import { useState } from 'react'
 import { CcmData1, CcmData2 } from '../../utils/data'
 import StepItemComponent from '../../components/ccm/stepItemComponent'
-import { AnimatePresence, motion } from 'motion/react'
+import { AnimatePresence } from 'motion/react'
 import CCM_Call_to_action from '../../assets/ccm/ccm_img7.png';
 import Outils from '../../components/ccm/Outils'
 

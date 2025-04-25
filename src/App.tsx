@@ -16,11 +16,14 @@ import Cagnotte from "./pages/Cagnotte";
 import AllArticle from "./pages/AllArticle";
 import Article from "./pages/Article";
 import LeverDesFonds1 from "./pages/leverdesfonds/LDF1";
+import LeverDesFonds3 from "./pages/leverdesfonds/LDF3";
+import Login from "./pages/auth/Login";
+import Register from "./pages/auth/Register";
 
 function App() {
   return (
     <>
-      {/*<BrowserRouter>
+      <BrowserRouter>
         <Routes>
           <Route index element={<Home />} />
 
@@ -31,10 +34,12 @@ function App() {
           </Route>
 
           <Route path="leverdesfonds">
-            <Route index element={<LeverDesFonds2 />} />
+            <Route index element={<LeverDesFonds1 />} />
+            <Route path="details" element={<LeverDesFonds2 />} />
+            <Route path="commentçamarche" element={<LeverDesFonds3 />} />
           </Route>
 
-          <Route path="leverdesfond" element={<LeverDesFonds1 />} />
+          
 
           <Route path="commentçamarche" element={<CommentMarche />} />
           <Route path="investissement" element={<Investissement />} />
@@ -42,10 +47,13 @@ function App() {
           <Route path="mission" element={<Mission />} />
           <Route path="articles" element={<AllArticle />} />
           <Route path="article/:id" element={<Article />} />
-        </Routes>
-      </BrowserRouter>*/}
 
-      <LeverDesFonds1 />
+
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+
+        </Routes>
+      </BrowserRouter>  
     </>
   );
 }
