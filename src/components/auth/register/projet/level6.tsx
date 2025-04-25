@@ -23,7 +23,7 @@ const Level6 = () => {
             <div className="mt-10 w-full">
                 <label htmlFor="investissement" className="font-bold text-[15px] text-[#0E405D] mb-3 flex">Investissement minimum</label>
                 <div className="w-full bg-[#F3F5F7] rounded-[12px] mb-3 flex flex-row items-center">
-                    <input type="text" name="investissement" id="investissement" placeholder="----" className=" w-full h-full py-[22px] px-[19px] rounded-[12px] focus:border-none focus:outline-0" />
+                    <input type="number" name="investissement" id="investissement" placeholder="----" className=" w-full h-full py-[22px] px-[19px] rounded-[12px] focus:border-none focus:outline-0" />
                     <p className="text-white uppercase bg-[#95A3B0] rounded-[13px] p-2 relative right-3 font-bold ">fcfa</p>
                 </div>
                 <div className="flex flex-row justify-between">

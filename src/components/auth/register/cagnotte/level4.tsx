@@ -1,28 +1,57 @@
-
-
-const Level1 = () => {
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { Calendar } from "lucide-react";
+import { useState } from "react";
+const Level2 = () => {
+    const [startDate, setStartDate] = useState<Date | null>(null);
+    const [endDate, setEndDate] = useState<Date | null>(null);
     return (
         <div className="mt-20">
-            <h2 className="text-[32px] text-[#0E0E18] ">Présentez votre projet</h2>
-            <p className="text-[15px] text-[#8296A3] ">Présentez la personne, l’équipe ou l'organisation à l'origine de cette initiative, pour que vos soutiens en sachent plus sur votre engagement et vos ambitions</p>
-
-            <div className="mt-10">
-                <div className="w-full bg-[#F3F5F7] rounded-[12px] mb-3">
-                    <input type="text" name="nom" placeholder="Nom de la cagnotte" className=" w-full h-full py-[22px] px-[19px] rounded-[12px] focus:border-none focus:outline-0" />
-                </div>
+            <div className='max-w-[560px] pb-18'>
+                <h2 className="text-[32px] text-[#0E0E18] font-semibold"><span className='text-[#FD8352]' >Quand</span>  souhaitez démarrer votre collecte de fonds</h2>
             </div>
 
-            <div className="mt-5 w-full">
-                <div className="w-full bg-[#F3F5F7] rounded-[12px] mb-3">
-                    <textarea name="description" id="" placeholder="Description" rows={4} className=" w-full h-full py-[22px] px-[19px] rounded-[12px] focus:border-none focus:outline-0"></textarea>
-                    {/* <input type="text" name="price" placeholder="----"  /> */}
-                </div>
+         <div className="space-y-8">
+            <div className="flex items-center w-full border border-gray-200 rounded-[18px] shadow-sm px-4 py-2 bg-[#F5F8FB]">
+            <Calendar className="w-4 h-4 text-blue-500 mr-2" />
+            <DatePicker
+                selected={startDate}
+                onChange={(date) => setStartDate(date)}
+                dateFormat="dd/MM/yyyy"
+                placeholderText="Date de début"
+                className="w-full h-[40px] outline-none text-sm text-gray-700 bg-transparent"
+                
+            />
+            <input type="hidden" name="date_debut" value={startDate ? startDate.toISOString() : ''} />
             </div>
 
-            <button className="bg-[#23C7ED] px-[34px] py-[16px] text-white rounded-full absolute bottom-14 right-0 cursor-pointer hover:scale-105 transition">Continuer</button>
+            <div className="flex items-center w-full border border-gray-200 rounded-[18px] shadow-sm px-4 py-2 bg-[#F5F8FB]">
+            <Calendar className="w-4 h-4 text-blue-500 mr-2" />
+            <DatePicker
+                selected={endDate}
+                onChange={(date) => setEndDate(date)}
+                dateFormat="dd/MM/yyyy"
+                placeholderText="Date de fin"
+                className="w-full h-[40px] outline-none text-sm text-gray-700 bg-transparent"
+                
+            />
+            <input type="hidden" name="date_fin" value={startDate ? startDate.toISOString() : ''} />
+            </div>
+        </div>
+
+            <div className="flex justify-end items-center gap-4 pt-20 bottom-14 right-0">
+                
+                    <button className="border-2 border-[#D9DFE7CC] px-[34px] py-[16px] text-black font-semibold rounded-full hover:scale-105 transition">
+                         Précédent
+                    </button>
+
+                    <button className="bg-[#23C7ED] px-[34px] py-[16px] text-white rounded-full hover:scale-105 transition">
+                        Continuer
+                    </button>
+            </div>
                 
         </div>
     )
 }
 
-export default Level1
+export default Level2
