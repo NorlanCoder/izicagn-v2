@@ -33,14 +33,14 @@ const Level3 = () => {
                       <button className=' absolute top-2 right-2'><img src={Close} alt="" /></button>
                     </div>
                     <div className="w-[209px] h-[146px] bg-[#F3F5F7] rounded-[12px] flex justify-center items-center">
-                      <div className=' space-y-2'>
-                        <div className=' pl-9'><img src={Photo} alt="" /></div>
+                      <div className='flex flex-col items-center space-y-2'>
+                        <div><img src={Photo} alt="" /></div>
                         <p className='text-[#9A9A9A] text-[12.39px]'>Ajouter une image</p>
                       </div>
                     </div>
                     <div className="w-[209px] h-[146px] bg-[#F3F5F7] rounded-[12px] flex justify-center items-center">
-                      <div className=' space-y-2'>
-                        <div className=' pl-9'><img src={Photo} alt="" /></div>
+                      <div className='flex flex-col items-center space-y-2'>
+                        <div><img src={Photo} alt="" /></div>
                         <p className='text-[#9A9A9A] text-[12.39px]'>Ajouter une image</p>
                       </div>
                     </div>
