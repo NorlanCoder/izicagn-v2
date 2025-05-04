@@ -37,7 +37,7 @@ const CommentMarche = () => {
             <div className='px-5 w-full'>
                 
                 {/* Bannière code */}
-                <section className='rounded-[42.51px] h-[573px] relative my-8 flex flex-col justify-center items-end px-24 bg-[radial-gradient(circle,_#78DFF5,_#0BD1F4)] overflow-x-hidden'>
+                <section className='rounded-[42.51px] h-[573px] relative mb-8 mt-[100px] flex flex-col justify-center items-end px-24 bg-[radial-gradient(circle,_#78DFF5,_#0BD1F4)] overflow-x-hidden'>
                     <div className='max-w-[740px] relative z-10'>
                         
                         <h1 className='text-[55px] leading-14 text-white font-extrabold mb-5'>Ensemble <span className='text-[#0D304E]'>nous (et vous) </span>faisons la différence</h1>

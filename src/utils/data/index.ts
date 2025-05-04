@@ -1,10 +1,10 @@
 import { CagnotteMediumType, CategoryType, CcmListSectionType, DonAmmountType, SideBarItemType } from "../type";
-import Cat1 from '../../assets/cagnotte/cat1.png';
-import Cat2 from '../../assets/cagnotte/cat2.png';
-import Cat3 from '../../assets/cagnotte/cat3.png';
-import Cat4 from '../../assets/cagnotte/cat4.png';
-import Cat5 from '../../assets/cagnotte/cat5.png';
-import Cat6 from '../../assets/cagnotte/cat6.png';
+import Cat1 from '../../assets/cagnotte/cat1.svg';
+import Cat2 from '../../assets/cagnotte/cat2.svg';
+import Cat3 from '../../assets/cagnotte/cat3.svg';
+import Cat4 from '../../assets/cagnotte/cat4.svg';
+import Cat5 from '../../assets/cagnotte/cat5.svg';
+import Cat6 from '../../assets/cagnotte/cat6.svg';
 
 import Cagn1 from '../../assets/cagnotte/cagn1.png';
 import Cagn2 from '../../assets/cagnotte/cagn2.png';

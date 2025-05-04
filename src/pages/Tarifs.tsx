@@ -11,11 +11,11 @@ const Tarifs = () => {
   return (
     <div className=" w-full ">
       <Navbar />
-      <div>
-        <div className="md:px-4">
+      <div className="mt-[100px] ">
+        <div className="2xl:px[280px] lg:px-[120px] md:px-[80px] px-[16px]">
           <GobackComponent />
         </div>
-        <div className="flex justify-center items-center px-6">
+        <div className="flex justify-center items-center 2xl:px[280px] lg:px-[120px] md:px-[80px] px-[16px]">
           <div className="flex flex-col justify-center items-center pb-16">
             <div className="">
               <div className="flex justify-between w-full lg:w-[938px]">

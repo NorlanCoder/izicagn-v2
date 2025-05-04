@@ -20,6 +20,7 @@ import LeverDesFonds3 from "./pages/leverdesfonds/LDF3";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import Garanties from "./pages/Garanties";
+import CategoryCagnotte from "./pages/CategoryCagnotte";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
             <Route index element={<Cagnotte />} />
             <Route path="search" element={<RechercheCagnotte />} />
             <Route path="details" element={<DetailsCagnotte />} />
+            <Route path="categorie" element={<CategoryCagnotte />} />
           </Route>
 
           <Route path="leverdesfonds">
