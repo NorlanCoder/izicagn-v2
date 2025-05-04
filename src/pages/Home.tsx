@@ -357,7 +357,7 @@ const Home = () => {
                 </div>
 
                 <div className='flex flex-row justify-center mt-20'>
-                    <Link to="/articles" className="bg-[#F4F6F7] hover:bg-slate-300 transition-all text-[#0C0C44] p-4 px-7 rounded-full">Plus d'articles</Link>
+                    <Link to="/articles" className="bg-[#F4F6F7] transition-all text-[#000] p-4 px-7 rounded-full text-[16px] montserrat-bold ">Plus d'articles</Link>
                 </div>
 
             </section>
