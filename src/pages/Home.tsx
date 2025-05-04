@@ -259,7 +259,7 @@ const Home = () => {
                                 </div>
                             </div>
 
-                            <div className='grow flex flex-row relative h-full'>
+                            <div className='grow flex flex-row absolute top-0 w-full h-full'>
                                 <motion.img
                                     variants={{
                                         rest: { rotate: 0 },
@@ -268,7 +268,7 @@ const Home = () => {
                                     src={ObjectifAsset2} 
                                     alt=""
                                     transition={{ duration: 0.5, ease: 'easeInOut' }}
-                                    className='absolute 2xl:bottom-24 lg:bottom-32 xl:left-0 lg:-left-20 z-2' 
+                                    className='absolute bottom-0 xl:left-0 lg:-left-20 z-2' 
                                 />
                                 <motion.img 
                                     variants={{
@@ -278,7 +278,7 @@ const Home = () => {
                                     src={ObjectifAsset1} 
                                     alt=""
                                     transition={{ duration: 0.5, ease: 'easeInOut' }}
-                                    className='absolute 2xl:bottom-24 lg:bottom-36 xl:right-0 lg:-right-20 right-0 z-1'
+                                    className='absolute bottom-0 xl:right-0 lg:-right-20 right-0 z-1'
                                 />
                             </div>
                             <motion.div
