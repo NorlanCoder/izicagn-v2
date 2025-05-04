@@ -34,7 +34,7 @@ const Navbar2 = () => {
 
     return (
         <nav className="2xl:px[280px] lg:px-[120px] md:px-[80px] px-[16px] fixed z-50 top-[23px] w-full">
-            <div className="flex flex-row items-center justify-between glass h-[78px] p-[14px] rounded-[26px] border border-[#E9EBF2] ">
+            <div className="flex flex-row items-center justify-between backdrop-blur-md h-[78px] p-[14px] rounded-[26px] border border-[#E9EBF2] ">
                 <Link to="/"><img src={logo} alt="Logo Izicagn" title="Logo Izicagn" className="w-[135px] " /></Link>
                 <ul className="flex flex-row justify-end xl:space-x-10 lg:space-x-4">
                     <div className="lg:flex hidden flex-row xl:space-x-10 lg:space-x-4 font-bold">

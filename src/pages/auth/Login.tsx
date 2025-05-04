@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import Logo from "../../assets/logo.png"
+import Logo from "../../assets/Logo-izicagn.svg"
 import LoginLeft from "../../assets/auth/login_left.svg"
 import { EyeClosed } from "lucide-react"
 import Recaptcha from  '../../assets/auth/reCaptcha.png'

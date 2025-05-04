@@ -54,7 +54,7 @@ const Testimonial = () => {
                             {
                                 active==item.id && (
                                     
-                                        <motion.div initial={{opacity: 0, width: 0}} animate={{opacity: 1, width: 357.89, transition:{duration: 0.5, delay: 0.2, ease: 'easeIn'}}} exit={{opacity: 0, width: 0, transition: {duration: 0.2, delay: 0.1, ease: 'linear'}}} className="glass2 bg-[#FDFAF8] border border-white self-stretch w-[357.89px] md:h-[392.47px] h-auto rounded-[20px] p-8 relative z-20">
+                                        <motion.div initial={{opacity: 0, width: 0}} animate={{opacity: 1, width: 357.89, transition:{duration: 0.5, delay: 0.2, ease: 'easeIn'}}} exit={{opacity: 0, width: 0, transition: {duration: 0.2, delay: 0.1, ease: 'linear'}}} className=" backdrop-blur-[2px] bg-[#EAECEC33] border border-white self-stretch w-[357.89px] md:h-[392.47px] h-auto rounded-[20px] p-8 relative z-20">
                                             <p className='text-white md:text-[20px] text-[15px]'>{item.text} </p>
                                             <h1 className='text-white text-[20px] font-bold mt-6'>{item.name} </h1>
                                             <h2 className='text-[#FFFFFF8F] text-[15px] font-extralight'>{item.date} </h2>
