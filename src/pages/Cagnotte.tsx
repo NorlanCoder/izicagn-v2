@@ -15,85 +15,89 @@ const Cagnotte = () => {
   };
 
   return (
-    <div className="px-5 w-full">
+    <div>
       <Navbar />
+    
+      <div className="px-4 w-full">
+        
 
-      {/* Bannière code */}
-      <section className="rounded-[42.51px] h-[573px] relative my-8 flex flex-col justify-center px-24 bg-[radial-gradient(circle,_#78DFF5,_#0BD1F4)] overflow-x-hidden">
-        <div className="max-w-[740px] relative z-10">
-          <h1 className="text-[55px] leading-14 text-white font-extrabold mb-5">
-            Devenez le{" "}
-            <span className="text-[#0D304E]">héros de quelqu'un</span>{" "}
-            aujourd'hui
-          </h1>
+        {/* Bannière code */}
+        <section className="rounded-[42.51px] h-[573px] relative mb-8 mt-[100px] flex flex-col justify-center px-24 bg-[radial-gradient(circle,_#78DFF5,_#0BD1F4)] overflow-x-hidden">
+          <div className="max-w-[740px] relative z-10">
+            <h1 className="text-[55px] leading-14 text-white montserrat-bold mb-5">
+              Devenez le{" "}
+              <span className="text-[#0D304E] montserrat-bold">héros de quelqu'un</span>{" "}
+              aujourd'hui
+            </h1>
 
-          <p className="text-[#0F6D8F] w-9/12 mb-8 text-[19px] font-bold ">
-            Donnez de l'espoir à ceux qui en ont besoin, découvrez, soutenez, et
-            devenez acteur du changement
-          </p>
+            <p className="text-[#0F6D8F] w-9/12 mb-8 text-[19px] font-bold ">
+              Donnez de l'espoir à ceux qui en ont besoin, découvrez, soutenez, et
+              devenez acteur du changement
+            </p>
 
-          <div className="flex flex-row space-x-3">
-            <div className="border border-[#07AED8] w-[339px] rounded-full p-[12px] bg-white flex flex-row space-x-2 items-center">
-              <img src={Search} alt="" title="" />
-              <input
-                type="text"
-                onClick={() => RedirectToSearchPage()}
-                placeholder="Rechercher"
-                className="text-[#D9D9D9] w-full h-full focus:border-0 focus:outline-0"
-              />
+            <div className="flex flex-row space-x-3">
+              <div className="border border-[#07AED8] w-[339px] rounded-full p-[12px] bg-white flex flex-row space-x-2 items-center">
+                <img src={Search} alt="" title="" />
+                <input
+                  type="text"
+                  onClick={() => RedirectToSearchPage()}
+                  placeholder="Rechercher"
+                  className="text-[#D9D9D9] w-full h-full focus:border-0 focus:outline-0"
+                />
+              </div>
+
+              <button className="bg-[#0D304E] text-white rounded-full text-[14px] py-[16px] px-[20px] font-bold">
+                Démarrer une cagnotte
+              </button>
             </div>
-
-            <button className="bg-[#0D304E] text-white rounded-full text-[14px] py-[16px] px-[20px] font-bold">
-              Démarrer une cagnotte
-            </button>
           </div>
-        </div>
 
-        <div
-          id="cagnottebanniere"
-          className="absolute inset-0 bg-right bg-no-repeat w-full z-0"
-        ></div>
-      </section>
+          <div
+            id="cagnottebanniere"
+            className="absolute inset-0 bg-right bg-no-repeat w-full z-0"
+          ></div>
+        </section>
 
-      {/* Liste catégorie */}
+        {/* Liste catégorie */}
 
-      <section
-        id="categorylist"
-        className="flex flex-row flex-nowrap overflow-x-auto scrollbar-hide snap-x snap-mandatory scroll-smooth justify-center space-x-2 mb-4 w-full pb-4"
-      >
-        {CategoryList.map((item) => (
-          <Category item={item} key={item.id} />
-        ))}
-      </section>
+        <section
+          id="categorylist"
+          className="flex flex-row flex-nowrap overflow-x-auto scrollbar-hide snap-x snap-mandatory scroll-smooth justify-center space-x-3 w-full pb-[50px] 2xl:px[280px] lg:px-[120px] md:px-[80px] px-[16px]"
+        >
+          {CategoryList.map((item) => (
+            <Category item={item} key={item.id} />
+          ))}
+        </section>
 
-      {/* Liste Cagnotte */}
-      <section className="mb-8 flex flex-col space-y-5 md:px-8">
-        <div className="mt-8">
-          <h1 className="text-[#0A1243] text-[24px] font-bold mb-5">
-            Évènements personnels
-          </h1>
+        {/* Liste Cagnotte */}
+        <section className="mb-8 flex flex-col space-y-5 2xl:px[280px] lg:px-[120px] md:px-[80px] px-[16px]">
+          <div className="mt-8">
+            <h1 className="text-[#0A1243] text-[24px] font-bold mb-5 montserrat-bold">
+              Évènements personnels
+            </h1>
 
-          <div className="flex flex-row flex-wrap">
-            {CagnotteMediumList.map((item, index) => (
-              <CagnotteMediumComponent item={item} key={index.toString()} />
-            ))}
+            <div className="flex flex-row flex-wrap">
+              {CagnotteMediumList.map((item, index) => (
+                <CagnotteMediumComponent item={item} key={index.toString()} />
+              ))}
+            </div>
           </div>
-        </div>
 
-        <div className="mt-8">
-          <h1 className="text-[#0A1243] text-[24px] font-bold mb-5">
-            Causes d’associations
-          </h1>
+          <div className="mt-8">
+            <h1 className="text-[#0A1243] text-[24px] font-bold mb-5">
+              Causes d’associations
+            </h1>
 
-          <div className="flex flex-row flex-wrap">
-            {CagnotteMediumList.map((item, index) => (
-              <CagnotteMediumComponent item={item} key={index.toString()} />
-            ))}
+            <div className="flex flex-row flex-wrap">
+              {CagnotteMediumList.map((item, index) => (
+                <CagnotteMediumComponent item={item} key={index.toString()} />
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <Footer />
+        <Footer />
+      </div>
     </div>
   );
 };

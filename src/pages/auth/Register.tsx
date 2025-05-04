@@ -3,14 +3,14 @@ import Navbar1 from '../../components/general/navbar1'
 import Choice from '../../components/auth/Choice'
 import CagnotteIcon from '../../assets/auth/cagnotte.svg'
 import ProjectIcon from '../../assets/auth/project.svg'
-import LoadingIcon from '../../assets/auth/loading.png'
+// import LoadingIcon from '../../assets/auth/loading.png'
 import ProjectRegister from '../../components/auth/register/projet'
 import CagnoteRegister from '../../components/auth/register/cagnotte'
 
 const Register = () => {
 
     const [accountType, setAccountType] = useState<string|null>(null)
-    const [loadingFull, setLoadingFull] = useState<boolean>(false)
+    // const [loadingFull, setLoadingFull] = useState<boolean>(false)
 
     return (
         <div>
@@ -47,7 +47,7 @@ const Register = () => {
                             )
                         }
 
-                        {
+                        {/* {
                             loadingFull && (
                                 <div className='fixed top-0 left-0 w-[100vw] h-[100vh] glass1 z-50 flex justify-center items-center'>
                                     <div>
@@ -55,7 +55,7 @@ const Register = () => {
                                     </div>
                                 </div>
                             )
-                        }
+                        } */}
 
                     </div>
                 )

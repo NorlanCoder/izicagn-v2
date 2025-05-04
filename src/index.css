@@ -6,12 +6,21 @@
 }
 
 @font-face {
+  font-family: MontserratBold;
+  src: url("./assets/font/Montserrat-Bold.ttf");
+}
+
+@font-face {
   font-family: Pacifico;
   src: url("./assets/font/Pacifico.ttf");
 }
 
 .pacifico {
   font-family: pacifico, sans-serif;
+}
+
+.montserrat-bold {
+  font-family: MontserratBold, sans-serif;
 }
 
 * {
@@ -47,7 +56,7 @@
 }
 
 .glass {
-  background: rgba(255, 255, 255, 0.15);
+  background: #F0F2F29E;
   /* border-radius: 16px; */
   /* padding: 20px; */
   /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
@@ -63,6 +72,16 @@
   /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
+  /* border: 1px solid rgba(255, 255, 255, 0.3); */
+}
+
+.glass2 {
+  background: #EAECEC33;
+  /* border-radius: 16px; */
+  /* padding: 20px; */
+  /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
   /* border: 1px solid rgba(255, 255, 255, 0.3); */
 }
 

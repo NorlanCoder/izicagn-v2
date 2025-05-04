@@ -7,7 +7,7 @@ import { ChevronDown } from "lucide-react";
 import { AnimatePresence, motion } from 'motion/react'
 import { useEffect, useRef, useState } from "react";
 
-const Navbar = () => {
+const Navbar2 = () => {
 
     const subMenuRef = useRef<HTMLLIElement |null>(null)
     const [showSubMenu, setShowSubMenu] = useState(false)
@@ -18,24 +18,24 @@ const Navbar = () => {
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
-            if (subMenuRef.current && !subMenuRef.current.contains(event.target as Node)) {
+          if (subMenuRef.current && !subMenuRef.current.contains(event.target as Node)) {
             setShowSubMenu(false);
-            }
+          }
         };
-        
+      
         if (showSubMenu) {
-            document.addEventListener("mousedown", handleClickOutside);
+          document.addEventListener("mousedown", handleClickOutside);
         }
-        
+      
         return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
+          document.removeEventListener("mousedown", handleClickOutside);
         };
-    }, [showSubMenu]);
+      }, [showSubMenu]);
 
     return (
-        <nav className="2xl:px[280px] lg:px-[120px] md:px-[80px] px-[16px] fixed z-50 top-0 h-[78px] w-full glass flex flex-row items-center justify-between">
-
-<Link to="/"><img src={logo} alt="Logo Izicagn" title="Logo Izicagn" className="w-[135px] " /></Link>
+        <nav className="2xl:px[280px] lg:px-[120px] md:px-[80px] px-[16px] fixed z-50 top-[23px] w-full">
+            <div className="flex flex-row items-center justify-between glass h-[78px] p-[14px] rounded-[26px] border border-[#E9EBF2] ">
+                <Link to="/"><img src={logo} alt="Logo Izicagn" title="Logo Izicagn" className="w-[135px] " /></Link>
                 <ul className="flex flex-row justify-end xl:space-x-10 lg:space-x-4">
                     <div className="lg:flex hidden flex-row xl:space-x-10 lg:space-x-4 font-bold">
                         <li className="relative" ref={subMenuRef}>
@@ -71,8 +71,9 @@ const Navbar = () => {
                         <li><Link to="/register" className="transition-all shadow bg-gradient-to-b from-[#07AED8] to-[#90E2F8] hover:to-[#07AED8] hover:shadow-none text-white p-4 px-7 rounded-full text-[15px] montserrat-bold">Démarrer</Link></li>
                     </ul>
                 </ul>
+            </div>
         </nav>
     )
 }
 
-export default Navbar
+export default Navbar2

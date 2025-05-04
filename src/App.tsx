@@ -19,6 +19,7 @@ import LeverDesFonds1 from "./pages/leverdesfonds/LDF1";
 import LeverDesFonds3 from "./pages/leverdesfonds/LDF3";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
+import Garanties from "./pages/Garanties";
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
           
 
           <Route path="commentçamarche" element={<CommentMarche />} />
+          <Route path="garantie" element={<Garanties />} />
           <Route path="investissement" element={<Investissement />} />
           <Route path="tarifs" element={<Tarifs />} />
           <Route path="mission" element={<Mission />} />

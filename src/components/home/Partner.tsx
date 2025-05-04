@@ -1,12 +1,12 @@
 import AutoScroll from 'embla-carousel-auto-scroll';
 import useEmblaCarousel from 'embla-carousel-react';
-import MasterCad from '../../assets/home/payment/mastercad.svg'
-import Mtn from '../../assets/home/payment/mtn.svg'
-import Moov from '../../assets/home/payment/moov.svg'
-import Wave from '../../assets/home/payment/wave.svg'
-import Visa from '../../assets/home/payment/visa.svg'
-import Orange from '../../assets/home/payment/orange.svg'
-import Paypal from '../../assets/home/payment/paypal.svg'
+import MasterCad from '../../assets/home/payment/mastercard.png'
+import Mtn from '../../assets/home/payment/mtn.png'
+import Moov from '../../assets/home/payment/moov.png'
+import Wave from '../../assets/home/payment/wave.png'
+import Visa from '../../assets/home/payment/visa.png'
+import Orange from '../../assets/home/payment/orange.png'
+import Paypal from '../../assets/home/payment/paypal.png'
 
 const Partner = () => {
 
@@ -15,43 +15,43 @@ const Partner = () => {
           id: "Orange",
           description: "Orange",
           image: Orange,
-          className: "h-10 w-auto",
+          className: "h-20 w-auto",
         },
         {
           id: "Paypal",
           description: "Paypal",
           image: Paypal,
-          className: "h-10 w-auto",
+          className: "h-12 w-auto mt-4",
         },
         {
           id: "Visa",
           description: "Visa",
           image: Visa,
-          className: "h-10 w-auto",
+          className: "h-16 mt-2 w-auto",
         },
         {
           id: "Wave",
           description: "Wave",
           image: Wave,
-          className: "h-10 w-auto",
+          className: "h-18 w-auto",
         },
         {
           id: "Mastercad",
           description: "Mastercad",
           image: MasterCad,
-          className: "h-10 w-auto",
+          className: "h-18 w-auto",
         },
         {
           id: "Mtn",
           description: "Mtn",
           image: Mtn,
-          className: "h-4 w-auto",
+          className: "h-20 w-auto",
         },
         {
           id: "Moov",
           description: "Moov",
           image: Moov,
-          className: "h-10 w-auto",
+          className: "h-20 w-auto",
         },
     ];
 

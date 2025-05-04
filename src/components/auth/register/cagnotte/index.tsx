@@ -1,11 +1,11 @@
 import Logo from '../../../../assets/logo.png'
 import IllustrationUser from '../../../../assets/auth/user_illustration_register.svg'
-import { useState } from 'react'
+// import { useState } from 'react'
 import Level4 from '../projet/level4'
 
 const CagnoteRegister = () => {
 
-    const [level, setLevel] = useState<number>(1)
+    // const [level, setLevel] = useState<number>(1)
 
     return (
         <div className="flex flex-row h-[100vh] ">
