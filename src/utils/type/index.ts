@@ -18,7 +18,7 @@ export interface CagnotteMediumType {
 
 export interface DonAmmountType {
     id: string,
-    amount: number
+    amount: string
 }
 
 export interface SideBarItemType {

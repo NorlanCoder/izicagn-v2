@@ -174,23 +174,58 @@ export const CagnotteMediumListMin: CagnotteMediumType[] = [
       image: Cagn2 
     }
 ];
+
+export const CagnotteMediumListMin2: CagnotteMediumType[] = [
+  { 
+    id: "1", 
+    title: "Soutien à la formation des jeunes agriculteurs", 
+    solde: 2500, 
+    besoin: 5000, 
+    participant: 35, 
+    image: Cagn1 
+  },
+  { 
+    id: "2", 
+    title: "Rénovation du centre culturel de Douala", 
+    solde: 1200, 
+    besoin: 3000, 
+    participant: 20, 
+    image: Cagn2
+  },
+  { 
+    id: "3", 
+    title: "Soins médicaux de Marie", 
+    solde: 800, 
+    besoin: 5000, 
+    participant: 15, 
+    image: Cagn3
+  },
+  { 
+    id: "4", 
+    title: "Soins médicaux de Marie", 
+    solde: 4000, 
+    besoin: 10000, 
+    participant: 50, 
+    image: Cagn2 
+  }
+];
   
 export const DonAmountMin: DonAmmountType[] = [
   {
     id: 'A001',
-    amount: 10000
+    amount: '10 000'
   },
   {
     id: 'A002',
-    amount: 20000
+    amount: '20 000'
   },
   {
     id: 'A003',
-    amount: 50000
+    amount: '50 000'
   },
   {
     id: 'A004',
-    amount: 100000
+    amount: '100 000'
   }
 ]
 
