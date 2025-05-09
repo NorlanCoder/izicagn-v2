@@ -327,9 +327,9 @@ const DetailsCagnotte = () => {
 				</section>
 
 				{/* Liste Cagnotte */}
-				<section className='mb-8 flex flex-col space-y-5 2xl:px[280px] lg:px-[120px] md:px-[80px] px-[16px]'>
+				<section className='mb-8 flex flex-col space-y-5 2xl:px[280px] lg:px-[120px] md:px-[80px] px-[16px] relative z-10 '>
 					<div className='mt-8'>
-						<h1 className='text-[#090914] text-[36px] montserrat-bold mb-5'>D'autres causes comme celle-ci</h1>
+						<h1 className='text-[#090914] text-[36px] montserrat-bold mb-5 relative z-10'>D'autres causes comme celle-ci</h1>
 						<div className='flex flex-row flex-wrap'>
 							{
 								CagnotteMediumListMin2.map((item,index) => (

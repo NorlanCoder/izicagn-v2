@@ -33,8 +33,8 @@ const Navbar = () => {
     }, [showSubMenu]);
 
     return (
-        <nav className="2xl:px[280px] lg:px-[120px] md:px-[80px] px-[16px] fixed z-50 top-0 h-[78px] w-full bg-[#FBFBFB9E] backdrop-blur-md flex flex-row items-center justify-between">
-
+        <nav className=" lg:px-[120px] md:px-[80px] px-[16px] fixed z-50 top-0 left-0 w-full bg-[#FBFBFB]/90 backdrop-blur-2xl">
+            <div className="w-full flex flex-row items-center justify-between h-[78px] ">
                 <Link to="/"><img src={logo} alt="Logo Izicagn" title="Logo Izicagn" className="w-[135px] " /></Link>
                 <ul className="flex flex-row justify-end xl:space-x-10 lg:space-x-4">
                     <div className="lg:flex hidden flex-row xl:space-x-10 lg:space-x-4 font-bold">
@@ -71,6 +71,7 @@ const Navbar = () => {
                         <li><Link to="/register" className="transition-all shadow bg-gradient-to-b from-[#07AED8] to-[#90E2F8] hover:to-[#07AED8] hover:shadow-none text-white p-4 px-7 rounded-full text-[15px] montserrat-bold">Démarrer</Link></li>
                     </ul>
                 </ul>
+            </div>
         </nav>
     )
 }
