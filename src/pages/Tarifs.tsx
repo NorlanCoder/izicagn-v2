@@ -169,7 +169,7 @@ const Tarifs = () => {
             </div>
           </div>
       </div>
-      <div className="px-5">
+      <div className="px-4">
         <Footer />
       </div>
     </div>

@@ -10,17 +10,18 @@ const LeverDesFonds1 = () => {
         
 		<>
 			<Navbar />
-			<div className="px-5">
+			<div className="px-4 mt-[100px] ">
 				<section className='rounded-[42.51px] h-[573px] relative my-8 flex flex-col justify-center px-24 bg-[radial-gradient(circle,_#78DFF5,_#0BD1F4)] overflow-x-hidden'>
+					<div className="absolute inset-0 bg-[radial-gradient(circle,_rgba(0,0,0,0)_0%,_#000_100%)] mix-blend-overlay pointer-events-none"></div>
 					<div className='max-w-[680px] relative z-10'>
 				
-						<h1 className='text-[55px] leading-14 text-white font-extrabold mb-5'><span className='text-[#0D304E]'>Transformez vos idées</span>  en actions en trouvant un financement !</h1>
+						<h1 className='text-[55px] leading-14 text-white montserrat-bold mb-5'><span className='text-[#0D304E] montserrat-bold'>Transformez vos idées</span>  en actions en trouvant un financement !</h1>
 						<p className='text-[#0F6D8F] w-9/12 mb-8 text-[19px] font-bold '>Chez izicagn, on donne de la visibilité à vos projets. Rejoignez-nous pour faire avancer vos idées ambitieuses et créatives.</p>
 						<div className='flex flex-row space-x-3'>
-							<div className='border border-[#07AED8] w-[339px] rounded-full p-[12px] bg-white flex flex-row space-x-2 justify-center items-center'>
+							<div className='border border-[#07AED8] w-[339px] rounded-full p-[12px] bg-white transition-all hover:bg-[#07AED8] montserrat-bold cursor-pointer flex flex-row space-x-2 justify-center items-center'>
 								<p className="text-[16px] text-center font-bold text-[#083044]">Financer un projet</p> 
 							</div>
-							<button className='bg-[#0D304E] text-white rounded-full text-[14px] py-[16px] px-[20px] font-bold'>Démarrer une cagnotte</button>
+							<button className='bg-[#0D304E] transition-all hover:bg-[#07AED8] cursor-pointer montserrat-bold text-white rounded-full text-[14px] py-[16px] px-[21.26px] font-bold'>Démarrer une cagnotte</button>
 						</div>
 					</div>
 				</section>
@@ -37,16 +38,17 @@ const LeverDesFonds1 = () => {
 					<AvisSection />
 				</div>
 
-				<div className="flex justify-center py-20 px-4">
-					<div className="flex flex-col justify-center items-center space-y-4 bg-[#23C7ED] rounded-[40px] max-w-[1271px] md:w-[1271px] h-[326px]">
-						<h2 className="text-[35px] md:text-[48px] text-center text-white font-bold max-w-[973px] px-2">
-							Prêt à{" "}
-							<span className="text-[#231F20]">donner vie vos idées ?</span>{" "}
-							Créez votre cagnotte dès maintenant
-						</h2>
-						<button className=" text-white bg-[#083044] py-[16px] px-[30px] rounded-[200px]">
-							Démarrer une cagnotte
-						</button>
+				<div className="flex justify-center pb-[50px] pt-20 px-4">
+					<div className="flex flex-col relative justify-center items-center space-y-4 bg-[radial-gradient(circle,#23c8ed,#23c8ed44)] bg-[#23c8ed44]  rounded-[40px] max-w-[1271px] md:w-[1271px] h-[326px]">
+					
+					<h2 className="text-[35px] md:text-[48px] text-center text-white font-bold mb-8 montserrat-bold leading-16 px-2">
+						Prêt à{" "}
+						<span className="text-[#231F20] montserrat-bold">donner vie vos idées ?</span>{" "}
+						Créez votre cagnotte dès maintenant
+					</h2>
+					<button className=" text-white bg-[#083044] py-[16px] px-[30px] cursor-pointer rounded-[200px] transition-all hover:bg-[#07AED8] shadow-2xl montserrat-bold ">
+						Démarrer un projet
+					</button>
 					</div>
 				</div>
 

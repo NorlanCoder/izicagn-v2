@@ -31,7 +31,7 @@ import { Link } from "react-router";
 
 const EtapesSection = () => {
   return (
-    <section className="w-full h-full">
+    <section className="w-full h-full ">
       <div className="w-full h-[622px] flex justify-center items-start gap-4 mb-8">
         <div
           style={{
