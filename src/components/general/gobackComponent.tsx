@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router";
-import GoBack from "../../assets/cagnotte/goback.png";
 import { ArrowLeft } from "lucide-react";
 
 
