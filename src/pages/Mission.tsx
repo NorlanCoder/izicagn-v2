@@ -3,7 +3,6 @@ import Footer from '../components/general/footer'
 import GobackComponent from '../components/general/gobackComponent'
 import Frame from '../assets/Frame 1000002142.png'
 import Rectangle from '../assets/Rectangle 22631.png'
-import { div } from 'motion/react-client'
 
 const Mission = () => {
   return (

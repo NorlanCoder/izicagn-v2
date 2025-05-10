@@ -16,12 +16,12 @@ import Sub3 from '../../assets/sidebar/sidebari3.svg';
 import Sub4 from '../../assets/sidebar/sidebari4.svg';
 import Sub5 from '../../assets/sidebar/sidebari5.svg';
 
-import CCM_SECTION1 from '../../assets/ccm/ccm_img1.png';
-import CCM_SECTION2 from '../../assets/ccm/ccm_img2.png';
-import CCM_SECTION3 from '../../assets/ccm/ccm_img3.png';
-import CCM_SECTION4 from '../../assets/ccm/ccm_img4.png';
-import CCM_SECTION5 from '../../assets/ccm/ccm_img5.png';
-import CCM_SECTION6 from '../../assets/ccm/ccm_img6.png';
+import CCM_SECTION1 from '../../assets/ccm/ccm_img1.svg';
+import CCM_SECTION2 from '../../assets/ccm/ccm_img2.svg';
+import CCM_SECTION3 from '../../assets/ccm/ccm_img3.svg';
+import CCM_SECTION4 from '../../assets/ccm/ccm_img4.svg';
+import CCM_SECTION5 from '../../assets/ccm/ccm_img5.svg';
+import CCM_SECTION6 from '../../assets/ccm/ccm_img6.svg';
 
 import CCM_ICON1 from '../../assets/ccm/rating1.svg';
 import CCM_ICON2 from '../../assets/ccm/rating2.svg';
