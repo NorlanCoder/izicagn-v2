@@ -1,4 +1,4 @@
-import clap_hand_icon from "../../assets/articles/clap_hand_icon.png";
+import Clap from "../../assets/clap.svg";
 
 const ArticleCardMedium = ({ image, date, desc, react }:any) => {
     return (
@@ -19,7 +19,7 @@ const ArticleCardMedium = ({ image, date, desc, react }:any) => {
                         <span className="text-sm font-medium text-black montserrat-bold">{react}</span>
 
                         <img
-                            src={clap_hand_icon}
+                            src={Clap}
                             alt="Clap Hand Icon"
                             className="w-[20px] h-auto object-cover"
                         />
@@ -27,7 +27,7 @@ const ArticleCardMedium = ({ image, date, desc, react }:any) => {
                     </div>
 
                     {/* Description */}
-                    <p className="text-[#000000] text-[20px] montserrat-bold leading-snug">
+                    <p className="text-[#000000] text-[20px] montserrat-bold leading-snug line-clamp-2 min-h-[2.8em]">
                     {desc}
                     </p>
                 </div>

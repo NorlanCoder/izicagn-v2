@@ -13,7 +13,7 @@ const Tarifs = () => {
     <div className=" w-full ">
       <Navbar />
       <div className="mt-[150px] ">
-        <div className="flex justify-center items-center 2xl:px[280px] lg:px-[120px] md:px-[80px] px-[16px]">
+        <div className="flex justify-center items-center 2xl:px-[280px] 2xl:px-[120px] md:px-[80px] px-[16px]">
           
           <div className="flex flex-col justify-center items-center pb-16">
             <div className=" self-start mb-5">

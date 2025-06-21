@@ -1,7 +1,6 @@
-import avatar_1 from "../../assets/Lever de fond/avatar_1.png";
 import li_frame from "../../assets/Lever de fond/li_frame.png";
 import Subtract from "../../assets/Lever de fond/Subtract.png";
-import vetor_1 from "../../assets/Lever de fond/vetor_1.png";
+import Decor from "../../assets/Lever de fond/decor.svg";
 import investissement_icon from "../../assets/Lever de fond/investissement_icon.png";
 import arrow_up from "../../assets/Lever de fond/uil_arrow-up.png";
 import rocket_icon from "../../assets/Lever de fond/rocket_icon.png";
@@ -32,20 +31,14 @@ import { Link } from "react-router";
 const EtapesSection = () => {
   return (
     <section className="w-full h-full ">
-      <div className="w-full h-[622px] flex justify-center items-start gap-4 mb-8">
+      <div className="w-full flex lg:flex-row flex-col justify-center items-start gap-4 mb-8">
         <div
-          style={{
-            backgroundImage: `url(${vetor_1})`,
-            backgroundSize: "",
-            backgroundPosition: "bottom",
-            backgroundRepeat: "no-repeat",
-          }}
-          className="relative w-full xl:w-[40vw] h-[480px] xl:h-[622px] rounded-[20px] md:rounded-[30px]"
+          className="relative w-full lg:w-auto w-[508px] md:h-[622px] h-auto rounded-[20px] md:rounded-[30px] overflow-hidden"
         >
           <img
-            src={avatar_1}
+            src={Decor}
             alt="Avatar"
-            className="w-full h-full object-cover mix-blend-lighten rounded-[20px] md:rounded-[30px]"
+            className="w-full h-full xl:object-contain lg:object-cover object-contain rounded-[20px]  md:rounded-[30px] relative z-1"
           />
         </div>
 
@@ -57,7 +50,7 @@ const EtapesSection = () => {
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
           }}
-          className="w-full xl:w-[60vw] h-[480px] xl:h-[622px] bg-[#033C50] flex flex-col justify-center rounded-[20px] md:rounded-[30px] space-y-6 sm:space-y-8 p-6 sm:p-8"
+          className="w-full lg:w-[705px] md:h-[622px] h-auto bg-[#033C50] flex flex-col justify-center rounded-[20px] md:rounded-[30px] space-y-6 sm:space-y-8 p-6 sm:p-8"
         >
           <h2 className="text-[22px] sm:text-[28px] lg:text-[38px] text-white font-bold leading-[130%] mb-4 sm:mb-6">
             Lever des fonds en quelques étapes simples
@@ -130,7 +123,7 @@ const EtapesSection = () => {
                 Qui peut lever des fonds sur izicagn
               </h3>
 
-              <p className="text-base sm:text-lg text-[#6C7180] font-semibold leading-relaxed tracking-tight">
+              <p className="text-base sm:text-lg text-[#6C7180] font-semibold leading-relaxed tracking-tight line-clamp-2 min-h-[2.8em]">
                 Lorem ipsum dolor sit amet consectetur. Euismod tortor
                 pellentesque ac sem risus. Sed tortor ut sed tellus eget.
               </p>
@@ -158,7 +151,7 @@ const EtapesSection = () => {
                 Qui peut investir sur izicagn
               </h3>
 
-              <p className="text-base sm:text-lg text-[#6C7180] font-semibold leading-relaxed tracking-tight">
+              <p className="text-base sm:text-lg text-[#6C7180] font-semibold leading-relaxed tracking-tight line-clamp-2 min-h-[2.8em]">
                 Lorem ipsum dolor sit amet consectetur. Euismod tortor
                 pellentesque ac sem risus. Sed tortor ut sed tellus eget.
               </p>

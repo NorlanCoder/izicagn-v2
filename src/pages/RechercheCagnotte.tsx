@@ -27,14 +27,14 @@ const RechercheCagnotte = () => {
 
 				{/* Liste catégorie */}
 
-				<section id="categorylist" className='flex flex-row flex-nowrap overflow-x-auto scrollbar-hide snap-x snap-mandatory scroll-smooth justify-center space-x-2 mb-4 w-full pb-[50px] 2xl:px[280px] lg:px-[120px] md:px-[80px] px-[16px]'>
+				<section id="categorylist" className='flex flex-row flex-nowrap overflow-x-auto scrollbar-hide snap-x snap-mandatory scroll-smooth justify-center space-x-2 mb-4 w-full pb-[50px] 2xl:px-[280px] 2xl:px-[120px] md:px-[80px] px-[16px]'>
 					{CategoryList.map((item)=>(
 						<Category item={item} key={item.id} />
 					))}
 				</section>
 
 				{/* Liste Cagnotte */}
-				<section className='mb-8 flex flex-col space-y-5 2xl:px[280px] lg:px-[120px] md:px-[80px] px-[16px]'>
+				<section className='mb-8 flex flex-col space-y-5 2xl:px-[280px] 2xl:px-[120px] md:px-[80px] px-[16px]'>
 					<div className=''>
 						<div className='flex flex-row flex-wrap space-y-10'>
 							{

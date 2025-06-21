@@ -1,6 +1,6 @@
 import { CagnotteMediumType } from "../../utils/type"
-import Group from '../../assets/cagnotte/Group.png'
-import Donate from '../../assets/cagnotte/donate.png'
+import Group from '../../assets/cagnotte/Group.svg'
+import Donate from '../../assets/cagnotte/Coin.svg'
 import { useNavigate } from "react-router"
 
 type CagnotteMediumComponentProps = {
@@ -25,7 +25,7 @@ const CagnotteMediumComponent = ({item}:CagnotteMediumComponentProps) => {
                 <div className='bg-[#F3F5F6] h-[6px] rounded-full overflow-hidden mb-2'>
                     <div className='rounded-full bg-[#FD8342] h-full ' style={{width: `${(item.solde/item.besoin)*100}%`}}></div>
                 </div>
-                <h3 className="text-[14px] text-[#585D5E] mb-4"> <span className='text-[#0988B1] montserrat-bold'>{item.solde} Fcfa</span> collectés</h3>
+                <h3 className="text-[14px] text-[#585D5E] mb-4"> <span className='text-[#07AED8] montserrat-bold'>{item.solde} Fcfa</span> collectés</h3>
                 <div className='flex flex-row justify-between items-center'>
                     <div className='flex flex-row items-center space-x-[8px] '>
                         <img src={Group} className="w-5" alt="" />

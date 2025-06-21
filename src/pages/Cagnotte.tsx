@@ -71,7 +71,7 @@ const Cagnotte = () => {
 
         <section
           id="categorylist"
-          className="flex flex-row flex-nowrap overflow-x-auto scrollbar-hide snap-x snap-mandatory scroll-smooth justify-center space-x-3 w-full pb-[50px] 2xl:px[280px] lg:px-[120px] md:px-[80px] px-[16px]"
+          className="flex flex-row flex-nowrap overflow-x-auto scrollbar-hide snap-x snap-mandatory scroll-smooth justify-center space-x-3 w-full pb-[50px] 2xl:px-[280px] 2xl:px-[120px] md:px-[80px] px-[16px]"
         >
           {CategoryList.map((item) => (
             <Category item={item} key={item.id} />
@@ -79,7 +79,7 @@ const Cagnotte = () => {
         </section>
 
         {/* Liste Cagnotte */}
-        <section className="mb-36 flex flex-col space-y-5 2xl:px[280px] lg:px-[120px] md:px-[80px] px-[16px]">
+        <section className="mb-36 flex flex-col space-y-5 2xl:px-[280px] 2xl:px-[120px] md:px-[80px] px-[16px]">
           <div className="mt-8">
             <div className="flex flex-row justify-between items-center">
               <h1 className="text-[#0A1243] text-[24px] font-bold mb-5 montserrat-bold">

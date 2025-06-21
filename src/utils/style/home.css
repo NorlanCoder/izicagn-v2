@@ -157,6 +157,9 @@
 
 .hero_section_bg {
     background-image: url('../../assets//home//hero_section_bg.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 .testimony_bg {

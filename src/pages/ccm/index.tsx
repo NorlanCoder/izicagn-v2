@@ -72,40 +72,56 @@ const CommentMarche = () => {
                     </div>
                 </div>
 
-                <motion.div onViewportEnter={()=>{if(!fixed){setFixed(true)} }} className='mt-2 mb-14 flex flex-col items-center 2xl:px[280px] lg:px-[120px] md:px-[80px] px-[16px]'>
+                <motion.div key={active} layout onViewportEnter={()=>{if(!fixed){setFixed(true)} }} className='mt-2 mb-14 flex flex-col items-center '>
                     
                     <AnimatePresence>
                         {
                             active=='Btn1' && (
-                                <StepBlockComponent>
-                                    <img src={BgAsset} alt="" className='absolute top-0 left-0 rounded-[40px] ' />
-                                    <div className='flex flex-col items-center'>
-                                        <div className='bg-[#ECFDFF] border-4 border-[#D7EDF1] w-[100px] h-[100px] rounded-full flex flex-row justify-center items-center mb-2'>
-                                            <img src={CcmStep1} alt=""  className='w-10 h-10'/>
-                                        </div>
-                                        <p className='text-[14px] text-[#4E5E62] font-semibolld '>Etape 1</p>
-                                        <h2 className='text-[#0C0C44] lg:text-[25px] md:text-[20px] text-[25px] text-center montserrat-bold md:w-9/12 mb-2'>Racontez votre histoire au monde</h2>
-                                        <p className='text-[#0C0C44] lg:text-[20px] md:text-[16px] text-[20px] text-center md:w-10/12'>Soutenir une cagnotte ou un projet d’entreprise</p>
+                                <div className='overflow-hidden'>
+                                    
+                                    <div className='2xl:px-[280px] 2xl:px-[120px] md:px-[80px] px-[16px]'>
+                                        <StepBlockComponent>
+                                            <img src={BgAsset} alt="" className='absolute top-0 left-0 rounded-[40px] w-full ' />
+                                            <div className='flex flex-col items-center md:flex-1'>
+                                                <div className='bg-[#ECFDFF] border-4 border-[#D7EDF1] w-[100px] h-[100px] rounded-full flex flex-row justify-center items-center mb-2'>
+                                                    <img src={CcmStep1} alt=""  className='w-10 h-10'/>
+                                                </div>
+                                                <p className='text-[14px] text-[#4E5E62] font-semibolld '>Etape 1</p>
+                                                <h2 className='text-[#0C0C44] lg:text-[25px] md:text-[20px] text-[25px] text-center montserrat-bold md:w-9/12 mb-2 line-clamp-2 min-h-[2.8em]'>Racontez votre histoire au monde</h2>
+                                                <p className='text-[#0C0C44] lg:text-[20px] md:text-[16px] text-[20px] text-center md:w-10/12'>Soutenir une cagnotte ou un projet d’entreprise</p>
+                                            </div>
+
+                                            <div className='flex flex-col items-center md:flex-1'>
+                                                <div className='bg-[#ECFDFF] border-4 border-[#D7EDF1] w-[100px] h-[100px] rounded-full flex flex-row justify-center items-center mb-2'>
+                                                    <img src={CcmStep2} alt=""  className='w-10 h-10'/>
+                                                </div>
+                                                <p className='text-[14px] text-[#4E5E62] font-semibold '>Etape 2</p>
+                                                <h2 className='text-[#0C0C44] lg:text-[25px] md:text-[20px] text-[25px] text-center montserrat-bold md:w-9/12 mb-2 line-clamp-2 min-h-[2.8em]'>Partagez à vos proches et au-delà</h2>
+                                                <p className='text-[#0C0C44] lg:text-[20px] md:text-[16px] text-[20px] text-center md:w-10/12'>Soutenir une cagnotte ou un projet d’entreprise</p>
+                                            </div>
+
+                                            <div className='flex flex-col items-center md:flex-1'>
+                                                <div className='bg-[#ECFDFF] border-4 border-[#D7EDF1] w-[100px] h-[100px] rounded-full flex flex-row justify-center items-center mb-2'>
+                                                    <img src={CcmStep3} alt=""  className='w-10 h-10'/>
+                                                </div>
+                                                <p className='text-[14px] text-[#4E5E62] font-semibold '>Etape 3</p>
+                                                <h2 className='text-[#0C0C44] lg:text-[25px] md:text-[20px] text-[25px] text-center montserrat-bold md:w-9/12 mb-2 line-clamp-2 min-h-[2.8em]'>Gérez votre campagne où que vous soyez</h2>
+                                                <p className='text-[#0C0C44] lg:text-[20px] md:text-[16px] text-[20px] text-center md:w-10/12'>Soutenir une cagnotte ou un projet d’entreprise</p>
+                                            </div>
+                                        </StepBlockComponent>
                                     </div>
 
-                                    <div className='flex flex-col items-center'>
-                                        <div className='bg-[#ECFDFF] border-4 border-[#D7EDF1] w-[100px] h-[100px] rounded-full flex flex-row justify-center items-center mb-2'>
-                                            <img src={CcmStep2} alt=""  className='w-10 h-10'/>
-                                        </div>
-                                        <p className='text-[14px] text-[#4E5E62] font-semibold '>Etape 2</p>
-                                        <h2 className='text-[#0C0C44] lg:text-[25px] md:text-[20px] text-[25px] text-center montserrat-bold md:w-9/12 mb-2'>Partagez à vos proches et au-delà</h2>
-                                        <p className='text-[#0C0C44] lg:text-[20px] md:text-[16px] text-[20px] text-center md:w-10/12'>Soutenir une cagnotte ou un projet d’entreprise</p>
-                                    </div>
+                                    <h1 className='mt-14 text-[56px] font-bold flex flex-col text-center montserrat-bold leading-16 text-[#0E0E18] mb-[68px] relative z-10'><span className='montserrat-bold'>Transparence totale,</span> <span className='text-[#FD8352] montserrat-bold'>Sans frais cachés</span></h1>
 
-                                    <div className='flex flex-col items-center'>
-                                        <div className='bg-[#ECFDFF] border-4 border-[#D7EDF1] w-[100px] h-[100px] rounded-full flex flex-row justify-center items-center mb-2'>
-                                            <img src={CcmStep3} alt=""  className='w-10 h-10'/>
-                                        </div>
-                                        <p className='text-[14px] text-[#4E5E62] font-semibold '>Etape 3</p>
-                                        <h2 className='text-[#0C0C44] lg:text-[25px] md:text-[20px] text-[25px] text-center montserrat-bold md:w-9/12 mb-2'>Gérez votre campagne où que vous soyez</h2>
-                                        <p className='text-[#0C0C44] lg:text-[20px] md:text-[16px] text-[20px] text-center md:w-10/12'>Soutenir une cagnotte ou un projet d’entreprise</p>
+                                    <div className=' w-full mt-10'>
+                                        {
+                                            CcmData1.map((item)=>(
+                                                <StepItemComponent item={item} key={item.id} />
+                                            ))
+                                        }
                                     </div>
-                                </StepBlockComponent>
+                                            
+                                </div>
                             )
                         }
                     </AnimatePresence>
@@ -113,42 +129,59 @@ const CommentMarche = () => {
                     <AnimatePresence>
                         {
                             active=='Btn2' && (
-                                <StepBlockComponent>
-                                    <img src={BgAsset} alt="" className='absolute top-0 left-0 rounded-[40px] ' />
-                                    <div className='flex flex-col items-center'>
-                                        <div className='bg-[#ECFDFF] border-4 border-[#D7EDF1] w-[100px] h-[100px] rounded-full flex flex-row justify-center items-center mb-2'>
-                                            <img src={CcmStep1} alt=""  className='w-10 h-10'/>
-                                        </div>
-                                        <p className='text-[14px] text-[#4E5E62] font-semibold '>Etape 1</p>
-                                        <h2 className='text-[#0C0C44] lg:text-[25px] md:text-[20px] text-[25px] text-center montserrat-bold md:w-9/12 mb-2'>Trouvez qui vous voulez soutenir</h2>
-                                        <p className='text-[#0C0C44] lg:text-[20px] md:text-[16px] text-[20px] text-center md:w-10/12'>Soutenir une cagnotte ou un projet d’entreprise</p>
+
+                                <div className='overflow-hidden'>
+
+                                    <div className='2xl:px-[280px] 2xl:px-[120px] md:px-[80px] px-[16px]'>
+                                        <StepBlockComponent>
+                                            <img src={BgAsset} alt="" className='absolute top-0 left-0 rounded-[40px] w-full' />
+                                            <div className='flex flex-col items-center md:flex-1'>
+                                                <div className='bg-[#ECFDFF] border-4 border-[#D7EDF1] w-[100px] h-[100px] rounded-full flex flex-row justify-center items-center mb-2'>
+                                                    <img src={CcmStep1} alt=""  className='w-10 h-10'/>
+                                                </div>
+                                                <p className='text-[14px] text-[#4E5E62] font-semibold '>Etape 1</p>
+                                                <h2 className='text-[#0C0C44] lg:text-[25px] md:text-[20px] text-[25px] text-center montserrat-bold md:w-9/12 mb-2 line-clamp-2 min-h-[2.8em]'>Trouvez qui vous voulez soutenir</h2>
+                                                <p className='text-[#0C0C44] lg:text-[20px] md:text-[16px] text-[20px] text-center md:w-10/12'>Soutenir une cagnotte ou un projet d’entreprise</p>
+                                            </div>
+
+                                            <div className='flex flex-col items-center md:flex-1'>
+                                                <div className='bg-[#ECFDFF] border-4 border-[#D7EDF1] w-[100px] h-[100px] rounded-full flex flex-row justify-center items-center mb-2'>
+                                                    <img src={CcmStep2} alt=""  className='w-10 h-10'/>
+                                                </div>
+                                                <p className='text-[14px] text-[#4E5E62] font-semibold '>Etape 2</p>
+                                                <h2 className='text-[#0C0C44] lg:text-[25px] md:text-[20px] text-[25px] text-center montserrat-bold md:w-9/12 mb-2 line-clamp-2 min-h-[2.8em]'>Entrez le montant du don</h2>
+                                                <p className='text-[#0C0C44] lg:text-[20px] md:text-[16px] text-[20px] text-center md:w-10/12'>Soutenir une cagnotte ou un projet d’entreprise</p>
+                                            </div>
+
+                                            <div className='flex flex-col items-center md:flex-1'>
+                                                <div className='bg-[#ECFDFF] border-4 border-[#D7EDF1] w-[100px] h-[100px] rounded-full flex flex-row justify-center items-center mb-2'>
+                                                    <img src={CcmStep3} alt=""  className='w-10 h-10'/>
+                                                </div>
+                                                <p className='text-[14px] text-[#4E5E62] font-semibold '>Etape 3</p>
+                                                <h2 className='text-[#0C0C44] lg:text-[25px] md:text-[20px] text-[25px] text-center montserrat-bold md:w-9/12 mb-2 line-clamp-2 min-h-[2.8em]'>Envoyez votre don en un clic</h2>
+                                                <p className='text-[#0C0C44] lg:text-[20px] md:text-[16px] text-[20px] text-center md:w-10/12'>Soutenir une cagnotte ou un projet d’entreprise</p>
+                                            </div>
+                                        </StepBlockComponent>
                                     </div>
 
-                                    <div className='flex flex-col items-center'>
-                                        <div className='bg-[#ECFDFF] border-4 border-[#D7EDF1] w-[100px] h-[100px] rounded-full flex flex-row justify-center items-center mb-2'>
-                                            <img src={CcmStep2} alt=""  className='w-10 h-10'/>
-                                        </div>
-                                        <p className='text-[14px] text-[#4E5E62] font-semibold '>Etape 2</p>
-                                        <h2 className='text-[#0C0C44] lg:text-[25px] md:text-[20px] text-[25px] text-center montserrat-bold md:w-9/12 mb-2'>Entrez le montant du don</h2>
-                                        <p className='text-[#0C0C44] lg:text-[20px] md:text-[16px] text-[20px] text-center md:w-10/12'>Soutenir une cagnotte ou un projet d’entreprise</p>
-                                    </div>
+                                    <h1 className='mt-14 text-[56px] font-bold flex flex-col text-center montserrat-bold leading-16 text-[#0E0E18] mb-[68px] '><span className='montserrat-bold'>Transparence totale,</span> <span className='text-[#FD8352] montserrat-bold'>Sans frais cachés</span></h1>
 
-                                    <div className='flex flex-col items-center'>
-                                        <div className='bg-[#ECFDFF] border-4 border-[#D7EDF1] w-[100px] h-[100px] rounded-full flex flex-row justify-center items-center mb-2'>
-                                            <img src={CcmStep3} alt=""  className='w-10 h-10'/>
-                                        </div>
-                                        <p className='text-[14px] text-[#4E5E62] font-semibold '>Etape 3</p>
-                                        <h2 className='text-[#0C0C44] lg:text-[25px] md:text-[20px] text-[25px] text-center montserrat-bold md:w-9/12 mb-2'>Envoyez votre don en un clic</h2>
-                                        <p className='text-[#0C0C44] lg:text-[20px] md:text-[16px] text-[20px] text-center md:w-10/12'>Soutenir une cagnotte ou un projet d’entreprise</p>
+                                    <div className=' w-full mt-10'>
+                                        {
+                                            CcmData2.map((item)=>(
+                                                <StepItemComponent item={item} key={item.id} />
+                                            ))
+                                        }
                                     </div>
-                                </StepBlockComponent>
+                                          
+                                </div>
                             )
                         }
                     </AnimatePresence>
 
                 </motion.div>
 
-                <div className='flex flex-col items-center overflow-hidden'>
+                {/* <div className='flex flex-col items-center overflow-hidden'>
                     <h1 className='text-[56px] font-bold flex flex-col text-center montserrat-bold leading-16 text-[#0E0E18] mb-[68px] '><span className='montserrat-bold'>Transparence totale,</span> <span className='text-[#FD8352] montserrat-bold'>Sans frais cachés</span></h1>
 
                     <AnimatePresence>
@@ -184,7 +217,7 @@ const CommentMarche = () => {
                     </AnimatePresence>
 
                     
-                </div>
+                </div> */}
 
                 <motion.div onViewportEnter={()=>{if(fixed){setFixed(false)} }} className='flex flex-row justify-center w-full mt-10 px-4'>
                     <div className=' w-full flex flex-col menu_btn2 xl:px-28 lg:px-16 px-8 py-10 rounded-[60px]'>
@@ -202,7 +235,7 @@ const CommentMarche = () => {
                         </div>
 
                         <div className='flex sm:flex-row flex-col sm:items-center sm:justify-center space-y-3 space-x-3 mb-8 mt-10'>
-                            <button className='bg-[#FFF] transition-all hover:bg-[#07AED8] shadow-md text-[#0D304E] rounded-full py-[20px] px-[30px] cursor-pointer montserrat-bold text-[16px] '>Démarrer une cagnotte</button>
+                            <button className='bg-[#FFF] transition-all hover:bg-[#07AED8] shadow-md text-[#0D304E] rounded-full py-[20px] px-[30px] cursor-pointer montserrat-bold text-[16px] mb-0 '>Démarrer une cagnotte</button>
                             <button className='bg-[#0D304E] transition-all hover:bg-[#07AED8] shadow-md text-white rounded-full py-[20px] px-[40px] cursor-pointer montserrat-bold text-[16px] '>Financer un projet</button>
                         </div>
                     </div>

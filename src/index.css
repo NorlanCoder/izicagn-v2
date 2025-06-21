@@ -1,5 +1,17 @@
 @import "tailwindcss";
 
+@theme {
+   --breakpoint-*: initial;
+  --breakpoint-2xsm: 375px;
+  --breakpoint-xsm: 425px;
+  --breakpoint-3xl: 2000px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-2xl: 1512px;
+  --breakpoint-3xl: 1513px;
+}
+
 @font-face {
   font-family: Montserrat;
   src: url("./assets/font/Montserrat-Regular.ttf");
@@ -10,17 +22,26 @@
   src: url("./assets/font/Montserrat-Bold.ttf");
 }
 
-@font-face {
+/* @font-face {
   font-family: Pacifico;
   src: url("./assets/font/Pacifico.ttf");
-}
+} */
 
 .pacifico {
-  font-family: pacifico, sans-serif;
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .montserrat-bold {
   font-family: MontserratBold, sans-serif;
+}
+
+.montserrat-bolder {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
 }
 
 * {

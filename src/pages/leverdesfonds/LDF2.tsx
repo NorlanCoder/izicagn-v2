@@ -7,13 +7,13 @@ import Footer from "../../components/general/footer";
 const LeverDesFonds2 = () => {
   return (
     <>
-      <div className=" px-6">
+      <div className="">
         <Navbar />
-        <div className="md:px-4">
+        <div className="px-6 mt-[100px]">
           <GobackComponent />
         </div>
 
-        <div className="flex flex-col justify-center items-center space-y-6">
+        <div className="flex flex-col justify-center items-center space-y-6 mt-10 px-6">
           <h1 className="text-center text-4xl md:text-[54px]">
             Qui peut lever des fonds sur izicagn ?
           </h1>
@@ -21,7 +21,7 @@ const LeverDesFonds2 = () => {
           <img src={Frame} alt="" />
         </div>
 
-        <div className="flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-center px-6">
           <div className="flex flex-col space-y-8 max-w-[938px] py-20">
             <p className="text-[#555B6D]">
               Sur Izicagn, toute personne ayant une idée ou un projet solide
@@ -173,7 +173,7 @@ const LeverDesFonds2 = () => {
             </p>
           </div>
         </div>
-        <div className="px-5">
+        <div className="px-4">
           <Footer />
         </div>
       </div>

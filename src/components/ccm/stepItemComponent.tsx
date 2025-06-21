@@ -2,7 +2,7 @@ import { CcmListSectionProps } from "../../utils/type"
 
 const StepItemComponent = ({item}: CcmListSectionProps) => {
     return (
-        <div className={`${!item.direction ? 'md:flex-row' : 'md:flex-row-reverse'} flex md:items-center items-start md:mb-36 mb-14 2xl:px[280px] lg:px-[120px] md:px-[80px] px-[16px]`}>
+        <div className={`${!item.direction ? 'md:flex-row' : 'md:flex-row-reverse'} flex md:items-center items-start md:mb-36 mb-14 2xl:px-[280px] 2xl:px-[120px] md:px-[80px] px-[16px]`}>
             <div className="md:w-1/2 relative z-10">
                 <img src={item.image} alt="" className="rounded-[28px]" />
             </div>

@@ -1,5 +1,5 @@
 import Ilustration from '../assets/detail_article.png'
-import Aplose from '../assets/aplose.png'
+import Aplose from '../assets/clap.svg'
 
 const Article = () => {
   return (

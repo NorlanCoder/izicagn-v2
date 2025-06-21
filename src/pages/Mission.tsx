@@ -24,7 +24,7 @@ const Mission = () => {
               mobiliser des ressources financières en s appuyant sur la générosité collective en Afrique et partout 
               dans le monde.
             </p>
-            <div className=' relative rounded-[42.51px] 2xl:px[280px] lg:px-[120px] md:px-[80px] px-[16px]'>
+            <div className=' relative rounded-[42.51px] 2xl:px-[280px] 2xl:px-[120px] md:px-[80px] px-[16px]'>
               <img src={Frame} alt="" />
               <img src={Rectangle} alt="" className=' absolute top-0'/>
             </div>

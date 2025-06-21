@@ -55,7 +55,7 @@ const DetailsCagnotte = () => {
 			<div className=' w-full'>
 
 				{/* Bloc presentation */}
-				<section className='2xl:px[280px] lg:px-[120px] md:px-[80px] px-[16px] mt-[150px] '>
+				<section className='2xl:px-[280px] 2xl:px-[120px] md:px-[80px] px-[16px] mt-[150px] '>
 					<div className='flex lg:flex-row flex-col lg:justify-between lg:items-center lg:space-x-10 space-x-3 lg:gap-y-0 gap-y-2 mb-5'>
 						<h1 className='text-[#0A1243] text-[38px] font-bold xl:w-[880px] lg:w-8/12 montserrat-bold '>Sauvons Rufus, le jeune de 9ans</h1>
 						<div className='flex flex-row space-x-2 xl:w-[403px] lg:w-4/12'>
@@ -327,7 +327,7 @@ const DetailsCagnotte = () => {
 				</section>
 
 				{/* Liste Cagnotte */}
-				<section className='mb-8 flex flex-col space-y-5 2xl:px[280px] lg:px-[120px] md:px-[80px] px-[16px] relative z-10 '>
+				<section className='mb-8 flex flex-col space-y-5 2xl:px-[280px] 2xl:px-[120px] md:px-[80px] px-[16px] relative z-10 '>
 					<div className='mt-8'>
 						<h1 className='text-[#090914] text-[36px] montserrat-bold mb-5 relative z-10'>D'autres causes comme celle-ci</h1>
 						<div className='flex flex-row flex-wrap'>

@@ -11,17 +11,16 @@ const LeverDesFonds1 = () => {
 		<>
 			<Navbar />
 			<div className="px-4 mt-[100px] ">
-				<section className='rounded-[42.51px] h-[573px] relative my-8 flex flex-col justify-center px-24 bg-[radial-gradient(circle,_#78DFF5,_#0BD1F4)] overflow-x-hidden'>
+				<section className='rounded-[42.51px] md:h-[573px] relative my-8 flex flex-col md:justify-center md:px-24 p-10 bg-[radial-gradient(circle,_#78DFF5,_#0BD1F4)] overflow-x-hidden'>
 					<div className="absolute inset-0 bg-[radial-gradient(circle,_rgba(0,0,0,0)_0%,_#000_100%)] mix-blend-overlay pointer-events-none"></div>
 					<div className='max-w-[680px] relative z-10'>
 				
-						<h1 className='text-[55px] leading-14 text-white montserrat-bold mb-5'><span className='text-[#0D304E] montserrat-bold'>Transformez vos idées</span>  en actions en trouvant un financement !</h1>
-						<p className='text-[#0F6D8F] w-9/12 mb-8 text-[19px] font-bold '>Chez izicagn, on donne de la visibilité à vos projets. Rejoignez-nous pour faire avancer vos idées ambitieuses et créatives.</p>
-						<div className='flex flex-row space-x-3'>
-							<div className='border border-[#07AED8] w-[339px] rounded-full p-[12px] bg-white transition-all hover:bg-[#07AED8] montserrat-bold cursor-pointer flex flex-row space-x-2 justify-center items-center'>
-								<p className="text-[16px] text-center font-bold text-[#083044]">Financer un projet</p> 
-							</div>
-							<button className='bg-[#0D304E] transition-all hover:bg-[#07AED8] cursor-pointer montserrat-bold text-white rounded-full text-[14px] py-[16px] px-[21.26px] font-bold'>Démarrer une cagnotte</button>
+						<h1 className='md:text-[55px] text-3xl leading-14 text-white montserrat-bold mb-5'><span className='text-[#0D304E] montserrat-bold'>Transformez vos idées</span>  en actions en trouvant un financement !</h1>
+						<p className='text-[#0F6D8F] w-9/12 mb-8 text-[19px] font-bold md:flex hidden '>Chez izicagn, on donne de la visibilité à vos projets. Rejoignez-nous pour faire avancer vos idées ambitieuses et créatives.</p>
+						<div className='flex md:flex-row flex-col space-y-2 space-x-3'>
+							
+							<button className='bg-white transition-all hover:bg-[#07AED8] cursor-pointer montserrat-bold text-[#083044] rounded-full text-[14px] py-[16px] px-[21.26px] font-bold md:w-auto w-full ursor-pointer mb-0'>Financer un projet</button>
+							<button className='bg-[#0D304E] transition-all hover:bg-[#07AED8] cursor-pointer montserrat-bold text-white rounded-full text-[14px] py-[16px] px-[21.26px] font-bold md:w-auto w-full ursor-pointer'>Démarrer une cagnotte</button>
 						</div>
 					</div>
 				</section>
@@ -30,7 +29,7 @@ const LeverDesFonds1 = () => {
 					<FinancementSection />
 				</div>
 
-				<div className="md:px-24 px-14">
+				<div className="md:px-24 px-5">
 					<EtapesSection />
 				</div>
 
@@ -39,21 +38,21 @@ const LeverDesFonds1 = () => {
 				</div>
 
 				<div className="flex justify-center pb-[50px] pt-20 px-4">
-					<div className="flex flex-col relative justify-center items-center space-y-4 bg-[radial-gradient(circle,#23c8ed,#23c8ed44)] bg-[#23c8ed44]  rounded-[40px] max-w-[1271px] md:w-[1271px] h-[326px]">
+					<div className="flex flex-col relative justify-center items-center space-y-4 bg-[radial-gradient(circle,#23c8ed,#23c8ed44)] bg-[#23c8ed44] rounded-[40px] max-w-[1271px] md:w-[1271px] md:h-[326px] md:p-0 p-10">
 					
-					<h2 className="text-[35px] md:text-[48px] text-center text-white font-bold mb-8 montserrat-bold leading-16 px-2">
-						Prêt à{" "}
-						<span className="text-[#231F20] montserrat-bold">donner vie vos idées ?</span>{" "}
-						Créez votre cagnotte dès maintenant
-					</h2>
-					<button className=" text-white bg-[#083044] py-[16px] px-[30px] cursor-pointer rounded-[200px] transition-all hover:bg-[#07AED8] shadow-2xl montserrat-bold ">
-						Démarrer un projet
-					</button>
+						<h2 className="text-[35px] md:text-[48px] text-center text-white font-bold mb-8 montserrat-bold leading-16 px-2">
+							Prêt à{" "}
+							<span className="text-[#231F20] montserrat-bold">donner vie vos idées ?</span>{" "}
+							Créez votre cagnotte dès maintenant
+						</h2>
+						<button className=" text-white bg-[#083044] py-[16px] px-[30px] cursor-pointer rounded-[200px] transition-all hover:bg-[#07AED8] shadow-2xl montserrat-bold">
+							Démarrer un projet
+						</button>
 					</div>
 				</div>
 
 				<div className="my-8 flex flex-col items-center">
-					<h1 className='text-[#0E0E18] text-[48px] font-bold mb-8 '>Foire aux questions (FAQ)</h1>
+					<h1 className='text-[#0E0E18] text-[48px] text-center font-bold mb-8 '>Foire aux questions (FAQ)</h1>
 
 					<FaqComponent title='Comment créer une cagnotte sur Izicagn ?' text='Créer une cagnotte est simple ! Cliquez sur le bouton "Créer une cagnotte", remplissez les informations de votre collecte (objectif, description, visuel, etc.), et votre page sera prête à partager en quelques minutes.' />
 					<FaqComponent title='Y a-t-il des frais pour créer une cagnotte ?' text='Non, la création d’une cagnotte sur Izicagn est totalement gratuite. Nous prélevons seulement une petite commission sur les dons reçus pour couvrir les frais de traitement des paiements.' />
