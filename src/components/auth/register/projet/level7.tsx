@@ -1,7 +1,7 @@
 import Presentation from '../../../../assets/auth/presentation.png'
 import Files from '../../../../assets/auth/file.png'
 
-const Level7 = () => {
+const Level7 = ({ changeLevel }: { changeLevel: () => void }) => {
   return (
     <div className="mt-20 w-full">
             <h2 className="text-[32px] text-[#0E0E18] font-bold ">Téléchargez votre Business Plan</h2>
@@ -28,7 +28,7 @@ const Level7 = () => {
             </div>
 
 
-            <button className="bg-[#23C7ED] px-[34px] py-[16px] text-white rounded-full mt-10 absolute right-0 cursor-pointer hover:scale-105 transition">Continuer</button>
+            <button onClick={changeLevel} className="bg-[#23C7ED] px-[34px] py-[16px] text-white rounded-full mt-10 absolute right-0 cursor-pointer hover:scale-105 transition">Continuer</button>
                 
         </div>
   )

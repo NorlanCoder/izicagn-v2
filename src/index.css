@@ -83,3 +83,9 @@ select option {
   display: flex;
   padding: 4px;
 }
+
+.my_select {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+}
