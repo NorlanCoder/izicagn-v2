@@ -1,4 +1,4 @@
-import Logo from '../../../../assets/logo.png'
+import Logo from '../../../../assets/Logo-izicagn.svg'
 import IllustrationUser from '../../../../assets/auth/user_illustration_register.svg'
 import { useState } from 'react'
 
