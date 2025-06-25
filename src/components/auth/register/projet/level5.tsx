@@ -1,4 +1,4 @@
-import Question from "../../../../assets/auth/question.svg"
+import Question from "../../../../assets/auth/Question.svg"
 
 
 const Level5 = ({ changeLevel }: { changeLevel: () => void }) => {
