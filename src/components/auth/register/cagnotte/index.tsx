@@ -1,7 +1,6 @@
 import Logo from '../../../../assets/logo.png'
 import IllustrationUser from '../../../../assets/auth/user_illustration_register.svg'
 // import { useState } from 'react'
-import Level4 from '../projet/level4'
 import Level1 from './level4'
 
 const CagnoteRegister = () => {
