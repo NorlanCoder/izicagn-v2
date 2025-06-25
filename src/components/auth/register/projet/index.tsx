@@ -10,6 +10,7 @@ import Level5 from './level5'
 import Level8 from './level8'
 import Level6 from './level6'
 import Level7 from './level7'
+import { Link } from 'react-router'
 
 const ProjectRegister = () => {
 
@@ -21,7 +22,7 @@ const ProjectRegister = () => {
                 <img src={IllustrationUser} alt="" className='absolute bottom-0 right-0' />
             </div>
             <div className="w-full lg:px-36 md:px-10 px-10 py-10 lg:h-[100vh] h-auto" style={{}}>
-                <div><img src={Logo} alt="" /></div>
+                <Link to={"/"}><img src={Logo} alt="" /></Link>
 
                 <div className='h-full flex flex-col justify-start items-start lg:w-4/5 w-full relative'>
                     {level===1 && <Level1 changeLevel={()=>setLevel(level+1)} />}
