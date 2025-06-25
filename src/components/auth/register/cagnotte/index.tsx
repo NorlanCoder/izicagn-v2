@@ -2,6 +2,7 @@ import Logo from '../../../../assets/logo.png'
 import IllustrationUser from '../../../../assets/auth/user_illustration_register.svg'
 // import { useState } from 'react'
 import Level4 from '../projet/level4'
+import Level1 from './level4'
 
 const CagnoteRegister = () => {
 
@@ -16,7 +17,7 @@ const CagnoteRegister = () => {
                 <div><img src={Logo} alt="" /></div>
 
                 <div className='h-full flex flex-col justify-start items-start lg:w-4/5 w-full relative'>
-                    <Level4 />
+                    <Level1 />
                 </div>
             </div>
         </div>

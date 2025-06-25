@@ -115,3 +115,23 @@
 .register_bg {
   background-image: url('./assets/auth/bg_register.png');
 }
+
+select,
+::picker(select) {
+  appearance: base-select;
+}
+
+select::picker(select) {
+  border: none;
+}
+
+select option {
+  display: flex;
+  padding: 4px;
+}
+
+.my_select {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+}

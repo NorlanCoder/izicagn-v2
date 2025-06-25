@@ -7,7 +7,7 @@ import Footer from "../../components/general/footer";
 
 const LeverDesFonds1 = () => {
     return (
-        
+
 		<>
 			<Navbar />
 			<div className="px-4 mt-[100px] ">
