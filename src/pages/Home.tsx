@@ -106,16 +106,16 @@ const Home = () => {
     const controls = useAnimation();
 
     useEffect(() => {
-        const handleScroll = () => {
+        // const handleScroll = () => {
             controls.start('visible');
-        };
+        // };
 
-        window.addEventListener('scroll',handleScroll)
+        // window.addEventListener('scroll',handleScroll)
 
         // setTimeout(() => {
         //     handleScroll();
         // }, 1000);
-        return () => window.removeEventListener('scroll', handleScroll);
+        // return () => window.removeEventListener('scroll', handleScroll);
     }, [controls]);
 
     const fadeInVariant = {

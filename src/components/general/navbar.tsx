@@ -42,7 +42,7 @@ const Navbar = () => {
                             <p className="flex flex-row items-center space-x-2 cursor-pointer font-bold text-[15px] " onClick={()=>toogleShowSubMenu()}><span>Découvrir</span> <ChevronDown /></p>
                             
                             <AnimatePresence>
-                                {showSubMenu && <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, ease: 'circInOut'}}} exit={{opacity: 0}} className="absolute w-3 h-3 bg-white z-0 top-[42px] rotate-45 left-[350px] shadow"></motion.div>}
+                                {showSubMenu && <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, ease: 'circInOut'}}} exit={{opacity: 0, transition: {duration: 0.3, ease: 'circInOut'}}} className="absolute w-3 h-3 bg-white z-0 top-[42px] left-[100px] rotate-45 shadow"></motion.div>}
                                 {
                                     showSubMenu && (
                                         <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, ease: 'circInOut'}}} exit={{opacity: 0}} className="flex bg-white h-[422px] shadow rounded-[32px] absolute top-12 -left-3 z-10">
