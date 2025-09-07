@@ -86,7 +86,7 @@ const Typewriter = ({
   }, []);
 
   return (
-    <h1 className="xl:text-[68px] lg:text-[58px] md:text-[68px] text-[58px] font-bold lg:w-2/3 w-full text-center leading-20 relative z-5 text-[#FD8352] montserrat-bold pt-4">
+    <h1 className=" md:text-[68px] text-[58px] font-bold lg:w-2/3 w-full text-center leading-20 relative z-5 text-[#FD8352] montserrat-bold pt-4">
       {displayedText}
       <span
         style={{ display: isMobile ? 'none' : 'inline' }}
@@ -150,14 +150,16 @@ const Home = () => {
             <Navbar2 /> 
 
             <section className='md:h-[108vh] flex flex-col items-center justify-center hero_section_bg relative pt-28 overflow-hidden'>
-                <h1 className='text-[#0C0C44] xl:text-[68px] lg:text-[58px] md:text-[68px] text-[58px] font-bold lg:w-[779px] md:w-2/3 w-full text-center leading-16 relative z-5 montserrat-bold'>Ensemble, faisons de chaque geste un acte </h1>
+                <h1 className='text-[#0C0C44]  md:text-[68px] text-[58px] font-bold lg:w-[779px] md:w-2/3 w-full text-center leading-[80px] relative z-5 montserrat-bold'>Ensemble, faisons de chaque geste un acte </h1>
                 <Typewriter  texts={['de générosité','d’entraide','d’investissement']} speed={200} />
                 <div className="flex md:flex-row flex-col justify-center space-x-5 mt-10 relative z-5">
-                    <Link to="/commentçamarche" className="bg-gradient-to-b from-[#07AED8] to-[#90E2F8] hover:to-[#07AED8] hover:shadow-none text-white p-[14.04px] px-[28.09px] rounded-full montserrat-bold text-[18.73px] shadow-lg transition-all  flex justify-center items-center ">Démarrer une cagnotte</Link>
-                    <Link to="/commentçamarche" className="bg-white text-[#0C0C44] p-[14.04px] px-[28.09px] rounded-full montserrat-bold text-[18.73px] shadow-lg transition-all hover:bg-[#0C0C44] hover:text-white hover:shadow-none  flex justify-center items-center md:mt-0 mt-5">Financer un projet</Link>
+                    <Link to="/commentçamarche" className="bg-gradient-to-b from-[#07AED8] to-[#90E2F8] hover:to-[#07AED8] hover:shadow-none text-white p-[14.04px] px-[28.09px] rounded-full montserrat-bold text-[17.07px] shadow-lg transition-all  flex justify-center items-center ">Démarrer une cagnotte</Link>
+                    <Link to="/commentçamarche" className="bg-white text-[#0C0C44] p-[14.04px] px-[28.09px] rounded-full montserrat-bold text-[17.07px] transition-all hover:bg-[#0C0C44] hover:text-white hover:shadow-none  flex justify-center items-center md:mt-0 mt-5">Financer un projet</Link>
                 </div>
-                <motion.div className='flex flex-col items-center mt-14 w-[417.655162236501px] ' variants={fadeInVariant} initial="hidden" animate={controls} custom={0.5}>
-                    <p className='text-[18px] text-center -rotate-4 pacifico relative text-[#0C0C44] leading-10 font '>La 1ere plateforme sécurisée de Crowdfunding en Afrique... Leader en Europe</p>
+                <div className='w-[569.7608161694778px] h-[600.6400979966875px] bg-[#b0e4f262] rotate-[12.95deg] absolute top-[92.27px] right-[325px] blur-3xl'></div>
+                <div className='w-[753.8562054001509px] h-[680.67284343799715px] bg-[#b0e4f262] -rotate-[28.55deg] absolute top-[92px] left-[62px] blur-3xl'></div>
+                <motion.div className='flex flex-col items-center mt-10 w-[417.655162236501px] ' variants={fadeInVariant} initial="hidden" animate={controls} custom={0.5}>
+                    <p className='text-[22px] text-center -rotate-[3.05deg] pacifico relative text-[#0C0C44] leading-10 font-bold'>La 1ere plateforme sécurisée de Crowdfunding en Afrique... Leader en Europe</p>
                     <img src={UnderlineDeco} alt="" className='mt-4' />
                 </motion.div>
 

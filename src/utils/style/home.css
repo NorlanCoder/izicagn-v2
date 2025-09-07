@@ -156,10 +156,10 @@
 }
 
 .hero_section_bg {
-    background-image: url('../../assets//home//hero_section_bg.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    background-color: #FAF7F6;
+    backdrop-filter: blur(180px);
+    /* background-image: url('../../assets/home/hero_section_bg.png'); */
+    border-radius: 0px 0px 80px 80px;
 }
 
 .testimony_bg {

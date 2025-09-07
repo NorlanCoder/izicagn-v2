@@ -238,14 +238,14 @@ export const SidebarItemData: SideBarItemType[] = [
     path: '/cagnotte',
     soon: false
   },
-  {
-    id: 'S002',
-    image: Sub2,
-    title: 'Investissements',
-    text: 'Investissez dans des projets à potentiel',
-    path: '/investissement',
-    soon: false
-  },
+  // {
+  //   id: 'S002',
+  //   image: Sub2,
+  //   title: 'Investissements',
+  //   text: 'Investissez dans des projets à potentiel',
+  //   path: '/investissement',
+  //   soon: false
+  // },
   {
     id: 'S003',
     image: Sub3,
@@ -262,14 +262,14 @@ export const SidebarItemData: SideBarItemType[] = [
     path: '/mission',
     soon: false
   },
-  {
-    id: 'S005',
-    image: Sub5,
-    title: 'Izicagn Pro',
-    text: 'Private equity, Professionnels de la finance',
-    path: '/mission',
-    soon: true
-  },
+  // {
+  //   id: 'S005',
+  //   image: Sub5,
+  //   title: 'Izicagn Pro',
+  //   text: 'Private equity, Professionnels de la finance',
+  //   path: '/mission',
+  //   soon: true
+  // },
 ]
 
 export const CcmData1: CcmListSectionType[] = [
