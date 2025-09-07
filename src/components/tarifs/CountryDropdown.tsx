@@ -32,7 +32,7 @@ const CountryDropdown = ({ options, defaultOption }: {options: string[], default
                 className="flex items-center justify-between px-[20px] py-[14px] bg-gray-100 rounded-[15px] cursor-pointer w-[128px] h-[46px]"
                 onClick={toggleDropdown}
             >
-                <span className='font-bold'>{selected}</span>
+                <span className='font-semibold'>{selected}</span>
                 <ChevronDown size={18} />
             </div>
             <AnimatePresence>
@@ -48,7 +48,7 @@ const CountryDropdown = ({ options, defaultOption }: {options: string[], default
                                 key={index}
                                 className={`p-3 cursor-pointer ${
                                     option === selected ? 'text-[#0988B1] bg-[#F5F6F7]' : ''
-                                } hover:bg-[#F5F6F7] font-bold rounded-[15px] mb-1 w-[128px] flex items-center justify-between`}
+                                } hover:bg-[#F5F6F7] font-semibold rounded-[15px] mb-1 w-[128px] flex items-center justify-between`}
                                 onClick={() => handleOptionClick(option)}
                             >
                                 {option}

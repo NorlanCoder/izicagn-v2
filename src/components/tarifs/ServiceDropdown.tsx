@@ -46,7 +46,7 @@ const ServiceDropdown = ({ options, defaultOption }: {options: string[], default
                         {options.map((option, index) => (
                             <li
                                 key={index}
-                                className={`p-2 px-4 cursor-pointer ${
+                                className={`p-2 px-4 font-medium cursor-pointer ${
                                     option === selected ? 'text-[#0988B1] bg-[#F5F6F7]' : ''
                                 } hover:bg-[#F5F6F7]  rounded-[14px] mb-1 flex items-center justify-between`}
                                 onClick={() => handleOptionClick(option)}

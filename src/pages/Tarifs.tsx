@@ -21,7 +21,7 @@ const Tarifs = () => {
             </div>
             <div className="">
               <div className="flex justify-between w-full lg:w-[938px]">
-                <h1 className=" text-[40px] lg:text-[54px] font-bold max-w-[640px] leading-16 mb-5">
+                <h1 className=" text-[40px] lg:text-[54px] font-medium max-w-[640px] leading-16 mb-5">
                   Une tarification simple et transparente
                 </h1>
                 <div className="mt-3">
@@ -33,7 +33,7 @@ const Tarifs = () => {
                 </div> */}
               </div>
             </div>
-            <p className=" text-[18px] text-[#6F7886] max-w-[938px] ">
+            <p className=" text-[18px] text-[#6F7886] font-medium max-w-[938px] ">
               Nous croyons en la transparence. Izicagn offre des options
               tarifaires claires et accessibles, adaptées aussi bien pour ceux
               qui lancent une cagnotte personnelle que pour les entrepreneurs
@@ -52,7 +52,7 @@ const Tarifs = () => {
                     pour tous vos objectifs
                   </p>
                   <div className="flex flex-col space-y-4">
-                    <p className="text-[#6F7886] uppercase font-extrabold text-[16px] lg:text-[20px]">
+                    <p className="text-[#6F7886] uppercase font-semibold text-[16px] lg:text-[20px]">
                       Frais izicagn pour
                     </p>
                     <div className="flex items-center md:justify-between space-y-4">
@@ -64,14 +64,14 @@ const Tarifs = () => {
                     </div>
                   </div>
                 </div>
-                <div className="flex flex-col space-x-4 space-y-4 lg:flex-row ">
+                <div className="flex flex-col gap-6 lg:flex-row ">
                   <div className=" bg-white rounded-[40px] outline-[#07AED81A] outline-[5px] pl-10 pr-20 pt-10 pb-20 h-[497px] w-[454px]">
                     <img src={Love} alt="" />
-                    <p className=" text-[16px] text-[#4E5B6B] font-bold mt-2">
+                    <p className=" text-[16px] text-[#4E5B6B] font-semibold mt-2">
                       Aucun frais de démarrage{" "}
                     </p>
-                    <p className=" text-[142px] text-[#FD8352] font-bold">
-                      0<span className=" text-[58.48px] font-normal pl-3 ">Fcfa</span>
+                    <p className=" text-[142px] text-[#FD8352] font-medium">
+                      0<span className=" text-[58.48px] pl-3 ">Fcfa</span>
                     </p>
                     <p className="text-[15px] text-[#585D5E] max-w-[301px]">
                       pour créer la cagnotte ou participer à une cagnotte
@@ -79,13 +79,13 @@ const Tarifs = () => {
                   </div>
                   <div className=" bg-white rounded-[40px] outline-[#07AED81A] outline-[5px] pl-10 pr-20 pt-10 h-[497px] w-[454px]">
                     <img src={Discount} alt="" />
-                    <p className="text-[16px] text-[#4E5B6B] font-bold mt-2">
+                    <p className="text-[16px] text-[#4E5B6B] font-semibold mt-3">
                       Des frais de transaction uniques
                     </p>
-                    <p className="text-[142px] text-[#FD8352] font-bold ">
-                      5<span className=" text-[58.48px] font-normal pl-3">%</span>
+                    <p className="text-[142px] text-[#FD8352] font-medium ">
+                      5<span className=" text-[58.48px] pl-3">%</span>
                     </p>
-                    <p className="text-[15px] text-[#585D5E] max-w-[301px]">
+                    <p className="text-[15px] text-[#585D5E] max-w-[301px] leading-[135%]">
                       prélevés sur chaque don pour couvrir les frais de
                       traitement des paiements et de maintenance de la
                       plateforme
@@ -94,10 +94,10 @@ const Tarifs = () => {
                 </div>
               </div>
             </div>
-            <p className=" md:text-[20px] text-white text-center py-4 font-extrabold ">
+            <p className=" md:text-[20px] text-white text-center py-4 font-semibold ">
               ** En quoi consistent les frais de transaction ? **
             </p>
-            <p className=" text-[#E5EEEF] text-[16px] text-center max-w-[1012px]">
+            <p className=" text-[#E5EEEF] text-[16px] font-medium text-center leading-[19px] max-w-[1012px]">
               Les frais de transaction couvrent les coûts liés au traitement des
               paiements sur notre plateforme. Ils incluent les services des
               opérateurs de paiement pour gérer les transferts d'argent de
@@ -116,7 +116,7 @@ const Tarifs = () => {
             <h2 className="text-[28px] montserrat-bold pb-9">
               Exigences pour retirer les fonds
             </h2>
-            <p className="text-[16px] text-[#555B6D] pb-5">
+            <p className="text-[16px] text-[#555B6D] font-medium pb-5">
               Lorem ipsum dolor sit amet consectetur. Tempor quis urna
               consectetur malesuada rutrum donec cras ultrices. Id suscipit
               tellus tortor odio volutpat velit est. Vel laoreet eu in porttitor
@@ -128,13 +128,13 @@ const Tarifs = () => {
               consequat pulvinar magna accumsan tristique in auctor. Id
               porttitor lorem commodo dui praesent leo etiam quis.
             </p>
-            <p className="text-[16px] text-[#555B6D]">
+            <p className="text-[16px] text-[#555B6D] font-medium">
               Enim elementum blandit tempus eu amet. Nunc vitae quam quam quam
               egestas neque enim. Facilisi mattis proin amet interdum id neque.
               Luctus habitant risus pharetra suspendisse sit nibh eu in.
               Interdum luctus cum id tristique faucibus morbi enim nisi.
             </p>
-            <p className="text-[16px] text-[#555B6D] pb-9">
+            <p className="text-[16px] text-[#555B6D] font-medium pb-9">
               Arcu libero ipsum nulla diam diam augue neque vitae. Dolor platea
               pharetra eget consectetur aliquam vitae netus arcu. Morbi enim
               tincidunt imperdiet odio. Mauris faucibus etiam quis eget
@@ -145,7 +145,7 @@ const Tarifs = () => {
               venenatis amet etiam semper ullamcorper tristique aenean cras.
               Vitae dignissim nisi ligula mauris amet.
             </p>
-            <p className="text-[16px] text-[#555B6D]">
+            <p className="text-[16px] text-[#555B6D] font-medium">
               Congue nunc fusce nisi in nulla tellus eu tempus. Diam phasellus
               sit nunc sed viverra justo. Lacus quis ut cras lacinia. Turpis ut
               purus dui lacus est. Erat elit lectus viverra blandit enim donec

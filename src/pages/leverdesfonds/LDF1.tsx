@@ -4,23 +4,24 @@ import FinancementSection from "../../components/leverdefond/FinancementSection"
 import FaqComponent from '../../components/general/faqComponent'
 import Navbar from "../../components/general/navbar";
 import Footer from "../../components/general/footer";
+import CategoriesSection from "../../components/leverdefond/CategoriesSection";
 
 const LeverDesFonds1 = () => {
     return (
 
 		<>
 			<Navbar />
-			<div className="px-4 mt-[100px] ">
+			<div className="px-4 mt-[100px] w-full mx-10 lg:mx-0">
 				<section className='rounded-[42.51px] md:h-[573px] relative my-8 flex flex-col md:justify-center md:px-24 p-10 bg-[radial-gradient(circle,_#78DFF5,_#0BD1F4)] overflow-x-hidden'>
 					<div className="absolute inset-0 bg-[radial-gradient(circle,_rgba(0,0,0,0)_0%,_#000_100%)] mix-blend-overlay pointer-events-none"></div>
-					<div className='max-w-[680px] relative z-10'>
+					<div className='max-w-[789px] relative z-10'>
 				
-						<h1 className='md:text-[55px] text-3xl leading-14 text-white montserrat-bold mb-5'><span className='text-[#0D304E] montserrat-bold'>Transformez vos idées</span>  en actions en trouvant un financement !</h1>
-						<p className='text-[#0F6D8F] w-9/12 mb-8 text-[19px] font-bold md:flex hidden '>Chez izicagn, on donne de la visibilité à vos projets. Rejoignez-nous pour faire avancer vos idées ambitieuses et créatives.</p>
-						<div className='flex md:flex-row flex-col space-y-2 space-x-3'>
+						<h1 className='md:text-[55px] text-3xl leading-14 tracking-[-1%] text-white montserrat-bold mb-5'><span className='text-[#0D304E] montserrat-bold'>Transformez vos idées</span>  en actions en trouvant un financement !</h1>
+						<p className='text-[#0F6D8F] w-9/12 mb-8 text-[19px] font-semibold leading-[130%] md:flex hidden max-w-[690px]'>Chez izicagn, on donne de la visibilité à vos projets. Rejoignez-nous pour faire avancer vos idées ambitieuses et créatives.</p>
+						<div className='flex md:flex-row flex-col gap-3'>
 							
-							<button className='bg-white transition-all hover:bg-[#07AED8] cursor-pointer montserrat-bold text-[#083044] rounded-full text-[14px] py-[16px] px-[21.26px] font-bold md:w-auto w-full ursor-pointer mb-0'>Financer un projet</button>
-							<button className='bg-[#0D304E] transition-all hover:bg-[#07AED8] cursor-pointer montserrat-bold text-white rounded-full text-[14px] py-[16px] px-[21.26px] font-bold md:w-auto w-full ursor-pointer'>Démarrer une cagnotte</button>
+							<button className='bg-white transition-all duration-700 ease-in-out hover:bg-[#07AED8] cursor-pointer montserrat-bold text-[#083044] rounded-full text-[14px] py-[20px] px-[30px] font-bold md:w-auto w-full ursor-pointer mb-0'>Financer un projet</button>
+							<button className='bg-[#0D304E] transition-all duration-700 ease-in-out hover:bg-[#07AED8] cursor-pointer montserrat-bold text-white rounded-full text-[14px] py-[20px] px-[30px] font-bold md:w-auto w-full ursor-pointer'>Démarrer une cagnotte</button>
 						</div>
 					</div>
 				</section>
@@ -31,6 +32,10 @@ const LeverDesFonds1 = () => {
 
 				<div className="md:px-24 px-5">
 					<EtapesSection />
+				</div>
+
+				<div className="mt-28 mb-6">
+					<CategoriesSection />
 				</div>
 
 				<div>

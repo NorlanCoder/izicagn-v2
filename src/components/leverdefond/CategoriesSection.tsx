@@ -22,7 +22,7 @@ const CategoryBadge = ({ text }: { text: string }) => (
 
 const CategoriesSection = () => {
   return (
-    <div className="w-full flex flex-col items-center justify-center gap-10 sm:gap-12 md:gap-16 py-6 sm:py-8 md:py-10 overflow-hidden">
+    <div className="w-full relative flex flex-col items-center justify-center gap-10 sm:gap-12 md:gap-16 py-6 sm:py-8 md:py-10 overflow-hidden">
       {[1, 2, 3].map((_, i) => (
         <Marquee
           key={i}
@@ -38,6 +38,12 @@ const CategoriesSection = () => {
           ))}
         </Marquee>
       ))}
+
+      {/* Dégradé gauche */}
+      <div className="pointer-events-none absolute z-40 left-0 top-0 h-full w-60 bg-gradient-to-r from-white to-transparent"></div>
+
+      {/* Dégradé droit */}
+      <div className="pointer-events-none absolute z-40 right-0 top-0 h-full w-60 bg-gradient-to-l from-white to-transparent"></div>
     </div>
   );
 };

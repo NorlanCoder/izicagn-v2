@@ -1,43 +1,43 @@
 import Navbar from '../components/general/navbar'
 import Footer from '../components/general/footer'
 import GobackComponent from '../components/general/gobackComponent'
-import Frame from '../assets/Frame 1000002142.png'
-import Rectangle from '../assets/Rectangle 22631.png'
+import Frame from '../assets/mission.png'
+import Rectangle from '../assets/mission-deco.png'
 
 const Mission = () => {
   return (
     <div>
       <Navbar />
-      <div className='mt-[150px] w-full'>
+      <div className='mt-[150px] w-full mx-10 lg:mx-0'>
         
         <div className='mt-8 mb-36'>
           
-          <div className='flex flex-col justify-center items-center space-y-8 mb-26'>
+          <div className='flex flex-col justify-center items-center space-y-8 mb-20'>
             <div className='flex flex-col items-center space-y-3'>
               <div className='self-start mb-10'><GobackComponent /></div>
-              <h1 className='text-[#57606D] text-[18px] font-bold '>NOTRE MISSION</h1>
-              <h2 className='text-5xl xl:text-6xl text-center max-w-[890px] font-bold'>Transformer vos idées et 
+              <h1 className='text-[#57606D] text-[18px] font-semibold leading-[135%]'>NOTRE MISSION</h1>
+              <h2 className='text-[54px] text-center max-w-[791px] font-meduim tracking-[-2px] leading-[122%] '>Transformer vos idées et 
                 projets en réalité
               </h2>
             </div>
-            <p className=' text-center text-[18px] text-[#6F7886] max-w-[940px] mb-10'>Notre mission principale est de permettre aux individus, aux organisations et aux communautés de 
+            <p className=' text-center text-[18px] text-[#6F7886] font-medium leading-[135%] max-w-[940px] mb-10'>Notre mission principale est de permettre aux individus, aux organisations et aux communautés de 
               mobiliser des ressources financières en s appuyant sur la générosité collective en Afrique et partout 
               dans le monde.
             </p>
-            <div className=' relative rounded-[42.51px] 2xl:px-[280px] 2xl:px-[120px] md:px-[80px] px-[16px]'>
+            <div className=' relative '>
               <img src={Frame} alt="" />
-              <img src={Rectangle} alt="" className=' absolute top-0'/>
+              <img src={Rectangle} alt="" className=' absolute top-0 left-0'/>
             </div>
           </div>
           <div className=''>
-            <div className='flex flex-col items-center space-y-10'>
+            <div className='flex flex-col items-center'>
               
               <div className='max-w-[940px]'>
                 <div className='max-w-[940px] text-[#292D32] my-3'>
-                  <p className='text-[18px] text-[#6F7886] '>Nous facilitons l'accès au financement pour un large éventail de projets, de causes et d'évènements.</p>
+                  <p className='text-[18px] font-medium text-[#6F7886] '>Nous facilitons l'accès au financement pour un large éventail de projets, de causes et d'évènements.</p>
                   <p className='montserrat-bold text-[18px]'>Notre cible : L’Europe, La Diaspora Africaine, Le continent Africain etc</p>
                 </div>
-                <ol className=' space-y-6'>
+                <ol className=' space-y-6 font-medium pt-6'>
                   <li className='text-[18px]'>1. Faciliter l'accès au financement
                     <p className=' mt-4'>Rendre le financement accessible à tous, sans passer par les canaux traditionnels comme les banques 
                       ou les investisseurs. Que ce soit pour financer un projet créatif, une cause humanitaire, un événement 
