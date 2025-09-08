@@ -13,14 +13,14 @@ const Tarifs = () => {
     <div className=" w-full ">
       <Navbar />
       <div className="mt-[150px] ">
-        <div className="flex justify-center items-center 2xl:px-[280px] 2xl:px-[120px] md:px-[80px] px-[16px]">
+        <div className="flex justify-center items-center 2xl:px-[120px] md:px-[80px] px-[16px]">
           
           <div className="flex flex-col justify-center items-center pb-16">
             <div className=" self-start mb-5">
               <GobackComponent />
             </div>
             <div className="">
-              <div className="flex justify-between w-full lg:w-[938px]">
+              <div className="flex flex-col md:flex-row justify-between w-full lg:w-[938px]">
                 <h1 className=" text-[40px] lg:text-[54px] font-medium max-w-[640px] leading-16 mb-5">
                   Une tarification simple et transparente
                 </h1>
@@ -42,11 +42,11 @@ const Tarifs = () => {
           </div>
         </div>
 
-        <div className=" rounded-[42.51px] bg-[#E2E2E208]" id="bg-tarif">
+        <div className=" rounded-[42.51px] bg-[#E2E2E208] w-full" id="bg-tarif">
           <div className="flex flex-col justify-center items-center py-14">
             <div className="">
               <div className="flex flex-col justify-center items-center">
-                <div className="flex justify-between md:items-center w-full lg:max-w-[1012px] pb-10 px-5">
+                <div className="flex flex-col md:flex-row gap-4 md:gap-0 justify-between md:items-center w-full lg:max-w-[1012px] pb-10 px-5">
                   <p className="text-[#0C0C44] text-3xl md:text-[48px] font-bold tracking-[-2px] max-w-[535px] montserrat-bold">
                     Des <span className="text-[#07AED8] montserrat-bold">tarifs simples</span>,
                     pour tous vos objectifs
@@ -65,7 +65,7 @@ const Tarifs = () => {
                   </div>
                 </div>
                 <div className="flex flex-col gap-6 lg:flex-row ">
-                  <div className=" bg-white rounded-[40px] outline-[#07AED81A] outline-[5px] pl-10 pr-20 pt-10 pb-20 h-[497px] w-[454px]">
+                  <div className=" bg-white rounded-[40px] outline-[#07AED81A] outline-[5px] pl-10 pr-20 pt-10 pb-20 h-[497px] md:w-[454px]">
                     <img src={Love} alt="" />
                     <p className=" text-[16px] text-[#4E5B6B] font-semibold mt-2">
                       Aucun frais de démarrage{" "}
@@ -77,7 +77,7 @@ const Tarifs = () => {
                       pour créer la cagnotte ou participer à une cagnotte
                     </p>
                   </div>
-                  <div className=" bg-white rounded-[40px] outline-[#07AED81A] outline-[5px] pl-10 pr-20 pt-10 h-[497px] w-[454px]">
+                  <div className=" bg-white rounded-[40px] outline-[#07AED81A] outline-[5px] pl-10 pr-20 pt-10 h-[497px] md:w-[454px]">
                     <img src={Discount} alt="" />
                     <p className="text-[16px] text-[#4E5B6B] font-semibold mt-3">
                       Des frais de transaction uniques
@@ -158,7 +158,7 @@ const Tarifs = () => {
           <div className="flex justify-center pb-[199px] px-4">
             <div className="flex flex-col relative justify-center items-center space-y-4 bg-[radial-gradient(circle,#23c8ed,#23c8ed44)] bg-[#23c8ed44]  rounded-[40px] max-w-[1271px] md:w-[1271px] h-[326px]">
               
-              <h2 className="text-[35px] md:text-[48px] text-center text-white font-bold mb-8 montserrat-bold leading-16 px-2">
+              <h2 className="text-[30px] md:text-[48px] text-center text-white font-bold mb-8 montserrat-bold md:leading-16 px-2">
                 Prêt à{" "}
                 <span className="text-[#231F20] montserrat-bold">donner vie vos idées ?</span>{" "}
                 Créez votre cagnotte dès maintenant
