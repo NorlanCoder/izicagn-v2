@@ -1,5 +1,6 @@
 import { Link } from "react-router"
 import logo from "/src/assets/Logo-izicagn.svg"
+import logo2 from "../../assets/logo3.svg"
 import SubMenuItem from "./subMenuItem"
 import { SidebarItemData } from "../../utils/data"
 import Illustration from '../../assets/sidebar/illustration_sidebar.svg';
@@ -35,17 +36,46 @@ const Navbar = () => {
     return (
         <nav className=" lg:px-[120px] md:px-[80px] px-[16px] fixed z-50 top-0 left-0 w-full bg-[#FBFBFB]/90 backdrop-blur-2xl">
             <div className="w-full flex flex-row items-center justify-between h-[78px] ">
-                <Link to="/"><img src={logo} alt="Logo Izicagn" title="Logo Izicagn" className="w-[135px] " /></Link>
+                <motion.div
+                    className='w-[158px] h-full flex flex-col justify-cente'
+                    whileHover="hover"
+                    initial="hidden"
+                    animate="hidden"
+                >
+                    <Link to="/" className=" relative h-full r">
+                        {/* Logo 1 */}
+                        <motion.img
+                            src={logo}
+                            alt="Logo Izicagn" title="Logo Izicagn" className="w-[135px] absolute top-0 left-0 h-full"
+                            variants={{
+                                hidden: { display: 'block', opacity: 1, },
+                                hover: { display: 'hidden', opacity: 0 },
+                            }}
+                            transition={{ duration: 0.5, ease: 'circInOut' }}
+                        />
+
+                        {/* Logo 2 */}
+                        <motion.img
+                            src={logo2}
+                            alt="Logo Izicagn" title="Logo Izicagn" className="w-[135px] absolute top-0 left-0 h-full"
+                            variants={{
+                                hidden: { display: 'hidden', opacity: 0 },
+                                hover: { display: 'block', opacity: 1 },
+                            }}
+                            transition={{ duration: 0.5, ease: 'circInOut' }}
+                        />
+                    </Link>
+                </motion.div>
                 <ul className="flex flex-row justify-end xl:space-x-10 lg:space-x-4">
                     <div className="lg:flex hidden flex-row xl:space-x-10 lg:space-x-4 font-bold">
                         <li className="relative" ref={subMenuRef}>
                             <p className="flex flex-row items-center space-x-2 cursor-pointer font-bold text-[15px] " onClick={()=>toogleShowSubMenu()}><span>Découvrir</span> <ChevronDown /></p>
                             
                             <AnimatePresence>
-                                {showSubMenu && <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, ease: 'circInOut'}}} exit={{opacity: 0, transition: {duration: 0.3, ease: 'circInOut'}}} className="absolute w-3 h-3 bg-white z-0 top-[42px] left-[100px] rotate-45 shadow"></motion.div>}
+                                {showSubMenu && <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, ease: 'circInOut'}}} exit={{opacity: 0, transition: {duration: 0.3, ease: 'circInOut'} }} className="absolute w-3 h-3 bg-white z-0 top-[42px] left-[50px] rotate-45 shadow"></motion.div>}
                                 {
                                     showSubMenu && (
-                                        <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, ease: 'circInOut'}}} exit={{opacity: 0}} className="flex bg-white h-[422px] shadow rounded-[32px] absolute top-12 -left-3 z-10">
+                                        <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, ease: 'circInOut'}}} exit={{opacity: 0}} className="flex bg-white h-[258px] shadow rounded-[32px] absolute top-12 -left-56 z-10">
                                             
                                             <motion.div initial={{}} className="md:w-[432px] p-4 flex flex-col space-y-1">
                                                 {
@@ -55,8 +85,8 @@ const Navbar = () => {
                                                 }
                                             </motion.div>
                                             
-                                            <div className="submenu-block2 md:w-[326px] self-stretch rounded-r-[32px] overflow-hidden relative">
-                                                <img src={Illustration} className="absolute bottom-0 left-0" alt="" />
+                                            <div className="submenu-block2 md:w-[256px] self-stretch rounded-r-[32px] overflow-hidden relative">
+                                                <img src={Illustration} className="absolute bottom-0 left-0 " alt="" />
                                             </div>
                                         </motion.div>
                                     )

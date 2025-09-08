@@ -12,15 +12,15 @@
   --breakpoint-3xl: 1513px;
 }
 
-@font-face {
+/* @font-face {
   font-family: Montserrat;
   src: url("./assets/font/Montserrat-Regular.ttf");
-}
+} */
 
-@font-face {
+/* @font-face {
   font-family: MontserratBold;
   src: url("./assets/font/Montserrat-Bold.ttf");
-}
+} */
 
 /* @font-face {
   font-family: Pacifico;
@@ -34,11 +34,11 @@
 }
 
 .montserrat-bold {
-  font-family: MontserratBold, sans-serif;
+  font-family: Montserrat, sans-serif;
 }
 
 .montserrat-bolder {
-  font-family: "Montserrat", sans-serif;
+  font-family: Montserrat, sans-serif;
   font-optical-sizing: auto;
   font-weight: 900;
   font-style: normal;
