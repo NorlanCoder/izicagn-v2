@@ -30,10 +30,10 @@ import { Link } from "react-router";
 
 const EtapesSection = () => {
   return (
-    <section className="w-full h-full ">
+    <section className="w-full h-full">
       <div className="w-full flex lg:flex-row flex-col justify-center items-start gap-4 mb-8">
         <div
-          className="relative lg:w-auto w-[508px] md:h-[622px] h-auto rounded-[20px] md:rounded-[30px] overflow-hidden"
+          className="relative lg:w-auto w-auto md:h-[622px] h-auto rounded-[20px] md:rounded-[30px] overflow-hidden"
         >
           <img
             src={Decor}
@@ -50,7 +50,7 @@ const EtapesSection = () => {
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
           }}
-          className="w-full lg:w-[705px] md:h-[622px] h-auto bg-[#033C50] flex flex-col justify-center rounded-[20px] md:rounded-[30px] space-y-6 sm:space-y-8 py-8 px-14"
+          className="w-full lg:w-[705px] md:h-[622px] h-auto bg-[#033C50] flex flex-col justify-center rounded-[20px] md:rounded-[30px] space-y-6 sm:space-y-8 py-8 px-2 md:px-14"
         >
           <h2 className="text-[22px] sm:text-[28px] lg:text-[38px] text-white font-bold leading-[130%] tracking-[-1px] mb-4 sm:mb-6 max-w-[473px]">
             Lever des fonds en quelques étapes simples

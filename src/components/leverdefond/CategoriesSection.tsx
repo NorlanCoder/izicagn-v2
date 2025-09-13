@@ -40,10 +40,10 @@ const CategoriesSection = () => {
       ))}
 
       {/* Dégradé gauche */}
-      <div className="pointer-events-none absolute z-40 left-0 top-0 h-full w-60 bg-gradient-to-r from-white to-transparent"></div>
+      <div className="pointer-events-none absolute hidden md:block z-40 left-0 top-0 h-full w-60 bg-gradient-to-r from-white to-transparent"></div>
 
       {/* Dégradé droit */}
-      <div className="pointer-events-none absolute z-40 right-0 top-0 h-full w-60 bg-gradient-to-l from-white to-transparent"></div>
+      <div className="pointer-events-none absolute hidden md:block z-40 right-0 top-0 h-full w-60 bg-gradient-to-l from-white to-transparent"></div>
     </div>
   );
 };

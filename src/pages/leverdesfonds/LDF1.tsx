@@ -11,12 +11,12 @@ const LeverDesFonds1 = () => {
 
 		<>
 			<Navbar />
-			<div className="px-4 mt-[100px] w-full mx-10 lg:mx-0">
+			<div className="px-4 mt-[100px] w-full lg:mx-0">
 				<section className='rounded-[42.51px] md:h-[573px] relative my-8 flex flex-col md:justify-center md:px-24 p-10 bg-[radial-gradient(circle,_#78DFF5,_#0BD1F4)] overflow-x-hidden'>
 					<div className="absolute inset-0 bg-[radial-gradient(circle,_rgba(0,0,0,0)_0%,_#000_100%)] mix-blend-overlay pointer-events-none"></div>
 					<div className='max-w-[789px] relative z-10'>
 				
-						<h1 className='md:text-[55px] text-3xl leading-14 tracking-[-1%] text-white montserrat-bold mb-5'><span className='text-[#0D304E] montserrat-bold'>Transformez vos idées</span>  en actions en trouvant un financement !</h1>
+						<h1 className='md:text-[55px] text-3xl md:leading-14 tracking-[-1%] text-white montserrat-bold mb-5'><span className='text-[#0D304E] montserrat-bold'>Transformez vos idées</span>  en actions en trouvant un financement !</h1>
 						<p className='text-[#0F6D8F] w-9/12 mb-8 text-[19px] font-semibold leading-[130%] md:flex hidden max-w-[690px]'>Chez izicagn, on donne de la visibilité à vos projets. Rejoignez-nous pour faire avancer vos idées ambitieuses et créatives.</p>
 						<div className='flex md:flex-row flex-col gap-3'>
 							
