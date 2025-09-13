@@ -15,8 +15,8 @@ const StepItemComponent = ({item}: CcmListSectionProps) => {
                 {item.id =='CC006' && <div className="bg-[#EDF3E9] w-[703px] h-[703px]  rounded-full blur-3xl absolute z-0 -bottom-40 -right-[350px]"></div>}
                 <div className="relative z-10">
                     <img src={item.icon} alt="" className="md:w-[84px] w-[45px] mb-5" />
-                    <h1 className="text-[36px] montserrat-bold mb-4">{item.title}</h1>
-                    <p className="text-[#727683] text-[18px] ">{item.text}</p>
+                    <h1 className="text-[36px] font-[700] mb-4">{item.title}</h1>
+                    <p className="text-[#727683] text-[18px] tracking-[-0.36px] font-[500] ">{item.text}</p>
                 </div>
             </div>
         </div>

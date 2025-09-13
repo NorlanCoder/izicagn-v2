@@ -11,12 +11,12 @@ const LeverDesFonds3 = () => {
         <>
             <div className="">
                 <Navbar />
-                <div className='px-6 mt-[100px]'><GobackComponent/></div>
-                <div className="flex flex-col justify-center items-center space-y-6 mt-10 px-6">
+                <div className='3xl:px-[280px] lg:px-[120px] md:px-[80px] px-[16px] w-full mt-[160px]'><GobackComponent/></div>
+                <div className="flex flex-col justify-center items-center space-y-6 mt-10 3xl:px-[280px] lg:px-[120px] md:px-[80px] px-[16px] w-full">
                     <h1 className="text-center text-4xl md:text-[54px]">Qui peut lever des fonds sur izicagn ?</h1>
                     <img src={Frame} alt="" />
                 </div>
-                <div className="flex flex-col items-center justify-center px-6">
+                <div className="flex flex-col items-center justify-center 3xl:px-[280px] lg:px-[120px] md:px-[80px] px-[16px] w-full">
                     <div className="flex flex-col space-y-8 max-w-[938px] py-20">
                         <p className="text-[#555B6D]">Izicagn offre une opportunité unique pour les investisseurs, qu’ils soient des particuliers ou des entreprises, de soutenir des projets qui leur tiennent à cœur, tout en contribuant au développement de l’économie locale ou à des causes sociales. En tant que particulier, vous pouvez investir dans des projets qui vous inspirent, qu’il s’agisse de soutenir un entrepreneur prometteur, d'aider au financement d'une petite entreprise ou de contribuer à une initiative sociale ayant un impact positif. La plateforme vous permet de diversifier vos investissements en choisissant parmi une grande variété de projets. De plus, les risques sont minimisés grâce à une gestion rigoureuse des campagnes, vous permettant d’investir en toute confiance.</p>
                         <p className="text-[#555B6D]">Izicagn offre une opportunité unique pour les investisseurs, qu’ils soient des particuliers ou des entreprises, de soutenir des projets qui leur tiennent à cœur, tout en contribuant au développement de l’économie locale ou à des causes sociales. En tant que particulier, vous pouvez investir dans des projets qui vous inspirent, qu’il s’agisse de soutenir un entrepreneur prometteur, d'aider au financement d'une petite entreprise ou de contribuer à une initiative sociale ayant un impact positif. La plateforme vous permet de diversifier vos investissements en choisissant parmi une grande variété de projets. De plus, les risques sont minimisés grâce à une gestion rigoureuse des campagnes, vous permettant d’investir en toute confiance.</p>

@@ -9,11 +9,11 @@ const LeverDesFonds2 = () => {
     <>
       <div className="">
         <Navbar />
-        <div className="px-6 mt-[100px]">
+        <div className="3xl:px-[280px] lg:px-[120px] md:px-[80px] px-[16px] w-full mt-[160px]">
           <GobackComponent />
         </div>
 
-        <div className="flex flex-col justify-center items-center space-y-6 mt-10 px-6">
+        <div className="flex flex-col justify-center items-center space-y-6 3xl:px-[280px] lg:px-[120px] md:px-[80px] px-[16px] w-full  mt-10">
           <h1 className="text-center text-4xl md:text-[54px]">
             Qui peut lever des fonds sur izicagn ?
           </h1>
@@ -21,7 +21,7 @@ const LeverDesFonds2 = () => {
           <img src={Frame} alt="" />
         </div>
 
-        <div className="flex flex-col items-center justify-center px-6">
+        <div className="flex flex-col items-center justify-center 3xl:px-[280px] lg:px-[120px] md:px-[80px] px-[16px] w-full">
           <div className="flex flex-col space-y-8 max-w-[938px] py-20">
             <p className="text-[#555B6D]">
               Sur Izicagn, toute personne ayant une idée ou un projet solide

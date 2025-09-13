@@ -29,11 +29,11 @@ const CategoryCagnotte = () => {
                 {/* Liste Cagnotte */}
                 <section className='mb-8 flex flex-col space-y-5'>
                     <div className='mt-8'>
-                        <h1 className='text-[#0A1243] text-[24px] font-bold mb-5'>Évènements personnels <span className='text-[#0988B1] '>53 071 causes</span></h1>
+                        <h1 className='text-[32px] font-[500] mb-5'>Évènements personnels <span className='text-[#0988B1] '>53 071 causes</span></h1>
                         
                         {/* Category */}
                         <div className='flex flex-row items-center mb-8'>
-                            <div className='border-r border-[#757575] pr-4'>
+                            <div className='pr-4'>
                                 <div className='w-[339px] rounded-full p-[20px] py-[16px] bg-[#F5F5F4] flex flex-row space-x-2 items-center'>
                                     <img src={Search} alt='' title=''/>
                                     <input type="text" placeholder='Rechercher' className='text-[#757575] w-full h-full focus:border-0 focus:outline-0' />

@@ -21,7 +21,7 @@ const CagnotteMediumComponentDesign2 = ({item}:CagnotteMediumComponentProps) => 
                 </div>
                 <div className="px-3">
                     <div className="flex flex-row w-full mb-3 items-center relative">
-                        <h2 className='flex flex-row flex-nowrap text-black w-[90%] text-[19.55px] montserrat-bold pr-2'>{item.title}</h2>
+                        <h2 className='flex flex-row flex-nowrap text-black w-[90%] text-[19.55px] max-h-[52px] font-[700] pr-2 line-clamp-2 break-words overflow-hidden'>{item.title}</h2>
                         <h2 className="flex-1 self-baseline p-1 bg-[#EEEFF3] rounded-[697.52px] flex flex-row justify-center items-center text-[9.78px] text-[#435183] font-bold  absolute -right-2 top-1 ">28k dons</h2>
                     </div>
                     <div className='bg-[#F3F5F6] h-[6px] rounded-full overflow-hidden mb-2'>

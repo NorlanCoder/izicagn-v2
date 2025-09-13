@@ -4,6 +4,7 @@ import Search from '../assets/cagnotte/search.png'
 import Category from '../components/cagnotte/category'
 import CagnotteMediumComponent from '../components/cagnotte/cagnotteMediumComponent'
 import Footer from '../components/general/footer'
+import { motion } from 'framer-motion'
 
 const RechercheCagnotte = () => {
     return (

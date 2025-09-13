@@ -67,9 +67,9 @@ const Navbar = () => {
                     </Link>
                 </motion.div>
                 <ul className="flex flex-row justify-end xl:space-x-10 lg:space-x-4">
-                    <div className="lg:flex hidden flex-row xl:space-x-10 lg:space-x-4 font-bold">
+                    <div className="lg:flex hidden flex-row xl:space-x-10 lg:space-x-4 font-[600]">
                         <li className="relative" ref={subMenuRef}>
-                            <p className="flex flex-row items-center space-x-2 cursor-pointer font-bold text-[15px] " onClick={()=>toogleShowSubMenu()}><span>Découvrir</span> <ChevronDown /></p>
+                            <p className="flex flex-row items-center space-x-2 cursor-pointer font-[600] text-[15px] " onClick={()=>toogleShowSubMenu()}><span>Découvrir</span> <ChevronDown /></p>
                             
                             <AnimatePresence>
                                 {showSubMenu && <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, ease: 'circInOut'}}} exit={{opacity: 0, transition: {duration: 0.3, ease: 'circInOut'} }} className="absolute w-3 h-3 bg-white z-0 top-[42px] left-[50px] rotate-45 shadow"></motion.div>}
@@ -93,12 +93,12 @@ const Navbar = () => {
                                 }
                             </AnimatePresence>
                         </li>
-                        <li><Link to="/commentçamarche" className="text-[15px] font-bold">Comment ça marche ?</Link></li>
-                        <li><Link to="/leverdesfonds" className="text-[15px] font-bold">Lever des fonds</Link></li>
+                        <li><Link to="/commentçamarche" className="text-[15px] font-[600]">Comment ça marche ?</Link></li>
+                        <li><Link to="/leverdesfonds" className="text-[15px] font-[600]">Lever des fonds</Link></li>
                     </div>
                     <ul className="md:flex hidden flex-row items-center lg:space-x-2 space-x-4">
-                        <li><Link to="/login" className="p-4 px-7 rounded-full border border-[#D9DFE7CC] font-bold text-[15px]">Mon espace</Link></li>
-                        <li><Link to="/register" className="transition-all shadow bg-gradient-to-b from-[#07AED8] to-[#90E2F8] hover:to-[#07AED8] hover:shadow-none text-white p-4 px-7 rounded-full text-[15px] montserrat-bold">Démarrer</Link></li>
+                        <li><Link to="/login" className="p-4 px-7 rounded-full border border-[#D9DFE7CC] font-[600] text-[15px]">Mon espace</Link></li>
+                        <li><Link to="/register" className="transition-all shadow bg-gradient-to-b from-[#07AED8] to-[#90E2F8] hover:to-[#07AED8] hover:shadow-none text-white p-4 px-7 rounded-full text-[15px] fon-[600]">Démarrer</Link></li>
                     </ul>
                 </ul>
             </div>

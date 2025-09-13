@@ -21,6 +21,7 @@ import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import Garanties from "./pages/Garanties";
 import CategoryCagnotte from "./pages/CategoryCagnotte";
+import FormPayment from "./pages/paiement/FormPayment";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
             <Route path="search" element={<RechercheCagnotte />} />
             <Route path="details" element={<DetailsCagnotte />} />
             <Route path="categorie" element={<CategoryCagnotte />} />
+            <Route path="paiement" element={<FormPayment />} />
           </Route>
 
           <Route path="leverdesfonds">

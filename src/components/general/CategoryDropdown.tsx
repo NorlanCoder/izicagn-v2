@@ -23,9 +23,9 @@ const CategoryDropdown = () => {
     <div ref={dropdownRef} className="relative inline-block text-left">
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center justify-between px-[20px] py-[12px] rounded-full border border-[#E8EAEC] group hover:border-[#07AED8] hover:bg-[#07AED8]/20 transition-all w-[200px]"
+        className="flex items-center justify-between px-[20px] py-[12px] rounded-full border-[0.5px] border-[#E8EAEC] group hover:border-[#07AED8] hover:bg-[#07AED8]/20 transition-all w-[200px]"
       >
-        <span className="group-hover:text-[#07AED8] text-[#37373A] text-[14px] font-bold ">Autres catégories</span>
+        <span className="group-hover:text-[#07AED8] text-[#37373A] text-[14px] tracking-[-1px] font-[500] ">Autres catégories</span>
         <ChevronDown
           size={16}
           className={`ml-2 transition-transform ${open ? "rotate-180" : "rotate-0"} group-hover:text-[#07AED8] group-hover:font-bold`}
