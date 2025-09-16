@@ -14,7 +14,7 @@ import Sub1 from '../../assets/sidebar/sidebari1.svg';
 import Sub2 from '../../assets/sidebar/sidebari2.svg';
 import Sub3 from '../../assets/sidebar/sidebari3.svg';
 import Sub4 from '../../assets/sidebar/sidebari4.svg';
-import Sub5 from '../../assets/sidebar/sidebari5.svg';
+// import Sub5 from '../../assets/sidebar/sidebari5.svg';
 
 import CCM_SECTION1 from '../../assets/ccm/ccm_img1.svg';
 import CCM_SECTION2 from '../../assets/ccm/ccm_img2.svg';
@@ -238,14 +238,6 @@ export const SidebarItemData: SideBarItemType[] = [
     path: '/cagnotte',
     soon: false
   },
-  // {
-  //   id: 'S002',
-  //   image: Sub2,
-  //   title: 'Investissements',
-  //   text: 'Investissez dans des projets à potentiel',
-  //   path: '/investissement',
-  //   soon: false
-  // },
   {
     id: 'S003',
     image: Sub3,
@@ -261,6 +253,14 @@ export const SidebarItemData: SideBarItemType[] = [
     text: 'Soutenir vos ambitions, transformer vos idées en succès',
     path: '/mission',
     soon: false
+  },
+  {
+    id: 'S002',
+    image: Sub2,
+    title: 'Investissements',
+    text: 'Investissez dans des projets à potentiel',
+    path: '/investissement',
+    soon: true
   },
   // {
   //   id: 'S005',
