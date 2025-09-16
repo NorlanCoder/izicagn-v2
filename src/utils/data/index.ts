@@ -260,7 +260,7 @@ export const SidebarItemData: SideBarItemType[] = [
     title: 'Investissements',
     text: 'Investissez dans des projets à potentiel',
     path: '/investissement',
-    soon: true
+    soon: true,
   },
   // {
   //   id: 'S005',
