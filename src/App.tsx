@@ -19,9 +19,14 @@ import LeverDesFonds1 from "./pages/leverdesfonds/LDF1";
 import LeverDesFonds3 from "./pages/leverdesfonds/LDF3";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
+<<<<<<< HEAD
 import Garanties from "./pages/Garanties";
 import CategoryCagnotte from "./pages/CategoryCagnotte";
 import FormPayment from "./pages/paiement/FormPayment";
+=======
+import Cagnottef from "./components/auth/register/cagnotte/cagnottef";
+
+>>>>>>> e20316b2d36c21571a25c2199387b84b5826a983
 
 function App() {
   return (
@@ -57,6 +62,8 @@ function App() {
 
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
+          <Route path="cagnottef" element={<Cagnottef />} />
+     
 
         </Routes>
       </BrowserRouter>  
