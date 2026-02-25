@@ -19,11 +19,11 @@ const CagnotteLargeComponent = ({item}:CagnotteMediumComponentProps) => {
                 <div id="CagnotteMediumComponentImage" className='h-full w-full absolute inset-0 top-0 left-0 rounded-[16px]' style={{backgroundImage: `url(${item.image})`}}></div>
             </div>
             <div>
-                <h2 className='flex flex-row flex-nowrap text-black text-[28px] montserrat-bold mb-3'>{item.title}</h2>
+                <h2 className='flex flex-row flex-nowrap text-black text-[28px] montserrat-bold font-[700] mb-3'>{item.title}</h2>
                 <div className='bg-[#F3F5F6] h-[6px] rounded-full overflow-hidden mb-2'>
                     <div className='rounded-full bg-[#FD8342] h-full ' style={{width: `${(item.solde/item.besoin)*100}%`}}></div>
                 </div>
-                <h3 className="text-[14px] text-[#585D5E]"> <span className='text-[#07AED8] montserrat-bold'>{item.solde} Fcfa</span> collectés sur 1 500 000 fcfa</h3>
+                <h3 className="text-[14px] text-[#585D5E]"> <span className='text-[#07AED8] montserrat-bold font-[700]'>{item.solde} Fcfa</span> collectés sur 1 500 000 fcfa</h3>
                 {/* <div className='flex flex-row justify-between items-center'>
                     <div className='flex flex-row items-center space-x-[8px] '>
                         <img src={Group} className="w-5" alt="" />

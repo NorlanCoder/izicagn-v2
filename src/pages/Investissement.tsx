@@ -17,12 +17,12 @@ const Investissement = () => {
 				
 
 				{/* Bannière code */}
-				<div className="px-4">
+				<div className="px-4 mt-[100px] w-full lg:mx-0">
 					<section className='rounded-[42.51px] h-[573px] relative mb-8 mt-[100px] flex flex-col justify-center px-24 bg-[radial-gradient(circle,_#78DFF5,_#0BD1F4)] overflow-x-hidden'>
 					<div className="absolute inset-0 bg-[radial-gradient(circle,_rgba(0,0,0,0)_0%,_#000_100%)] mix-blend-overlay pointer-events-none"></div>
 						<div className='max-w-[740px] relative z-10'>
 							
-							<h1 className='text-[55px] leading-14 text-white montserrat-bold mb-5'>Explorer et <span className='text-[#0D304E] montserrat-bold'>investissez dans l'avenir</span></h1>
+							<h1 className='text-[55px] leading-14 text-white font-[700] mb-5'>Explorer et <span className='text-[#0D304E] font-[700]'>investissez dans l'avenir</span></h1>
 							<p className='text-[#0F6D8F] w-9/12 mb-8 text-[19.13px] font-bold '>Choisissez les idées qui vous inspirent, suivez leur progression, et participez activement à leur réussite</p>
 							<div className='flex flex-row space-x-3'>
 								<div className='border border-[#07AED8] w-[339px] rounded-full p-[12px] bg-white flex flex-row space-x-2 items-center'>

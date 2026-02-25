@@ -1,7 +1,7 @@
 import Footer from "../../components/general/footer"
 import ImgDeco from '../../assets/imgdeco.png'
 import WinIcon from '../../assets/goal.png'
-import Gestion from '../../assets/cagnotte/mage_external-link.png'
+// import Gestion from '../../assets/cagnotte/mage_external-link.png'
 import Navbar from "../../components/general/navbar"
 import { DonAmountMin } from "../../utils/data"
 import DonAmmount from "../../components/cagnotte/donAmmount"
@@ -95,7 +95,7 @@ const FormPayment = () => {
             <div className="flex flex-col items-center mb-8">
                 <div className="flex flex-row items-center justify-center space-x-1">
                     <p className=" text-[#37373A] text-center ">Comment sont gérés mes dons chez izicagn</p>
-                    <img src={Gestion} alt="" />
+                    {/* <img src={Gestion} alt="" /> */}
                 </div>
 
                 <p className="text-[#979797] text-center md:w-2/3 mt-8 ">Izicagn est un établissement autorisé par .............................. à fournir des services de paiement, en vertu de la réglementation Payment Services Regulations 2017</p>

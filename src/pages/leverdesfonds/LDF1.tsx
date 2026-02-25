@@ -16,7 +16,7 @@ const LeverDesFonds1 = () => {
 					<div className="absolute inset-0 bg-[radial-gradient(circle,_rgba(0,0,0,0)_0%,_#000_100%)] mix-blend-overlay pointer-events-none"></div>
 					<div className='max-w-[789px] relative z-10'>
 				
-						<h1 className='md:text-[55px] text-3xl md:leading-14 tracking-[-1%] text-white montserrat-bold mb-5'><span className='text-[#0D304E] montserrat-bold'>Transformez vos idées</span>  en actions en trouvant un financement !</h1>
+						<h1 className='md:text-[55px] text-3xl md:leading-14 tracking-[-1%] text-white font-[700] mb-5'><span className='text-[#0D304E] montserrat-bold'>Transformez vos idées</span>  en actions en trouvant un financement !</h1>
 						<p className='text-[#0F6D8F] w-9/12 mb-8 text-[19px] font-semibold leading-[130%] md:flex hidden max-w-[690px]'>Chez izicagn, on donne de la visibilité à vos projets. Rejoignez-nous pour faire avancer vos idées ambitieuses et créatives.</p>
 						<div className='flex md:flex-row flex-col gap-3'>
 							

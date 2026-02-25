@@ -22,6 +22,7 @@ import ChevronRight from '../assets/cagnotte/chevron-right-white.svg'
 import CagnotteMediumComponentDesign2 from '../components/cagnotte/cagnotteMediumComponentDesign2'
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
+import { useNavigate } from 'react-router'
 
 const images = [Img, Img2, Img3];
 
@@ -30,6 +31,7 @@ const DetailsCagnotte = () => {
 	const [index, setIndex] = useState(0);
 	const [isOpen, setIsOpen] = useState(false);
 	const [isOpen1, setIsOpen1] = useState(false);
+	const navigate = useNavigate();
 
 	const toggleOpen = () => {
 		setIsOpen(!isOpen);
@@ -49,17 +51,21 @@ const DetailsCagnotte = () => {
 		);
 	}
 
+	const RedirectToPaiementPage = () => {
+		navigate("/cagnotte/paiement", {replace: true})
+	}
+
 	return (
 		<div>
 			<Navbar />
 			<div className=' w-full'>
 
 				{/* Bloc presentation */}
-				<section className='2xl:px-[280px] 2xl:px-[120px] md:px-[80px] px-[16px] mt-[150px] '>
+				<section className='3xl:px-[280px] 2xl:px-[120px] md:px-[80px] px-[16px] mt-[150px] '>
 					<div className='flex lg:flex-row flex-col lg:justify-between lg:items-center lg:space-x-10 space-x-3 lg:gap-y-0 gap-y-2 mb-5'>
 						<h1 className='text-[#0A1243] text-[38px] font-bold xl:w-[880px] lg:w-8/12 montserrat-bold '>Sauvons Rufus, le jeune de 9ans</h1>
 						<div className='flex flex-row space-x-2 xl:w-[403px] lg:w-4/12'>
-							<button className='bg-[#23C7ED] text-white grow-0 rounded-full w-full text-[20px] px-[24px] py-[12px] font-bold cursor-pointer'>Soutenir</button>
+							<button onClick={()=>RedirectToPaiementPage()} className='bg-[#23C7ED] text-white grow-0 rounded-full w-full text-[20px] px-[24px] py-[12px] font-bold cursor-pointer'>Soutenir</button>
 							<button className='w-[56px] h-[52px] px-[15px] py-[12px] border-[0.89px] rounded-[12.4px] border-[#8C8C8C24] flex flex-row justify-center items-center cursor-pointer'>
 								<img src={Share1} alt="" />
 							</button>
@@ -329,7 +335,7 @@ const DetailsCagnotte = () => {
 				{/* Liste Cagnotte */}
 				<section className='mb-8 flex flex-col space-y-5 2xl:px-[280px] 2xl:px-[120px] md:px-[80px] px-[16px] relative z-10 '>
 					<div className='mt-8'>
-						<h1 className='text-[#090914] text-[36px] montserrat-bold mb-5 relative z-10'>D'autres causes comme celle-ci</h1>
+						<h1 className='text-[#090914] text-[36px] font-[600] mb-5 relative z-10'>D'autres causes comme celle-ci</h1>
 						<div className='flex flex-row flex-wrap'>
 							{
 								CagnotteMediumListMin2.map((item,index) => (

@@ -10,7 +10,6 @@ const RechercheCagnotte = () => {
 		<div>
 			<Navbar />
 			<div className='px-4 w-full'>
-				
 
 				{/* Bannière code */}
 				<section className='rounded-[42.51px] h-[224px] relative mb-8 mt-[100px] flex flex-col justify-center px-24 bg-[radial-gradient(circle,_#78DFF5,_#0BD1F4)] overflow-x-hidden'>

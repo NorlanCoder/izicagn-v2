@@ -27,7 +27,7 @@ const ArticleCardMedium = ({ image, date, desc, react }:any) => {
                     </div>
 
                     {/* Description */}
-                    <p className="text-[#000000] text-[20px] montserrat-bold leading-snug line-clamp-2 min-h-[2.8em]">
+                    <p className="text-[#000000] text-[20px] font-[700] leading-snug line-clamp-2 min-h-[2.8em]">
                     {desc}
                     </p>
                 </div>

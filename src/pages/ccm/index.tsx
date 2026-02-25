@@ -44,10 +44,10 @@ const CommentMarche = () => {
                         <div className="absolute inset-0 bg-[radial-gradient(circle,_rgba(0,0,0,0)_0%,_#000_100%)] mix-blend-overlay pointer-events-none"></div>
                         <div className='max-w-[740px] relative z-10'>
                             
-                            <h1 className='text-[55px] leading-14 text-white montserrat-bold mb-5'>Ensemble <span className='text-[#0D304E] montserrat-bold'>nous (et vous) </span>faisons la différence</h1>
+                            <h1 className='text-[55px] leading-14 text-white font-[700] mb-5'>Ensemble <span className='text-[#0D304E] '>nous (et vous) </span>faisons la différence</h1>
                             <p className='text-[#0F6D8F] w-9/12 mb-8 text-[19px] font-bold '>Faites le premier pas vers votre objectif. Créez votre cagnotte et mobilisez votre communauté</p>
                             
-                            <button className='bg-[#0D304E] transition-all hover:bg-[#07AED8] shadow-md text-white rounded-full text-[14px] py-[20px] px-[30px] cursor-pointer montserrat-bold'>Démarrer une cagnotte</button>
+                            <button className='bg-[#0D304E] transition-all hover:bg-[#07AED8] shadow-md text-white rounded-full text-[14px] py-[20px] px-[30px] cursor-pointer '>Démarrer une cagnotte</button>
                             
                         </div>
                         <img 
@@ -61,8 +61,8 @@ const CommentMarche = () => {
                 </div>
 
                 <div className={` ${fixed ? 'sticky' : ''} mt-8 mb-14 flex flex-col items-center  w-full top-[78px] py-10 z-30 ccm-sticky`}>
-                    <h1 className='text-[#0E0E18] text-[42px] font-bold mb-2'>Comment ça marche</h1>
-                    <p className='text-[18px] text-[#727683] text-center font-bold '>Découvrez comment Izicagn vous accompagne à chaque étape de votre collecte</p>
+                    <h1 className='text-[#0E0E18] text-[42px] font-[600] tracking-[-2px] mb-2'>Comment ça marche</h1>
+                    <p className='text-[18px] text-[#727683] text-center font-[500] '>Découvrez comment Izicagn vous accompagne à chaque étape de votre collecte</p>
                     <div className='flex flex-row justify-center space-x-2 mt-8'>
                         {
                             howWorkButton.map((item)=>(
@@ -86,9 +86,9 @@ const CommentMarche = () => {
                                                 <div className='bg-[#ECFDFF] border-4 border-[#D7EDF1] w-[100px] h-[100px] rounded-full flex flex-row justify-center items-center mb-2'>
                                                     <img src={CcmStep1} alt=""  className='w-10 h-10'/>
                                                 </div>
-                                                <p className='text-[14px] text-[#4E5E62] font-semibolld '>Etape 1</p>
-                                                <h2 className='text-[#0C0C44] lg:text-[25px] md:text-[20px] text-[25px] text-center montserrat-bold md:w-9/12 mb-2 line-clamp-2 min-h-[2.8em]'>Racontez votre histoire au monde</h2>
-                                                <p className='text-[#0C0C44] lg:text-[20px] md:text-[16px] text-[20px] text-center md:w-10/12'>Soutenir une cagnotte ou un projet d’entreprise</p>
+                                                <p className='text-[14px] text-[#4E5E62] font-semibold '>Etape 1</p>
+                                                <h2 className='text-[#0C0C44] lg:text-[25px] md:text-[20px] text-[25px] text-center font-[700]  md:w-9/12 mb-2 line-clamp-2 min-h-[2.8em]'>Racontez votre histoire au monde</h2>
+                                                <p className='text-[#0C0C44] lg:text-[20px] md:text-[16px] text-[20px] text-center font-[400] md:w-10/12'>Soutenir une cagnotte ou un projet d’entreprise</p>
                                             </div>
 
                                             <div className='flex flex-col items-center md:flex-1'>
@@ -96,8 +96,8 @@ const CommentMarche = () => {
                                                     <img src={CcmStep2} alt=""  className='w-10 h-10'/>
                                                 </div>
                                                 <p className='text-[14px] text-[#4E5E62] font-semibold '>Etape 2</p>
-                                                <h2 className='text-[#0C0C44] lg:text-[25px] md:text-[20px] text-[25px] text-center montserrat-bold md:w-9/12 mb-2 line-clamp-2 min-h-[2.8em]'>Partagez à vos proches et au-delà</h2>
-                                                <p className='text-[#0C0C44] lg:text-[20px] md:text-[16px] text-[20px] text-center md:w-10/12'>Soutenir une cagnotte ou un projet d’entreprise</p>
+                                                <h2 className='text-[#0C0C44] lg:text-[25px] md:text-[20px] text-[25px] text-center font-[700] md:w-9/12 mb-2 line-clamp-2 min-h-[2.8em]'>Partagez à vos proches et au-delà</h2>
+                                                <p className='text-[#0C0C44] lg:text-[20px] md:text-[16px] text-[20px] text-center font-[400] md:w-10/12'>Soutenir une cagnotte ou un projet d’entreprise</p>
                                             </div>
 
                                             <div className='flex flex-col items-center md:flex-1'>
@@ -105,8 +105,8 @@ const CommentMarche = () => {
                                                     <img src={CcmStep3} alt=""  className='w-10 h-10'/>
                                                 </div>
                                                 <p className='text-[14px] text-[#4E5E62] font-semibold '>Etape 3</p>
-                                                <h2 className='text-[#0C0C44] lg:text-[25px] md:text-[20px] text-[25px] text-center montserrat-bold md:w-9/12 mb-2 line-clamp-2 min-h-[2.8em]'>Gérez votre campagne où que vous soyez</h2>
-                                                <p className='text-[#0C0C44] lg:text-[20px] md:text-[16px] text-[20px] text-center md:w-10/12'>Soutenir une cagnotte ou un projet d’entreprise</p>
+                                                <h2 className='text-[#0C0C44] lg:text-[25px] md:text-[20px] text-[25px] text-center font-[700] md:w-9/12 mb-2 line-clamp-2 min-h-[2.8em]'>Gérez votre campagne où que vous soyez</h2>
+                                                <p className='text-[#0C0C44] lg:text-[20px] md:text-[16px] text-[20px] text-center font-[400] md:w-10/12'>Soutenir une cagnotte ou un projet d’entreprise</p>
                                             </div>
                                         </StepBlockComponent>
                                     </div>
@@ -140,8 +140,8 @@ const CommentMarche = () => {
                                                     <img src={CcmStep1} alt=""  className='w-10 h-10'/>
                                                 </div>
                                                 <p className='text-[14px] text-[#4E5E62] font-semibold '>Etape 1</p>
-                                                <h2 className='text-[#0C0C44] lg:text-[25px] md:text-[20px] text-[25px] text-center montserrat-bold md:w-9/12 mb-2 line-clamp-2 min-h-[2.8em]'>Trouvez qui vous voulez soutenir</h2>
-                                                <p className='text-[#0C0C44] lg:text-[20px] md:text-[16px] text-[20px] text-center md:w-10/12'>Soutenir une cagnotte ou un projet d’entreprise</p>
+                                                <h2 className='text-[#0C0C44] lg:text-[25px] md:text-[20px] text-[25px] text-center font-[700] md:w-9/12 mb-2 line-clamp-2 min-h-[2.8em]'>Trouvez qui vous voulez soutenir</h2>
+                                                <p className='text-[#0C0C44] lg:text-[20px] md:text-[16px] text-[20px] text-center font-[400] md:w-10/12'>Soutenir une cagnotte ou un projet d’entreprise</p>
                                             </div>
 
                                             <div className='flex flex-col items-center md:flex-1'>
@@ -149,8 +149,8 @@ const CommentMarche = () => {
                                                     <img src={CcmStep2} alt=""  className='w-10 h-10'/>
                                                 </div>
                                                 <p className='text-[14px] text-[#4E5E62] font-semibold '>Etape 2</p>
-                                                <h2 className='text-[#0C0C44] lg:text-[25px] md:text-[20px] text-[25px] text-center montserrat-bold md:w-9/12 mb-2 line-clamp-2 min-h-[2.8em]'>Entrez le montant du don</h2>
-                                                <p className='text-[#0C0C44] lg:text-[20px] md:text-[16px] text-[20px] text-center md:w-10/12'>Soutenir une cagnotte ou un projet d’entreprise</p>
+                                                <h2 className='text-[#0C0C44] lg:text-[25px] md:text-[20px] text-[25px] text-center font-[700] md:w-9/12 mb-2 line-clamp-2 min-h-[2.8em]'>Entrez le montant du don</h2>
+                                                <p className='text-[#0C0C44] lg:text-[20px] md:text-[16px] text-[20px] text-center font-[400] md:w-10/12'>Soutenir une cagnotte ou un projet d’entreprise</p>
                                             </div>
 
                                             <div className='flex flex-col items-center md:flex-1'>
@@ -158,8 +158,8 @@ const CommentMarche = () => {
                                                     <img src={CcmStep3} alt=""  className='w-10 h-10'/>
                                                 </div>
                                                 <p className='text-[14px] text-[#4E5E62] font-semibold '>Etape 3</p>
-                                                <h2 className='text-[#0C0C44] lg:text-[25px] md:text-[20px] text-[25px] text-center montserrat-bold md:w-9/12 mb-2 line-clamp-2 min-h-[2.8em]'>Envoyez votre don en un clic</h2>
-                                                <p className='text-[#0C0C44] lg:text-[20px] md:text-[16px] text-[20px] text-center md:w-10/12'>Soutenir une cagnotte ou un projet d’entreprise</p>
+                                                <h2 className='text-[#0C0C44] lg:text-[25px] md:text-[20px] text-[25px] text-center font-[700] md:w-9/12 mb-2 line-clamp-2 min-h-[2.8em]'>Envoyez votre don en un clic</h2>
+                                                <p className='text-[#0C0C44] lg:text-[20px] md:text-[16px] text-[20px] text-center font-[400] md:w-10/12'>Soutenir une cagnotte ou un projet d’entreprise</p>
                                             </div>
                                         </StepBlockComponent>
                                     </div>
@@ -222,7 +222,7 @@ const CommentMarche = () => {
                 <motion.div onViewportEnter={()=>{if(fixed){setFixed(false)} }} className='flex flex-row justify-center w-full mt-10 px-4'>
                     <div className=' w-full flex flex-col menu_btn2 xl:px-28 lg:px-16 px-8 py-10 rounded-[60px]'>
                         <div className='flex flex-row justify-center mb-8'>
-                            <h1 className='lg:w-[973px] text-[#231F20] text-[48px] montserrat-bold text-center'>Un outil <span className='text-white montserrat-bold'>complet et pratique</span> pour l’atteinte de vos objectifs</h1>
+                            <h1 className='lg:w-[973px] text-[#231F20] text-[48px] font-[700] text-center'>Un outil <span className='text-white montserrat-bold'>complet et pratique</span> pour l’atteinte de vos objectifs</h1>
                         </div>
                         
                         <div className='flex lg:flex-row flex-col items-center justify-center lg:space-x-2'>
@@ -242,7 +242,7 @@ const CommentMarche = () => {
                 </motion.div>
 
                 <motion.div className="my-20 flex flex-col items-center px-8" onViewportEnter={()=>{if(fixed){setFixed(false)} }}>
-                    <h1 className='text-[#0E0E18] text-center text-[48px] montserrat-bold mb-8 '>Foire aux questions (FAQ)</h1>
+                    <h1 className='text-[#0E0E18] text-center text-[48px] font-[600] tracking-[-1px] mb-8 '>Foire aux questions (FAQ)</h1>
 
                     <FaqComponent title='Comment créer une cagnotte sur Izicagn ?' text='Créer une cagnotte est simple ! Cliquez sur le bouton "Créer une cagnotte", remplissez les informations de votre collecte (objectif, description, visuel, etc.), et votre page sera prête à partager en quelques minutes.' />
                     <FaqComponent title='Y a-t-il des frais pour créer une cagnotte ?' text='Non, la création d’une cagnotte sur Izicagn est totalement gratuite. Nous prélevons seulement une petite commission sur les dons reçus pour couvrir les frais de traitement des paiements.' />

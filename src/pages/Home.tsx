@@ -86,7 +86,7 @@ const Typewriter = ({
   }, []);
 
   return (
-    <h1 className=" md:text-[68px] text-[58px] font-bold lg:w-2/3 w-full text-center leading-20 relative z-5 text-[#FD8352] montserrat-bold pt-4">
+    <h1 className=" md:text-[68px] text-[58px] font-bold lg:w-2/3 w-full text-center leading-20 relative z-5 text-[#FD8352] montserrat-bold pt-4 tracking-[-3px]">
       {displayedText}
       <span
         style={{ display: isMobile ? 'none' : 'inline' }}
@@ -150,16 +150,16 @@ const Home = () => {
             <Navbar2 /> 
 
             <section className='md:h-[108vh] flex flex-col items-center justify-center hero_section_bg relative pt-28 overflow-hidden'>
-                <h1 className='text-[#0C0C44]  md:text-[68px] text-[58px] font-bold lg:w-[779px] md:w-2/3 w-full text-center leading-[80px] relative z-5 montserrat-bold'>Ensemble, faisons de chaque geste un acte </h1>
+                <h1 className='text-[#0C0C44]  md:text-[68px] text-[58px] font-bold lg:w-[779px] md:w-2/3 w-full text-center leading-[80px] relative z-5 montserrat-bold] tracking-[-3px] '>Ensemble, faisons de chaque geste un acte </h1>
                 <Typewriter  texts={['de générosité','d’entraide','d’investissement']} speed={200} />
                 <div className="flex md:flex-row flex-col justify-center space-x-5 mt-10 relative z-5">
-                    <Link to="/commentçamarche" className="bg-gradient-to-b from-[#07AED8] to-[#90E2F8] hover:to-[#07AED8] hover:shadow-none text-white p-[14.04px] px-[28.09px] rounded-full montserrat-bold text-[17.07px] shadow-lg transition-all  flex justify-center items-center ">Démarrer une cagnotte</Link>
-                    <Link to="/commentçamarche" className="bg-white text-[#0C0C44] p-[14.04px] px-[28.09px] rounded-full montserrat-bold text-[17.07px] transition-all hover:bg-[#0C0C44] hover:text-white hover:shadow-none  flex justify-center items-center md:mt-0 mt-5">Financer un projet</Link>
+                    <Link to="/commentçamarche" className="bg-gradient-to-b from-[#07AED8] to-[#90E2F8] hover:to-[#07AED8] hover:shadow-none text-white p-[14.04px] px-[28.09px] rounded-full font-[700] text-[17.07px] shadow-lg transition-all  flex justify-center items-center ">Démarrer une cagnotte</Link>
+                    {/* <Link to="/commentçamarche" className="bg-white text-[#0C0C44] p-[14.04px] px-[28.09px] rounded-full font-[700] text-[17.07px] transition-all hover:bg-[#0C0C44] hover:text-white hover:shadow-none  flex justify-center items-center md:mt-0 mt-5">Financer un projet</Link> */}
                 </div>
                 <div className='w-[569.7608161694778px] h-[600.6400979966875px] bg-[#b0e4f262] rotate-[12.95deg] absolute top-[92.27px] right-[325px] blur-3xl'></div>
                 <div className='w-[753.8562054001509px] h-[680.67284343799715px] bg-[#b0e4f262] -rotate-[28.55deg] absolute top-[92px] left-[62px] blur-3xl'></div>
-                <motion.div className='flex flex-col items-center mt-10 w-[417.655162236501px] ' variants={fadeInVariant} initial="hidden" animate={controls} custom={0.5}>
-                    <p className='text-[22px] text-center -rotate-[3.05deg] pacifico relative text-[#0C0C44] leading-10 font-bold'>La 1ere plateforme sécurisée de Crowdfunding en Afrique... Leader en Europe</p>
+                <motion.div className='flex flex-col items-center mt-10 w-[417.655162236501px] relative z-5' variants={fadeInVariant} initial="hidden" animate={controls} custom={0.5}>
+                    <p className='xl:text-[22px] lg:text-[21px] text-center -rotate-[3.05deg] pacifico relative text-[#0C0C44] leading-10 font-bold'>La 1ere plateforme sécurisée de Crowdfunding en Afrique... Leader en Europe</p>
                     <img src={UnderlineDeco} alt="" className='mt-4' />
                 </motion.div>
 
@@ -182,11 +182,11 @@ const Home = () => {
                 </motion.div>
             </section>
 
-            <section className='2xl:px-[280px] 2xl:px-[120px] md:px-[80px] px-[16px] mt-20 mb-24'>
+            <section className='3xl:px-[280px] 2xl:px-[120px] md:px-[80px] px-[16px] mt-20 mb-24'>
                 
                 <div className="flex lg:flex-row lg:items-center justify-center flex-col">
                     <div className='relative w-full flex flex-col justify-start items-center'>
-                        <h1 className='xl:text-[58px] lg:text-[50px] text-[58px] text-[#0C0C44] lg:flex lg:flex-col flex-row leading-16 lg:text-left text-center'><span className='montserrat-bold'>Découvrez </span><span className='montserrat-bold'> Izicagn sur mobile</span> <span className='text-[#FD8352] montserrat-bold'> <span className='text-[#0C0C44] montserrat-bold'>pour</span> <i className='montserrat-bold'>simplifiez </i></span><span className='text-[#FD8352] montserrat-bold'>vos levées de fonds</span></h1>
+                        <h1 className='xl:text-[58px] lg:text-[50px] text-[58px] text-[#0C0C44] lg:flex lg:flex-col flex-row leading-16 lg:text-left text-center'><span className='montserrat-bold font-[700]'>Découvrez </span><span className='montserrat-bold font-[700]'> Izicagn sur mobile</span> <span className='text-[#FD8352] montserrat-bold'> <span className='text-[#0C0C44] montserrat-bold font-[700]'>pour</span> <i className='montserrat-bold font-[700]'>simplifiez </i></span><i className='text-[#FD8352] montserrat-bold font-[700]'>vos levées de fonds</i></h1>
                         <div className='flex flex-row lg:self-start ml-10 space-x-4 mt-20'>
                             <img src={Playstore} alt="" />
                             <img src={Appstore} alt="" />
@@ -200,15 +200,15 @@ const Home = () => {
                 </div>
             </section>
 
-            <section className='2xl:px-[280px] 2xl:px-[120px] md:px-[80px] px-[16px] mb-32'>
+            <section className='3xl:px-[280px] 2xl:px-[120px] md:px-[80px] px-[16px] mb-32'>
                 
                 <div>
-                    <h1 className='text-[64px] text-[#0C0C44] font-bold md:flex md:flex-col flex-row text-center leading-20 montserrat-bolder'><span className='montserrat-bolder'>La collecte de</span> <span className='text-[#07AED8] montserrat-bolder'> <span className=' text-[#0C0C44] montserrat-bolder'>fonds</span> efficace <span className=' text-[#0C0C44] montserrat-bolder'>et</span> sécurisée</span></h1>
+                    <h1 className='text-[64px] text-[#0C0C44] font-bold md:flex md:flex-col flex-row text-center leading-20 font-[800]'><span className='font-[800]'>La collecte de</span> <span className='text-[#07AED8] font-[800]'> <span className=' text-[#0C0C44] font-[800]'>fonds</span> efficace <span className=' text-[#0C0C44] font-[800]'>et</span> sécurisée</span></h1>
                     <p className='flex justify-center'><img src={ZigzagText} alt="" /></p>
                 </div>
                 
                 <div className='flex justify-center mt-5'>
-                    <p className='text-center md:w-2/3 text-[16px] text-[#494F62]'>Izicagn vous accompagne pour vos collectes de dons en ligne quelque soit votre projet. Créez et gérez des campagnes de collecte de fonds facilement et efficacement.</p>
+                    <p className='text-center lg:w-11/12 sm:w-2/3 text-[16px] text-[#494F62] font-[500]'>Izicagn vous accompagne pour vos collectes de dons en ligne quelque soit votre projet. Créez et gérez des campagnes de collecte de fonds facilement et efficacement.</p>
                 </div>
 
                 <div className='w-full flex lg:flex-row lg:justify-center flex-col md:space-x-6 mt-20'>
@@ -218,10 +218,10 @@ const Home = () => {
 
             </section>
 
-            <section className='2xl:px-[280px] 2xl:px-[120px] md:px-[80px] px-[16px] my-10'>
+            <section className='3xl:px-[280px] 2xl:px-[120px] md:px-[80px] px-[16px] my-10'>
                 
                 <div className='flex flex-row items-center space-x-4 mb-6'>
-                    <h1 className='text-[32px] text-[#0A1243] font-bold  montserrat-bolder'>Les tendances</h1>
+                    <h1 className='text-[32px] text-[#0A1243] font-[700]'>Les tendances</h1>
                     <CategoryDropdown />
                 </div>
                 
@@ -243,9 +243,9 @@ const Home = () => {
 
             <section className='3xl:px-[280px] 2xl:px-[120px] md:px-[80px] px-[16px] px-10 my-10 mb-24'>
                 
-                <h1 className='text-[48px] text-[#0C0C44] font-bold md:flex md:flex-col flex-row text-center leading-14 mt-20 '><span className='montserrat-bolder'>L'outil idéal <span className='text-[#07AED8] montserrat-bolder'> quelque soit </span></span> <span className=' text-[#0C0C44] montserrat-bolder'>votre objectif</span></h1>
+                <h1 className='text-[48px] text-[#0C0C44] font-bold md:flex md:flex-col flex-row text-center leading-14 mt-20 '><span className='font-[800]'>L'outil idéal <span className='text-[#07AED8] font-[800]'> quelque soit </span></span> <span className=' text-[#0C0C44] font-[800]'>votre objectif</span></h1>
                 
-                <div className='w-full flex md:flex-row flex-col md:space-x-6 mt-20'>
+                <div className='w-full flex md:flex-row flex-col md:space-x-6 mt-16'>
                     <HomeStatutCarousel />
                     <div className='self-stretch h-auto md:w-3/5 flex flex-col space-y-6 md:mt-0 mt-8'>
                         <motion.div 
@@ -255,7 +255,7 @@ const Home = () => {
                             animate="rest"
                         >
                             <div className='px-[65px] pt-[45px] flex flex-row items-center grow-0 relative z-1'>
-                                <p className='grow w-1/2 relative z-1'>Un espace personnel pour gérer et suivre en temps réel les contributions, et partager facilement votre collecte sur les réseaux sociaux.</p>
+                                <p className='grow w-1/2 relative z-1 text-[#3B4F54] '>Un espace personnel pour gérer et suivre en temps réel les contributions, et partager facilement votre collecte sur les réseaux sociaux.</p>
                                 <div className='cursor-pointer relative z-1 h-[50px] w-[50px] bg-[#0F6D8F] rounded-full grow-0 self-center flex justify-center items-center'>
                                     <ChevronRight className='text-white' />
                                 </div>
@@ -265,12 +265,12 @@ const Home = () => {
                                 <motion.img
                                     variants={{
                                         rest: { rotate: 0 },
-                                        hover: { rotate: -12 },
+                                        hover: { rotate: -12, bottom: -450},
                                     }}
                                     src={ObjectifAsset2} 
                                     alt=""
                                     transition={{ duration: 0.5, ease: 'easeInOut' }}
-                                    className='absolute bottom-0 xl:left-0 lg:-left-20 z-2' 
+                                    className='absolute -bottom-[500px] xl:left-0 lg:-left-20 z-2' 
                                 />
                                 <motion.img 
                                     variants={{
@@ -289,19 +289,19 @@ const Home = () => {
                                     hover: { height: '100%' },
                                 }}
                                 transition={{ duration: 0.5, ease: 'easeInOut' }}
-                                className='bg-slate-500/5 w-[92%] absolute bottom-2 left-0 z-10'
+                                className='bg-slate-500/5 w-[100%] absolute bottom-2 left-0 z-10'
                             >
                             </motion.div>
                             <img src={Substract} alt="" className='absolute top-0 right-0 z-0' />
                         </motion.div>
                         <div className='grow-0 flex flex-row items-end space-x-6'>
                             <div className='bg-[#4CABC2] rounded-[40px] h-[205px] w-1/2 flex flex-col items-center justify-center text-white'>
-                                <h1 className='text-[52px] font-bold montserrat-bold'>+1300</h1>
-                                <p className='text-[20px] px-5 text-center'>entreprises l’ont fait ici</p>
+                                <h1 className='text-[52px] font-[700]'>+1300</h1>
+                                <p className='text-[20px] px-5 text-center font-[400]'>entreprises l’ont fait ici</p>
                             </div>
                             <div className='bg-[#CFF7FE] rounded-[40px] h-[205px] w-1/2 flex flex-col items-center justify-center text-[#083044]'>
-                                <h1 className='text-[52px] font-bold montserrat-bold'>+740</h1>
-                                <p className='text-[20px] px-5 text-center'>Investisseurs chaque an</p>
+                                <h1 className='text-[52px] font-[700]'>+740</h1>
+                                <p className='text-[20px] px-5 text-center font-[400]'>Investisseurs chaque an</p>
                             </div>
                         </div>
                     </div>
@@ -309,15 +309,15 @@ const Home = () => {
 
             </section>
 
-            <section className='mb-24'>
-                <h1 className='uppercase text-center mb-5 text-[20px] font-semibold text-[#585D5E] '>Des moyens de paiements sûrs et adaptés où que vous soyez</h1>
+            <section className='mb-24 mt-20'>
+                <h1 className='uppercase text-center mb-5 text-[20px] font-[600] text-[#585D5E] '>Des moyens de paiements sûrs et adaptés où que vous soyez</h1>
                 <Partner />
             </section>
 
             <section className='3xl:px-[280px] 2xl:px-[120px] md:px-[80px] px-[16px] my-10 mb-24'>
                 
                 <div className='flex flex-row justify-between items-center'>
-                    <h1 className='text-[48px] text-[#0C0C44] font-bold md:flex md:flex-col flex-row leading-14 mt-10 mb-10 '>Ils nous ont fais confiance</h1>
+                    <h1 className='text-[48px] text-[#0C0C44]  md:flex md:flex-col flex-row leading-14 tracking-[-1px] font-[700] mt-10 mb-10 '>Ils nous ont fais confiance</h1>
                     <div className='flex flex-row space-x-2'>
                         <div className='w-[49px] h-[49px] rounded-full bg-[#07AED8]/10 flex flex-row justify-center items-center cursor-pointer '>
                             <ChevronLeft className='text-white' />
@@ -335,7 +335,7 @@ const Home = () => {
 
             <section className='3xl:px-[280px] 2xl:px-[120px] md:px-[80px] px-[16px] my-10 mb-24'>
                 
-                <h1 className='text-[48px] text-[#0C0C44] font-bold md:flex md:flex-col flex-row leading-14 mt-10 mb-2 montserrat-bold'>Actualités</h1>
+                <h1 className='text-[48px] text-[#0C0C44] font-[700] md:flex md:flex-col flex-row leading-14 mt-10 mb-2 tracking-[-1px] '>Actualités</h1>
                 
                 <div className='flex flex-row flex-wrap space-between'>
                     <ArticleCardMedium
@@ -359,7 +359,7 @@ const Home = () => {
                 </div>
 
                 <div className='flex flex-row justify-center mt-20'>
-                    <Link to="/articles" className="bg-[#F4F6F7] transition-all text-[#000] p-4 px-7 rounded-full text-[16px] montserrat-bold ">Plus d'articles</Link>
+                    <Link to="/articles" className="bg-[#F4F6F7] transition-all text-[#000] p-4 px-7 rounded-full text-[16px] font-[700] ">Plus d'articles</Link>
                 </div>
 
             </section>
