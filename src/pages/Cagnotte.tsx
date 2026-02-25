@@ -5,18 +5,13 @@ import "../utils/style/cagnotte.css";
 import { CagnotteMediumList, CategoryList } from "../utils/data";
 import Category from "../components/cagnotte/category";
 import CagnotteMediumComponent from "../components/cagnotte/cagnotteMediumComponent";
-import { Link, useNavigate } from "react-router";
+import { Link } from "react-router";
 import Banniere from '../assets/cagnotte/banniere.svg'
 import { ChevronRight } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 
 const Cagnotte = () => {
-  const navigate = useNavigate();
-
-  const RedirectToSearchPage = () => {
-    navigate("/cagnotte/search", { replace: true });
-  };
 
   const [isOpenBanniere, setIsOpenBanniere] = useState("closed");
 

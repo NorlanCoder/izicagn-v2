@@ -75,7 +75,7 @@ const Navbar = () => {
                                 {showSubMenu && <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, ease: 'circInOut'}}} exit={{opacity: 0, transition: {duration: 0.3, ease: 'circInOut'} }} className="absolute w-3 h-3 bg-white z-0 top-[42px] left-[50px] rotate-45 shadow"></motion.div>}
                                 {
                                     showSubMenu && (
-                                        <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, ease: 'circInOut'}}} exit={{opacity: 0}} className="flex bg-white h-[258px] shadow rounded-[32px] absolute top-12 -left-56 z-10">
+                                        <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, ease: 'circInOut'}}} exit={{opacity: 0}} className="flex bg-white h-[340px] shadow rounded-[32px] absolute top-12 -left-56 z-10">
                                             
                                             <motion.div initial={{}} className="md:w-[432px] p-4 flex flex-col space-y-1">
                                                 {
@@ -94,7 +94,7 @@ const Navbar = () => {
                             </AnimatePresence>
                         </li>
                         <li><Link to="/commentçamarche" className="text-[15px] font-[600]">Comment ça marche ?</Link></li>
-                        <li><Link to="/leverdesfonds" className="text-[15px] font-[600]">Lever des fonds</Link></li>
+                        {/* <li><Link to="/leverdesfonds" className="text-[15px] font-[600]">Lever des fonds</Link></li> */}
                     </div>
                     <ul className="md:flex hidden flex-row items-center lg:space-x-2 space-x-4">
                         <li><Link to="/login" className="p-4 px-7 rounded-full border border-[#D9DFE7CC] font-[600] text-[15px]">Mon espace</Link></li>
