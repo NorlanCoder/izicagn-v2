@@ -1,10 +1,8 @@
-import { section } from "motion/react-client"
 import Logo from '../../../../assets/cagnotte/Frame 1000001883.png'
 import gif from  "/src/assets/cagnotte/gif.gif"
 import ellipse from  "/src/assets/cagnotte/Ellipse 2578.png"
 import vive from "/src/assets/cagnotte/Vector 2.png"
 
-import React from "react"
 const Cagnottef=()=>{
 return(
     
