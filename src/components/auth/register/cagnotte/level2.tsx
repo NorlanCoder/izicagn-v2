@@ -22,7 +22,7 @@ const Level2 = ({ changeLevel , previousLevel } : { changeLevel: () => void; pre
             </div>
 
     
-            <div className="flex justify-center md:justify-end items-center gap-4  bottom-14 pt-32 right-0">
+            <div className="flex justify-center md:justify-end items-center gap-4 bottom-14 pt-32 right-0">
                     <button onClick={previousLevel} className="border-2 border-[#D9DFE7CC] md:px-[34px] px-[20px] py-[16px] text-black font-semibold rounded-full hover:scale-105 transition">
                          Précédent
                     </button>

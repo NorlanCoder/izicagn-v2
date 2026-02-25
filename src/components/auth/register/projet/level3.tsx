@@ -2,7 +2,7 @@ import Photo from '../../../../assets/auth/Group.png'
 import Boy from '../../../../assets/auth/boy.png'
 import Close from '../../../../assets/auth/close-circle.png'
 
-const Level3 = ({ changeLevel }: { changeLevel: () => void }) => {
+const Level3 = ({ changeLevel , previousLevel } : { changeLevel: () => void; previousLevel: () => void }) => {
   return (
     <div className="mt-20 w-full">
             <h2 className="text-[32px] text-[#0E0E18] font-bold ">Présentez votre projet</h2>
@@ -48,8 +48,13 @@ const Level3 = ({ changeLevel }: { changeLevel: () => void }) => {
                 </div>
             </div>
 
-
-            <button onClick={changeLevel} className="bg-[#23C7ED] px-[34px] py-[16px] text-white rounded-full mt-10 absolute right-0 cursor-pointer hover:scale-105 transition">Continuer</button>
+            <div className="flex justify-center md:justify-end items-center gap-4 bottom-14 pt-32 right-0">
+              <button onClick={previousLevel} className="border-2 border-[#D9DFE7CC] md:px-[34px] px-[20px] py-[16px] text-black font-semibold rounded-full hover:scale-105 transition">
+                Précédent
+              </button>
+              <button onClick={changeLevel} className="bg-[#23C7ED] px-[34px] py-[16px] text-white rounded-full cursor-pointer hover:scale-105 transition">Continuer</button>
+            </div>
+            
                 
         </div>
   )

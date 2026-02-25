@@ -26,12 +26,12 @@ const ProjectRegister = () => {
 
                 <div className='h-full flex flex-col justify-start items-start lg:w-4/5 w-full relative'>
                     {level===1 && <Level1 changeLevel={()=>setLevel(level+1)} />}
-                    {level===2 && <Level2 changeLevel={()=>setLevel(level+1)} />}
-                    {level===3 && <Level3 changeLevel={()=>setLevel(level+1)} />}
-                    {level===4 && <Level4 changeLevel={()=>setLevel(level+1)} />}
-                    {level===5 && <Level5 changeLevel={()=>setLevel(level+1)} />}
-                    {level===6 && <Level6 changeLevel={()=>setLevel(level+1)} />}
-                    {level===7 && <Level7 changeLevel={()=>setLevel(level+1)} />}
+                    {level===2 && <Level2 changeLevel={()=>setLevel(level+1)} previousLevel={()=>setLevel(level-1)} />}
+                    {level===3 && <Level3 changeLevel={()=>setLevel(level+1)} previousLevel={()=>setLevel(level-1)} />}
+                    {level===4 && <Level4 changeLevel={()=>setLevel(level+1)} previousLevel={()=>setLevel(level-1)} />}
+                    {level===5 && <Level5 changeLevel={()=>setLevel(level+1)} previousLevel={()=>setLevel(level-1)} />}
+                    {level===6 && <Level6 changeLevel={()=>setLevel(level+1)} previousLevel={()=>setLevel(level-1)} />}
+                    {level===7 && <Level7 changeLevel={()=>setLevel(level+1)} previousLevel={()=>setLevel(level-1)} />}
                     {level===8 && <Level8 />}
                 </div>
             </div>
