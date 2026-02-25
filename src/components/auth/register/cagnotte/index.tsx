@@ -10,7 +10,6 @@ import Level5 from './level5'
 import Level6 from './level6'
 import Level7 from './level7'
 import Level8 from './level8'
-import { Link } from 'react-router' 
 
 const CagnoteRegister = () => {
 
