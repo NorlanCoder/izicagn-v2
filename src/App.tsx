@@ -21,6 +21,7 @@ import LeverDesFonds1 from "./pages/leverdesfonds/LDF1";
 import LeverDesFonds3 from "./pages/leverdesfonds/LDF3";
 import Login from "./pages/auth/Login";
 import Signup from "./pages/auth/Signup";
+import ForgotPassword from "./pages/auth/ForgotPassword";
 import Garanties from "./pages/Garanties";
 import CategoryCagnotte from "./pages/CategoryCagnotte";
 import FormPayment from "./pages/paiement/FormPayment";
@@ -32,7 +33,7 @@ import DashboardSolde from "./pages/dashboard/Solde";
 import DashboardReversements from "./pages/dashboard/Reversements";
 import DashboardOrganisation from "./pages/dashboard/Organisation";
 import DashboardParametres from "./pages/dashboard/Parametres";
-import Register from "./pages/auth/Register";
+// import Register from "./pages/auth/Register";
 
 
 function App() {
@@ -69,6 +70,7 @@ function App() {
 
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Signup />} />
+          <Route path="forgot-password" element={<ForgotPassword />} />
           <Route path="cagnottef" element={<Cagnottef />} />
 
           <Route path="dashboard">

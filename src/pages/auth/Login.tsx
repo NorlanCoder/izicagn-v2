@@ -134,7 +134,7 @@ const Login = () => {
                                 </div>
 
                                 <div className="w-full my-3">
-                                    <a href={""} className="text-[14px] font-semibold text-[#1485B2] ">Mot de passe oublié ?</a>
+                                    <a href="/forgot-password" className="text-[14px] font-semibold text-[#1485B2] ">Mot de passe oublié ?</a>
                                 </div>
 
                                 <div className="w-full mt-3">

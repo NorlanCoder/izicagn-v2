@@ -75,7 +75,10 @@ export const useLoginMutation = () =>
 // --- Validate OTP ---
 
 export interface ValidateOtpPayload {
-  id: string;
+  // Certains endpoints (inscription) renvoient `id`, d'autres (réinit) renvoient `personId`.
+  // Nous supportons les deux pour éviter de casser l'inscription.
+  personId?: string;
+  id?: string;
   otp: string;
 }
 
@@ -87,10 +90,56 @@ export interface ValidateOtpResponse {
 
 export const useValidateOtpMutation = () =>
   useMutation<ValidateOtpResponse, Error, ValidateOtpPayload>({
+    mutationFn: (payload) => {
+      const { personId, id, otp } = payload;
+      return apiFetch<ValidateOtpResponse>("/auth/cob-otp", {
+        method: "POST",
+        body: JSON.stringify({ personId: personId ?? id, otp }),
+      });
+    },
+  });
+
+// --- Ask Reset (Forgot Password) ---
+
+export interface AskResetPayload {
+  countryCode: string;
+  phone: string;
+}
+
+export interface AskResetResponse {
+  message?: string;
+  personId?: string;
+  [key: string]: unknown;
+}
+
+export const useAskResetMutation = () =>
+  useMutation<AskResetResponse, Error, AskResetPayload>({
     mutationFn: (payload) =>
-      apiFetch<ValidateOtpResponse>("/auth/confirm-user", {
+      apiFetch<AskResetResponse>("/auth/ask-reset", {
         method: "POST",
         body: JSON.stringify(payload),
       }),
   });
 
+// --- Define Password (Reset Password) ---
+
+export interface DefinePasswordPayload {
+  personId: string;
+  otp: string;
+  encryptedPassword: string;
+}
+
+export interface DefinePasswordResponse {
+  message?: string;
+  token?: string;
+  [key: string]: unknown;
+}
+
+export const useDefinePasswordMutation = () =>
+  useMutation<DefinePasswordResponse, Error, DefinePasswordPayload>({
+    mutationFn: (payload) =>
+      apiFetch<DefinePasswordResponse>("/auth/define-password", {
+        method: "POST",
+        body: JSON.stringify(payload),
+      }),
+  });
