@@ -135,3 +135,27 @@ select option {
   -webkit-appearance: none !important;
   -moz-appearance: none !important;
 }
+
+/* Scroll personnalisé pour les pages d'auth */
+.auth-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #90e2f8 #f3f5f7;
+}
+
+.auth-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.auth-scroll::-webkit-scrollbar-track {
+  background: #f3f5f7;
+  border-radius: 999px;
+}
+
+.auth-scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #07aed8 0%, #90e2f8 100%);
+  border-radius: 999px;
+}
+
+.auth-scroll::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #07aed8 0%, #4fc5eb 100%);
+}

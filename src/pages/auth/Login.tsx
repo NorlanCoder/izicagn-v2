@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import Logo from "../../assets/Logo-izicagn.svg"
 import LoginLeft from "../../assets/auth/login_left.svg"
-import { EyeClosed } from "lucide-react"
+import { Eye, EyeClosed } from "lucide-react"
 import Recaptcha from  '../../assets/auth/reCaptcha.png'
 
 export const Loading = () => {
@@ -15,6 +15,7 @@ export const Loading = () => {
 const Login = () => {
 
     const [pageLoading, setPageLoading] = useState(true);
+    const [showPassword, setShowPassword] = useState(false);
 
     useEffect(() => {
         setTimeout(()=>{
@@ -28,8 +29,8 @@ const Login = () => {
                 pageLoading ? (
                     <Loading />
                 ) : (
-                    <div className="flex flex-row">
-                        <div className="md:w-7/12 w-full lg:px-20 md:px-10 px-20 py-10 lg:h-[100vh] h-auto">
+                    <div className="flex flex-row h-[100vh]">
+                        <div className="md:w-7/12 w-full lg:px-20 md:px-10 px-20 py-10 h-full overflow-y-auto auth-scroll">
                             <div><img src={Logo} alt="" /></div>
                             <div className="h-full flex flex-col justify-center items-center xl:px-24">
                                 
@@ -43,8 +44,22 @@ const Login = () => {
                                         <input type="text" placeholder="john.doe@gmail.com" className=" w-full h-full py-[22px] px-[19px] rounded-[12px] focus:border-none focus:outline-0" />
                                     </div>
                                     <div className="w-full bg-[#F3F5F7] rounded-[12px] mb-3 flex flex-row items-center space-x-1 pr-4">
-                                        <input type="password" placeholder="Mot de passe" className=" w-full h-full py-[22px] px-[19px] rounded-[12px] focus:border-none focus:outline-0" />
-                                        <EyeClosed className="cursor-pointer" />
+                                        <input
+                                            type={showPassword ? "text" : "password"}
+                                            placeholder="Mot de passe"
+                                            className=" w-full h-full py-[22px] px-[19px] rounded-[12px] focus:border-none focus:outline-0"
+                                        />
+                                        {showPassword ? (
+                                            <EyeClosed
+                                                className="cursor-pointer"
+                                                onClick={() => setShowPassword(false)}
+                                            />
+                                        ) : (
+                                            <Eye
+                                                className="cursor-pointer"
+                                                onClick={() => setShowPassword(true)}
+                                            />
+                                        )}
                                     </div>
                                 </div>
 

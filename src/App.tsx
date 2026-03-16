@@ -11,6 +11,8 @@ import Tarifs from "./pages/Tarifs";
 // import LeverDesFonds3 from "./pages/leverdesfonds/LDF3"
 import LeverDesFonds2 from "./pages/leverdesfonds/LDF2";
 import { BrowserRouter, Route, Routes } from "react-router";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { queryClient } from "./lib/queryClient";
 import Home from "./pages/Home";
 import Cagnotte from "./pages/Cagnotte";
 import AllArticle from "./pages/AllArticle";
@@ -18,18 +20,27 @@ import Article from "./pages/Article";
 import LeverDesFonds1 from "./pages/leverdesfonds/LDF1";
 import LeverDesFonds3 from "./pages/leverdesfonds/LDF3";
 import Login from "./pages/auth/Login";
-import Register from "./pages/auth/Register";
+import Signup from "./pages/auth/Signup";
 import Garanties from "./pages/Garanties";
 import CategoryCagnotte from "./pages/CategoryCagnotte";
 import FormPayment from "./pages/paiement/FormPayment";
 import Cagnottef from "./components/auth/register/cagnotte/cagnottef";
+import DashboardHome from "./pages/dashboard";
+import DashboardCagnottes from "./pages/dashboard/Cagnottes";
+import DashboardContributions from "./pages/dashboard/Contributions";
+import DashboardSolde from "./pages/dashboard/Solde";
+import DashboardReversements from "./pages/dashboard/Reversements";
+import DashboardOrganisation from "./pages/dashboard/Organisation";
+import DashboardParametres from "./pages/dashboard/Parametres";
+import Register from "./pages/auth/Register";
 
 
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <Routes>
+      <QueryClientProvider client={queryClient}>
+        <BrowserRouter>
+          <Routes>
           <Route index element={<Home />} />
 
           <Route path="cagnotte">
@@ -56,14 +67,24 @@ function App() {
           <Route path="articles" element={<AllArticle />} />
           <Route path="article/:id" element={<Article />} />
 
-
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
           <Route path="cagnottef" element={<Cagnottef />} />
-     
 
-        </Routes>
-      </BrowserRouter>  
+          <Route path="dashboard">
+            <Route index element={<DashboardHome />} />
+            <Route path="cagnottes" element={<DashboardCagnottes />} />
+            <Route path="contributions" element={<DashboardContributions />} />
+            <Route path="solde" element={<DashboardSolde />} />
+            <Route path="reversements" element={<DashboardReversements />} />
+            <Route path="organisation" element={<DashboardOrganisation />} />
+            <Route path="parametres" element={<DashboardParametres />} />
+          </Route>
+
+
+          </Routes>
+        </BrowserRouter>  
+      </QueryClientProvider>
     </>
   );
 }
