@@ -33,12 +33,15 @@ import DashboardReversements from "./pages/dashboard/Reversements";
 import DashboardOrganisation from "./pages/dashboard/Organisation";
 import DashboardParametres from "./pages/dashboard/Parametres";
 import Register from "./pages/auth/Register";
+import { AuthProvider } from "./lib/AuthContext";
+import ProtectedRoute from "./components/general/ProtectedRoute";
 
 
 function App() {
   return (
     <>
       <QueryClientProvider client={queryClient}>
+        <AuthProvider>
         <BrowserRouter>
           <Routes>
           <Route index element={<Home />} />
@@ -68,22 +71,25 @@ function App() {
           <Route path="article/:id" element={<Article />} />
 
           <Route path="login" element={<Login />} />
-          <Route path="register" element={<Signup />} />
+          <Route path="register" element={<Register />} />
           <Route path="cagnottef" element={<Cagnottef />} />
 
-          <Route path="dashboard">
-            <Route index element={<DashboardHome />} />
-            <Route path="cagnottes" element={<DashboardCagnottes />} />
-            <Route path="contributions" element={<DashboardContributions />} />
-            <Route path="solde" element={<DashboardSolde />} />
-            <Route path="reversements" element={<DashboardReversements />} />
-            <Route path="organisation" element={<DashboardOrganisation />} />
-            <Route path="parametres" element={<DashboardParametres />} />
+          <Route element={<ProtectedRoute />}>
+            <Route path="dashboard">
+              <Route index element={<DashboardHome />} />
+              <Route path="cagnottes" element={<DashboardCagnottes />} />
+              <Route path="contributions" element={<DashboardContributions />} />
+              <Route path="solde" element={<DashboardSolde />} />
+              <Route path="reversements" element={<DashboardReversements />} />
+              <Route path="organisation" element={<DashboardOrganisation />} />
+              <Route path="parametres" element={<DashboardParametres />} />
+            </Route>
           </Route>
 
 
           </Routes>
-        </BrowserRouter>  
+        </BrowserRouter>
+        </AuthProvider>
       </QueryClientProvider>
     </>
   );
