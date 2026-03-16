@@ -138,8 +138,9 @@ select option {
 
 /* Scroll personnalisé pour les pages d'auth */
 .auth-scroll {
-  scrollbar-width: thin;
-  scrollbar-color: #90e2f8 #f3f5f7;
+  scrollbar-width: none;
+  /* scrollbar-width: thin;
+  scrollbar-color: #90e2f8 #f3f5f7; */
 }
 
 .auth-scroll::-webkit-scrollbar {
