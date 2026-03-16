@@ -50,11 +50,11 @@ const Signup = () => {
       return;
     }
     try {
-      const res = await validateOtpMutation.mutateAsync({ personId, otp: code });
+      const res = await validateOtpMutation.mutateAsync({ id: personId, otp: code });
 
       console.log(res);
 
-      // navigate("/login");
+      navigate("/login");
 
     } catch (err: any) {
       setOtpError(err.message || "Code OTP invalide.");

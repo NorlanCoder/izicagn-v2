@@ -75,7 +75,7 @@ export const useLoginMutation = () =>
 // --- Validate OTP ---
 
 export interface ValidateOtpPayload {
-  personId: string;
+  id: string;
   otp: string;
 }
 
@@ -88,7 +88,7 @@ export interface ValidateOtpResponse {
 export const useValidateOtpMutation = () =>
   useMutation<ValidateOtpResponse, Error, ValidateOtpPayload>({
     mutationFn: (payload) =>
-      apiFetch<ValidateOtpResponse>("/auth/validate-otp", {
+      apiFetch<ValidateOtpResponse>("/auth/confirm-user", {
         method: "POST",
         body: JSON.stringify(payload),
       }),
