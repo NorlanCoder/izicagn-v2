@@ -14,6 +14,8 @@ import {
     Upload,
 } from "lucide-react"
 import logo from "/src/assets/Logo-izicagn.svg"
+import cagnotteIc from "../../assets/cagnotteic.svg"
+import { useAuth } from "../../lib/AuthContext"
 
 type DashboardLayoutProps = {
     title?: string
@@ -24,13 +26,13 @@ const sidebarSections = [
     {
         id: "main",
         title: "",
-        items: [{ id: "accueil", label: "Accueil", to: "/dashboard", icon: Home }],
+        items: [{ id: "accueil", label: "Accueil", to: "/dashboard", icon: Home, iconSrc: undefined }],
     },
     {
         id: "action",
         title: "Mon action",
         items: [
-            { id: "cagnottes", label: "Cagnottes", to: "/dashboard/cagnottes", icon: Gift },
+            { id: "cagnottes", label: "Cagnottes", to: "/dashboard/cagnottes", icon: Gift, iconSrc: cagnotteIc },
             {
                 id: "contributions",
                 label: "Mes contributions",
@@ -74,6 +76,11 @@ const sidebarSections = [
 
 const DashboardLayout = ({ title, children }: DashboardLayoutProps) => {
     const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false)
+    const { user } = useAuth()
+
+    const fullName = user ? `${user.firstName ?? ""} ${user.lastName ?? ""}`.trim() : ""
+    const email = user?.email ?? ""
+    const initials = fullName.charAt(0).toUpperCase()
 
     return (
         <div className="h-screen w-full bg-[#F6F8FB] overflow-hidden">
@@ -89,14 +96,14 @@ const DashboardLayout = ({ title, children }: DashboardLayoutProps) => {
                 {/* Carte utilisateur */}
                 <div className="mb-10 h-[62px] rounded-[16px] bg-[#EBF9FF] px-4 py-3 flex items-center space-x-3 border border-[#C1E1F5]">
                     <div className="w-[32px] h-[32px] rounded-full bg-[#000000] overflow-hidden flex items-center justify-center">
-                        <span className="text-sm font-semibold text-[#1078EF]">S</span>
+                        <span className="text-sm font-semibold text-[#1078EF]">{initials}</span>
                     </div>
                     <div className="flex-1 w-[127px]">
                         <p className="text-[14] font-[800] text-[#000000] line-clamp-1">
-                            Sophie SAGBO
+                            {fullName}
                         </p>
                         <p className="text-[10px] text-[#5C6F84] font-[400] line-clamp-1">
-                            sophie.sagbo@gmail.com
+                            {email}
                         </p>
                     </div>
                     {/* <ChevronDown className="w-4 h-4 text-[#6F7886]" /> */}
@@ -128,7 +135,9 @@ const DashboardLayout = ({ title, children }: DashboardLayoutProps) => {
                                             }
                                         >
                                             <span className="mr-1 flex h-7 w-7 items-center justify-center text-[#495460]">
-                                                <Icon className="w-4 h-4" />
+                                                {item.iconSrc
+                                                    ? <img src={item.iconSrc} className="w-4 h-4" alt="" />
+                                                    : <Icon className="w-4 h-4" />}
                                             </span>
                                             <span className="text-[15px] font-medium">
                                                 {item.label}
@@ -168,14 +177,14 @@ const DashboardLayout = ({ title, children }: DashboardLayoutProps) => {
 
                         <div className="mb-6 rounded-[16px] bg-[#EBF9FF] px-4 py-3 flex items-center space-x-3 border border-[#C1E1F5]">
                             <div className="w-[32px] h-[32px] rounded-full bg-[#000000] overflow-hidden flex items-center justify-center">
-                                <span className="text-sm font-semibold text-[#1078EF]">S</span>
+                                <span className="text-sm font-semibold text-[#1078EF]">{initials}</span>
                             </div>
                             <div className="flex-1 w-[127px]">
                                 <p className="text-[14] font-[800] text-[#000000] line-clamp-1">
-                                    Sophie SAGBO
+                                    {fullName}
                                 </p>
                                 <p className="text-[10px] text-[#5C6F84] font-[400] line-clamp-1">
-                                    sophie.sagbo@gmail.com
+                                    {email}
                                 </p>
                             </div>
                         </div>
@@ -206,7 +215,9 @@ const DashboardLayout = ({ title, children }: DashboardLayoutProps) => {
                                                     }
                                                 >
                                                     <span className="mr-1 flex h-7 w-7 items-center justify-center text-[#495460]">
-                                                        <Icon className="w-4 h-4" />
+                                                        {item.iconSrc
+                                                            ? <img src={item.iconSrc} className="w-4 h-4" alt="" />
+                                                            : <Icon className="w-4 h-4" />}
                                                     </span>
                                                     <span className="text-[15px] font-medium">
                                                         {item.label}
