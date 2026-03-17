@@ -92,7 +92,7 @@ export const useValidateOtpMutation = () =>
   useMutation<ValidateOtpResponse, Error, ValidateOtpPayload>({
     mutationFn: (payload) => {
       const { personId, id, otp } = payload;
-      return apiFetch<ValidateOtpResponse>("/auth/cob-otp", {
+      return apiFetch<ValidateOtpResponse>("/auth/confirm-user", {
         method: "POST",
         body: JSON.stringify({ personId: personId ?? id, otp }),
       });
