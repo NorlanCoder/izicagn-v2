@@ -140,6 +140,8 @@ const DashboardCagnottes = () => {
                 </div>
             ) : (
                 <div>
+                    <h1 className="text-2xl font-bold text-[#0E405D] mb-6">Mes cagnottes</h1>
+
                     {/* Toolbar : tabs + search + button */}
                     <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-6">
                         {/* Tabs */}
