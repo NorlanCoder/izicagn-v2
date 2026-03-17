@@ -117,6 +117,7 @@ const DashboardCagnottes = () => {
     const pots = data?.data || []
     const total = data?.total || 0
     const totalPages = data?.totalPages || 1
+    const isEmpty = !isLoading && pots.length === 0 && !search && activeTab === "ALL"
 
     return (
         <DashboardLayout title="Mes cagnottes">
