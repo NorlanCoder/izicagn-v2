@@ -5,6 +5,7 @@ import { Eye, EyeClosed } from "lucide-react"
 import Recaptcha from '../../assets/auth/reCaptcha.png'
 import { useEncryptMutation, useLoginMutation } from "../../features/auth/mutations"
 import { useNavigate } from "react-router"
+import { useAuth } from "../../lib/AuthContext"
 
 export const Loading = () => {
     return (
@@ -24,6 +25,7 @@ const Login = () => {
     const [error, setError] = useState("");
 
     const navigate = useNavigate();
+    const { refreshUser } = useAuth();
     const encryptMutation = useEncryptMutation();
     const loginMutation = useLoginMutation();
 
@@ -61,6 +63,7 @@ const Login = () => {
                 localStorage.setItem("token", loginResult.token);
             }
 
+            await refreshUser();
             navigate("/dashboard");
         } catch (err: any) {
             setError(err.message || "Une erreur est survenue lors de la connexion.");
