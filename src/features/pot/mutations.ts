@@ -102,6 +102,8 @@ export interface Pot {
   endDate?: string;
   images?: string[];
   collectedAmount?: number;
+  contributorsCount?: number;
+  created_at?: string;
   [key: string]: unknown;
 }
 

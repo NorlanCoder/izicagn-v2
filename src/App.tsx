@@ -21,6 +21,7 @@ import LeverDesFonds1 from "./pages/leverdesfonds/LDF1";
 import LeverDesFonds3 from "./pages/leverdesfonds/LDF3";
 import Login from "./pages/auth/Login";
 import Signup from "./pages/auth/Signup";
+import ForgotPassword from "./pages/auth/ForgotPassword";
 import Garanties from "./pages/Garanties";
 import CategoryCagnotte from "./pages/CategoryCagnotte";
 import FormPayment from "./pages/paiement/FormPayment";
