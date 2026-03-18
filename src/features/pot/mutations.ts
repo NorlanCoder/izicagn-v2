@@ -30,15 +30,10 @@ export const useTagsQuery = () =>
 
 // --- Upload Files ---
 
-export interface UploadFilesResponse {
-  urls?: string[];
-  [key: string]: unknown;
-}
-
 export const useUploadFilesMutation = () =>
-  useMutation<UploadFilesResponse, Error, FormData>({
+  useMutation<string[], Error, FormData>({
     mutationFn: (formData) =>
-      apiFetch<UploadFilesResponse>("/files/upload-files", {
+      apiFetch<string[]>("/files/upload-files", {
         method: "POST",
         body: formData,
         isFormData: true,
@@ -103,6 +98,9 @@ export interface Pot {
   images?: string[];
   collectedAmount?: number;
   contributorsCount?: number;
+  donationsCount?: number;
+  ref?: string;
+  slug?: string;
   created_at?: string;
   [key: string]: unknown;
 }
@@ -124,8 +122,7 @@ interface MyPotsResponse {
   totalPages: number;
 }
 
-export const useMyPotsQuery = (filters: MyPotsFilters = {}) => {
-  const params = new URLSearchParams();
+export const useMyPotsQuery = (filters: MyPotsFilters = {}) => {  const params = new URLSearchParams();
   if (filters.search) params.set("search", filters.search);
   if (filters.state) params.set("state", filters.state);
   if (filters.reason) params.set("reason", filters.reason);
@@ -141,3 +138,15 @@ export const useMyPotsQuery = (filters: MyPotsFilters = {}) => {
       }),
   });
 };
+
+// --- Get Pot By ID ---
+
+export const useGetPotByIdQuery = (id: string) =>
+  useQuery<Pot>({
+    queryKey: ["pot", id],
+    queryFn: () =>
+      apiFetch<Pot>(`/pot/get-by-id?id=${id}`, {
+        method: "GET",
+      }),
+    enabled: !!id,
+  });
