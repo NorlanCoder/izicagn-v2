@@ -307,7 +307,7 @@ const Signup = () => {
                       <input
                         type={showConfirmPassword ? "text" : "password"}
                         placeholder="Confirmer le mot de passe"
-                        className="w-full h-full py-[22px] px-[19px] rounded-[12px] focus:border-none focus:outline-0"
+                        className="w-full h-full font-semibold py-[22px] px-[19px] rounded-[12px] focus:border-none focus:outline-0"
                         value={confirmPassword}
                         onChange={(e) => setConfirmPassword(e.target.value)}
                         required

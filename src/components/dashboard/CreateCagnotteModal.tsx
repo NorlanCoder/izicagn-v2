@@ -7,6 +7,7 @@ import communote from "/src/assets/cagnotte/communote.png"
 import peojet from "/src/assets/cagnotte/projet.png"
 import { useCreateCagnotteMutation, useTagsQuery, useUploadFilesMutation, type ContrepartiePayload } from "../../features/pot/mutations"
 
+
 const TOTAL_STEPS = 7
 
 const COUNTRIES_CITIES: Record<string, { label: string; cities: string[] }> = {
@@ -99,8 +100,7 @@ const CreateCagnotteModal = ({ onClose, onSuccess }: Props) => {
         const formData = new FormData()
         Array.from(files).forEach((file) => formData.append("files", file))
         try {
-            const res = await uploadMutation.mutateAsync(formData)
-            const urls = res.urls || []
+            const urls = await uploadMutation.mutateAsync(formData)
             setImages((prev) => [...prev, ...urls])
             // Previews locaux
             Array.from(files).forEach((file) => {

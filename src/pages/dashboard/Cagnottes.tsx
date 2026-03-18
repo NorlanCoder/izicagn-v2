@@ -1,9 +1,11 @@
 import { useState } from "react"
+import { useQueryClient } from "@tanstack/react-query"
+import { useNavigate } from "react-router"
 import DashboardLayout from "../../components/dashboard/DashboardLayout"
 import CreateCagnotteModal from "../../components/dashboard/CreateCagnotteModal"
 import cagnotteEmpty from "../../assets/cagnotteempty.svg"
 import { FaCirclePlus } from "react-icons/fa6"
-import { Search, Loader2, Clock, Users, ExternalLink, ArrowRight } from "lucide-react"
+import { Search, Loader2, Clock, ExternalLink, ArrowRight, HandCoins } from "lucide-react"
 import { useMyPotsQuery, type PotState, type Pot } from "../../features/pot/mutations"
 
 type TabKey = "ALL" | "IN_PROGRESS" | "COMPLETED" | "PENDING"
@@ -24,6 +26,7 @@ const STATE_CONFIG: Record<PotState, { label: string; dotColor: string; textColo
 }
 
 const PotRow = ({ pot }: { pot: Pot }) => {
+    const navigate = useNavigate()
     const cfg = STATE_CONFIG[pot.state]
     const collected = pot.collectedAmount || 0
     const target = pot.financialObject || 0
@@ -35,10 +38,10 @@ const PotRow = ({ pot }: { pot: Pot }) => {
     const currency = pot.currency || "XOF"
 
     return (
-        <div className="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-0 py-5 border-b border-[#F0F2F5] last:border-b-0">
+        <div className="flex flex-col lg:flex-row lg:items-center gap-3 lg:gap-0 p-3 lg:p-0 lg:py-5 mb-3 lg:mb-0 rounded-xl lg:rounded-none bg-white lg:bg-transparent shadow-sm lg:shadow-none border border-[#F0F2F5] lg:border-0 lg:border-b last:border-b-0">
             {/* INTITULÉ */}
-            <div className="flex items-center gap-4 lg:w-[40%] min-w-0">
-                <div className="w-[72px] h-[72px] rounded-xl overflow-hidden bg-[#F0F2F5] shrink-0">
+            <div className="flex items-center gap-3 lg:gap-4 lg:w-[40%] min-w-0">
+                <div className="w-14 h-14 lg:w-[100px] lg:h-[72px] rounded-xl overflow-hidden bg-[#F0F2F5] shrink-0">
                     {coverImage ? (
                         <img src={coverImage} alt="" className="w-full h-full object-cover" />
                     ) : (
@@ -46,9 +49,9 @@ const PotRow = ({ pot }: { pot: Pot }) => {
                     )}
                 </div>
                 <div className="min-w-0">
-                    <h3 className="text-sm font-bold text-[#0E405D] leading-5 line-clamp-2">{pot.title}</h3>
+                    <h3 className="text-base font-bold text-black leading-5 line-clamp-2">{pot.title}</h3>
                     <div className="flex items-center gap-2 mt-1.5 flex-wrap">
-                        <span className={`inline-flex items-center gap-1 text-[11px] font-semibold px-2 py-0.5 rounded-full ${cfg.bgColor} ${cfg.textColor}`}>
+                        <span className={`inline-flex items-center gap-1 text-[11px] font-semibold px-2 py-0.5 rounded-md ${cfg.bgColor} ${cfg.textColor}`}>
                             {cfg.icon ? (
                                 <span className="text-[10px]">{cfg.icon}</span>
                             ) : (
@@ -64,33 +67,35 @@ const PotRow = ({ pot }: { pot: Pot }) => {
             </div>
 
             {/* MONTANT COLLECTÉ */}
-            <div className="lg:w-[30%]">
+            <div className="lg:w-[30%] pl-[calc(3.5rem+0.75rem)] lg:pl-0">
                 <div className="flex items-baseline gap-0.5 mb-1.5">
-                    <span className="text-base font-bold text-[#FD8352]">{collected.toLocaleString()}{currency}</span>
-                    <span className="text-sm text-[#0E405D] font-semibold">/{target.toLocaleString()}{currency}</span>
+                    <span className="text-sm lg:text-base font-bold text-[#FF7E33]">{collected.toLocaleString()}{currency}</span>
+                    <span className="text-xs lg:text-sm text-[#0E405D] font-semibold">/{target.toLocaleString()}{currency}</span>
                 </div>
-                <div className="w-full max-w-[180px] h-2 bg-[#F0F2F5] rounded-full mb-1.5">
-                    <div className="h-2 bg-[#FD8352] rounded-full transition-all" style={{ width: `${percent}%` }} />
+                <div className="w-full lg:max-w-[180px] h-2 bg-[#F0F2F5] rounded-full mb-1.5">
+                    <div className="h-2 bg-[#FF7E33] rounded-full transition-all" style={{ width: `${percent}%` }} />
                 </div>
                 <div className="flex items-center gap-1 text-[11px] text-[#8296A3]">
-                    <Users className="w-3 h-3" />
+                    <HandCoins className="w-3 h-3" />
                     <span>{contributors} Contributeur{contributors !== 1 ? "s" : ""}</span>
                 </div>
             </div>
 
             {/* ACTIONS */}
-            <div className="lg:w-[30%] flex flex-col sm:flex-row items-start sm:items-center gap-2 lg:justify-end">
+            <div className="lg:w-[30%] flex flex-col items-start gap-2 lg:justify-end pl-[calc(3.5rem+0.75rem)] lg:pl-0">
                 {endDate && (
-                    <div className="flex items-center gap-1 text-[12px] text-[#8296A3] mr-3">
+                    <div className="hidden sm:flex items-center gap-1 text-[12px] text-[#8296A3] mr-3">
                         <Clock className="w-3.5 h-3.5" />
                         <span>Fin : {endDate}</span>
                     </div>
                 )}
-                <div className="flex items-center gap-2">
-                    <button className="flex items-center gap-1.5 text-[13px] font-semibold text-[#0E405D] border border-[#D9DFE7] rounded-lg px-3.5 py-2 hover:bg-[#F3F5F7] transition">
+                <div className="flex items-center gap-2 w-full sm:w-auto">
+                    <button
+                        onClick={() => navigate(`/dashboard/cagnottes/${pot.id}`)}
+                        className="flex-1 sm:flex-none flex items-center justify-center gap-1.5 text-[12px] lg:text-[13px] font-semibold text-[#0E405D] border border-[#D9DFE7] rounded-lg px-3 lg:px-3.5 py-2 hover:bg-[#F3F5F7] transition">
                         Gérer <ArrowRight className="w-3.5 h-3.5" />
                     </button>
-                    <button className="flex items-center gap-1.5 text-[13px] font-semibold text-[#0E405D] border border-[#D9DFE7] rounded-lg px-3.5 py-2 hover:bg-[#F3F5F7] transition">
+                    <button className="flex-1 sm:flex-none flex items-center justify-center gap-1.5 text-[12px] lg:text-[13px] font-semibold text-[#0E405D] border border-[#D9DFE7] rounded-lg px-3 lg:px-3.5 py-2 hover:bg-[#F3F5F7] transition">
                         Partager <ExternalLink className="w-3.5 h-3.5" />
                     </button>
                 </div>
@@ -104,6 +109,7 @@ const DashboardCagnottes = () => {
     const [activeTab, setActiveTab] = useState<TabKey>("ALL")
     const [search, setSearch] = useState("")
     const [page, setPage] = useState(1)
+    const queryClient = useQueryClient()
 
     const currentTab = TABS.find((t) => t.key === activeTab)
 
@@ -140,17 +146,17 @@ const DashboardCagnottes = () => {
                 </div>
             ) : (
                 <div>
-                    <h1 className="text-2xl font-bold text-[#0E405D] mb-6">Mes cagnottes</h1>
+                    <h1 className="text-xl lg:text-2xl font-bold text-[#0E405D] mb-4 lg:mb-6">Mes cagnottes</h1>
 
                     {/* Toolbar : tabs + search + button */}
-                    <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-6">
+                    <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between lg:gap-4 mb-4 lg:mb-6">
                         {/* Tabs */}
-                        <div className="flex items-center gap-1">
+                        <div className="flex items-center gap-1 overflow-x-auto pb-1 -mx-1 px-1 scrollbar-hide">
                             {TABS.map((tab) => (
                                 <button
                                     key={tab.key}
                                     onClick={() => { setActiveTab(tab.key); setPage(1) }}
-                                    className={`text-sm font-semibold px-4 py-2 rounded-full transition ${
+                                    className={`text-sm font-semibold px-3 lg:px-4 py-2 rounded-full transition whitespace-nowrap ${
                                         activeTab === tab.key
                                             ? "bg-[#0E405D] text-white"
                                             : "text-[#8296A3] hover:bg-[#F3F5F7]"
@@ -169,8 +175,8 @@ const DashboardCagnottes = () => {
                         </div>
 
                         {/* Search + Create */}
-                        <div className="flex items-center gap-3">
-                            <div className="flex items-center bg-[#F3F5F7] rounded-xl px-3 py-2 w-48">
+                        <div className="flex items-center gap-2 lg:gap-3">
+                            <div className="flex items-center bg-[#F3F5F7] rounded-xl px-3 py-2 flex-1 lg:flex-none lg:w-48">
                                 <Search className="w-4 h-4 text-[#8296A3] mr-2 shrink-0" />
                                 <input
                                     type="text"
@@ -182,10 +188,11 @@ const DashboardCagnottes = () => {
                             </div>
                             <button
                                 onClick={() => setShowModal(true)}
-                                className="px-4 py-2.5 flex items-center rounded-xl bg-[#23C7ED] text-white font-bold text-sm shadow-[0_10px_20px_rgba(35,199,237,0.35)] hover:shadow-none transition-shadow shrink-0"
+                                className="px-3 lg:px-4 py-2.5 flex items-center rounded-xl bg-[#23C7ED] text-white font-bold text-sm shadow-[0_10px_20px_rgba(35,199,237,0.35)] hover:shadow-none transition-shadow shrink-0"
                             >
-                                <FaCirclePlus className="mr-2" />
-                                Créer une cagnotte
+                                <FaCirclePlus className="mr-1.5 lg:mr-2" />
+                                <span className="hidden sm:inline">Créer une cagnotte</span>
+                                <span className="sm:hidden">Créer</span>
                             </button>
                         </div>
                     </div>
@@ -241,7 +248,10 @@ const DashboardCagnottes = () => {
             {showModal && (
                 <CreateCagnotteModal
                     onClose={() => setShowModal(false)}
-                    onSuccess={() => setShowModal(false)}
+                    onSuccess={() => {
+                        setShowModal(false)
+                        queryClient.invalidateQueries({ queryKey: ["my-pots"] })
+                    }}
                 />
             )}
         </DashboardLayout>
