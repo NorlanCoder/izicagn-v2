@@ -94,7 +94,7 @@ export const useValidateOtpMutation = () =>
       const { personId, id, otp } = payload;
       return apiFetch<ValidateOtpResponse>("/auth/confirm-user", {
         method: "POST",
-        body: JSON.stringify({ personId: personId ?? id, otp }),
+        body: JSON.stringify({ id: id ?? personId, otp }),
       });
     },
   });

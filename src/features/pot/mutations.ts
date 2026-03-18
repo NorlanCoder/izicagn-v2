@@ -83,13 +83,28 @@ export type PotState = "PENDING" | "IN_PROGRESS" | "COMPLETED" | "PAUSED" | "STO
 export type PotReason = "FOR_ME" | "FOR_COMMUNITY" | "FOR_PROJECT";
 export type PotCurrency = "XOF" | "USD" | "EUR";
 
+export interface PotPerson {
+  id: string;
+  firstName: string;
+  lastName: string;
+  email?: string;
+  phone?: string;
+  countryCode?: string;
+  created_at?: string;
+}
+
+export interface PotContrepartie {
+  title: string;
+  amount: number;
+}
+
 export interface Pot {
   id: string;
   title: string;
   description?: string;
   reason: PotReason;
   state: PotState;
-  financialObject: number;
+  financialObject: number | string;
   currency: PotCurrency;
   country?: string;
   city?: string;
@@ -97,11 +112,16 @@ export interface Pot {
   endDate?: string;
   images?: string[];
   collectedAmount?: number;
+  realAmount?: number | string;
   contributorsCount?: number;
   donationsCount?: number;
   ref?: string;
   slug?: string;
+  tags?: Tag[];
+  contreparties?: PotContrepartie[];
+  person?: PotPerson;
   created_at?: string;
+  updated_at?: string;
   [key: string]: unknown;
 }
 
