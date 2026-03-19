@@ -170,3 +170,30 @@ export const useGetPotByIdQuery = (id: string) =>
       }),
     enabled: !!id,
   });
+
+// --- Update Pot ---
+
+export interface UpdatePotPayload {
+  id: string;
+  reason: string;
+  tags: string[];
+  country: string;
+  city: string;
+  title: string;
+  description: string;
+  startDate: string;
+  endDate: string;
+  financialObject: number;
+  currency: string;
+  images: string[];
+  contreparties: ContrepartiePayload[];
+}
+
+export const useUpdatePotMutation = () =>
+  useMutation<CreateCagnotteResponse, Error, UpdatePotPayload>({
+    mutationFn: (payload) =>
+      apiFetch<CreateCagnotteResponse>("/pot/update", {
+        method: "PUT",
+        body: JSON.stringify(payload),
+      }),
+  });

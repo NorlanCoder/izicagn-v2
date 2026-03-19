@@ -29,6 +29,7 @@ import Cagnottef from "./components/auth/register/cagnotte/cagnottef";
 import DashboardHome from "./pages/dashboard";
 import DashboardCagnottes from "./pages/dashboard/Cagnottes";
 import DashboardCagnotteDetail from "./pages/dashboard/CagnotteDetail";
+import DashboardEditCagnotte from "./pages/dashboard/EditCagnotte";
 import DashboardContributions from "./pages/dashboard/Contributions";
 import DashboardSolde from "./pages/dashboard/Solde";
 import DashboardReversements from "./pages/dashboard/Reversements";
@@ -81,6 +82,7 @@ function App() {
               <Route index element={<DashboardHome />} />
               <Route path="cagnottes" element={<DashboardCagnottes />} />
               <Route path="cagnottes/:id" element={<DashboardCagnotteDetail />} />
+              <Route path="cagnottes/:id/modifier" element={<DashboardEditCagnotte />} />
               <Route path="contributions" element={<DashboardContributions />} />
               <Route path="solde" element={<DashboardSolde />} />
               <Route path="reversements" element={<DashboardReversements />} />

@@ -34,10 +34,7 @@ export interface EncryptPayload {
   data: string;
 }
 
-export interface EncryptResponse {
-  encryptedData: string;
-  [key: string]: unknown;
-}
+export type EncryptResponse = string;
 
 export const useEncryptMutation = () =>
   useMutation<EncryptResponse, Error, EncryptPayload>({
