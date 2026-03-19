@@ -31,6 +31,8 @@ const Signup = () => {
   const [personId, setPersonId] = useState("");
   const [otp, setOtp] = useState<string[]>(Array(6).fill(""));
   const [otpError, setOtpError] = useState("");
+  const [countdown, setCountdown] = useState(300);
+  const [resendLoading, setResendLoading] = useState(false);
 
 
   const {
@@ -41,6 +43,52 @@ const Signup = () => {
 
   const encryptMutation = useEncryptMutation();
   const validateOtpMutation = useValidateOtpMutation();
+
+  useEffect(() => {
+    if (!isRegistered) return;
+    setCountdown(300);
+    const interval = setInterval(() => {
+      setCountdown((prev) => {
+        if (prev <= 1) {
+          clearInterval(interval);
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [isRegistered]);
+
+  const formatCountdown = (seconds: number) => {
+    const m = Math.floor(seconds / 60).toString().padStart(2, "0");
+    const s = (seconds % 60).toString().padStart(2, "0");
+    return `${m}:${s}`;
+  };
+
+  const handleResend = async () => {
+    setResendLoading(true);
+    setOtpError("");
+    setOtp(Array(6).fill(""));
+    try {
+      const encryptResult = await encryptMutation.mutateAsync({ data: password });
+      const payload = {
+        firstName,
+        lastName,
+        email,
+        countryCode,
+        phone,
+        birthDate: birthDate ? new Date(birthDate).toISOString() : null,
+        encryptedPassord: encryptResult,
+      };
+      const res = await createUser(payload);
+      setPersonId(res.id as string);
+      setCountdown(300);
+    } catch {
+      setOtpError("Impossible de renvoyer le code. Veuillez réessayer.");
+    } finally {
+      setResendLoading(false);
+    }
+  };
 
   const handleValidateOtp = async () => {
     setOtpError("");
@@ -83,24 +131,8 @@ const Signup = () => {
 
 
 
-    const payload = {
-      firstName,
-      lastName,
-      email,
-      countryCode,
-      phone,
-      birthDate: birthDate ? new Date(birthDate).toISOString() : null,
-      encryptedPassword: password,
-    };
-
     try {
       const encryptResult = await encryptMutation.mutateAsync({ data: password });
-      const encryptedPassword = encryptResult;
-
-
-      console.log('====================================');
-      console.log(encryptedPassword);
-      console.log('====================================');
 
       const payload = {
         firstName,
@@ -109,7 +141,7 @@ const Signup = () => {
         countryCode,
         phone,
         birthDate: birthDate ? new Date(birthDate).toISOString() : null,
-        encryptedPassord: encryptedPassword,
+        encryptedPassord: encryptResult,
       };
 
       const res = await createUser(payload);
@@ -144,7 +176,7 @@ const Signup = () => {
                     <p className="text-[#5C6F84] text-[16px]">Entrez le code à 6 chiffres envoyé à votre téléphone</p>
                   </div>
 
-                  <div className="flex gap-3 w-full justify-center mb-6">
+                  <div className="flex gap-2 sm:gap-3 w-full justify-center mb-6">
                     {otp.map((digit, index) => (
                       <input
                         key={index}
@@ -178,9 +210,20 @@ const Signup = () => {
                             document.getElementById(`otp-${focusIdx}`)?.focus();
                           }
                         }}
-                        className="w-14 h-14 text-center text-2xl font-bold bg-[#F3F5F7] rounded-[12px] focus:outline-none focus:ring-2 focus:ring-[#23C7ED]"
+                        className="w-10 h-10 sm:w-14 sm:h-14 text-center text-lg sm:text-2xl font-bold bg-[#F3F5F7] rounded-[10px] sm:rounded-[12px] focus:outline-none focus:ring-2 focus:ring-[#23C7ED]"
                       />
                     ))}
+                  </div>
+
+                  <div className="w-full flex items-center justify-between mb-1">
+                    {countdown > 0 ? (
+                      <p className="text-[#5C6F84] text-sm">
+                        Code valide pendant{" "}
+                        <span className="font-semibold text-[#001829]">{formatCountdown(countdown)}</span>
+                      </p>
+                    ) : (
+                      <p className="text-red-500 text-sm">Code expiré</p>
+                    )}
                   </div>
 
                   {otpError && (
@@ -189,11 +232,21 @@ const Signup = () => {
 
                   <button
                     onClick={handleValidateOtp}
-                    disabled={validateOtpMutation.isPending}
+                    disabled={validateOtpMutation.isPending || countdown === 0}
                     className="bg-[#23C7ED] rounded-full w-full flex justify-center items-center py-[18px] text-black font-semibold disabled:opacity-50"
                   >
                     {validateOtpMutation.isPending ? "Vérification..." : "Valider le code"}
                   </button>
+
+                  {countdown === 0 && (
+                    <button
+                      onClick={handleResend}
+                      disabled={resendLoading}
+                      className="mt-3 w-full flex justify-center items-center py-[18px] rounded-full border-2 border-[#23C7ED] text-[#23C7ED] font-semibold hover:bg-[#23C7ED]/10 transition disabled:opacity-50"
+                    >
+                      {resendLoading ? "Envoi en cours..." : "Renvoyer le code"}
+                    </button>
+                  )}
                 </div>
               ) : (
                 <div className="h-full flex flex-col justify-center items-center xl:px-24 mt-6 md:mt-12">

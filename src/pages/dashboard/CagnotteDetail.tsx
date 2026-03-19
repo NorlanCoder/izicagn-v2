@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
 import { useParams, useNavigate } from "react-router"
 import DashboardLayout from "../../components/dashboard/DashboardLayout"
 import { useGetPotByIdQuery, type PotState } from "../../features/pot/mutations"
@@ -15,6 +15,7 @@ import {
     Gift,
     Share,
     Reply,
+    Pencil,
 } from "lucide-react"
 import { IoIosShareAlt } from "react-icons/io";
 import { MdInsertLink } from "react-icons/md";
@@ -34,6 +35,18 @@ const CagnotteDetail = () => {
     const navigate = useNavigate()
     const [activeTab, setActiveTab] = useState<"activite" | "parametres">("activite")
     const [copied, setCopied] = useState(false)
+    const [menuOpen, setMenuOpen] = useState(false)
+    const menuRef = useRef<HTMLDivElement>(null)
+
+    useEffect(() => {
+        const handleClickOutside = (e: MouseEvent) => {
+            if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+                setMenuOpen(false)
+            }
+        }
+        document.addEventListener("mousedown", handleClickOutside)
+        return () => document.removeEventListener("mousedown", handleClickOutside)
+    }, [])
 
     const { data: pot, isLoading, isError } = useGetPotByIdQuery(id ?? "")
 
@@ -114,9 +127,25 @@ const CagnotteDetail = () => {
                         {cfg.label}
                     </span>
                 </div>
-                <button className="flex items-center gap-1.5 text-sm font-semibold text-[#0E405D] border border-[#D9DFE7] rounded-xl px-4 py-2.5 hover:bg-[#F3F5F7] transition self-start sm:self-auto">
-                    Gérer la cagnotte <ChevronDown className="w-4 h-4" />
-                </button>
+                <div className="relative self-start sm:self-auto" ref={menuRef}>
+                    <button
+                        onClick={() => setMenuOpen((v) => !v)}
+                        className="flex items-center gap-1.5 text-sm font-semibold text-[#0E405D] border border-[#D9DFE7] rounded-xl px-4 py-2.5 hover:bg-[#F3F5F7] transition"
+                    >
+                        Gérer la cagnotte <ChevronDown className={`w-4 h-4 transition-transform ${menuOpen ? "rotate-180" : ""}`} />
+                    </button>
+                    {menuOpen && (
+                        <div className="absolute right-0 mt-2 w-48 bg-white border border-[#F0F2F5] rounded-xl shadow-lg z-50 py-1">
+                            <button
+                                onClick={() => { setMenuOpen(false); navigate(`/dashboard/cagnottes/${id}/modifier`) }}
+                                className="flex items-center gap-2 w-full px-4 py-2.5 text-sm text-[#0E405D] hover:bg-[#F3F5F7] transition"
+                            >
+                                <Pencil className="w-4 h-4" />
+                                Modifier
+                            </button>
+                        </div>
+                    )}
+                </div>
             </div>
 
             {/* Tabs */}
