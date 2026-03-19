@@ -30,15 +30,10 @@ export const useTagsQuery = () =>
 
 // --- Upload Files ---
 
-export interface UploadFilesResponse {
-  urls?: string[];
-  [key: string]: unknown;
-}
-
 export const useUploadFilesMutation = () =>
-  useMutation<UploadFilesResponse, Error, FormData>({
+  useMutation<string[], Error, FormData>({
     mutationFn: (formData) =>
-      apiFetch<UploadFilesResponse>("/files/upload-files", {
+      apiFetch<string[]>("/files/upload-files", {
         method: "POST",
         body: formData,
         isFormData: true,
@@ -88,13 +83,28 @@ export type PotState = "PENDING" | "IN_PROGRESS" | "COMPLETED" | "PAUSED" | "STO
 export type PotReason = "FOR_ME" | "FOR_COMMUNITY" | "FOR_PROJECT";
 export type PotCurrency = "XOF" | "USD" | "EUR";
 
+export interface PotPerson {
+  id: string;
+  firstName: string;
+  lastName: string;
+  email?: string;
+  phone?: string;
+  countryCode?: string;
+  created_at?: string;
+}
+
+export interface PotContrepartie {
+  title: string;
+  amount: number;
+}
+
 export interface Pot {
   id: string;
   title: string;
   description?: string;
   reason: PotReason;
   state: PotState;
-  financialObject: number;
+  financialObject: number | string;
   currency: PotCurrency;
   country?: string;
   city?: string;
@@ -102,8 +112,16 @@ export interface Pot {
   endDate?: string;
   images?: string[];
   collectedAmount?: number;
+  realAmount?: number | string;
   contributorsCount?: number;
+  donationsCount?: number;
+  ref?: string;
+  slug?: string;
+  tags?: Tag[];
+  contreparties?: PotContrepartie[];
+  person?: PotPerson;
   created_at?: string;
+  updated_at?: string;
   [key: string]: unknown;
 }
 
@@ -124,8 +142,7 @@ interface MyPotsResponse {
   totalPages: number;
 }
 
-export const useMyPotsQuery = (filters: MyPotsFilters = {}) => {
-  const params = new URLSearchParams();
+export const useMyPotsQuery = (filters: MyPotsFilters = {}) => {  const params = new URLSearchParams();
   if (filters.search) params.set("search", filters.search);
   if (filters.state) params.set("state", filters.state);
   if (filters.reason) params.set("reason", filters.reason);
@@ -141,3 +158,42 @@ export const useMyPotsQuery = (filters: MyPotsFilters = {}) => {
       }),
   });
 };
+
+// --- Get Pot By ID ---
+
+export const useGetPotByIdQuery = (id: string) =>
+  useQuery<Pot>({
+    queryKey: ["pot", id],
+    queryFn: () =>
+      apiFetch<Pot>(`/pot/get-by-id?id=${id}`, {
+        method: "GET",
+      }),
+    enabled: !!id,
+  });
+
+// --- Update Pot ---
+
+export interface UpdatePotPayload {
+  id: string;
+  reason: string;
+  tags: string[];
+  country: string;
+  city: string;
+  title: string;
+  description: string;
+  startDate: string;
+  endDate: string;
+  financialObject: number;
+  currency: string;
+  images: string[];
+  contreparties: ContrepartiePayload[];
+}
+
+export const useUpdatePotMutation = () =>
+  useMutation<CreateCagnotteResponse, Error, UpdatePotPayload>({
+    mutationFn: (payload) =>
+      apiFetch<CreateCagnotteResponse>("/pot/update", {
+        method: "PUT",
+        body: JSON.stringify(payload),
+      }),
+  });
