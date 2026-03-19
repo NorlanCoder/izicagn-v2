@@ -2,7 +2,7 @@ import DashboardLayout from "../../components/dashboard/DashboardLayout"
 
 const DashboardHome = () => {
     return (
-        <DashboardLayout title="Tableau de bord">
+        <DashboardLayout title="Mon Espace">
             <div className="space-y-6">
                 <div>
                     <h2 className="text-lg md:text-xl font-semibold text-[#0E405D]">
