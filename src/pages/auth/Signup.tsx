@@ -69,7 +69,7 @@ const Signup = () => {
     setOtpError("");
     setOtp(Array(6).fill(""));
     try {
-      const encryptedPassword = await encryptMutation.mutateAsync({ data: password }) as unknown as string; // ✅
+      const encryptedPassword = await encryptMutation.mutateAsync({ data: password }) as unknown as string;
       const payload = {
         firstName,
         lastName,
@@ -77,10 +77,10 @@ const Signup = () => {
         countryCode,
         phone,
         birthDate: birthDate ? new Date(birthDate).toISOString() : null,
-        encryptedPassord: encryptedPassword, // ✅
+        encryptedPassord: encryptedPassword, 
       };
       const res = await createUser(payload);
-      const id = res.id || (res.user as any)?.id; // ✅
+      const id = res.id || (res.user as any)?.id;
       if (!id) { console.error("id introuvable:", res); return; }
       setPersonId(id as string);
       setCountdown(300);
@@ -99,7 +99,7 @@ const Signup = () => {
       return;
     }
     try {
-      const res = await validateOtpMutation.mutateAsync({ id: personId, otp: code }); // ✅ id
+      const res = await validateOtpMutation.mutateAsync({ id: personId, otp: code });
       console.log(res);
       navigate("/login");
     } catch (err: any) {
@@ -123,7 +123,7 @@ const Signup = () => {
     }
 
     try {
-      const encryptedPassword = await encryptMutation.mutateAsync({ data: password }) as unknown as string; // ✅
+      const encryptedPassword = await encryptMutation.mutateAsync({ data: password }) as unknown as string;
 
       const payload = {
         firstName,
@@ -132,13 +132,13 @@ const Signup = () => {
         countryCode,
         phone,
         birthDate: birthDate ? new Date(birthDate).toISOString() : null,
-        encryptedPassord: encryptedPassword, // ✅
+        encryptedPassord: encryptedPassword,
       };
 
       const res = await createUser(payload);
       console.log("createUser response:", JSON.stringify(res, null, 2));
 
-      const id = res.id || (res.user as any)?.id; // ✅
+      const id = res.id || (res.user as any)?.id;
       if (!id) {
         console.error("id introuvable:", res);
         return;

@@ -66,6 +66,17 @@ export const useLoginMutation = () =>
       }),
   });
 
+// --- Logout ---
+export const useLogoutMutation = () =>
+  useMutation<void, Error>({
+    mutationFn: () =>
+      apiFetch("/auth/logout", {
+        method: "POST",
+        body: JSON.stringify({}),
+      }),
+  });
+
+
 // --- Validate OTP (inscription → /confirm-user) ---
 export interface ValidateOtpPayload {
   personId?: string;
