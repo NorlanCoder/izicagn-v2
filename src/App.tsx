@@ -33,7 +33,7 @@ import DashboardSolde from "./pages/dashboard/Solde";
 import DashboardReversements from "./pages/dashboard/Reversements";
 import DashboardOrganisation from "./pages/dashboard/Organisation";
 import DashboardParametres from "./pages/dashboard/Parametres";
-import Register from "./pages/auth/Register";
+// import Register from "./pages/auth/Register";
 import { AuthProvider } from "./lib/AuthContext";
 import ProtectedRoute from "./components/general/ProtectedRoute";
 
@@ -72,7 +72,8 @@ function App() {
           <Route path="article/:id" element={<Article />} />
 
           <Route path="login" element={<Login />} />
-          <Route path="register" element={<Register />} />
+          <Route path="register" element={<Signup />} />
+          <Route path="forgot-password" element={<ForgotPassword />} />
           <Route path="cagnottef" element={<Cagnottef />} />
 
           <Route element={<ProtectedRoute />}>

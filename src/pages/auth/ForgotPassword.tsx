@@ -3,7 +3,7 @@ import Logo from "../../assets/Logo-izicagn.svg";
 import LoginLeft from "../../assets/auth/login_left.svg";
 import {
   useAskResetMutation,
-  useValidateOtpMutation,
+  useValidateResetOtpMutation,
   useDefinePasswordMutation,
   useEncryptMutation,
 } from "../../features/auth/mutations";
@@ -11,7 +11,6 @@ import { useNavigate } from "react-router";
 import { Eye, EyeClosed } from "lucide-react";
 
 const ForgotPassword = () => {
-    // État du formulaire
     const [countryCode, setCountryCode] = useState("229");
     const [phone, setPhone] = useState("");
     const [otp, setOtp] = useState("");
@@ -19,16 +18,18 @@ const ForgotPassword = () => {
     const [confirmPassword, setConfirmPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
-    // État du flux
     const [step, setStep] = useState(1);
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
     const [personId, setPersonId] = useState("");
 
+    // ✅ Countdown
+    const [countdown, setCountdown] = useState(300);
+    const [resendLoading, setResendLoading] = useState(false);
+
     const navigate = useNavigate();
     const askResetMutation = useAskResetMutation();
-    const validateOtpMutation = useValidateOtpMutation();
+    const validateOtpMutation = useValidateResetOtpMutation();
     const definePasswordMutation = useDefinePasswordMutation();
     const encryptMutation = useEncryptMutation();
 
@@ -36,16 +37,46 @@ const ForgotPassword = () => {
     const isLoadingStep2 = validateOtpMutation.isPending;
     const isLoadingStep3 = encryptMutation.isPending || definePasswordMutation.isPending;
 
-    // Redirection après succès
+    // ✅ Démarrer le countdown quand on arrive à l'étape 2
     useEffect(() => {
-        if (success && step === 4) {
-            setTimeout(() => {
-                navigate("/login");
-            }, 2000);
-        }
-    }, [success, step, navigate]);
+        if (step !== 2) return;
+        setCountdown(300);
+        const interval = setInterval(() => {
+            setCountdown((prev) => {
+                if (prev <= 1) {
+                    clearInterval(interval);
+                    return 0;
+                }
+                return prev - 1;
+            });
+        }, 1000);
+        return () => clearInterval(interval);
+    }, [step]);
 
-    // Étape 1: Soumettre le numéro de téléphone
+    const formatCountdown = (seconds: number) => {
+        const m = Math.floor(seconds / 60).toString().padStart(2, "0");
+        const s = (seconds % 60).toString().padStart(2, "0");
+        return `${m}:${s}`;
+    };
+
+    // ✅ Renvoyer le code OTP
+    const handleResend = async () => {
+        setResendLoading(true);
+        setError("");
+        setOtp("");
+        try {
+            const result = await askResetMutation.mutateAsync({ countryCode, phone });
+            const extractedId = result.id || result.personId || "";
+            if (extractedId) setPersonId(extractedId);
+            setCountdown(300);
+            setSuccess("Un nouveau code a été envoyé.");
+        } catch (err: any) {
+            setError(err.message || "Impossible de renvoyer le code.");
+        } finally {
+            setResendLoading(false);
+        }
+    };
+
     const handleStep1Submit = async (e: React.FormEvent) => {
         e.preventDefault();
         setError("");
@@ -57,12 +88,16 @@ const ForgotPassword = () => {
         }
 
         try {
-            const result = await askResetMutation.mutateAsync({
-                countryCode,
-                phone,
-            });
+            const result = await askResetMutation.mutateAsync({ countryCode, phone });
+            console.log("ask-reset response:", JSON.stringify(result, null, 2));
 
-            setPersonId(result.personId || "");
+            const extractedId = result.id || result.personId || "";
+            if (!extractedId) {
+                setError("Impossible de récupérer l'identifiant.");
+                return;
+            }
+
+            setPersonId(extractedId);
             setStep(2);
             setSuccess(result.message || "Un code OTP a été envoyé à votre numéro.");
         } catch (err: any) {
@@ -70,7 +105,6 @@ const ForgotPassword = () => {
         }
     };
 
-    // Étape 2: Soumettre le code OTP
     const handleStep2Submit = async (e: React.FormEvent) => {
         e.preventDefault();
         setError("");
@@ -82,24 +116,19 @@ const ForgotPassword = () => {
         }
 
         if (!personId) {
-            setError("Erreur: personId manquant.");
+            setError("Erreur: identifiant manquant.");
             return;
         }
 
         try {
-            const result = await validateOtpMutation.mutateAsync({
-                personId,
-                otp,
-            });
-
+            const result = await validateOtpMutation.mutateAsync({ personId, otp });
             setStep(3);
-            setSuccess(result.message || "Code OTP validé. Entrez un nouveau mot de passe.");
+            setSuccess(result.message || "Code OTP validé.");
         } catch (err: any) {
             setError(err.message || "Le code OTP est invalide.");
         }
     };
 
-    // Étape 3: Soumettre le nouveau mot de passe
     const handleStep3Submit = async (e: React.FormEvent) => {
         e.preventDefault();
         setError("");
@@ -121,17 +150,10 @@ const ForgotPassword = () => {
         }
 
         try {
-            const encryptResult = await encryptMutation.mutateAsync({ data: newPassword });
-            const encryptedPassword = encryptResult.encryptedData;
-
-            await definePasswordMutation.mutateAsync({
-                personId,
-                otp,
-                encryptedPassword,
-            });
-
+            const encryptedPassword = await encryptMutation.mutateAsync({ data: newPassword }) as unknown as string;
+            await definePasswordMutation.mutateAsync({ personId, otp, encryptedPassword });
             setStep(4);
-            setSuccess("Mot de passe réinitialisé avec succès! Redirection vers la connexion...");
+            setSuccess("Mot de passe réinitialisé avec succès !");
         } catch (err: any) {
             setError(err.message || "Une erreur est survenue lors de la réinitialisation.");
         }
@@ -144,21 +166,21 @@ const ForgotPassword = () => {
 
                 <div className="h-full md:max-w-[450px] m-auto gap-3 text-center flex flex-col justify-center items-center xl:px-24">
                     <div className="w-full mb-8 md:mt-0 mt-10 text-center">
-                        <h1 className="text-[32px] font-bold text-[#001829] heading-">
+                        <h1 className="text-[32px] font-bold text-[#001829]">
                             {step === 1 && "Réinitialiser votre mot de passe"}
                             {step === 2 && "Entrer le code OTP"}
                             {step === 3 && "Créer un nouveau mot de passe"}
-                            {step === 4 && "Succès!"}
+                            {step === 4 && "Réinitialisation du mot de passe"}
                         </h1>
                         <p className="text-[#5C6F84] text-[16px]">
                             {step === 1 && "Entrez votre numéro de téléphone pour recevoir un code de réinitialisation."}
                             {step === 2 && "Un code OTP a été envoyé. Veuillez l'entrer ci-dessous."}
                             {step === 3 && "Créez un nouveau mot de passe sécurisé."}
-                            {step === 4 && "Votre mot de passe a été réinitialisé avec succès!"}
+                            {step === 4 && "Votre mot de passe a été réinitialisé avec succès !"}
                         </p>
                     </div>
 
-                    {/* ÉTAPE 1: Numéro de téléphone */}
+                    {/* ÉTAPE 1 */}
                     {step === 1 && (
                         <form onSubmit={handleStep1Submit} className="w-full flex flex-col gap-3">
                             <div className="w-full bg-[#F3F5F7] rounded-[12px] mb-3 flex flex-row items-center">
@@ -183,26 +205,27 @@ const ForgotPassword = () => {
                                     required
                                 />
                             </div>
-
-                            <div className="w-full mt-3">
-                                {error && (
-                                    <p className="text-red-500 text-sm mb-3">{error}</p>
-                                )}
-                                {success && (
-                                    <p className="text-green-500 text-sm mb-3">{success}</p>
-                                )}
-                                <button
-                                    type="submit"
-                                    disabled={isLoadingStep1}
-                                    className="bg-[#23C7ED] rounded-full w-full flex justify-center items-center py-[18px] text-black font-semibold disabled:opacity-50"
-                                >
-                                    {isLoadingStep1 ? "Envoi..." : "Envoyer le code"}
-                                </button>
-                            </div>
+                            {error && <p className="text-red-500 text-sm">{error}</p>}
+                            {success && <p className="text-green-500 text-sm">{success}</p>}
+                            <button
+                                type="submit"
+                                disabled={isLoadingStep1}
+                                className="bg-[#23C7ED] rounded-full w-full flex justify-center items-center py-[18px] text-black font-semibold disabled:opacity-50"
+                            >
+                                {isLoadingStep1 ? (
+                                    <svg className="animate-spin h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
+                                    </svg>
+                                ) : "Envoyer le code"}
+                            </button>
+                            <button type="button" onClick={() => navigate("/login")} className="text-[14px] font-semibold text-[#1485B2] underline mt-2">
+                                Retour à la connexion
+                            </button>
                         </form>
                     )}
 
-                    {/* ÉTAPE 2: Code OTP */}
+                    {/* ÉTAPE 2 */}
                     {step === 2 && (
                         <form onSubmit={handleStep2Submit} className="w-full flex flex-col gap-3">
                             <div className="w-full bg-[#F3F5F7] rounded-[12px] mb-3">
@@ -216,22 +239,54 @@ const ForgotPassword = () => {
                                 />
                             </div>
 
-                            <div className="w-full mt-3">
-                                {error && (
-                                    <p className="text-red-500 text-sm mb-3">{error}</p>
+                            {/* ✅ Countdown */}
+                            <div className="w-full flex items-center justify-between mb-1">
+                                {countdown > 0 ? (
+                                    <p className="text-[#5C6F84] text-sm">
+                                        Code valide pendant{" "}
+                                        <span className="font-semibold text-[#001829]">{formatCountdown(countdown)}</span>
+                                    </p>
+                                ) : (
+                                    <p className="text-red-500 text-sm">Code expiré</p>
                                 )}
-                                <button
-                                    type="submit"
-                                    disabled={isLoadingStep2}
-                                    className="bg-[#23C7ED] rounded-full w-full flex justify-center items-center py-[18px] text-black font-semibold disabled:opacity-50"
-                                >
-                                    {isLoadingStep2 ? "Validation..." : "Valider le code"}
-                                </button>
                             </div>
+
+                            {error && <p className="text-red-500 text-sm">{error}</p>}
+                            {success && <p className="text-green-500 text-sm">{success}</p>}
+
+                            {/* ✅ Bouton valider désactivé si code expiré */}
+                            <button
+                                type="submit"
+                                disabled={isLoadingStep2 || countdown === 0}
+                                className="bg-[#23C7ED] rounded-full w-full flex justify-center items-center py-[18px] text-black font-semibold disabled:opacity-50"
+                            >
+                                {isLoadingStep2 ? (
+                                    <svg className="animate-spin h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
+                                    </svg>
+                                ) : "Valider le code"}
+                            </button>
+
+                            {/* ✅ Bouton renvoyer uniquement si code expiré */}
+                            {countdown === 0 && (
+                                <button
+                                    type="button"
+                                    onClick={handleResend}
+                                    disabled={resendLoading}
+                                    className="w-full flex justify-center items-center py-[18px] rounded-full border-2 border-[#23C7ED] text-[#23C7ED] font-semibold hover:bg-[#23C7ED]/10 transition disabled:opacity-50"
+                                >
+                                    {resendLoading ? "Envoi en cours..." : "Renvoyer le code"}
+                                </button>
+                            )}
+
+                            <button type="button" onClick={() => { setStep(1); setError(""); setSuccess(""); }} className="text-[14px] font-semibold text-[#1485B2] underline mt-2">
+                                Étape précédente
+                            </button>
                         </form>
                     )}
 
-                    {/* ÉTAPE 3: Nouveau mot de passe */}
+                    {/* ÉTAPE 3 */}
                     {step === 3 && (
                         <form onSubmit={handleStep3Submit} className="w-full flex flex-col gap-3">
                             <div className="w-full bg-[#F3F5F7] rounded-[12px] mb-3 flex flex-row items-center space-x-1 pr-4">
@@ -242,19 +297,10 @@ const ForgotPassword = () => {
                                     onChange={(e) => setNewPassword(e.target.value)}
                                     className="w-full h-full py-[22px] px-[19px] rounded-[12px] font-semibold focus:border-none focus:outline-0"
                                 />
-                                {showPassword ? (
-                                    <EyeClosed
-                                        className="cursor-pointer"
-                                        onClick={() => setShowPassword(false)}
-                                    />
-                                ) : (
-                                    <Eye
-                                        className="cursor-pointer"
-                                        onClick={() => setShowPassword(true)}
-                                    />
-                                )}
+                                {showPassword
+                                    ? <EyeClosed className="cursor-pointer" onClick={() => setShowPassword(false)} />
+                                    : <Eye className="cursor-pointer" onClick={() => setShowPassword(true)} />}
                             </div>
-
                             <div className="w-full bg-[#F3F5F7] rounded-[12px] mb-3 flex flex-row items-center space-x-1 pr-4">
                                 <input
                                     type={showConfirmPassword ? "text" : "password"}
@@ -263,59 +309,40 @@ const ForgotPassword = () => {
                                     onChange={(e) => setConfirmPassword(e.target.value)}
                                     className="w-full h-full py-[22px] px-[19px] rounded-[12px] font-semibold focus:border-none focus:outline-0"
                                 />
-                                {showConfirmPassword ? (
-                                    <EyeClosed
-                                        className="cursor-pointer"
-                                        onClick={() => setShowConfirmPassword(false)}
-                                    />
-                                ) : (
-                                    <Eye
-                                        className="cursor-pointer"
-                                        onClick={() => setShowConfirmPassword(true)}
-                                    />
-                                )}
+                                {showConfirmPassword
+                                    ? <EyeClosed className="cursor-pointer" onClick={() => setShowConfirmPassword(false)} />
+                                    : <Eye className="cursor-pointer" onClick={() => setShowConfirmPassword(true)} />}
                             </div>
-
-                            <div className="w-full mt-3">
-                                {error && (
-                                    <p className="text-red-500 text-sm mb-3">{error}</p>
-                                )}
-                                <button
-                                    type="submit"
-                                    disabled={isLoadingStep3}
-                                    className="bg-[#23C7ED] rounded-full w-full flex justify-center items-center py-[18px] text-black font-semibold disabled:opacity-50"
-                                >
-                                    {isLoadingStep3 ? "Réinitialisation..." : "Réinitialiser le mot de passe"}
-                                </button>
-                            </div>
+                            {error && <p className="text-red-500 text-sm">{error}</p>}
+                            <button
+                                type="submit"
+                                disabled={isLoadingStep3}
+                                className="bg-[#23C7ED] rounded-full w-full flex justify-center items-center py-[18px] text-black font-semibold disabled:opacity-50"
+                            >
+                                {isLoadingStep3 ? (
+                                    <svg className="animate-spin h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
+                                    </svg>
+                                ) : "Réinitialiser le mot de passe"}
+                            </button>
+                            <button type="button" onClick={() => { setStep(2); setError(""); setSuccess(""); }} className="text-[14px] font-semibold text-[#1485B2] underline mt-2">
+                                Étape précédente
+                            </button>
                         </form>
                     )}
 
-                    {/* ÉTAPE 4: Succès */}
+                    {/* ÉTAPE 4 */}
                     {step === 4 && (
-                        <div className="w-full flex flex-col gap-3 items-center justify-center">
-                            <div className="text-6xl mb-4">✓</div>
-                            {success && (
-                                <p className="text-green-500 text-center font-semibold mb-3">{success}</p>
-                            )}
+                        <div className="w-full flex flex-col gap-6 items-center justify-center text-center">
+                            <button
+                                onClick={() => navigate("/login")}
+                                className="bg-[#23C7ED] rounded-full w-full flex justify-center items-center py-[18px] text-black font-semibold mt-4"
+                            >
+                                Me connecter
+                            </button>
                         </div>
                     )}
-
-                    <div className="w-full mt-5">
-                        <button
-                            onClick={() => {
-                                if (step > 1) {
-                                    setStep(step - 1);
-                                    setError("");
-                                } else {
-                                    navigate("/login");
-                                }
-                            }}
-                            className="text-[14px] font-semibold text-[#1485B2] underline"
-                        >
-                            {step === 1 ? "Retour à la connexion" : "Étape précédente"}
-                        </button>
-                    </div>
                 </div>
             </div>
             <div className="w-5/12 md:flex hidden h-full justify-start">

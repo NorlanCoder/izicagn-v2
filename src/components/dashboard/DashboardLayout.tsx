@@ -125,6 +125,7 @@ const DashboardLayout = ({ title, children }: DashboardLayoutProps) => {
                                         <NavLink
                                             key={item.id}
                                             to={item.to}
+                                            end={item.id === "accueil"} // Seul le lien "Accueil" doit être actif sur la route "/dashboard"
                                             className={({ isActive }) =>
                                                 [
                                                     "flex items-center p-[10px] rounded-[10px] transition-colors",

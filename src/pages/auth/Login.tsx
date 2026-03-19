@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react"
 import Logo from "../../assets/Logo-izicagn.svg"
 import LoginLeft from "../../assets/auth/login_left.svg"
@@ -20,8 +21,8 @@ const Login = () => {
     const [pageLoading, setPageLoading] = useState(true);
     const [showPassword, setShowPassword] = useState(false);
     const [countryCode, setCountryCode] = useState("229");
-    const [phone, setPhone] = useState("");
-    const [password, setPassword] = useState("");
+    const [phone, setPhone] = useState("0154145581");
+    const [password, setPassword] = useState("Pa$$w0rd!Pa$$w0rd!");
     const [error, setError] = useState("");
 
     const navigate = useNavigate();

@@ -11,7 +11,6 @@ export interface CreateUserPayload {
   encryptedPassord: string;
 }
 
-// Ajuste ce type selon la réponse réelle de ton backend
 export interface CreateUserResponse {
   message?: string;
   token?: string;
@@ -29,15 +28,11 @@ export const useCreateUserMutation = () =>
   });
 
 // --- Encrypt ---
-
 export interface EncryptPayload {
   data: string;
 }
 
-export interface EncryptResponse {
-  encryptedData: string;
-  [key: string]: unknown;
-}
+export type EncryptResponse = string;
 
 export const useEncryptMutation = () =>
   useMutation<EncryptResponse, Error, EncryptPayload>({
@@ -49,7 +44,6 @@ export const useEncryptMutation = () =>
   });
 
 // --- Login ---
-
 export interface LoginPayload {
   countryCode: string;
   phone: string;
@@ -72,11 +66,8 @@ export const useLoginMutation = () =>
       }),
   });
 
-// --- Validate OTP ---
-
+// --- Validate OTP (inscription → /confirm-user) ---
 export interface ValidateOtpPayload {
-  // Certains endpoints (inscription) renvoient `id`, d'autres (réinit) renvoient `personId`.
-  // Nous supportons les deux pour éviter de casser l'inscription.
   personId?: string;
   id?: string;
   otp: string;
@@ -94,13 +85,27 @@ export const useValidateOtpMutation = () =>
       const { personId, id, otp } = payload;
       return apiFetch<ValidateOtpResponse>("/auth/confirm-user", {
         method: "POST",
-        body: JSON.stringify({ personId: personId ?? id, otp }),
+        body: JSON.stringify({ id: id ?? personId, otp }),
       });
     },
   });
 
-// --- Ask Reset (Forgot Password) ---
+// --- Validate Reset OTP (forgot password → /validate-otp) ---
+export interface ValidateResetOtpPayload {
+  personId: string;
+  otp: string;
+}
 
+export const useValidateResetOtpMutation = () =>
+  useMutation<ValidateOtpResponse, Error, ValidateResetOtpPayload>({
+    mutationFn: (payload) =>
+      apiFetch<ValidateOtpResponse>("/auth/validate-otp", {
+        method: "POST",
+        body: JSON.stringify({ personId: payload.personId, otp: payload.otp }),
+      }),
+  });
+
+// --- Ask Reset (Forgot Password) ---
 export interface AskResetPayload {
   countryCode: string;
   phone: string;
@@ -109,6 +114,7 @@ export interface AskResetPayload {
 export interface AskResetResponse {
   message?: string;
   personId?: string;
+  id?: string; // ✅ l'API retourne "id"
   [key: string]: unknown;
 }
 
@@ -122,7 +128,6 @@ export const useAskResetMutation = () =>
   });
 
 // --- Define Password (Reset Password) ---
-
 export interface DefinePasswordPayload {
   personId: string;
   otp: string;
