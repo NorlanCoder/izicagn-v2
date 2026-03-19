@@ -21,8 +21,8 @@ const Login = () => {
     const [pageLoading, setPageLoading] = useState(true);
     const [showPassword, setShowPassword] = useState(false);
     const [countryCode, setCountryCode] = useState("229");
-    const [phone, setPhone] = useState("0154145581");
-    const [password, setPassword] = useState("Pa$$w0rd!Pa$$w0rd!");
+    const [phone, setPhone] = useState("");
+    const [password, setPassword] = useState("");
     const [error, setError] = useState("");
 
     const navigate = useNavigate();
@@ -50,8 +50,6 @@ const Login = () => {
         try {
             const encryptResult = await encryptMutation.mutateAsync({ data: password });
             const encryptedPassword = encryptResult;
-
-            console.log(encryptedPassword);
             
 
             const loginResult = await loginMutation.mutateAsync({
