@@ -29,7 +29,7 @@ const PotRow = ({ pot }: { pot: Pot }) => {
     const navigate = useNavigate()
     const cfg = STATE_CONFIG[pot.state]
     const collected = pot.collectedAmount || 0
-    const target = pot.financialObject || 0
+    const target = Number(pot.financialObject) || 0
     const percent = target > 0 ? Math.min(Math.round((collected / target) * 100), 100) : 0
     const coverImage = pot.images?.[0]
     const contributors = pot.contributorsCount || 0

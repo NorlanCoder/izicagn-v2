@@ -7,13 +7,10 @@ import finance from "../../assets/finance.svg"
 import {
     Clock,
     Copy,
-    Share2,
     Loader2,
     ChevronDown,
     HelpCircle,
-    Users,
     Gift,
-    Share,
     Reply,
     Pencil,
 } from "lucide-react"

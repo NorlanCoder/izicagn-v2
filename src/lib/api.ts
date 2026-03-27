@@ -1,7 +1,5 @@
 export const API_BASE_URL = "https://api.beta.izicagn.com/api/v1";
 
-type HttpMethod = "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
-
 interface RequestOptions extends RequestInit {
   noAuth?: boolean;
   isFormData?: boolean;
