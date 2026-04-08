@@ -1,5 +1,6 @@
 import { useRef, useState } from "react"
-import { X, MapPin, Calendar, Plus, Trash2, ImagePlus, Loader2 } from "lucide-react"
+import { motion, AnimatePresence } from "motion/react"
+import { X, MapPin, Calendar, Plus, Trash2, ImagePlus, Loader2, Reply } from "lucide-react"
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
 import moiMemeIcon from "/src/assets/cagnotte/moi-meme.png"
@@ -154,8 +155,20 @@ const CreateCagnotteModal = ({ onClose, onSuccess }: Props) => {
     const progressPercent = Math.round((step / TOTAL_STEPS) * 100)
 
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
-            <div className="bg-white rounded-3xl w-full max-w-2xl max-h-[90vh] flex flex-col shadow-2xl">
+        <AnimatePresence>
+        <motion.div
+            className="fixed inset-0 z-50 flex items-end justify-center bg-black/50"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+        >
+            <motion.div
+                className="bg-white rounded-t-3xl w-full h-dvh flex flex-col shadow-2xl"
+                initial={{ y: "100%" }}
+                animate={{ y: 0 }}
+                exit={{ y: "100%" }}
+                transition={{ type: "spring", damping: 30, stiffness: 300 }}
+            >
                 {/* Header */}
                 <div className="flex items-center justify-between px-8 pt-7 pb-4 border-b border-[#F3F5F7] shrink-0">
                     <div>
@@ -179,6 +192,17 @@ const CreateCagnotteModal = ({ onClose, onSuccess }: Props) => {
 
                 {/* Body */}
                 <div className="flex-1 overflow-y-auto px-8 py-6">
+                <div className="max-w-xl mx-auto w-full flex flex-col gap-6">
+
+                    {/* Back button */}
+                    {step > 1 && (
+                        <button
+                            onClick={prev}
+                            className="self-start p-1 text-gray-500 hover:text-gray-800 transition"
+                        >
+                            <Reply className="w-5 h-5 text-gray-600" />
+                        </button>
+                    )}
 
                     {/* Step 1 — Raison + Tags */}
                     {step === 1 && (
@@ -501,46 +525,42 @@ const CreateCagnotteModal = ({ onClose, onSuccess }: Props) => {
                             )}
                         </div>
                     )}
+
+                    {/* Continue / Submit */}
+                    <div className="flex justify-end items-center gap-3 pb-6">
+                        {step === 6 && (
+                            <button
+                                onClick={next}
+                                className="text-sm text-[#6E98A3] font-semibold"
+                            >
+                                Ignorer →
+                            </button>
+                        )}
+                        {step < TOTAL_STEPS ? (
+                            <button
+                                onClick={next}
+                                disabled={step === 1 && !reason}
+                                className="bg-[#23C7ED] px-7 py-3 text-sm font-semibold text-white rounded-full disabled:opacity-40 hover:opacity-90 transition"
+                            >
+                                Continuer
+                            </button>
+                        ) : (
+                            <button
+                                onClick={handleSubmit}
+                                disabled={mutation.isPending}
+                                className="bg-[#23C7ED] px-7 py-3 text-sm font-semibold text-white rounded-full disabled:opacity-40 hover:opacity-90 transition"
+                            >
+                                {mutation.isPending ? "Création..." : "Créer la cagnotte"}
+                            </button>
+                        )}
+                    </div>
+
                 </div>
 
-                {/* Footer */}
-                <div className="px-8 py-5 border-t border-[#F3F5F7] flex justify-between items-center shrink-0">
-                    <button
-                        onClick={step === 1 ? onClose : prev}
-                        className="border-2 border-[#D9DFE7] px-7 py-3 text-sm font-semibold text-[#495460] rounded-full hover:bg-[#F3F5F7] transition"
-                    >
-                        {step === 1 ? "Annuler" : "Précédent"}
-                    </button>
-
-                    {step === 6 && (
-                        <button
-                            onClick={next}
-                            className="text-sm text-[#6E98A3] font-semibold mr-2"
-                        >
-                            Ignorer →
-                        </button>
-                    )}
-
-                    {step < TOTAL_STEPS ? (
-                        <button
-                            onClick={next}
-                            disabled={step === 1 && !reason}
-                            className="bg-[#23C7ED] px-7 py-3 text-sm font-semibold text-white rounded-full disabled:opacity-40 hover:opacity-90 transition"
-                        >
-                            Continuer
-                        </button>
-                    ) : (
-                        <button
-                            onClick={handleSubmit}
-                            disabled={mutation.isPending}
-                            className="bg-[#23C7ED] px-7 py-3 text-sm font-semibold text-white rounded-full disabled:opacity-40 hover:opacity-90 transition"
-                        >
-                            {mutation.isPending ? "Création..." : "Créer la cagnotte"}
-                        </button>
-                    )}
                 </div>
-            </div>
-        </div>
+            </motion.div>
+        </motion.div>
+        </AnimatePresence>
     )
 }
 

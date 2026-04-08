@@ -3,7 +3,7 @@ import { useQueryClient } from "@tanstack/react-query"
 import { useNavigate } from "react-router"
 import DashboardLayout from "../../components/dashboard/DashboardLayout"
 import CreateCagnotteModal from "../../components/dashboard/CreateCagnotteModal"
-import cagnotteEmpty from "../../assets/cagnotteempty.svg"
+import cagnotteEmpty from "../../assets/Icon-cagnottes.svg"
 import { FaCirclePlus } from "react-icons/fa6"
 import { Search, Loader2, Clock, ExternalLink, ArrowRight, HandCoins } from "lucide-react"
 import { useMyPotsQuery, type PotState, type Pot } from "../../features/pot/mutations"
@@ -11,7 +11,7 @@ import { useMyPotsQuery, type PotState, type Pot } from "../../features/pot/muta
 type TabKey = "ALL" | "IN_PROGRESS" | "COMPLETED" | "PENDING"
 
 const TABS: { key: TabKey; label: string; state?: PotState }[] = [
-    { key: "ALL", label: "Toutes" },
+    { key: "ALL", label: "Tout" },
     { key: "IN_PROGRESS", label: "En cours", state: "IN_PROGRESS" },
     { key: "COMPLETED", label: "Terminées", state: "COMPLETED" },
     { key: "PENDING", label: "Brouillons", state: "PENDING" },
@@ -129,8 +129,8 @@ const DashboardCagnottes = () => {
         <DashboardLayout title="Mes cagnottes">
             {isEmpty ? (
                 <div className="flex flex-col items-center justify-center text-center py-12 md:py-20">
-                    <img src={cagnotteEmpty} alt="" className="w-40 h-40 md:w-56 md:h-56" />
-                    <h2 className="text-xl md:text-[22px] font-bold text-[#0E405D] mb-3">
+                    <img src={cagnotteEmpty} alt="" className=" h-40 mb-2  md:h-60" />
+                    <h2 className="text-xl md:text-[22px] font-bold mb-3">
                         Vous n'avez encore créé <br /> aucune cagnotte
                     </h2>
                     <p className="text-sm md:text-base text-[#6F7886] mb-8">
@@ -156,16 +156,16 @@ const DashboardCagnottes = () => {
                                 <button
                                     key={tab.key}
                                     onClick={() => { setActiveTab(tab.key); setPage(1) }}
-                                    className={`text-sm font-semibold px-3 lg:px-4 py-2 rounded-full transition whitespace-nowrap ${
+                                    className={`text-sm font-semibold px-2 py-2 rounded-full transition whitespace-nowrap ${
                                         activeTab === tab.key
-                                            ? "bg-[#0E405D] text-white"
-                                            : "text-[#8296A3] hover:bg-[#F3F5F7]"
+                                            ? "bg-[#001829] text-white"
+                                            : "text-[#8296A3] hover:bg-[#F3F5F7] border border-[#E8EDF2]"
                                     }`}
                                 >
                                     {tab.label}
                                     {tab.key === "ALL" && total > 0 && (
-                                        <span className={`ml-1.5 text-[11px] font-bold px-1.5 py-0.5 rounded-full ${
-                                            activeTab === "ALL" ? "bg-white/20" : "bg-[#0E405D] text-white"
+                                        <span className={`ml-1.5 text-[11px] font-bold p-1 rounded-full ${
+                                            activeTab === "ALL" ? "bg-white text-[#001829]" : "bg-[#0E405D] text-white"
                                         }`}>
                                             {String(total).padStart(2, "0")}
                                         </span>
