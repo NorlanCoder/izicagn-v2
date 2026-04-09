@@ -306,7 +306,7 @@ const DashboardLayout = ({ title, children }: DashboardLayoutProps) => {
             {/* KYC desktop */}
             {kycBannerVisible && (
               <div className="flex-1 min-w-0 hidden lg:flex justify-center md:px-4">
-                <div className="w-full lg:w-[700px] bg-[#FEF3EF] rounded-full border border-[#FBBEB8] px-4 py-[10px] flex flex-row items-center gap-2">
+                <div className="w-full lg:w-[700px] bg-[#FEF3EF] rounded-full border border-[#FBBEB8] px-2 py-1 flex flex-row items-center gap-2">
                   <TriangleAlert className="w-4 h-4 text-[#E65100] shrink-0" />
                   <p className="flex-1 text-[12px] text-[#1E2224] font-[400] truncate">
                     <span className="font-semibold">Téléversez vos documents</span>{" "}

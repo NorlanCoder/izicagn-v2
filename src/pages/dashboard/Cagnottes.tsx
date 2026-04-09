@@ -188,7 +188,7 @@ const DashboardCagnottes = () => {
                             </div>
                             <button
                                 onClick={() => setShowModal(true)}
-                                className="px-3 lg:px-4 py-2.5 flex items-center rounded-xl bg-[#23C7ED] text-white font-bold text-sm shadow-[0_10px_20px_rgba(35,199,237,0.35)] hover:shadow-none transition-shadow shrink-0"
+                                className="px-3 lg:px-4 py-2.5 flex items-center rounded-xl bg-[#23C7ED] text-[#002D3F] font-bold text-sm shadow-[0_10px_20px_rgba(35,199,237,0.35)] hover:shadow-none transition-shadow shrink-0"
                             >
                                 <FaCirclePlus className="mr-1.5 lg:mr-2" />
                                 <span className="hidden sm:inline">Créer une cagnotte</span>
