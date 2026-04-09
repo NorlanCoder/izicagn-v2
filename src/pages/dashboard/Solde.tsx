@@ -1,6 +1,8 @@
 import { useState } from "react"
 import DashboardLayout from "../../components/dashboard/DashboardLayout"
 import walletIllustration from "../../assets/walletempty.svg"
+import timedocIcon from "../../assets/timedocIcon.svg"
+import databaseIcon from "../../assets/database.svg"
 import { ArrowDownLeft, ArrowUpRight, CircleAlert, Download, Plus, Settings2, Sparkles } from "lucide-react"
 import { FaCirclePlus } from "react-icons/fa6"
 
@@ -89,22 +91,23 @@ const DashboardSolde = () => {
                 {HAS_BALANCE && (
                     <div className="flex flex-col gap-3 border-2 border-[#110C2214] bg-[#110C2208] rounded-[28px] p-4">
                         <div className="flex items-center gap-3 bg-white border border-[#F0F2F5] rounded-2xl px-4 py-3 shadow-[0px_2px_8px_0px_#00BCD414]">
-                            <div className="w-9 h-9 rounded-xl bg-[#FFF3E0] flex items-center justify-center shrink-0">
-                                <ArrowUpRight className="w-4 h-4 text-[#FF9500]" />
+                            <div className="w-9 h-9 rounded-xl bg-[#110C220D] flex items-center justify-center shrink-0">
+                                <img src={timedocIcon} alt="En attente" className="w-4 h-4" />
                             </div>
                             <div className="flex-1 min-w-0">
                                 <p className="text-[13px] text-[#6F7886]">Demandes en attente</p>
                             </div>
-                            <p className="text-[14px] font-bold text-[#0E0E18]">0 €</p>
+                            <p className="text-[14px] font-medium text-[#0E0E18]">0 €</p>
                         </div>
                         <div className="flex items-center gap-3 bg-white border border-[#F0F2F5] rounded-2xl px-4 py-3 shadow-[0px_2px_8px_0px_#00BCD414]">
-                            <div className="w-9 h-9 rounded-xl bg-[#E8F5E9] flex items-center justify-center shrink-0">
-                                <ArrowDownLeft className="w-4 h-4 text-[#34C759]" />
+                            <div className="w-9 h-9 rounded-xl bg-[#E2FCF0] flex items-center justify-center shrink-0">
+                                <img src={databaseIcon} alt="En transit" className="w-4 h-4 " />
+
                             </div>
                             <div className="flex-1 min-w-0">
-                                <p className="text-[13px] text-[#6F7886]">Reversements en transit</p>
+                                <p className="text-[14px] text-[#6F7886]">Reversements en transit</p>
                             </div>
-                            <p className="text-[14px] font-bold text-[#0E0E18]">0 €</p>
+                            <p className="text-[14px] font-medium text-[#0E0E18]">0 €</p>
                         </div>
                     </div>
                 )}
@@ -129,7 +132,7 @@ const DashboardSolde = () => {
                             <span className="hidden sm:inline">Créer une cagnotte</span>
                             <span className="sm:hidden">Créer</span>
                         </button>
-                        
+
                         <button className="flex cursor-pointer items-center gap-2 bg-white text-[#0E0E18] text-sm font-semibold px-3 lg:px-4 py-2.5 rounded-xl border border-[#E5E7EB] hover:bg-[#F3F5F7] transition">
                             <Settings2 className="w-4 h-4" /> Configurer un moyen
                         </button>
@@ -140,12 +143,12 @@ const DashboardSolde = () => {
             {/* ── Détail par cagnotte ─────────────────────────────────────── */}
             {HAS_BALANCE && (
                 <>
-                    <div className="bg-white border border-[#F0F2F5] rounded-2xl overflow-hidden mb-6">
+                    <div className="bg-white border p-2 border-[#F0F2F5] rounded-2xl overflow-hidden mb-6">
                         <div className="px-5 py-4 border-b border-[#F0F2F5]">
                             <h2 className="text-[15px] font-bold text-[#0E0E18]">Détail par cagnotte</h2>
                         </div>
                         {/* Header */}
-                        <div className="grid grid-cols-[2fr_1fr_1fr_1fr] px-5 py-2.5 text-[11px] font-semibold text-[#8296A3] uppercase tracking-wider border-b border-[#F0F2F5]">
+                        <div className="grid bg-[#FAFAFA] grid-cols-[2fr_1fr_1fr_1fr] px-5 py-2.5 text-[11px] font-semibold text-[#8296A3] uppercase tracking-wider border-b border-[#F0F2F5]">
                             <span>Cagnotte</span>
                             <span>Montant brut</span>
                             <span>Frais</span>
@@ -156,39 +159,39 @@ const DashboardSolde = () => {
                             <div key={c.id} className="grid grid-cols-[2fr_1fr_1fr_1fr] items-center px-5 py-4 border-b border-[#F0F2F5] last:border-b-0">
                                 <div className="flex items-center gap-3 min-w-0">
                                     <img src={c.image} alt="" className="w-10 h-10 rounded-xl object-cover shrink-0" />
-                                    <p className="text-[14px] font-semibold text-[#0E0E18] truncate">{c.title}</p>
+                                    <p className="text-[16px] font-bold text-[#0E0E18] truncate">{c.title}</p>
                                 </div>
-                                <span className="text-[14px] text-[#495460]">{c.montantBrut.toLocaleString("fr-FR")} €</span>
-                                <span className="text-[14px] font-semibold text-[#FD8352]">-{c.frais} €</span>
-                                <span className="text-[14px] font-bold text-[#23C7ED]">{c.netDisponible.toLocaleString("fr-FR")} €</span>
+                                <span className="text-[16px] text-[#495460]">{c.montantBrut.toLocaleString("fr-FR")} €</span>
+                                <span className="text-[14px] bg-[#FFF4ED] w-fit py-1 px-2 rounded-full font-medium text-[#EC320A]">-{c.frais} €</span>
+                                <span className="text-[16px] font-bold text-[#1EB0D8]">{c.netDisponible.toLocaleString("fr-FR")} €</span>
                             </div>
                         ))}
                         {/* Total row */}
                         <div className="grid grid-cols-[2fr_1fr_1fr_1fr] items-center px-5 py-3.5 bg-[#FAFBFC] border-t border-[#F0F2F5]">
-                            <span className="text-[14px] font-bold text-[#0E0E18]">Total :</span>
-                            <span className="text-[14px] font-bold text-[#0E0E18]">{totalBrut.toLocaleString("fr-FR")} €</span>
-                            <span className="text-[14px] font-bold text-[#0E0E18]">{totalFrais} €</span>
-                            <span className="text-[14px] font-bold text-[#23C7ED]">{totalNet.toLocaleString("fr-FR")} €</span>
+                            <span className="text-[16px] font-semibold text-[#0E0E18]">Total :</span>
+                            <span className="text-[16px] font-semibold text-[#0E0E18]">{totalBrut.toLocaleString("fr-FR")} €</span>
+                            <span className="text-[16px] font-semibold text-[#0E0E18]">{totalFrais} €</span>
+                            <span className="text-[16px] font-bold text-[#23C7ED]">{totalNet.toLocaleString("fr-FR")} €</span>
                         </div>
                         {/* Notice */}
-                        <div className="px-5 py-3 border-t border-[#F0F2F5] flex items-center gap-2">
-                            <CircleAlert className="w-3.5 h-3.5 text-[#FF9500] shrink-0" />
-                            <p className="text-[11px] text-[#8296A3]">
+                        <div className="px-5 py-3 rounded-lg bg-[#FFF4ED] mt-2 flex items-center gap-2">
+                            <CircleAlert className="w-3.5 h-3.5 text-[#EC320A] shrink-0" />
+                            <p className="text-[12px] text-[#676472]">
                                 Frais de plateforme : <span className="font-semibold">2% TTC</span> par transaction confirmée. Les montants nets sont crédités sous 24-48h ouvrées.
                             </p>
                         </div>
                     </div>
 
                     {/* ── Mouvements récents ─────────────────────────────────── */}
-                    <div className="bg-white border border-[#F0F2F5] rounded-2xl overflow-hidden">
+                    <div className="bg-white border p-2 border-[#F0F2F5] rounded-2xl overflow-hidden">
                         <div className="px-5 py-4 border-b border-[#F0F2F5] flex items-center justify-between">
                             <h2 className="text-[15px] font-bold text-[#0E0E18]">Mouvements récents</h2>
-                            <div className="flex items-center gap-1 bg-[#F3F5F7] rounded-full p-1">
+                            <div className="flex items-center gap-1 bg-[#E2EAF0] rounded-full p-1">
                                 {(["ALL", "IN", "OUT"] as MvtFilter[]).map((f) => (
                                     <button
                                         key={f}
                                         onClick={() => setMvtFilter(f)}
-                                        className={`text-[12px] font-semibold px-3 py-1 rounded-full transition ${mvtFilter === f ? "bg-white text-[#0E0E18] shadow-sm" : "text-[#8296A3] hover:text-[#495460]"
+                                        className={`text-[12px] font-semibold px-3 py-1 rounded-full transition ${mvtFilter === f ? "bg-white text-[#1E3448]" : "text-[#5A6272]"
                                             }`}
                                     >
                                         {f === "ALL" ? "Tous" : f === "IN" ? "Entrées" : "Sorties"}
@@ -202,23 +205,23 @@ const DashboardSolde = () => {
                                 <div className={`w-9 h-9 rounded-full flex items-center justify-center shrink-0 ${m.type === "IN" ? "bg-[#E8F5E9]" : "bg-[#FFF3E0]"
                                     }`}>
                                     {m.type === "IN"
-                                        ? <ArrowDownLeft className="w-4 h-4 text-[#34C759]" />
-                                        : <ArrowUpRight className="w-4 h-4 text-[#FF9500]" />
+                                        ? <ArrowDownLeft className="w-4 h-4 text-[#0A9C55]" />
+                                        : <ArrowUpRight className="w-4 h-4 text-[#F2AA09]" />
                                     }
                                 </div>
                                 <div className="flex-1 min-w-0">
-                                    <p className="text-[14px] font-semibold text-[#0E0E18] truncate">{m.label}</p>
-                                    <p className="text-[12px] text-[#8296A3] truncate">{m.sublabel}</p>
+                                    <p className="text-[14px] font-semibold text-[#1A1A2E] truncate">{m.label}</p>
+                                    <p className="text-[12px] text-[#9AA3B0] truncate">{m.sublabel}</p>
                                 </div>
-                                <p className="text-[12px] text-[#8296A3] shrink-0">{m.date}</p>
-                                <p className={`text-[14px] font-bold shrink-0 ${m.type === "IN" ? "text-[#34C759]" : "text-[#FF9500]"}`}>
+                                <p className="text-[15px] text-[#110C2252] shrink-0">{m.date}</p>
+                                <p className={`text-[15px] font-bold shrink-0 ${m.type === "IN" ? "text-[#0A9C55]" : "text-[#F2AA09]"}`}>
                                     {m.type === "IN" ? "+" : "-"}{m.montant.toLocaleString("fr-FR", { minimumFractionDigits: 2 })} €
                                 </p>
                             </div>
                         ))}
 
                         <div className="flex justify-center px-5 py-4">
-                            <button className="flex items-center gap-1.5 text-[13px] font-semibold text-[#23C7ED] hover:underline transition">
+                            <button className="flex items-center gap-1.5 text-[13px] font-medium text-[#07AED8] hover:underline transition">
                                 <Download className="w-3.5 h-3.5" />
                                 Télécharger l'historique complet (PDF)
                             </button>

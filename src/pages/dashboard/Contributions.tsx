@@ -169,7 +169,7 @@ const DashboardContributions = () => {
 
             {/* Table */}
             <div className="bg-white border p-2 border-[#F0F2F5] rounded-2xl overflow-hidden">
-                <div className="grid grid-cols-[2fr_1fr_1fr_1fr_1fr] px-5 py-3 text-[11px] font-semibold text-[#8296A3] uppercase tracking-wider border-b border-[#F0F2F5]">
+                <div className="grid grid-cols-[2fr_1fr_1fr_1fr_1fr] bg-[#FAFAFA] px-5 py-3 text-[11px] font-semibold text-[#8296A3] uppercase tracking-wider border-b border-[#F0F2F5]">
                     <span>Cagnotte</span>
                     <span>Montant</span>
                     <span>Date</span>
