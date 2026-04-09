@@ -10,10 +10,11 @@ import {
   Repeat2,
   Menu,
   X,
-  Upload,
+  TriangleAlert,
 } from "lucide-react";
 import logo from "/src/assets/Logo-izicagn.svg";
 import cagnotteIc from "../../assets/cagnotteic.svg";
+import contributionIc from "../../assets/contribution-icon.svg";
 import { useAuth } from "../../lib/AuthContext";
 import { useLogoutMutation } from "../../features/auth/mutations";
 
@@ -52,6 +53,7 @@ const sidebarSections = [
         label: "Mes contributions",
         to: "/dashboard/contributions",
         icon: Repeat2,
+        iconSrc: contributionIc,
       },
     ],
   },
@@ -91,6 +93,7 @@ const sidebarSections = [
 const DashboardLayout = ({ title, children }: DashboardLayoutProps) => {
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
   const [profileMenuOpen, setProfileMenuOpen] = useState(false);
+  const [kycBannerVisible, setKycBannerVisible] = useState(true);
   const { user } = useAuth();
   const navigate = useNavigate();
   const logoutMutation = useLogoutMutation();
@@ -301,30 +304,36 @@ const DashboardLayout = ({ title, children }: DashboardLayoutProps) => {
             </div>
 
             {/* KYC desktop */}
-            <div className="flex-1 min-w-0 hidden lg:flex justify-center md:px-4">
-              <div className="w-full lg:w-[700px] bg-gradient-to-r from-[#FDF0EE] to-[#FFFAF9] text-[#A35A15] rounded-full border border-[#FBBEB8] shadow-sm px-4 py-[8px] flex flex-row items-center justify-between gap-2">
-                <p className="text-[12px] text-[#1E2224] font-[400] mr-2 truncate">
-                  <span className="font-semibold">
-                    Téléversez vos documents
-                  </span>{" "}
-                  d&apos;identité pour finaliser votre inscription
-                </p>
-                <button className="ml-2 px-[8px] py-[6px] rounded-full bg-[#001829] text-white text-[12px] font-semibold whitespace-nowrap flex items-center justify-center shrink-0">
-                  <Upload className="w-4 h-4 mr-2" />
-                  <span>Téléverser</span>
-                </button>
+            {kycBannerVisible && (
+              <div className="flex-1 min-w-0 hidden lg:flex justify-center md:px-4">
+                <div className="w-full lg:w-[700px] bg-[#FEF3EF] rounded-full border border-[#FBBEB8] px-4 py-[10px] flex flex-row items-center gap-2">
+                  <TriangleAlert className="w-4 h-4 text-[#E65100] shrink-0" />
+                  <p className="flex-1 text-[12px] text-[#1E2224] font-[400] truncate">
+                    <span className="font-semibold">Téléversez vos documents</span>{" "}
+                    d&apos;identité pour vérifier votre compte
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => setKycBannerVisible(false)}
+                    className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-[#FD8352] shrink-0 shadow-sm hover:bg-orange-50 transition"
+                  >
+                    <X className="w-4 h-4" />
+                  </button>
+                </div>
               </div>
-            </div>
+            )}
 
             {/* Icônes à droite */}
             <div className="flex items-center justify-end gap-2 sm:gap-3 shrink-0">
               {/* KYC mobile */}
-              <button
-                type="button"
-                className="lg:hidden w-[36px] h-[36px] rounded-full bg-[#FDF0EE] border border-[#FBBEB8] flex items-center justify-center text-[#A35A15]"
-              >
-                <Upload className="w-4 h-4" />
-              </button>
+              {kycBannerVisible && (
+                <button
+                  type="button"
+                  className="lg:hidden w-[36px] h-[36px] rounded-full bg-[#FEF3EF] border border-[#FBBEB8] flex items-center justify-center text-[#E65100]"
+                >
+                  <TriangleAlert className="w-4 h-4" />
+                </button>
+              )}
 
               {/* Cloche */}
               <button
