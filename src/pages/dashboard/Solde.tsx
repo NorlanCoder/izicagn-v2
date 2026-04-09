@@ -97,7 +97,7 @@ const DashboardSolde = () => {
                             <div className="flex-1 min-w-0">
                                 <p className="text-[13px] text-[#6F7886]">Demandes en attente</p>
                             </div>
-                            <p className="text-[14px] font-medium text-[#0E0E18]">0 €</p>
+                            <p className="text-xl font-medium text-[#0E0E18]">0 €</p>
                         </div>
                         <div className="flex items-center gap-3 bg-white border border-[#F0F2F5] rounded-2xl px-4 py-3 shadow-[0px_2px_8px_0px_#00BCD414]">
                             <div className="w-9 h-9 rounded-xl bg-[#E2FCF0] flex items-center justify-center shrink-0">
@@ -107,7 +107,7 @@ const DashboardSolde = () => {
                             <div className="flex-1 min-w-0">
                                 <p className="text-[14px] text-[#6F7886]">Reversements en transit</p>
                             </div>
-                            <p className="text-[14px] font-medium text-[#0E0E18]">0 €</p>
+                            <p className="text-xl font-medium text-[#0E0E18]">0 €</p>
                         </div>
                     </div>
                 )}
@@ -158,7 +158,7 @@ const DashboardSolde = () => {
                         {MOCK_CAGNOTTES.map((c) => (
                             <div key={c.id} className="grid grid-cols-[2fr_1fr_1fr_1fr] items-center px-5 py-4 border-b border-[#F0F2F5] last:border-b-0">
                                 <div className="flex items-center gap-3 min-w-0">
-                                    <img src={c.image} alt="" className="w-10 h-10 rounded-xl object-cover shrink-0" />
+                                    <img src={c.image} alt="" className="w-14 h-12 rounded-xl object-cover shrink-0" />
                                     <p className="text-[16px] font-bold text-[#0E0E18] truncate">{c.title}</p>
                                 </div>
                                 <span className="text-[16px] text-[#495460]">{c.montantBrut.toLocaleString("fr-FR")} €</span>
