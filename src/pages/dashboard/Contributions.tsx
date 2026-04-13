@@ -89,7 +89,7 @@ const DashboardContributions = () => {
             <h1 className="text-xl lg:text-2xl font-bold text-[#0E405D]  mb-4 lg:mb-6">Mes contributions</h1>
 
             {/* Stats */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 bg-[#110C2208] rounded-2xl p-2 gap-4 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-3 bg-[#110C2208] rounded-2xl p-2 gap-2 mb-8">
                 <div className="flex items-center gap-3 bg-white rounded-2xl px-5 py-4" style={{ borderWidth: "1px 1px 3px 1px", borderStyle: "solid", borderColor: "#E8EDF2" }}>
                     <div className="w-10 h-10 rounded-xl bg-[#CFF7FE] flex items-center justify-center shrink-0">
                         <img src={walleticon} alt="Wallet Icon" className="w-5 h-5" />

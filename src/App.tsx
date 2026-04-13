@@ -32,6 +32,7 @@ import DashboardCagnotteDetail from "./pages/dashboard/CagnotteDetail";
 import DashboardContributions from "./pages/dashboard/Contributions";
 import DashboardSolde from "./pages/dashboard/Solde";
 import DashboardReversements from "./pages/dashboard/Reversements";
+import DemandeReversement from "./pages/dashboard/DemandeReversement";
 import DashboardOrganisation from "./pages/dashboard/Organisation";
 import DashboardParametres from "./pages/dashboard/Parametres";
 // import Register from "./pages/auth/Register";
@@ -85,6 +86,7 @@ function App() {
               <Route path="contributions" element={<DashboardContributions />} />
               <Route path="solde" element={<DashboardSolde />} />
               <Route path="reversements" element={<DashboardReversements />} />
+              <Route path="reversements/nouveau" element={<DemandeReversement />} />
               <Route path="organisation" element={<DashboardOrganisation />} />
               <Route path="parametres" element={<DashboardParametres />} />
             </Route>
