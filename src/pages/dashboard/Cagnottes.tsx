@@ -156,17 +156,15 @@ const DashboardCagnottes = () => {
                                 <button
                                     key={tab.key}
                                     onClick={() => { setActiveTab(tab.key); setPage(1) }}
-                                    className={`text-sm font-semibold px-2 py-2 rounded-full transition whitespace-nowrap ${
-                                        activeTab === tab.key
+                                    className={`text-sm font-semibold px-2 py-2 rounded-full transition whitespace-nowrap ${activeTab === tab.key
                                             ? "bg-[#001829] text-white"
                                             : "text-[#8296A3] hover:bg-[#F3F5F7] border border-[#E8EDF2]"
-                                    }`}
+                                        }`}
                                 >
                                     {tab.label}
                                     {tab.key === "ALL" && total > 0 && (
-                                        <span className={`ml-1.5 text-[11px] font-bold p-1 rounded-full ${
-                                            activeTab === "ALL" ? "bg-white text-[#001829]" : "bg-[#0E405D] text-white"
-                                        }`}>
+                                        <span className={`ml-1.5 text-[11px] font-bold p-1 rounded-full ${activeTab === "ALL" ? "bg-white text-[#001829]" : "bg-[#0E405D] text-white"
+                                            }`}>
                                             {String(total).padStart(2, "0")}
                                         </span>
                                     )}
@@ -188,7 +186,7 @@ const DashboardCagnottes = () => {
                             </div>
                             <button
                                 onClick={() => setShowModal(true)}
-                                className="px-3 lg:px-4 py-2.5 flex items-center rounded-xl bg-[#23C7ED] text-white font-bold text-sm shadow-[0_10px_20px_rgba(35,199,237,0.35)] hover:shadow-none transition-shadow shrink-0"
+                                className="px-3 lg:px-4 py-2.5 flex items-center rounded-xl bg-[#23C7ED] text-[#002D3F] font-bold text-sm shadow-[0_10px_20px_rgba(35,199,237,0.35)] hover:shadow-none transition-shadow shrink-0"
                             >
                                 <FaCirclePlus className="mr-1.5 lg:mr-2" />
                                 <span className="hidden sm:inline">Créer une cagnotte</span>
@@ -196,52 +194,55 @@ const DashboardCagnottes = () => {
                             </button>
                         </div>
                     </div>
+                    <div className="bg-white border p-2 border-[#F0F2F5] rounded-2xl">
 
-                    {/* Table header */}
-                    <div className="hidden lg:flex items-center text-[11px] font-semibold text-[#8296A3] uppercase tracking-wider pb-3 border-b border-[#F0F2F5]">
-                        <div className="w-[40%]">Intitulé</div>
-                        <div className="w-[30%]">Montant collecté</div>
-                        <div className="w-[30%] text-right">Actions</div>
-                    </div>
+                        {/* Table header */}
+                        <div className="hidden bg-[#FAFAFA]  lg:flex items-center text-[11px] font-semibold text-[#8296A3] uppercase tracking-wider p-3 border-b border-[#F0F2F5]">
+                            <div className="w-[40%]">Intitulé</div>
+                            <div className="w-[30%]">Montant collecté</div>
+                            <div className="w-[30%] text-right">Actions</div>
+                        </div>
 
-                    {/* Content */}
-                    {isLoading ? (
-                        <div className="flex items-center justify-center py-20">
-                            <Loader2 className="w-8 h-8 text-[#23C7ED] animate-spin" />
-                        </div>
-                    ) : pots.length === 0 ? (
-                        <div className="text-center py-16">
-                            <p className="text-sm text-[#8296A3]">Aucune cagnotte trouvée.</p>
-                        </div>
-                    ) : (
-                        <>
-                            <div>
-                                {pots.map((pot) => (
-                                    <PotRow key={pot.id} pot={pot} />
-                                ))}
+                        {/* Content */}
+                        {isLoading ? (
+                            <div className="flex items-center justify-center py-20">
+                                <Loader2 className="w-8 h-8 text-[#23C7ED] animate-spin" />
                             </div>
-
-                            {totalPages > 1 && (
-                                <div className="flex items-center justify-center gap-2 mt-8">
-                                    <button
-                                        onClick={() => setPage((p) => Math.max(1, p - 1))}
-                                        disabled={page <= 1}
-                                        className="px-3 py-1.5 text-sm rounded-lg border border-[#E5E7EB] disabled:opacity-40 hover:bg-[#F3F5F7] transition"
-                                    >
-                                        Précédent
-                                    </button>
-                                    <span className="text-sm text-[#8296A3]">{page} / {totalPages}</span>
-                                    <button
-                                        onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
-                                        disabled={page >= totalPages}
-                                        className="px-3 py-1.5 text-sm rounded-lg border border-[#E5E7EB] disabled:opacity-40 hover:bg-[#F3F5F7] transition"
-                                    >
-                                        Suivant
-                                    </button>
+                        ) : pots.length === 0 ? (
+                            <div className="text-center py-16">
+                                <p className="text-sm text-[#8296A3]">Aucune cagnotte trouvée.</p>
+                            </div>
+                        ) : (
+                            <>
+                                <div>
+                                    {pots.map((pot) => (
+                                        <PotRow key={pot.id} pot={pot} />
+                                    ))}
                                 </div>
-                            )}
-                        </>
-                    )}
+
+                                {totalPages > 1 && (
+                                    <div className="flex items-center justify-center gap-2 mt-8">
+                                        <button
+                                            onClick={() => setPage((p) => Math.max(1, p - 1))}
+                                            disabled={page <= 1}
+                                            className="px-3 py-1.5 text-sm rounded-lg border border-[#E5E7EB] disabled:opacity-40 hover:bg-[#F3F5F7] transition"
+                                        >
+                                            Précédent
+                                        </button>
+                                        <span className="text-sm text-[#8296A3]">{page} / {totalPages}</span>
+                                        <button
+                                            onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+                                            disabled={page >= totalPages}
+                                            className="px-3 py-1.5 text-sm rounded-lg border border-[#E5E7EB] disabled:opacity-40 hover:bg-[#F3F5F7] transition"
+                                        >
+                                            Suivant
+                                        </button>
+                                    </div>
+                                )}
+                            </>
+                        )}
+
+                    </div>
                 </div>
             )}
 
