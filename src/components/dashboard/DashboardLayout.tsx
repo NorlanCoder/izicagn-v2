@@ -399,7 +399,7 @@ const DashboardLayout = ({ title, children }: DashboardLayoutProps) => {
         </header>
 
         <main className="flex-1 px-4 lg:px-8 pt-[112px] pb-6 overflow-y-auto">
-          <div className="bg-white rounded-3xl border border-[#F8FBFB] p-4 sm:p-6 md:p-8 h-full">
+          <div className="bg-white p-4 sm:p-6 md:p-8 h-full">
             {children}
           </div>
         </main>
