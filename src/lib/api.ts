@@ -1,4 +1,4 @@
-export const API_BASE_URL = "https://api.beta.izicagn.com/api/v1";
+export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL as string;
 
 interface RequestOptions extends RequestInit {
   noAuth?: boolean;
