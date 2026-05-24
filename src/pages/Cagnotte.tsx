@@ -2,7 +2,7 @@ import Footer from "../components/general/footer";
 import Navbar from "../components/general/navbar";
 import Search from "../assets/cagnotte/search.png";
 import "../utils/style/cagnotte.css";
-import { CagnotteMediumList, CategoryList } from "../utils/data";
+import { CategoryList } from "../utils/data";
 import Category from "../components/cagnotte/category";
 import CagnotteMediumComponent from "../components/cagnotte/cagnotteMediumComponent";
 import { Link } from "react-router";
@@ -10,10 +10,38 @@ import Banniere from '../assets/cagnotte/banniere.svg'
 import { ChevronRight } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
+import { usePublicPotsQuery } from "../features/pot/mutations";
+import { CagnotteMediumType } from "../utils/type";
 
 const Cagnotte = () => {
 
   const [isOpenBanniere, setIsOpenBanniere] = useState("closed");
+  const [search, setSearch] = useState("");
+  const [searchInput, setSearchInput] = useState("");
+
+  const { data: personalData, isLoading: loadingPersonal } = usePublicPotsQuery({
+    search: search || undefined,
+    limit: 8,
+  });
+
+  const { data: communityData, isLoading: loadingCommunity } = usePublicPotsQuery({
+    search: search || undefined,
+    limit: 8,
+  });
+
+  const mapPot = (pot: { id: string; title: string; collectedAmount?: number; financialObject: number | string; contributorsCount?: number; images?: string[] }): CagnotteMediumType => ({
+    id: pot.id,
+    title: pot.title,
+    solde: pot.collectedAmount ?? 0,
+    besoin: Number(pot.financialObject) || 0,
+    participant: pot.contributorsCount ?? 0,
+    image: pot.images?.[0] ?? "",
+  });
+
+  const handleSearch = () => {
+    setSearch(searchInput);
+    setIsOpenBanniere("open");
+  };
 
   return (
     <div>
@@ -57,7 +85,10 @@ const Cagnotte = () => {
                       <img src={Search} alt="" title="" />
                       <input
                         type="text"
+                        value={searchInput}
+                        onChange={(e) => setSearchInput(e.target.value)}
                         onClick={() => setIsOpenBanniere("open")}
+                        onKeyDown={(e) => e.key === "Enter" && handleSearch()}
                         placeholder="Rechercher"
                         className="text-[#D9D9D9] font-[500] w-full h-full focus:border-0 focus:outline-0"
                       />
@@ -90,9 +121,16 @@ const Cagnotte = () => {
                   <div className='flex flex-row md:w-[730px] w-full space-x-3 p-1 pl-4 border-2 rounded-full bg-white border-[#07AED8]'>
                       <div className='bg-transparent grow-1 flex flex-row space-x-2 items-center'>
                           <img src={Search} alt='' title=''/>
-                          <input type="text" placeholder='Rechercher' className='text-[#D9D9D9] w-full focus:border-0 focus:outline-0 font-[500]' />
+                          <input
+                            type="text"
+                            value={searchInput}
+                            onChange={(e) => setSearchInput(e.target.value)}
+                            onKeyDown={(e) => e.key === "Enter" && handleSearch()}
+                            placeholder='Rechercher'
+                            className='text-[#D9D9D9] w-full focus:border-0 focus:outline-0 font-[500]'
+                          />
                       </div>
-                      <button className='bg-[#23C7ED] text-white grow-0 rounded-full text-[14px] p-[16px] font-[700]'>Rechercher</button>
+                      <button onClick={handleSearch} className='bg-[#23C7ED] text-white grow-0 rounded-full text-[14px] p-[16px] font-[700]'>Rechercher</button>
                   </div>
                 </motion.div>
               </motion.div>
@@ -130,9 +168,15 @@ const Cagnotte = () => {
             </div>
 
             <div className="flex flex-row flex-wrap space-y-10">
-              {CagnotteMediumList.map((item, index) => (
-                <CagnotteMediumComponent item={item} key={index.toString()} />
-              ))}
+              {loadingPersonal ? (
+                <p className="text-[#585D5E] text-sm">Chargement...</p>
+              ) : (personalData?.data ?? []).length === 0 ? (
+                <p className="text-[#585D5E] text-sm">Aucune cagnotte trouvée.</p>
+              ) : (
+                (personalData?.data ?? []).map((pot) => (
+                  <CagnotteMediumComponent item={mapPot(pot)} key={pot.id} />
+                ))
+              )}
             </div>
           </div>
 
@@ -149,9 +193,15 @@ const Cagnotte = () => {
             </div>
 
             <div className="flex flex-row flex-wrap space-y-10">
-              {CagnotteMediumList.map((item, index) => (
-                <CagnotteMediumComponent item={item} key={index.toString()} />
-              ))}
+              {loadingCommunity ? (
+                <p className="text-[#585D5E] text-sm">Chargement...</p>
+              ) : (communityData?.data ?? []).length === 0 ? (
+                <p className="text-[#585D5E] text-sm">Aucune cagnotte trouvée.</p>
+              ) : (
+                (communityData?.data ?? []).map((pot) => (
+                  <CagnotteMediumComponent item={mapPot(pot)} key={pot.id} />
+                ))
+              )}
             </div>
           </div>
         </section>

@@ -16,21 +16,9 @@
 @keyframes speedZoom {
     0% {
         background-size: 100%;
-        background-position: center;
-        filter: blur(0);
-    }
-    15% {
-        background-size: 115%;
-        background-position: center;
-        filter: blur(2px);
-    }
-    40% {
-        /* background-size: 115%; */
-        filter: blur(1px);
     }
     100% {
-        background-size: 120%;
-        filter: blur(0);
+        background-size: 110%;
     }
 }
 
@@ -54,15 +42,15 @@
 }
 
 
-#CagnotteMediumComponent:hover #CagnotteMediumComponentImage {
-    animation: speedZoom 1s forwards;
+.cagnotte-medium-card:hover .cagnotte-medium-card-image {
+    background-size: 105%;
 }
 
-#CagnotteMediumComponentImage {
+.cagnotte-medium-card-image {
     background-size: cover;
+    background-repeat: no-repeat;
     background-position: center;
-    transition: background-size 1.5s ease;
-    transform: scale(1);
+    transition: background-size 0.4s ease;
 }
 
 #categorylist::-webkit-scrollbar {

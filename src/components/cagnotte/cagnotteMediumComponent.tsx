@@ -12,13 +12,13 @@ const CagnotteMediumComponent = ({item}:CagnotteMediumComponentProps) => {
     const navigate = useNavigate()
 
 	const RedirectToDetailsPage = () => {
-		navigate("/cagnotte/details", {replace: true})
+		navigate(`/cagnotte/details/${item.id}`)
 	}
 
     return (
-        <div onClick={()=>RedirectToDetailsPage()} id="CagnotteMediumComponent" className='lg:w-1/4 md:w-1/2 w-full h-[] rounded-[16px] px-[13px] pb-[28px] pt-[12px] border border-transparent transition-all hover:border-[#5F6364]/20'>
-            <div className='w-full h-[216px] rounded-[16px] mb-4 relative'>
-                <div id="CagnotteMediumComponentImage" className='h-full w-full absolute inset-0 top-0 left-0 rounded-[16px]' style={{backgroundImage: `url(${item.image})`}}></div>
+        <div onClick={()=>RedirectToDetailsPage()} className='cagnotte-medium-card lg:w-1/4 md:w-1/2 w-full h-[] rounded-[16px] px-[13px] pb-[28px] pt-[12px] border border-transparent transition-all hover:border-[#5F6364]/20'>
+            <div className='w-full h-[216px] rounded-[16px] mb-4 relative overflow-hidden'>
+                <div className='cagnotte-medium-card-image h-full w-full absolute inset-0 top-0 left-0 rounded-[16px]' style={{backgroundImage: `url(${item.image})`}}></div>
             </div>
             <div>
                 <h2 className='flex flex-row flex-nowrap text-black text-[18px] montserrat-bold mb-3'>{item.title}</h2>

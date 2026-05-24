@@ -15,22 +15,35 @@ import Info from '../assets/cagnotte/hugeicons_alert-circle.svg'
 import Donation from '../assets/cagnotte/donate.svg'
 import Suite from '../assets/cagnotte/chevron_bottom.svg'
 import Img from '../assets/cagnotte/Img.svg'
-import Img2 from '../assets/home/slide/slide-img-1.png'
-import Img3 from '../assets/home/slide/slide-img-2.png'
 import ChevronLeft from '../assets/cagnotte/chevron-left-white.svg'
 import ChevronRight from '../assets/cagnotte/chevron-right-white.svg'
 import CagnotteMediumComponentDesign2 from '../components/cagnotte/cagnotteMediumComponentDesign2'
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
-import { useNavigate } from 'react-router'
-
-const images = [Img, Img2, Img3];
+import { useNavigate, useParams } from 'react-router'
+import { usePublicPotDetailQuery, usePublicPotGiftsQuery } from '../features/pot/mutations'
 
 const DetailsCagnotte = () => {
+
+	const { id } = useParams<{ id: string }>();
+	const { data: pot, isLoading } = usePublicPotDetailQuery(id ?? "");
+	const { data: giftsData } = usePublicPotGiftsQuery(id ?? "", 1, 5);
+
+	const images = (pot?.images && pot.images.length > 0) ? pot.images : [Img];
+
+	const collectedAmount = pot?.collectedAmount ?? 0;
+	const financialObject = Number(pot?.financialObject) || 0;
+	const progressPercent = financialObject > 0 ? Math.min((collectedAmount / financialObject) * 100, 100) : 0;
+
+	const daysRemaining = pot?.endDate
+		? Math.max(0, Math.ceil((new Date(pot.endDate).getTime() - Date.now()) / 86400000))
+		: null;
 
 	const [index, setIndex] = useState(0);
 	const [isOpen, setIsOpen] = useState(false);
 	const [isOpen1, setIsOpen1] = useState(false);
+	const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
+	const [customAmount, setCustomAmount] = useState("");
 	const navigate = useNavigate();
 
 	const toggleOpen = () => {
@@ -51,8 +64,13 @@ const DetailsCagnotte = () => {
 		);
 	}
 
-	const RedirectToPaiementPage = () => {
-		navigate("/cagnotte/paiement", {replace: true})
+	const RedirectToPaiementPage = (amount?: number) => {
+		navigate("/cagnotte/paiement", { state: { potId: id, amount }, replace: true })
+	}
+
+	const handleDonClick = () => {
+		const finalAmount = customAmount ? Number(customAmount) : (selectedAmount ?? undefined);
+		RedirectToPaiementPage(finalAmount);
 	}
 
 	return (
@@ -62,8 +80,12 @@ const DetailsCagnotte = () => {
 
 				{/* Bloc presentation */}
 				<section className='3xl:px-[280px] 2xl:px-[120px] md:px-[80px] px-[16px] mt-[150px] '>
+					{isLoading ? (
+						<p className="text-[#585D5E] text-sm py-10">Chargement...</p>
+					) : (
+					<>
 					<div className='flex lg:flex-row flex-col lg:justify-between lg:items-center lg:space-x-10 space-x-3 lg:gap-y-0 gap-y-2 mb-5'>
-						<h1 className='text-[#0A1243] text-[38px] font-bold xl:w-[880px] lg:w-8/12 montserrat-bold '>Sauvons Rufus, le jeune de 9ans</h1>
+						<h1 className='text-[#0A1243] text-[38px] font-bold xl:w-[880px] lg:w-8/12 montserrat-bold '>{pot?.title ?? "—"}</h1>
 						<div className='flex flex-row space-x-2 xl:w-[403px] lg:w-4/12'>
 							<button onClick={()=>RedirectToPaiementPage()} className='bg-[#23C7ED] text-white grow-0 rounded-full w-full text-[20px] px-[24px] py-[12px] font-bold cursor-pointer'>Soutenir</button>
 							<button className='w-[56px] h-[52px] px-[15px] py-[12px] border-[0.89px] rounded-[12.4px] border-[#8C8C8C24] flex flex-row justify-center items-center cursor-pointer'>
@@ -99,8 +121,9 @@ const DetailsCagnotte = () => {
 								</button>
 								<div className="rounded-[17px] absolute inset-0 bg-gradient-to-b from-[#00000000] to-[#0000003b] mix-blend-overlay pointer-events-none z-10"></div>
 								<div className='absolute bottom-[34.74px] left-[42px] flex flex-row space-x-5 z-20 '>
-									<button className='bg-gradient-to-r from-[#32C1EF99] to-[#32C1EF99] px-[16.83px] py-[10.63px] border border-[#9FEAFD4D] text-white flex flex-row items-center justify-center montserrat-bold text-[16px] rounded-[200px] '>Santé et médical</button>
-									<button className='bg-gradient-to-r from-[#32C1EF99] to-[#32C1EF99] px-[16.83px] py-[10.63px] border border-[#9FEAFD4D] text-white flex flex-row items-center justify-center montserrat-bold text-[16px] rounded-[200px] '>Aide d'urgence</button>
+									{(pot?.tags ?? []).slice(0, 2).map((tag) => (
+										<button key={tag.id} className='bg-gradient-to-r from-[#32C1EF99] to-[#32C1EF99] px-[16.83px] py-[10.63px] border border-[#9FEAFD4D] text-white flex flex-row items-center justify-center montserrat-bold text-[16px] rounded-[200px] '>{tag.name}</button>
+									))}
 								</div>
 							</div>
 							<div className='flex flex-row justify-between border border-[#EDEDF3] rounded-[17px] p-[24px] '>
@@ -110,7 +133,7 @@ const DetailsCagnotte = () => {
 									</div>
 									<div className='flex flex-col justify-center '>
 										<p className='text-[#515151] text-[15.95px]'>Organisée par:</p>
-										<h2 className='font-bold text-[24.81px] '>ONG Hands together</h2>
+										<h2 className='font-bold text-[24.81px] '>{pot?.person ? `${pot.person.firstName} ${pot.person.lastName}` : "—"}</h2>
 									</div>
 								</div>
 								<div className='flex flex-row items-center space-x-2'>
@@ -138,27 +161,31 @@ const DetailsCagnotte = () => {
 								<div className='mb-5 mt-5 pb-5 border-b border-[#D9E8F4] '>
 									<div className='flex flex-row items-center space-x-2'>
 										<div className='py-[2px] px-[10px] bg-[#FBF5F3] rounded-[10px] '>
-											<h1 className='text-[22px] text-[#FD5E2E] montserrat-bold font-extrabold'>6 000 000 Fcfa</h1>
+											<h1 className='text-[22px] text-[#FD5E2E] montserrat-bold font-extrabold'>{collectedAmount.toLocaleString()} {pot?.currency ?? "Fcfa"}</h1>
 										</div>
 										<p className='text-[#858585] text-[16px] font-[500px]'>collectés</p>
 									</div>
-									<h2 className='text-[14px] my-4 text-[#292D32] font-semibold '>Objectif: <span className='text-[#0C0C44] montserrat-bold font-extrabold '>15 000 000 Fcfa</span></h2>
+									<h2 className='text-[14px] my-4 text-[#292D32] font-semibold '>Objectif: <span className='text-[#0C0C44] montserrat-bold font-extrabold '>{financialObject.toLocaleString()} {pot?.currency ?? "Fcfa"}</span></h2>
 									<div className='bg-[#F3F5F6] h-[6px] rounded-full overflow-hidden'>
-										<div className='rounded-full bg-[#FCE261] h-full ' style={{width: `30%`}}></div>
+										<div className='rounded-full bg-[#FCE261] h-full ' style={{width: `${progressPercent}%`}}></div>
 									</div>
 									<div className='flex flex-row flex-wrap gap-y-2 space-x-4 pt-8'>
+										{daysRemaining !== null && (
 										<div className='flex flex-row  items-center space-x-2'>
 											<div className='h-[44px] w-[44px] rounded-full bg-[#EFF4F9] flex flex-row justify-center items-center'>
 												<img src={MenuBoard} alt="" />
 											</div>
-											<h1 className='text-[#515151] text-[14px]'>Fin dans <span className='font-bold montserrat-bold text-black pl-1 text-[16px] '> 34 jours</span></h1>
+											<h1 className='text-[#515151] text-[14px]'>Fin dans <span className='font-bold montserrat-bold text-black pl-1 text-[16px] '> {daysRemaining} jours</span></h1>
 										</div>
+										)}
+										{pot?.city && (
 										<div className='flex flex-row items-center space-x-2'>
 											<div className='h-[44px] w-[44px] rounded-full bg-[#EFF4F9] flex flex-row justify-center items-center'>
 												<img src={Location} alt="" />
 											</div>
-											<h1 className='text-[#515151] text-[14px] '>Cotonou</h1>
+											<h1 className='text-[#515151] text-[14px] '>{pot.city}</h1>
 										</div>
+										)}
 									</div>
 								</div>
 
@@ -166,18 +193,40 @@ const DetailsCagnotte = () => {
 								<div>
 									<h2 className="text-[18px] montserrat-bold text-black my-3">Contribuer</h2>
 									<div className='flex flex-row items-center flex-wrap gap-3 mb-4 max-h-[120px] overflow-hidden '>
-										{DonAmountMin.map((item) => (
-											<DonAmmount item={item} key={item.id.toString()} />
-										))}
-									</div>
+											{DonAmountMin.map((item) => {
+												const numericAmount = Number(item.amount.replace(/\s/g, ''));
+												const isSelected = selectedAmount === numericAmount && !customAmount;
+												return (
+													<button
+														key={item.id.toString()}
+														type="button"
+														onClick={() => { setSelectedAmount(numericAmount); setCustomAmount(""); }}
+														className={`py-[12px] px-[24px] border rounded-[10px] cursor-pointer text-[15px] font-semibold transition-all ${isSelected ? 'bg-[#07AED8] border-[#07AED8] text-white' : 'border-[#E8E8EC] bg-white text-black hover:border-[#07AED8]'}`}
+													>
+														{item.amount} XOF
+													</button>
+												);
+											})}
+										</div>
 
-									<div className='relative mt-5 mb-5'>
-										{/* <div className='w-2/5 h-16 rounded-[18px] border border-[#DFE3E6CC] absolute z-0 left-0 -top-3 '></div> */}
-										<input type="number" className='py-[21px] px-[19px] rounded-[18px] border bg-white border-[#DFE3E6CC] w-full relative z-10 hover:border-0 hover:outline-3 hover:outline-[#9FEAFD4D] focus:outline-0 transition-all' placeholder='Autre montant' />
-									</div>
+										<div className='relative mt-5 mb-5'>
+											<input
+												type="number"
+												value={customAmount}
+												onChange={(e) => { setCustomAmount(e.target.value); setSelectedAmount(null); }}
+												className='py-[21px] px-[19px] rounded-[18px] border bg-white border-[#DFE3E6CC] w-full relative z-10 hover:border-0 hover:outline-3 hover:outline-[#9FEAFD4D] focus:outline-0 transition-all'
+												placeholder='Autre montant'
+											/>
+										</div>
 
-									<div className='flex flex-row'>
-										<button className='bg-[#23C7ED] text-white rounded-full w-full text-[18px] px-[30px] py-[12px] font-bold cursor-pointer'>Faire un don</button>
+										<div className='flex flex-row'>
+											<button
+												type="button"
+												onClick={handleDonClick}
+												className='bg-[#23C7ED] text-white rounded-full w-full text-[18px] px-[30px] py-[12px] font-bold cursor-pointer'
+											>
+												Faire un don
+											</button>
 									</div>
 								</div>
 							</div>
@@ -194,30 +243,7 @@ const DetailsCagnotte = () => {
 									style={{ overflow: "hidden" }}
 								>
 									<h2 className="text-[20px] font-bold mb-3 montserrat-bold ">Présentation</h2>
-									<p className='text-[#515151] text-[16px]'>Lorem ipsum dolor sit amet consectetur. Sit sit vivamus ipsum pharetra sapien eget amet. 
-										Integer condimentum sapien amet placerat gravida pellentesque. Dui gravida ut ac feugiat 
-										metus. Praesent dis consectetur ut lorem pretium sit sed. Tincidunt porttitor eget diam sed 
-										ornare elit elit egestas. Diam luctus nisl commodo id consequat nibh aliquam neque. Mi nec 
-										quis aliquet lectus est in. Dolor elit cursus diam turpis dignissim lacus ut tincidunt facilisi.
-									</p>
-									<p className='text-[#515151] text-[16px] mt-5'>Lorem ipsum dolor sit amet consectetur. Sit sit vivamus ipsum pharetra sapien eget amet. 
-										Integer condimentum sapien amet placerat gravida pellentesque. Dui gravida ut ac feugiat 
-										metus. Praesent dis consectetur ut lorem pretium sit sed. Tincidunt porttitor eget diam sed 
-										ornare elit elit egestas. Diam luctus nisl commodo id consequat nibh aliquam neque. Mi nec 
-										quis aliquet lectus est in. Dolor elit cursus diam turpis dignissim lacus ut tincidunt facilisi.
-									</p>
-									<p className='text-[#515151] text-[16px] mt-5'>Lorem ipsum dolor sit amet consectetur. Sit sit vivamus ipsum pharetra sapien eget amet. 
-										Integer condimentum sapien amet placerat gravida pellentesque. Dui gravida ut ac feugiat 
-										metus. Praesent dis consectetur ut lorem pretium sit sed. Tincidunt porttitor eget diam sed 
-										ornare elit elit egestas. Diam luctus nisl commodo id consequat nibh aliquam neque. Mi nec 
-										quis aliquet lectus est in. Dolor elit cursus diam turpis dignissim lacus ut tincidunt facilisi.
-									</p>
-									<p className='text-[#515151] text-[16px] mt-5'>Lorem ipsum dolor sit amet consectetur. Sit sit vivamus ipsum pharetra sapien eget amet. 
-										Integer condimentum sapien amet placerat gravida pellentesque. Dui gravida ut ac feugiat 
-										metus. Praesent dis consectetur ut lorem pretium sit sed. Tincidunt porttitor eget diam sed 
-										ornare elit elit egestas. Diam luctus nisl commodo id consequat nibh aliquam neque. Mi nec 
-										quis aliquet lectus est in. Dolor elit cursus diam turpis dignissim lacus ut tincidunt facilisi.
-									</p>
+									<p className='text-[#515151] text-[16px] whitespace-pre-line'>{pot?.description ?? ""}</p>
 								</motion.div>
 								<div className='flex items-center justify-between'>
 									<div className='flex items-center gap-4 cursor-pointer'>
@@ -303,26 +329,26 @@ const DetailsCagnotte = () => {
 						<div className='flex flex-row space-x-2 self-start xl:w-[403px] lg:w-4/12 w-full'>
 							<div className=' pl-8 w-full border border-[#EDEDF3] rounded-[17px] p-[24px]'>
 								<h2 className='text-[18px] font-bold my-2 montserrat-bold'>Dons récents</h2>
-								<p className=' text-[14px] font-bold text-[#F18145]'>28 000 personnes ont soutenues à cette cause</p>
-								<div className='flex items-center gap-6 mt-4'>
-									<div className='h-[44px] w-[44px] rounded-full bg-[#EFF4F9] flex flex-row justify-center items-center'>
-										<img src={Donation} alt="" className='' />
+								<p className=' text-[14px] font-bold text-[#F18145]'>{pot?.contributorsCount ?? 0} personnes ont soutenu cette cause</p>
+								{(giftsData?.data ?? []).map((gift, i) => (
+									<div key={gift.id} className={`flex items-center gap-6 ${i === 0 ? 'mt-4' : 'my-6'}`}>
+										<div className='h-[44px] w-[44px] rounded-full bg-[#EFF4F9] flex flex-row justify-center items-center'>
+											<img src={Donation} alt="" className='' />
+										</div>
+										<div>
+											<p className='text-[#3C3C4399] text-[14px]'>
+												{gift.anonymous || !gift.person
+													? 'Donateur anonyme'
+													: `${gift.person.firstName} ${gift.person.lastName}`}
+											</p>
+											<p className=' montserrat-bold text-[16px]'>{gift.amount.toLocaleString()} {gift.currency ?? pot?.currency ?? 'Fcfa'}</p>
+										</div>
 									</div>
-									<div>
-										<p className='text-[#3C3C4399] text-[14px]'>Donateur anonyme</p>
-										<p className=' montserrat-bold text-[16px]'>13 000 Fcfa</p>
-									</div>
-								</div>
-								<div className='flex items-center gap-6 my-6'>
-									<div className='h-[44px] w-[44px] rounded-full bg-[#EFF4F9] flex flex-row justify-center items-center'>
-										<img src={Donation} alt="" className='' />
-									</div>
-									<div>
-										<p className='text-[#3C3C4399] text-[14px]'>Sylivia Do-Rego</p>
-										<p className=' montserrat-bold text-[16px]'>18 000 Fcfa</p>
-									</div>
-								</div>
-								<div className='flex flex-row items-center gap-2'>
+								))}
+								{(!giftsData?.data || giftsData.data.length === 0) && (
+									<p className='text-[#A9A9B0] text-[14px] mt-4'>Aucun don pour le moment.</p>
+								)}
+								<div className='flex flex-row items-center gap-2 mt-4'>
 									<p className=' underline text-[15px] text-[#292D32] '>Tout les dons</p>
 									<a href="#" className=' cursor-pointer'><img src={Suite} alt="" /></a>
 								</div>
@@ -330,6 +356,8 @@ const DetailsCagnotte = () => {
 						</div>	
 					</div>
 
+				</>
+				)}
 				</section>
 
 				{/* Liste Cagnotte */}

@@ -25,6 +25,7 @@ import ForgotPassword from "./pages/auth/ForgotPassword";
 import Garanties from "./pages/Garanties";
 import CategoryCagnotte from "./pages/CategoryCagnotte";
 import FormPayment from "./pages/paiement/FormPayment";
+import SuccessPayment from "./pages/paiement/SuccessPayment";
 import Cagnottef from "./components/auth/register/cagnotte/cagnottef";
 import DashboardHome from "./pages/dashboard";
 import DashboardCagnottes from "./pages/dashboard/Cagnottes";
@@ -52,15 +53,10 @@ function App() {
           <Route path="cagnotte">
             <Route index element={<Cagnotte />} />
             <Route path="search" element={<RechercheCagnotte />} />
-            <Route path="details" element={<DetailsCagnotte />} />
+            <Route path="details/:id" element={<DetailsCagnotte />} />
             <Route path="categorie" element={<CategoryCagnotte />} />
             <Route path="paiement" element={<FormPayment />} />
-          </Route>
-
-          <Route path="leverdesfonds">
-            <Route index element={<LeverDesFonds1 />} />
-            <Route path="details" element={<LeverDesFonds2 />} />
-            <Route path="commentçamarche" element={<LeverDesFonds3 />} />
+            <Route path="paiement/success" element={<SuccessPayment />} />
           </Route>
 
           

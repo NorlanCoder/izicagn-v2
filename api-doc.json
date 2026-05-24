@@ -1,0 +1,2568 @@
+{
+  "swaggerDoc": {
+    "openapi": "3.0.0",
+    "paths": {
+      "/api/v1": {
+        "get": {
+          "operationId": "AppController_getHello",
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          },
+          "security": [
+            {
+              "x-api-key": []
+            }
+          ]
+        }
+      },
+      "/api/v1/auth/public-key": {
+        "get": {
+          "operationId": "AuthController_getPublicKey",
+          "summary": "Get public key",
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "Authentication"
+          ],
+          "security": [
+            {
+              "x-api-key": []
+            }
+          ]
+        }
+      },
+      "/api/v1/auth/encrypt": {
+        "post": {
+          "operationId": "AuthController_encrypt",
+          "summary": "Test encrypt data",
+          "parameters": [],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EncryptKeyQuery"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "Authentication"
+          ],
+          "security": [
+            {
+              "x-api-key": []
+            }
+          ]
+        }
+      },
+      "/api/v1/auth/decrypt": {
+        "post": {
+          "operationId": "AuthController_decrypt",
+          "summary": "Test encrypt data",
+          "parameters": [],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EncryptKeyQuery"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "Authentication"
+          ],
+          "security": [
+            {
+              "x-api-key": []
+            }
+          ]
+        }
+      },
+      "/api/v1/auth/create-user": {
+        "post": {
+          "operationId": "AuthController_createUser",
+          "summary": "Create user",
+          "parameters": [],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateUserCommand"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "Authentication"
+          ],
+          "security": [
+            {
+              "x-api-key": []
+            }
+          ]
+        }
+      },
+      "/api/v1/auth/confirm-user": {
+        "post": {
+          "operationId": "AuthController_confirmUser",
+          "summary": "Confirm user",
+          "parameters": [],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConfirmUserCommand"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "Authentication"
+          ],
+          "security": [
+            {
+              "x-api-key": []
+            }
+          ]
+        }
+      },
+      "/api/v1/auth/login": {
+        "post": {
+          "operationId": "AuthController_login",
+          "summary": "Login user",
+          "parameters": [],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginCommand"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "Authentication"
+          ],
+          "security": [
+            {
+              "x-api-key": []
+            }
+          ]
+        }
+      },
+      "/api/v1/auth/validate-otp": {
+        "post": {
+          "operationId": "AuthController_validateOtp",
+          "summary": "Validate any OTP",
+          "parameters": [],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidateOtpCommand"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "Authentication"
+          ],
+          "security": [
+            {
+              "x-api-key": []
+            }
+          ]
+        }
+      },
+      "/api/v1/auth/ask-reset": {
+        "post": {
+          "operationId": "AuthController_askReset",
+          "summary": "Ask rest password",
+          "parameters": [],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AskPasswordResetCommand"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "Authentication"
+          ],
+          "security": [
+            {
+              "x-api-key": []
+            }
+          ]
+        }
+      },
+      "/api/v1/auth/define-password": {
+        "post": {
+          "operationId": "AuthController_definePassword",
+          "summary": "Define password",
+          "parameters": [],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DefinePasswordCommand"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "Authentication"
+          ],
+          "security": [
+            {
+              "x-api-key": []
+            }
+          ]
+        }
+      },
+      "/api/v1/auth/logout": {
+        "post": {
+          "operationId": "AuthController_logout",
+          "summary": "Logout user",
+          "parameters": [],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LogoutCommand"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "Authentication"
+          ],
+          "security": [
+            {
+              "x-api-key": []
+            },
+            {
+              "Bearer": []
+            }
+          ]
+        }
+      },
+      "/api/v1/person/me": {
+        "get": {
+          "operationId": "PersonController_getConnectedPerson",
+          "summary": "Get connected person",
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "Person"
+          ],
+          "security": [
+            {
+              "x-api-key": []
+            },
+            {
+              "Bearer": []
+            }
+          ]
+        }
+      },
+      "/api/v1/pot/create": {
+        "post": {
+          "operationId": "PotController_createPot",
+          "summary": "Create a pot",
+          "parameters": [],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreatePotCommand"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "Pot"
+          ],
+          "security": [
+            {
+              "x-api-key": []
+            },
+            {
+              "Bearer": []
+            }
+          ]
+        }
+      },
+      "/api/v1/pot/update": {
+        "put": {
+          "operationId": "PotController_updatePot",
+          "summary": "Update a pot",
+          "parameters": [],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdatePotCommand"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "Pot"
+          ],
+          "security": [
+            {
+              "x-api-key": []
+            },
+            {
+              "Bearer": []
+            }
+          ]
+        }
+      },
+      "/api/v1/pot/my-pots": {
+        "get": {
+          "operationId": "PotController_getMyPots",
+          "summary": "Get my pots",
+          "parameters": [
+            {
+              "name": "search",
+              "required": false,
+              "in": "query",
+              "description": "Search by title",
+              "schema": {
+                "example": "anniversaire",
+                "type": "string"
+              }
+            },
+            {
+              "name": "state",
+              "required": false,
+              "in": "query",
+              "description": "Filter by state",
+              "schema": {
+                "example": "PENDING",
+                "enum": [
+                  "PENDING",
+                  "IN_PROGRESS",
+                  "COMPLETED",
+                  "PAUSED",
+                  "STOPPED"
+                ],
+                "type": "string"
+              }
+            },
+            {
+              "name": "reason",
+              "required": false,
+              "in": "query",
+              "description": "Filter by reason",
+              "schema": {
+                "example": "FOR_ME",
+                "enum": [
+                  "FOR_ME",
+                  "FOR_COMMUNITY",
+                  "FOR_PROJECT"
+                ],
+                "type": "string"
+              }
+            },
+            {
+              "name": "currency",
+              "required": false,
+              "in": "query",
+              "description": "Filter by currency",
+              "schema": {
+                "example": "XOF",
+                "enum": [
+                  "XOF",
+                  "USD",
+                  "EUR"
+                ],
+                "type": "string"
+              }
+            },
+            {
+              "name": "page",
+              "required": false,
+              "in": "query",
+              "description": "Page number",
+              "schema": {
+                "default": 1,
+                "example": 1,
+                "type": "number"
+              }
+            },
+            {
+              "name": "limit",
+              "required": false,
+              "in": "query",
+              "description": "Items per page",
+              "schema": {
+                "default": 20,
+                "example": 20,
+                "type": "number"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "Pot"
+          ],
+          "security": [
+            {
+              "x-api-key": []
+            },
+            {
+              "Bearer": []
+            }
+          ]
+        }
+      },
+      "/api/v1/pot/get-by-id": {
+        "get": {
+          "operationId": "PotController_getPot",
+          "summary": "Get pot details by ID",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "query",
+              "description": "Pot ID",
+              "schema": {
+                "example": "uuid",
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "Pot"
+          ],
+          "security": [
+            {
+              "x-api-key": []
+            },
+            {
+              "Bearer": []
+            }
+          ]
+        }
+      },
+      "/api/v1/pot/like": {
+        "post": {
+          "operationId": "PotController_toggleLike",
+          "summary": "Toggle like on a pot",
+          "parameters": [],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TogglePotLikeCommand"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "Pot"
+          ],
+          "security": [
+            {
+              "x-api-key": []
+            },
+            {
+              "Bearer": []
+            }
+          ]
+        }
+      },
+      "/api/v1/pot/review/create": {
+        "post": {
+          "operationId": "PotController_createReview",
+          "summary": "Create a review on a pot",
+          "parameters": [],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreatePotReviewCommand"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "Pot"
+          ],
+          "security": [
+            {
+              "x-api-key": []
+            },
+            {
+              "Bearer": []
+            }
+          ]
+        }
+      },
+      "/api/v1/pot/review/update": {
+        "put": {
+          "operationId": "PotController_updateReview",
+          "summary": "Update a review",
+          "parameters": [],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdatePotReviewCommand"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "Pot"
+          ],
+          "security": [
+            {
+              "x-api-key": []
+            },
+            {
+              "Bearer": []
+            }
+          ]
+        }
+      },
+      "/api/v1/pot/review": {
+        "delete": {
+          "operationId": "PotController_deleteReview",
+          "summary": "Delete a review",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "query",
+              "description": "Review ID",
+              "schema": {
+                "example": "uuid",
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "Pot"
+          ],
+          "security": [
+            {
+              "x-api-key": []
+            },
+            {
+              "Bearer": []
+            }
+          ]
+        }
+      },
+      "/api/v1/tools/create": {
+        "post": {
+          "operationId": "ToolsController_createTool",
+          "summary": "Create a tool",
+          "parameters": [],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateToolCommand"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "Tools"
+          ],
+          "security": [
+            {
+              "x-api-key": []
+            }
+          ]
+        }
+      },
+      "/api/v1/tools/update": {
+        "put": {
+          "operationId": "ToolsController_updateTool",
+          "summary": "Update a tool",
+          "parameters": [],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateToolCommand"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "Tools"
+          ],
+          "security": [
+            {
+              "x-api-key": []
+            }
+          ]
+        }
+      },
+      "/api/v1/tools/all": {
+        "get": {
+          "operationId": "ToolsController_getTools",
+          "summary": "Get tools",
+          "parameters": [
+            {
+              "name": "search",
+              "required": false,
+              "in": "query",
+              "description": "Search by name",
+              "schema": {
+                "example": "anniversaire",
+                "type": "string"
+              }
+            },
+            {
+              "name": "type",
+              "required": false,
+              "in": "query",
+              "description": "Filter by type",
+              "schema": {
+                "example": "TAGS",
+                "enum": [
+                  "TAGS"
+                ],
+                "type": "string"
+              }
+            },
+            {
+              "name": "page",
+              "required": false,
+              "in": "query",
+              "description": "Page number",
+              "schema": {
+                "default": 1,
+                "example": 1,
+                "type": "number"
+              }
+            },
+            {
+              "name": "limit",
+              "required": false,
+              "in": "query",
+              "description": "Items per page",
+              "schema": {
+                "default": 20,
+                "example": 20,
+                "type": "number"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "Tools"
+          ],
+          "security": [
+            {
+              "x-api-key": []
+            }
+          ]
+        }
+      },
+      "/api/v1/files/upload-files": {
+        "post": {
+          "operationId": "FilesController_uploadFiles",
+          "summary": "Upload files to firebase",
+          "parameters": [],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "multipart/form-data": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "files": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "format": "binary"
+                      },
+                      "nullable": false
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "Files"
+          ],
+          "security": [
+            {
+              "x-api-key": []
+            }
+          ]
+        }
+      },
+      "/api/v1/countries/create": {
+        "post": {
+          "operationId": "CountriesController_createCountry",
+          "summary": "Create a country",
+          "parameters": [],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateCountryCommand"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "Countries"
+          ],
+          "security": [
+            {
+              "x-api-key": []
+            }
+          ]
+        }
+      },
+      "/api/v1/countries/update": {
+        "put": {
+          "operationId": "CountriesController_updateCountry",
+          "summary": "Update a country",
+          "parameters": [],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateCountryCommand"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "Countries"
+          ],
+          "security": [
+            {
+              "x-api-key": []
+            }
+          ]
+        }
+      },
+      "/api/v1/countries/all": {
+        "get": {
+          "operationId": "CountriesController_getCountries",
+          "summary": "Get countries",
+          "parameters": [
+            {
+              "name": "search",
+              "required": false,
+              "in": "query",
+              "description": "Search by name",
+              "schema": {
+                "example": "burkina",
+                "type": "string"
+              }
+            },
+            {
+              "name": "status",
+              "required": false,
+              "in": "query",
+              "description": "Filter by status",
+              "schema": {
+                "example": "ACTIVE",
+                "enum": [
+                  "ACTIVE",
+                  "INACTIVE"
+                ],
+                "type": "string"
+              }
+            },
+            {
+              "name": "page",
+              "required": false,
+              "in": "query",
+              "description": "Page number",
+              "schema": {
+                "default": 1,
+                "example": 1,
+                "type": "number"
+              }
+            },
+            {
+              "name": "limit",
+              "required": false,
+              "in": "query",
+              "description": "Items per page",
+              "schema": {
+                "default": 20,
+                "example": 20,
+                "type": "number"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "Countries"
+          ],
+          "security": [
+            {
+              "x-api-key": []
+            }
+          ]
+        }
+      },
+      "/api/v1/countries/sync": {
+        "post": {
+          "operationId": "CountriesController_syncCountries",
+          "summary": "Sync countries and telecoms from Afribapay",
+          "parameters": [],
+          "responses": {
+            "201": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "Countries"
+          ],
+          "security": [
+            {
+              "x-api-key": []
+            }
+          ]
+        }
+      },
+      "/api/v1/countries/get-by-id": {
+        "get": {
+          "operationId": "CountriesController_getCountry",
+          "summary": "Get country by ID",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "query",
+              "description": "Country ID",
+              "schema": {
+                "example": "uuid",
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "Countries"
+          ],
+          "security": [
+            {
+              "x-api-key": []
+            }
+          ]
+        }
+      },
+      "/api/v1/afribapay/test-payin": {
+        "post": {
+          "operationId": "AfribapayController_testPayin",
+          "summary": "Test Afribapay payin",
+          "parameters": [],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TestPayinDto"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "Afribapay (Test)"
+          ],
+          "security": [
+            {
+              "x-api-key": []
+            }
+          ]
+        }
+      },
+      "/api/v1/telecoms/create": {
+        "post": {
+          "operationId": "TelecomsController_createTelecom",
+          "summary": "Create a telecom",
+          "parameters": [],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateTelecomCommand"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "Telecoms"
+          ],
+          "security": [
+            {
+              "x-api-key": []
+            }
+          ]
+        }
+      },
+      "/api/v1/telecoms/update": {
+        "put": {
+          "operationId": "TelecomsController_updateTelecom",
+          "summary": "Update a telecom",
+          "parameters": [],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateTelecomCommand"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "Telecoms"
+          ],
+          "security": [
+            {
+              "x-api-key": []
+            }
+          ]
+        }
+      },
+      "/api/v1/telecoms/all": {
+        "get": {
+          "operationId": "TelecomsController_getTelecoms",
+          "summary": "Get telecoms",
+          "parameters": [
+            {
+              "name": "search",
+              "required": false,
+              "in": "query",
+              "description": "Search by operator name",
+              "schema": {
+                "example": "orange",
+                "type": "string"
+              }
+            },
+            {
+              "name": "status",
+              "required": false,
+              "in": "query",
+              "description": "Filter by status",
+              "schema": {
+                "example": "ACTIVE",
+                "enum": [
+                  "ACTIVE",
+                  "INACTIVE"
+                ],
+                "type": "string"
+              }
+            },
+            {
+              "name": "countryId",
+              "required": false,
+              "in": "query",
+              "description": "Filter by country ID",
+              "schema": {
+                "example": "uuid",
+                "type": "string"
+              }
+            },
+            {
+              "name": "currency",
+              "required": false,
+              "in": "query",
+              "description": "Filter by currency",
+              "schema": {
+                "example": "XOF",
+                "enum": [
+                  "XOF",
+                  "XAF",
+                  "GNF",
+                  "CDF",
+                  "USD",
+                  "EUR",
+                  "GMD",
+                  "MRU",
+                  "RWF",
+                  "UGX",
+                  "KES",
+                  "TZS",
+                  "ZMW",
+                  "MWK",
+                  "NGN",
+                  "GHS",
+                  "SLL",
+                  "LRD",
+                  "ETB",
+                  "ZAR",
+                  "AOA",
+                  "MGA",
+                  "CVE",
+                  "STN",
+                  "SCR",
+                  "MZN",
+                  "BWP",
+                  "NAD",
+                  "SZL",
+                  "LSL",
+                  "BIF",
+                  "DJF",
+                  "KMF"
+                ],
+                "type": "string"
+              }
+            },
+            {
+              "name": "page",
+              "required": false,
+              "in": "query",
+              "description": "Page number",
+              "schema": {
+                "default": 1,
+                "example": 1,
+                "type": "number"
+              }
+            },
+            {
+              "name": "limit",
+              "required": false,
+              "in": "query",
+              "description": "Items per page",
+              "schema": {
+                "default": 20,
+                "example": 20,
+                "type": "number"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "Telecoms"
+          ],
+          "security": [
+            {
+              "x-api-key": []
+            }
+          ]
+        }
+      },
+      "/api/v1/telecoms/get-by-id": {
+        "get": {
+          "operationId": "TelecomsController_getTelecom",
+          "summary": "Get telecom by ID",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "query",
+              "description": "Telecom ID",
+              "schema": {
+                "example": "uuid",
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "Telecoms"
+          ],
+          "security": [
+            {
+              "x-api-key": []
+            }
+          ]
+        }
+      },
+      "/api/v1/opens/pots": {
+        "post": {
+          "operationId": "OpensController_getPots",
+          "summary": "Get public list of pots",
+          "parameters": [],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetOpenPotsQuery"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "Opens"
+          ],
+          "security": [
+            {
+              "x-api-key": []
+            }
+          ]
+        }
+      },
+      "/api/v1/opens/pots/detail": {
+        "get": {
+          "operationId": "OpensController_getPot",
+          "summary": "Get pot details by ID",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "query",
+              "description": "Pot ID",
+              "schema": {
+                "example": "uuid",
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "Opens"
+          ],
+          "security": [
+            {
+              "x-api-key": []
+            }
+          ]
+        }
+      },
+      "/api/v1/opens/pots/gifts": {
+        "get": {
+          "operationId": "OpensController_getPotGifts",
+          "summary": "Get public paginated gifts of a pot",
+          "parameters": [
+            {
+              "name": "potId",
+              "required": true,
+              "in": "query",
+              "description": "Pot ID",
+              "schema": {
+                "example": "uuid",
+                "type": "string"
+              }
+            },
+            {
+              "name": "page",
+              "required": false,
+              "in": "query",
+              "description": "Page number",
+              "schema": {
+                "default": 1,
+                "example": 1,
+                "type": "number"
+              }
+            },
+            {
+              "name": "limit",
+              "required": false,
+              "in": "query",
+              "description": "Items per page",
+              "schema": {
+                "default": 20,
+                "example": 20,
+                "type": "number"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "Opens"
+          ],
+          "security": [
+            {
+              "x-api-key": []
+            }
+          ]
+        }
+      },
+      "/api/v1/gift/donate/public": {
+        "post": {
+          "operationId": "GiftController_donatePublic",
+          "summary": "Donate without an account (anonymous or named)",
+          "parameters": [],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateGiftCommand"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "Gift"
+          ],
+          "security": [
+            {
+              "x-api-key": []
+            }
+          ]
+        }
+      },
+      "/api/v1/gift/donate": {
+        "post": {
+          "operationId": "GiftController_donateAuth",
+          "summary": "Donate as authenticated user (auto-fill optional)",
+          "parameters": [],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateGiftCommand"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "Gift"
+          ],
+          "security": [
+            {
+              "x-api-key": []
+            },
+            {
+              "Bearer": []
+            }
+          ]
+        }
+      },
+      "/api/v1/gift/my-gifts": {
+        "get": {
+          "operationId": "GiftController_getMyGifts",
+          "summary": "Get my gifts history",
+          "parameters": [
+            {
+              "name": "state",
+              "required": false,
+              "in": "query",
+              "description": "Filter by state",
+              "schema": {
+                "enum": [
+                  "PENDING",
+                  "COMPLETED",
+                  "FAILED",
+                  "CANCELLED"
+                ],
+                "type": "string"
+              }
+            },
+            {
+              "name": "page",
+              "required": false,
+              "in": "query",
+              "description": "Page number",
+              "schema": {
+                "default": 1,
+                "example": 1,
+                "type": "number"
+              }
+            },
+            {
+              "name": "limit",
+              "required": false,
+              "in": "query",
+              "description": "Items per page",
+              "schema": {
+                "default": 20,
+                "example": 20,
+                "type": "number"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "Gift"
+          ],
+          "security": [
+            {
+              "x-api-key": []
+            },
+            {
+              "Bearer": []
+            }
+          ]
+        }
+      },
+      "/api/v1/gift/callback/payin/{reference}": {
+        "post": {
+          "operationId": "GiftOpensController_callbackPayin",
+          "summary": "Afribapay payin webhook (public)",
+          "parameters": [
+            {
+              "name": "reference",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "Gift (Opens)"
+          ]
+        }
+      }
+    },
+    "info": {
+      "title": "IZICAGN API",
+      "description": "This is IZICAGN API documentation",
+      "version": "1.0.0",
+      "contact": {}
+    },
+    "tags": [
+      {
+        "name": "IZICAGN",
+        "description": ""
+      }
+    ],
+    "servers": [
+      {
+        "url": "http://localhost:8002",
+        "description": "Local server"
+      },
+      {
+        "url": "https://api.izicagn.comm",
+        "description": "Local server"
+      }
+    ],
+    "components": {
+      "securitySchemes": {
+        "x-api-key": {
+          "type": "apiKey",
+          "in": "header",
+          "name": "x-api-key"
+        },
+        "Bearer": {
+          "scheme": "bearer",
+          "bearerFormat": "Token",
+          "type": "http",
+          "schema": "Bearer"
+        }
+      },
+      "schemas": {
+        "EncryptKeyQuery": {
+          "type": "object",
+          "properties": {
+            "data": {
+              "type": "string",
+              "description": "Data to encrypt"
+            }
+          },
+          "required": [
+            "data"
+          ]
+        },
+        "CreateUserCommand": {
+          "type": "object",
+          "properties": {
+            "firstName": {
+              "type": "string",
+              "description": "First name",
+              "format": "string",
+              "example": "Lilik"
+            },
+            "lastName": {
+              "type": "string",
+              "description": "Last name",
+              "format": "string",
+              "example": "ILA"
+            },
+            "email": {
+              "type": "string",
+              "description": "Email",
+              "format": "email",
+              "example": "al@gmail.com"
+            },
+            "countryCode": {
+              "type": "string",
+              "description": "The country code of the person",
+              "example": "292"
+            },
+            "phone": {
+              "type": "string",
+              "description": "Phone number",
+              "format": "string",
+              "example": "001234567"
+            },
+            "birthDate": {
+              "format": "date-time",
+              "type": "string",
+              "description": "Date of birth"
+            },
+            "encryptedPassord": {
+              "type": "string",
+              "description": "Encrypted password",
+              "format": "string",
+              "example": "encryptedPassword"
+            }
+          },
+          "required": [
+            "firstName",
+            "lastName",
+            "email",
+            "countryCode",
+            "phone",
+            "birthDate",
+            "encryptedPassord"
+          ]
+        },
+        "ConfirmUserCommand": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "example": "c7f5b3e8-0a6e-4d7d-8d1e-3b4e1e7e1b5b",
+              "description": "The user id",
+              "format": "uuid"
+            },
+            "otp": {
+              "type": "string",
+              "example": "123456",
+              "description": "The otp sent to user"
+            }
+          },
+          "required": [
+            "id",
+            "otp"
+          ]
+        },
+        "LoginCommand": {
+          "type": "object",
+          "properties": {
+            "countryCode": {
+              "type": "string",
+              "description": "Country code of the user",
+              "example": "229"
+            },
+            "phone": {
+              "type": "string",
+              "description": "Phone number of the user",
+              "example": "12345678"
+            },
+            "encryptedPassword": {
+              "type": "string",
+              "description": "Encrypted password of the user",
+              "format": "password",
+              "example": "password1234"
+            }
+          },
+          "required": [
+            "countryCode",
+            "phone",
+            "encryptedPassword"
+          ]
+        },
+        "ValidateOtpCommand": {
+          "type": "object",
+          "properties": {
+            "personId": {
+              "type": "string",
+              "description": "The person id",
+              "format": "uuid",
+              "example": "12345678-1234-1234-1234-123456789012"
+            },
+            "otp": {
+              "type": "string",
+              "description": "The OTP",
+              "example": "123456"
+            }
+          },
+          "required": [
+            "personId",
+            "otp"
+          ]
+        },
+        "AskPasswordResetCommand": {
+          "type": "object",
+          "properties": {
+            "countryCode": {
+              "type": "string",
+              "description": "Country code of the user",
+              "example": "229"
+            },
+            "phone": {
+              "type": "string",
+              "description": "Phone number of the user",
+              "example": "12345678"
+            }
+          },
+          "required": [
+            "countryCode",
+            "phone"
+          ]
+        },
+        "DefinePasswordCommand": {
+          "type": "object",
+          "properties": {
+            "personId": {
+              "type": "string",
+              "description": "The person id",
+              "format": "uuid",
+              "example": "12345678-1234-1234-1234-123456789012"
+            },
+            "otp": {
+              "type": "string",
+              "description": "The OTP",
+              "example": "123456"
+            },
+            "encryptedPassword": {
+              "type": "string",
+              "description": "Encrypted password",
+              "format": "string",
+              "example": "encryptedPassword"
+            }
+          },
+          "required": [
+            "personId",
+            "otp",
+            "encryptedPassword"
+          ]
+        },
+        "LogoutCommand": {
+          "type": "object",
+          "properties": {}
+        },
+        "CreatePotCommand": {
+          "type": "object",
+          "properties": {
+            "reason": {
+              "type": "string",
+              "description": "Reason for creating the pot",
+              "enum": [
+                "FOR_ME",
+                "FOR_COMMUNITY",
+                "FOR_PROJECT"
+              ],
+              "example": "FOR_ME"
+            },
+            "tags": {
+              "description": "List of tag IDs",
+              "example": [
+                "uuid-1",
+                "uuid-2"
+              ],
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "country": {
+              "type": "string",
+              "description": "Country code (alpha-2)",
+              "example": "FR"
+            },
+            "city": {
+              "type": "string",
+              "description": "City",
+              "example": "Paris"
+            },
+            "title": {
+              "type": "string",
+              "description": "Pot title",
+              "example": "Mon anniversaire"
+            },
+            "description": {
+              "type": "string",
+              "description": "Pot description",
+              "example": "Cagnotte pour mon anniversaire"
+            },
+            "startDate": {
+              "format": "date-time",
+              "type": "string",
+              "description": "Start date"
+            },
+            "endDate": {
+              "format": "date-time",
+              "type": "string",
+              "description": "End date"
+            },
+            "financialObject": {
+              "type": "number",
+              "description": "Financial objective",
+              "example": 1000
+            },
+            "currency": {
+              "type": "string",
+              "description": "Currency",
+              "enum": [
+                "XOF",
+                "USD",
+                "EUR"
+              ],
+              "example": "XOF"
+            },
+            "images": {
+              "description": "List of image URLs",
+              "example": [
+                "https://example.com/image.jpg"
+              ],
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "contreparties": {
+              "type": "array",
+              "description": "List of contreparties",
+              "example": [
+                {
+                  "title": "Remerciement",
+                  "amount": 10
+                }
+              ]
+            }
+          },
+          "required": [
+            "reason",
+            "title",
+            "currency"
+          ]
+        },
+        "UpdatePotCommand": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "Pot ID",
+              "example": "uuid"
+            },
+            "reason": {
+              "type": "string",
+              "description": "Reason for creating the pot",
+              "enum": [
+                "FOR_ME",
+                "FOR_COMMUNITY",
+                "FOR_PROJECT"
+              ],
+              "example": "FOR_ME"
+            },
+            "tags": {
+              "description": "List of tag IDs",
+              "example": [
+                "uuid-1",
+                "uuid-2"
+              ],
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "country": {
+              "type": "string",
+              "description": "Country code (alpha-2)",
+              "example": "FR"
+            },
+            "city": {
+              "type": "string",
+              "description": "City",
+              "example": "Paris"
+            },
+            "title": {
+              "type": "string",
+              "description": "Pot title",
+              "example": "Mon anniversaire"
+            },
+            "description": {
+              "type": "string",
+              "description": "Pot description",
+              "example": "Cagnotte pour mon anniversaire"
+            },
+            "startDate": {
+              "format": "date-time",
+              "type": "string",
+              "description": "Start date"
+            },
+            "endDate": {
+              "format": "date-time",
+              "type": "string",
+              "description": "End date"
+            },
+            "financialObject": {
+              "type": "number",
+              "description": "Financial objective",
+              "example": 1000
+            },
+            "currency": {
+              "type": "string",
+              "description": "Currency",
+              "enum": [
+                "XOF",
+                "USD",
+                "EUR"
+              ],
+              "example": "XOF"
+            },
+            "images": {
+              "description": "List of image URLs",
+              "example": [
+                "https://example.com/image.jpg"
+              ],
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "contreparties": {
+              "type": "array",
+              "description": "List of contreparties",
+              "example": [
+                {
+                  "title": "Remerciement",
+                  "amount": 10
+                }
+              ]
+            }
+          },
+          "required": [
+            "id"
+          ]
+        },
+        "TogglePotLikeCommand": {
+          "type": "object",
+          "properties": {
+            "potId": {
+              "type": "string",
+              "description": "Pot ID",
+              "example": "uuid"
+            }
+          },
+          "required": [
+            "potId"
+          ]
+        },
+        "CreatePotReviewCommand": {
+          "type": "object",
+          "properties": {
+            "potId": {
+              "type": "string",
+              "description": "Pot ID",
+              "example": "uuid"
+            },
+            "comment": {
+              "type": "string",
+              "description": "Comment",
+              "example": "Super initiative !"
+            }
+          },
+          "required": [
+            "potId",
+            "comment"
+          ]
+        },
+        "UpdatePotReviewCommand": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "Review ID",
+              "example": "uuid"
+            },
+            "comment": {
+              "type": "string",
+              "description": "Updated comment",
+              "example": "Très bonne initiative !"
+            }
+          },
+          "required": [
+            "id",
+            "comment"
+          ]
+        },
+        "CreateToolCommand": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Tool name",
+              "example": "Anniversaire"
+            },
+            "type": {
+              "type": "string",
+              "description": "Tool type",
+              "enum": [
+                "TAGS"
+              ],
+              "example": "TAGS"
+            }
+          },
+          "required": [
+            "name",
+            "type"
+          ]
+        },
+        "UpdateToolCommand": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "Tool ID",
+              "example": "uuid"
+            },
+            "name": {
+              "type": "string",
+              "description": "Tool name",
+              "example": "Mariage"
+            },
+            "type": {
+              "type": "string",
+              "description": "Tool type",
+              "enum": [
+                "TAGS"
+              ],
+              "example": "TAGS"
+            }
+          },
+          "required": [
+            "id"
+          ]
+        },
+        "CreateCountryCommand": {
+          "type": "object",
+          "properties": {
+            "countryCode": {
+              "type": "string",
+              "description": "Country code (ISO 3166-1 alpha-2)",
+              "example": "BF"
+            },
+            "countryName": {
+              "type": "string",
+              "description": "Country name",
+              "example": "Burkina Faso"
+            },
+            "flagUrl": {
+              "type": "string",
+              "description": "Flag URL",
+              "example": "https://flagcdn.com/w320/bf.png"
+            },
+            "prefix": {
+              "type": "string",
+              "description": "Phone prefix",
+              "example": "226"
+            },
+            "taxes": {
+              "type": "number",
+              "description": "Tax rate",
+              "example": 18
+            },
+            "currency": {
+              "type": "string",
+              "description": "Currency",
+              "enum": [
+                "XOF",
+                "XAF",
+                "GNF",
+                "CDF",
+                "USD",
+                "EUR",
+                "GMD",
+                "MRU",
+                "RWF",
+                "UGX",
+                "KES",
+                "TZS",
+                "ZMW",
+                "MWK",
+                "NGN",
+                "GHS",
+                "SLL",
+                "LRD",
+                "ETB",
+                "ZAR",
+                "AOA",
+                "MGA",
+                "CVE",
+                "STN",
+                "SCR",
+                "MZN",
+                "BWP",
+                "NAD",
+                "SZL",
+                "LSL",
+                "BIF",
+                "DJF",
+                "KMF"
+              ],
+              "example": "XOF"
+            }
+          },
+          "required": [
+            "countryCode",
+            "countryName",
+            "prefix",
+            "taxes",
+            "currency"
+          ]
+        },
+        "UpdateCountryCommand": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "Country ID",
+              "example": "uuid"
+            },
+            "countryName": {
+              "type": "string",
+              "description": "Country name",
+              "example": "Burkina Faso"
+            },
+            "flagUrl": {
+              "type": "string",
+              "description": "Flag URL",
+              "example": "https://flagcdn.com/w320/bf.png"
+            },
+            "prefix": {
+              "type": "string",
+              "description": "Phone prefix",
+              "example": "226"
+            },
+            "taxes": {
+              "type": "number",
+              "description": "Tax rate",
+              "example": 18
+            },
+            "currency": {
+              "type": "string",
+              "description": "Currency",
+              "enum": [
+                "XOF",
+                "XAF",
+                "GNF",
+                "CDF",
+                "USD",
+                "EUR",
+                "GMD",
+                "MRU",
+                "RWF",
+                "UGX",
+                "KES",
+                "TZS",
+                "ZMW",
+                "MWK",
+                "NGN",
+                "GHS",
+                "SLL",
+                "LRD",
+                "ETB",
+                "ZAR",
+                "AOA",
+                "MGA",
+                "CVE",
+                "STN",
+                "SCR",
+                "MZN",
+                "BWP",
+                "NAD",
+                "SZL",
+                "LSL",
+                "BIF",
+                "DJF",
+                "KMF"
+              ],
+              "example": "XOF"
+            },
+            "status": {
+              "type": "string",
+              "description": "Status",
+              "enum": [
+                "ACTIVE",
+                "INACTIVE"
+              ],
+              "example": "ACTIVE"
+            }
+          },
+          "required": [
+            "id"
+          ]
+        },
+        "TestPayinDto": {
+          "type": "object",
+          "properties": {
+            "reference": {
+              "type": "string",
+              "example": "REF-001"
+            },
+            "token": {
+              "type": "string",
+              "example": "TOKEN-abc123"
+            },
+            "operator": {
+              "type": "string",
+              "example": "orange"
+            },
+            "phone": {
+              "type": "string",
+              "example": "22670000000"
+            },
+            "country": {
+              "type": "string",
+              "example": "BF"
+            },
+            "amount": {
+              "type": "number",
+              "example": 500
+            },
+            "currency": {
+              "type": "string",
+              "example": "XOF"
+            },
+            "otp": {
+              "type": "string",
+              "example": "123456"
+            }
+          },
+          "required": [
+            "reference",
+            "token",
+            "operator",
+            "phone",
+            "country",
+            "amount",
+            "currency"
+          ]
+        },
+        "CreateTelecomCommand": {
+          "type": "object",
+          "properties": {
+            "countryId": {
+              "type": "string",
+              "description": "Country ID",
+              "example": "uuid"
+            },
+            "operatorCode": {
+              "type": "string",
+              "description": "Operator code",
+              "example": "orange"
+            },
+            "operatorName": {
+              "type": "string",
+              "description": "Operator name",
+              "example": "Orange Money"
+            },
+            "currency": {
+              "type": "string",
+              "description": "Currency",
+              "enum": [
+                "XOF",
+                "XAF",
+                "GNF",
+                "CDF",
+                "USD",
+                "EUR",
+                "GMD",
+                "MRU",
+                "RWF",
+                "UGX",
+                "KES",
+                "TZS",
+                "ZMW",
+                "MWK",
+                "NGN",
+                "GHS",
+                "SLL",
+                "LRD",
+                "ETB",
+                "ZAR",
+                "AOA",
+                "MGA",
+                "CVE",
+                "STN",
+                "SCR",
+                "MZN",
+                "BWP",
+                "NAD",
+                "SZL",
+                "LSL",
+                "BIF",
+                "DJF",
+                "KMF"
+              ],
+              "example": "XOF"
+            },
+            "otpRequired": {
+              "type": "boolean",
+              "description": "OTP required",
+              "example": false
+            },
+            "ussdCode": {
+              "type": "string",
+              "description": "USSD code",
+              "example": "*144*4*6*montant#"
+            },
+            "validationUrl": {
+              "type": "string",
+              "description": "Validation URL (for operators like Wave)",
+              "example": "https://pay.wave.com/..."
+            }
+          },
+          "required": [
+            "countryId",
+            "operatorCode",
+            "operatorName",
+            "currency",
+            "otpRequired"
+          ]
+        },
+        "UpdateTelecomCommand": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "Telecom ID",
+              "example": "uuid"
+            },
+            "operatorName": {
+              "type": "string",
+              "description": "Operator name",
+              "example": "Orange Money"
+            },
+            "currency": {
+              "type": "string",
+              "description": "Currency",
+              "enum": [
+                "XOF",
+                "XAF",
+                "GNF",
+                "CDF",
+                "USD",
+                "EUR",
+                "GMD",
+                "MRU",
+                "RWF",
+                "UGX",
+                "KES",
+                "TZS",
+                "ZMW",
+                "MWK",
+                "NGN",
+                "GHS",
+                "SLL",
+                "LRD",
+                "ETB",
+                "ZAR",
+                "AOA",
+                "MGA",
+                "CVE",
+                "STN",
+                "SCR",
+                "MZN",
+                "BWP",
+                "NAD",
+                "SZL",
+                "LSL",
+                "BIF",
+                "DJF",
+                "KMF"
+              ],
+              "example": "XOF"
+            },
+            "otpRequired": {
+              "type": "boolean",
+              "description": "OTP required",
+              "example": false
+            },
+            "ussdCode": {
+              "type": "string",
+              "description": "USSD code",
+              "example": "*144*4*6*montant#"
+            },
+            "validationUrl": {
+              "type": "string",
+              "description": "Validation URL",
+              "example": "https://pay.wave.com/..."
+            },
+            "status": {
+              "type": "string",
+              "description": "Status",
+              "enum": [
+                "ACTIVE",
+                "INACTIVE"
+              ],
+              "example": "ACTIVE"
+            }
+          },
+          "required": [
+            "id"
+          ]
+        },
+        "GetOpenPotsQuery": {
+          "type": "object",
+          "properties": {
+            "search": {
+              "type": "string",
+              "description": "Search by title",
+              "example": "mariage"
+            },
+            "state": {
+              "type": "string",
+              "description": "Filter by state",
+              "enum": [
+                "PENDING",
+                "IN_PROGRESS",
+                "COMPLETED",
+                "PAUSED",
+                "STOPPED"
+              ],
+              "example": "IN_PROGRESS"
+            },
+            "reason": {
+              "type": "string",
+              "description": "Filter by reason",
+              "enum": [
+                "FOR_ME",
+                "FOR_COMMUNITY",
+                "FOR_PROJECT"
+              ],
+              "example": "FOR_ME"
+            },
+            "currency": {
+              "type": "string",
+              "description": "Filter by currency",
+              "enum": [
+                "XOF",
+                "USD",
+                "EUR"
+              ],
+              "example": "XOF"
+            },
+            "country": {
+              "type": "string",
+              "description": "Filter by country",
+              "example": "BJ"
+            },
+            "tagIds": {
+              "description": "Filter by tag IDs",
+              "example": [
+                "uuid1",
+                "uuid2"
+              ],
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "page": {
+              "type": "number",
+              "description": "Page number",
+              "example": 1,
+              "default": 1
+            },
+            "limit": {
+              "type": "number",
+              "description": "Items per page",
+              "example": 20,
+              "default": 20
+            }
+          }
+        },
+        "CreateGiftCommand": {
+          "type": "object",
+          "properties": {
+            "potId": {
+              "type": "string",
+              "description": "Pot ID",
+              "example": "uuid"
+            },
+            "firstName": {
+              "type": "string",
+              "description": "Donor first name",
+              "example": "Khaliq"
+            },
+            "lastName": {
+              "type": "string",
+              "description": "Donor last name",
+              "example": "ALI"
+            },
+            "email": {
+              "type": "string",
+              "description": "Donor email",
+              "example": "donor@example.com"
+            },
+            "phone": {
+              "type": "string",
+              "description": "Donor contact phone",
+              "example": "22962000000"
+            },
+            "anonymous": {
+              "type": "boolean",
+              "description": "Make this gift anonymous publicly",
+              "example": false
+            },
+            "isOrganization": {
+              "type": "boolean",
+              "description": "Donor is an organization/company",
+              "example": false
+            },
+            "amount": {
+              "type": "number",
+              "description": "Amount",
+              "example": 1000
+            },
+            "currency": {
+              "type": "string",
+              "description": "Currency",
+              "enum": [
+                "XOF",
+                "USD",
+                "EUR"
+              ],
+              "example": "XOF"
+            },
+            "message": {
+              "type": "string",
+              "description": "Optional message to pot owner",
+              "example": "Bonne chance !"
+            },
+            "operator": {
+              "type": "string",
+              "description": "Payment operator code",
+              "example": "mtn"
+            },
+            "country": {
+              "type": "string",
+              "description": "Payment country ISO code",
+              "example": "BJ"
+            },
+            "paymentPhone": {
+              "type": "string",
+              "description": "Payment phone number",
+              "example": "22962000000"
+            }
+          },
+          "required": [
+            "potId",
+            "firstName",
+            "lastName",
+            "email",
+            "phone",
+            "amount",
+            "currency",
+            "operator",
+            "country",
+            "paymentPhone"
+          ]
+        }
+      }
+    }
+  },
+  "customOptions": {
+    "persistAuthorization": true
+  }
+}

@@ -197,3 +197,236 @@ export const useUpdatePotMutation = () =>
         body: JSON.stringify(payload),
       }),
   });
+
+// --- Public Pots ---
+
+export interface PublicPotsFilters {
+  search?: string;
+  state?: PotState;
+  reason?: PotReason;
+  currency?: PotCurrency;
+  country?: string;
+  tagIds?: string[];
+  page?: number;
+  limit?: number;
+}
+
+export interface PublicPotsResponse {
+  data: Pot[];
+  total: number;
+  page: number;
+  limit: number;
+  totalPages: number;
+}
+
+export const usePublicPotsQuery = (filters: PublicPotsFilters = {}) =>
+  useQuery<PublicPotsResponse>({
+    queryKey: ["public-pots", filters],
+    queryFn: () =>
+      apiFetch<PublicPotsResponse>("/opens/pots", {
+        method: "POST",
+        noAuth: true,
+        body: JSON.stringify({
+          ...(filters.search && { search: filters.search }),
+          ...(filters.state && { state: filters.state }),
+          ...(filters.reason && { reason: filters.reason }),
+          ...(filters.currency && { currency: filters.currency }),
+          ...(filters.country && { country: filters.country }),
+          ...(filters.tagIds?.length && { tagIds: filters.tagIds }),
+          page: filters.page ?? 1,
+          limit: filters.limit ?? 20,
+        }),
+      }),
+  });
+
+// --- Public Pot Detail ---
+
+export const usePublicPotDetailQuery = (id: string) =>
+  useQuery<Pot>({
+    queryKey: ["public-pot-detail", id],
+    queryFn: () =>
+      apiFetch<Pot>(`/opens/pots/detail?id=${encodeURIComponent(id)}`, {
+        method: "GET",
+        noAuth: true,
+      }),
+    enabled: !!id,
+  });
+
+// --- Public Pot Gifts ---
+
+export interface PotGift {
+  id: string;
+  amount: number;
+  currency?: string;
+  anonymous?: boolean;
+  person?: PotPerson;
+  created_at?: string;
+  [key: string]: unknown;
+}
+
+export interface PotGiftsResponse {
+  data: PotGift[];
+  total: number;
+  page: number;
+  limit: number;
+  totalPages: number;
+}
+
+export const usePublicPotGiftsQuery = (potId: string, page = 1, limit = 20) =>
+  useQuery<PotGiftsResponse>({
+    queryKey: ["public-pot-gifts", potId, page, limit],
+    queryFn: () =>
+      apiFetch<PotGiftsResponse>(
+        `/opens/pots/gifts?potId=${encodeURIComponent(potId)}&page=${page}&limit=${limit}`,
+        { method: "GET", noAuth: true }
+      ),
+    enabled: !!potId,
+  });
+
+// --- Gift Donate ---
+
+export interface DonatePayload {
+  potId: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  anonymous: boolean;
+  isOrganization: boolean;
+  amount: number;
+  currency: string;
+  message?: string;
+  operator: string;
+  country: string;
+  paymentPhone: string;
+}
+
+export interface DonateResponse {
+  id?: string;
+  message?: string;
+  [key: string]: unknown;
+}
+
+export const useDonatePublicMutation = () =>
+  useMutation<DonateResponse, Error, DonatePayload>({
+    mutationFn: (payload) =>
+      apiFetch<DonateResponse>("/gift/donate/public", {
+        method: "POST",
+        noAuth: true,
+        body: JSON.stringify(payload),
+      }),
+  });
+
+export const useDonateAuthMutation = () =>
+  useMutation<DonateResponse, Error, DonatePayload>({
+    mutationFn: (payload) =>
+      apiFetch<DonateResponse>("/gift/donate", {
+        method: "POST",
+        body: JSON.stringify(payload),
+      }),
+  });
+
+// --- My Gifts ---
+
+export interface MyGift {
+  id: string;
+  amount: number | string;
+  currency?: string;
+  anonymous?: boolean;
+  isOrganization?: boolean;
+  firstName?: string;
+  lastName?: string;
+  email?: string;
+  phone?: string;
+  paymentPhone?: string;
+  message?: string;
+  operator?: string;
+  country?: string;
+  reference?: string;
+  transactionId?: string | null;
+  state?: "CONFIRMED" | "PENDING" | "CANCELLED" | "FAILED";
+  created_at?: string;
+  updated_at?: string;
+  pot?: Pot;
+  [key: string]: unknown;
+}
+
+interface MyGiftsResponse {
+  data: MyGift[];
+  total: number;
+  page: number;
+  limit: number;
+  totalPages: number;
+}
+
+export const useMyGiftsQuery = (page = 1, limit = 20) =>
+  useQuery<MyGiftsResponse>({
+    queryKey: ["my-gifts", page, limit],
+    queryFn: () =>
+      apiFetch<MyGiftsResponse>(`/gift/my-gifts?page=${page}&limit=${limit}`, {
+        method: "GET",
+      }),
+  });
+
+// --- Countries ---
+
+export interface Country {
+  id: string;
+  countryCode: string;
+  countryName: string;
+  prefix: string;
+  currency: string;
+  flagUrl?: string;
+  status?: string;
+}
+
+interface CountriesResponse {
+  data: Country[];
+  total: number;
+  page: number;
+  limit: number;
+  totalPages: number;
+}
+
+export const useCountriesQuery = () =>
+  useQuery<CountriesResponse>({
+    queryKey: ["countries"],
+    queryFn: () =>
+      apiFetch<CountriesResponse>("/countries/all?status=ACTIVE&page=1&limit=100", {
+        method: "GET",
+        noAuth: true,
+      }),
+    staleTime: 1000 * 60 * 10,
+  });
+
+// --- Telecoms ---
+
+export interface Telecom {
+  id: string;
+  operatorCode: string;
+  operatorName: string;
+  currency: string;
+  otpRequired: boolean;
+  ussdCode?: string;
+  status?: string;
+  country: Country;
+}
+
+interface TelecomsResponse {
+  data: Telecom[];
+  total: number;
+  page: number;
+  limit: number;
+  totalPages: number;
+}
+
+export const useTelecomsQuery = () =>
+  useQuery<TelecomsResponse>({
+    queryKey: ["telecoms"],
+    queryFn: () =>
+      apiFetch<TelecomsResponse>("/telecoms/all?page=1&limit=100", {
+        method: "GET",
+        noAuth: true,
+      }),
+    staleTime: 1000 * 60 * 10,
+  });
